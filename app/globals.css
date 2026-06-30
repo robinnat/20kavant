@@ -265,6 +265,10 @@
   @media(max-width:760px){
     .gps-stop .tag{ display:none; }
     .gps-car .bub{ font-size:11px; padding:3px 8px; }
+    /* la carte est courte sur mobile : on ancre la voiture au-dessus du point
+       (pointe de l'épingle sur la route) pour que le marqueur ne soit pas coupé
+       en bas quand la position est au tout début du parcours (MRR proche de 0). */
+    .gps-car{ transform:translate(-50%,-100%); }
     .gps-map{ box-shadow:0 14px 36px rgba(0,0,0,.4); }
     .paliers-m{ display:flex; flex-direction:column; gap:12px; margin-top:16px; }
     .palier-m{ display:flex; align-items:center; gap:14px; background:var(--bg-panel); border:1px solid var(--line); border-radius:14px; padding:13px 14px; }

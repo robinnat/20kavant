@@ -103,7 +103,9 @@ export default function Interactions({ data }) {
       document.getElementById("pfList").innerHTML = PROJECTS.map(
         (p) => `
       <a class="pf-row" href="${p.url}" target="_blank" rel="noopener">
-        <span class="logo" style="background:${p.color}33;border:1px solid ${p.color}66;color:${p.color}">${p.name[0]}</span>
+        <span class="logo" style="background:${p.color}33;border:1px solid ${p.color}66;color:${p.color}">${
+          p.icon ? `<img src="${p.icon}" alt="${p.name}">` : p.name[0]
+        }</span>
         <span class="meta"><span class="nm">${p.name}</span><div class="src">${p.src}</div></span>
         <span class="spacer"></span>
         <span class="pct">${Math.round((p.mrr / total) * 100)}%</span>
