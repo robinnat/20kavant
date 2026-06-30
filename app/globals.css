@@ -181,6 +181,10 @@
   .hscale{ position:relative; width:min(640px,90vw); display:flex; justify-content:space-between; margin-top:12px; }
   .hscale span{ font-family:'Bebas Neue',sans-serif; font-size:16px; letter-spacing:.04em; color:var(--muted); }
   .hscale span.goal{ color:var(--orange); }
+  /* mobile : plus d'air sur les côtés du slider (gouttières ~30px au lieu de 19px) */
+  @media(max-width:560px){
+    .hslider, .hscale{ width:84vw; }
+  }
   .mrr-delta{ display:inline-flex; align-items:center; gap:7px; margin-top:26px; padding:7px 14px; border-radius:999px; background:rgba(95,200,140,0.12); border:1px solid rgba(95,200,140,0.4); color:#7fe0a6; font-size:14px; font-weight:600; }
   .mrr-delta svg{ width:14px; height:14px; }
   .trustmrr-badge{
