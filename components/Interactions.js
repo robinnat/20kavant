@@ -55,7 +55,9 @@ export default function Interactions({ data }) {
       const pct = Math.min(MRR.total / MRR.goal, 1);
       requestAnimationFrame(() => {
         document.getElementById("hfill").style.width = pct * 100 + "%";
-        document.getElementById("hthumb").style.left = pct * 100 + "%";
+        // le curseur (Ø 26px) est borné de son rayon (13px) à chaque extrémité
+        // pour qu'il reste à l'intérieur du track à 0% comme à 100%.
+        document.getElementById("hthumb").style.left = `calc(13px + ${pct} * (100% - 26px))`;
       });
       const start = performance.now();
       (function step(t) {

@@ -176,7 +176,7 @@
   .htrack{ position:absolute; inset:0; border-radius:14px; background:rgba(246,231,214,0.07); border:1px solid var(--line); overflow:hidden; }
   .hfill{ position:absolute; left:0; top:0; bottom:0; width:0; background:linear-gradient(90deg,var(--orange),var(--pink)); box-shadow:0 0 22px rgba(232,88,158,0.55); transition:width 1.6s cubic-bezier(.22,1,.36,1); }
   .hnotch{ position:absolute; top:0; bottom:0; width:2px; background:rgba(25,17,46,0.6); z-index:1; }
-  .hthumb{ position:absolute; left:0; top:50%; transform:translate(-50%,-50%); z-index:3; transition:left 1.6s cubic-bezier(.22,1,.36,1); }
+  .hthumb{ position:absolute; left:13px; top:50%; transform:translate(-50%,-50%); z-index:3; transition:left 1.6s cubic-bezier(.22,1,.36,1); }
   .hthumb .knob{ width:26px; height:26px; border-radius:50%; background:var(--cream); border:3px solid var(--pink); box-shadow:0 0 18px rgba(232,88,158,0.75); }
   .hscale{ position:relative; width:min(640px,90vw); display:flex; justify-content:space-between; margin-top:12px; }
   .hscale span{ font-family:'Bebas Neue',sans-serif; font-size:16px; letter-spacing:.04em; color:var(--muted); }
