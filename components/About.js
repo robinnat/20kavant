@@ -11,7 +11,7 @@ export default function About() {
           <p>
             Solo founder, je construis des produits le soir et le week-end, entre un job à plein
             temps et une vie de famille. Ce défi, c&apos;est ma façon de me mettre la pression :
-            atteindre 20K de MRR avant la sortie de GTA VI, en public et sans filtre. Chaque euro
+            atteindre 20K de MRR avant la sortie de GTA VI, en public et sans filtre. Chaque dollar
             vient de vrais produits, agrégé et vérifié par TrustMRR.
           </p>
           <div className="about-chips">

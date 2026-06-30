@@ -16,11 +16,11 @@ export default function Revenue({ demo = true }) {
       <div className="total-mrr">
         <div className="mrr-head">
           <div className="big">
-            <span className="cur">€</span>
+            <span className="cur">$</span>
             <span id="mrrFig">0</span>
           </div>
           <div className="pct" id="mrrPct">0%</div>
-          <div className="of">objectif 20 000 €</div>
+          <div className="of">objectif $20,000</div>
         </div>
         <div className="hslider">
           <div className="htrack">
@@ -31,7 +31,7 @@ export default function Revenue({ demo = true }) {
           </div>
         </div>
         <div className="hscale">
-          <span>€0</span>
+          <span>$0</span>
           <span className="goal">Objectif 20K</span>
         </div>
         <div className="mrr-delta" id="mrrDelta">
@@ -44,7 +44,7 @@ export default function Revenue({ demo = true }) {
               strokeLinejoin="round"
             />
           </svg>
-          +0 € ce mois-ci
+          +$0 ce mois-ci
         </div>
         <div className="trustmrr-badge">
           <span className="tick">

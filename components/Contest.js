@@ -74,7 +74,7 @@ export default function Contest() {
           <div className="gps-car" id="gpsCar">
             <div className="bub">
               <small>Vous êtes ici</small>
-              <span id="gpsCarVal">€0</span>
+              <span id="gpsCarVal">$0</span>
             </div>
             <div className="pin"></div>
           </div>

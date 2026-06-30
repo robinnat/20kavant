@@ -48,10 +48,7 @@ export default function Interactions({ data }) {
     };
     const PROJECTS = [...data.projects].sort((a, b) => b.mrr - a.mrr);
 
-    const fmtEur = (n) =>
-      Math.round(n)
-        .toLocaleString("fr-FR")
-        .replace(/\u202f|\u00a0|,/g, "\u202f");
+    const fmtUsd = (n) => Math.round(n).toLocaleString("en-US");
 
     /* ---- compteur · slider horizontal (jauge + odomètre) ---- */
     function renderMRR() {
@@ -64,7 +61,7 @@ export default function Interactions({ data }) {
       (function step(t) {
         const p = Math.min((t - start) / 1600, 1);
         const e = 1 - Math.pow(1 - p, 3);
-        document.getElementById("mrrFig").textContent = fmtEur(MRR.total * e);
+        document.getElementById("mrrFig").textContent = fmtUsd(MRR.total * e);
         document.getElementById("mrrPct").textContent =
           Math.round((MRR.total * e) / MRR.goal * 100) + "%";
         if (p < 1) requestAnimationFrame(step);
@@ -72,7 +69,7 @@ export default function Interactions({ data }) {
       const d = document.getElementById("mrrDelta");
       if (MRR.deltaMonth > 0) {
         d.childNodes[d.childNodes.length - 1].textContent =
-          " +" + fmtEur(MRR.deltaMonth) + " € ce mois-ci";
+          " +$" + fmtUsd(MRR.deltaMonth) + " ce mois-ci";
       } else {
         d.style.display = "none";
       }
@@ -103,7 +100,7 @@ export default function Interactions({ data }) {
       const pct = Math.min(MRR.total / MRR.goal, 1);
       const car = document.getElementById("gpsCar");
       place(car, 0); // départ, puis transition vers la position réelle
-      document.getElementById("gpsCarVal").textContent = "€" + fmtEur(MRR.total);
+      document.getElementById("gpsCarVal").textContent = "$" + fmtUsd(MRR.total);
       document.getElementById("gpsProg").style.strokeDashoffset = "1";
       requestAnimationFrame(() =>
         requestAnimationFrame(() => {
@@ -125,7 +122,7 @@ export default function Interactions({ data }) {
         <span class="meta"><span class="nm">${p.name}</span><div class="src">${p.src}</div></span>
         <span class="spacer"></span>
         <span class="pct">${Math.round((p.mrr / total) * 100)}%</span>
-        <span class="mrr"><span class="cur">€</span>${fmtEur(p.mrr)}</span>
+        <span class="mrr"><span class="cur">$</span>${fmtUsd(p.mrr)}</span>
       </a>`
       ).join("");
     }
