@@ -8,7 +8,7 @@ export default function Follow() {
         </p>
       </div>
       <div className="social-row">
-        <a className="social-icon-link" href="#" target="_blank" rel="noopener">
+        <a className="social-icon-link" href="https://youtube.com/@robinnat20" target="_blank" rel="noopener">
           <div className="social-icon" style={{ background: "rgba(232,88,158,0.12)" }}>
             <svg viewBox="0 0 24 24" fill="none">
               <path d="M9 8L17 12L9 16V8Z" fill="#E8589E" />
@@ -17,7 +17,7 @@ export default function Follow() {
           </div>
           <div className="social-name">YouTube</div>
         </a>
-        <a className="social-icon-link" href="#" target="_blank" rel="noopener">
+        <a className="social-icon-link" href="https://www.tiktok.com/@robinnat" target="_blank" rel="noopener">
           <div className="social-icon" style={{ background: "rgba(183,155,230,0.12)" }}>
             <svg viewBox="0 0 24 24" fill="none">
               <path
@@ -36,7 +36,7 @@ export default function Follow() {
           </div>
           <div className="social-name">TikTok</div>
         </a>
-        <a className="social-icon-link" href="#" target="_blank" rel="noopener">
+        <a className="social-icon-link" href="https://www.instagram.com/robinnat" target="_blank" rel="noopener">
           <div className="social-icon" style={{ background: "rgba(244,147,107,0.12)" }}>
             <svg viewBox="0 0 24 24" fill="none">
               <rect x="4" y="4" width="16" height="16" rx="5" stroke="#F4936B" strokeWidth="1.6" />
@@ -45,6 +45,17 @@ export default function Follow() {
             </svg>
           </div>
           <div className="social-name">Instagram</div>
+        </a>
+        <a className="social-icon-link" href="https://x.com/robinnat20" target="_blank" rel="noopener">
+          <div className="social-icon" style={{ background: "rgba(246,231,214,0.12)" }}>
+            <svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M17.53 3h2.94l-6.42 7.34L21.5 21h-5.9l-4.62-6.04L5.7 21H2.76l6.87-7.85L2.5 3h6.05l4.18 5.52L17.53 3zm-1.03 16.2h1.63L7.6 4.7H5.85L16.5 19.2z"
+                fill="#F6E7D6"
+              />
+            </svg>
+          </div>
+          <div className="social-name">X</div>
         </a>
       </div>
     </section>
