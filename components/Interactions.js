@@ -122,7 +122,7 @@ export default function Interactions({ data }) {
         <span class="meta"><span class="nm">${p.name}</span><div class="src">${p.src}</div></span>
         <span class="spacer"></span>
         <span class="pct">${Math.round((p.mrr / total) * 100)}%</span>
-        <span class="mrr"><span class="cur">$</span>${fmtUsd(p.mrr)}</span>
+        <span class="mrr"><span class="cur">$</span>${fmtUsd(p.mrr)}<span class="unit">MRR</span></span>
       </a>`
       ).join("");
     }

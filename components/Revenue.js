@@ -18,6 +18,7 @@ export default function Revenue({ demo = true }) {
           <div className="big">
             <span className="cur">$</span>
             <span id="mrrFig">0</span>
+            <span className="unit">MRR</span>
           </div>
           <div className="pct" id="mrrPct">0%</div>
           <div className="of">objectif $20,000</div>
