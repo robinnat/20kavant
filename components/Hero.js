@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <header className="hero" id="defi">
+    <header className="hero">
       <img className="hero-avatar" src="/gta-avatar.png" alt="Robin" />
       <div className="eyebrow">
         <span className="blip"></span> Build in public · Solo, taf, famille
