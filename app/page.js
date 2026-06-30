@@ -6,18 +6,24 @@ import Contest from "../components/Contest";
 import Follow from "../components/Follow";
 import Footer from "../components/Footer";
 import Interactions from "../components/Interactions";
+import { getTrustMrrData } from "../lib/trustmrr";
 
-export default function Page() {
+// Revalide la donnée TrustMRR au plus toutes les heures.
+export const revalidate = 3600;
+
+export default async function Page() {
+  const data = await getTrustMrrData();
+
   return (
     <>
       <SiteNav />
       <Hero />
       <About />
-      <Revenue />
+      <Revenue demo={data.demo} />
       <Contest />
       <Follow />
       <Footer />
-      <Interactions />
+      <Interactions data={data} />
     </>
   );
 }

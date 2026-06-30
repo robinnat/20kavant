@@ -1,8 +1,12 @@
-export default function Revenue() {
+export default function Revenue({ demo = true }) {
   return (
     <section id="revenus">
       <div className="section-head">
-        <div className="demo-ribbon">● Mode démo · connexion TrustMRR à venir</div>
+        <div className="demo-ribbon">
+          {demo
+            ? "● Mode démo · connexion TrustMRR à venir"
+            : "● En direct · MRR vérifié via TrustMRR"}
+        </div>
         <div className="section-title">Le compteur, en direct</div>
         <p className="section-desc">
           Pas de chiffres déclarés, le MRR vient de Stripe et RevenueCat, vérifié via TrustMRR.

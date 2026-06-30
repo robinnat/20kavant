@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export default function Interactions() {
+export default function Interactions({ data }) {
   useEffect(() => {
     const target = new Date("2026-11-19T00:00:00+01:00").getTime();
     function pad(n) {
@@ -24,18 +24,13 @@ export default function Interactions() {
     tick();
     const cdInterval = setInterval(tick, 1000);
 
-    /* ====== DONNÉES (démo, à brancher sur TrustMRR) ====== */
+    /* ====== DONNÉES (réelles, via TrustMRR — voir lib/trustmrr.js) ====== */
     const MRR = {
-      total: 7840, // MRR total cumulé (€)
-      goal: 20000, // objectif
-      deltaMonth: 1240, // variation du mois (€)
+      total: data.total, // MRR total cumulé
+      goal: data.goal, // objectif
+      deltaMonth: data.deltaMonth, // variation du mois
     };
-    const PROJECTS = [
-      { name: "AdPilot", src: "Stripe", mrr: 3200, color: "#E8589E", url: "#" },
-      { name: "Mondes", src: "Stripe", mrr: 2100, color: "#F4936B", url: "#" },
-      { name: "LaunchKit", src: "Stripe", mrr: 1640, color: "#B79BE6", url: "#" },
-      { name: "CelebDex", src: "RevenueCat", mrr: 900, color: "#6FC6D6", url: "#" },
-    ].sort((a, b) => b.mrr - a.mrr);
+    const PROJECTS = [...data.projects].sort((a, b) => b.mrr - a.mrr);
 
     const fmtEur = (n) =>
       Math.round(n)
@@ -149,7 +144,7 @@ export default function Interactions() {
       window.removeEventListener("load", onLoad);
       window.removeEventListener("scroll", maybeRun);
     };
-  }, []);
+  }, [data]);
 
   return null;
 }
