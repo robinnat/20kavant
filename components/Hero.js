@@ -5,6 +5,7 @@ export default function Hero() {
       <div className="eyebrow">
         <span className="blip"></span> Build in public · Solo, taf, famille
       </div>
+      <div className="hero-kick">Objectif</div>
       <h1 className="headline">
         <span className="accent2">20K</span> DE <span className="accent">MRR</span>
         <br />
