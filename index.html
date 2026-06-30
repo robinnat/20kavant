@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20Kavant.fr · 20K de MRR avant GTA VI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face{
+    font-family:'Pricedown';
+    src:url('fonts/pricedown.woff2') format('woff2');
+    font-weight:normal; font-style:normal; font-display:swap;
+  }
+  :root{
+    --bg-deep:#19112E;
+    --bg-panel:#251743;
+    --bg-panel-2:#2E1B52;
+    --pink:#E8589E;
+    --teal:#B79BE6;
+    --orange:#F4936B;
+    --cream:#F6E7D6;
+    --muted:#A491C4;
+    --line: rgba(246,231,214,0.12);
+    --sunset: linear-gradient(180deg,#D7C4F0 0%,#E79DBE 38%,#F2A079 72%,#E8589E 100%);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg-deep);
+    color:var(--cream);
+    font-family:'Space Grotesk',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .display{font-family:'Bebas Neue',sans-serif; letter-spacing:0.02em;}
+  .gta{font-family:'Pricedown','Anton',sans-serif; letter-spacing:0.01em;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .digital{font-family:'Share Tech Mono',monospace;}
+
+  a{color:inherit; text-decoration:none;}
+  .link-arrow{display:inline-flex; align-items:center; gap:4px;}
+  .ico-arrow{width:13px; height:13px; vertical-align:middle;}
+
+  /* ---------- nav (header sticky) ---------- */
+  html{ scroll-behavior:smooth; }
+  :target{ scroll-margin-top:78px; }
+  .site-nav{ position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 6vw; background:rgba(21,11,46,0.72); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  .site-nav .brand{ display:inline-flex; align-items:baseline; gap:1px; white-space:nowrap; }
+  .site-nav .brand b{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:24px; letter-spacing:.04em; background:var(--sunset); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .site-nav .brand small{ font-size:13px; letter-spacing:.02em; color:var(--muted); font-weight:600; }
+  .nav-links{ display:flex; gap:4px; }
+  .nav-links a{ font-size:13px; font-weight:600; color:var(--muted); padding:8px 12px; border-radius:8px; white-space:nowrap; transition:color .15s ease, background .15s ease; }
+  .nav-links a:hover{ color:var(--cream); background:rgba(246,231,214,0.06); }
+  @media(max-width:760px){
+    .site-nav{ padding:10px 14px; gap:10px; }
+    .site-nav .brand{ display:none; }
+    .nav-links{ overflow-x:auto; gap:0; -webkit-overflow-scrolling:touch; scrollbar-width:none; justify-content:center; width:100%; }
+    .nav-links::-webkit-scrollbar{ display:none; }
+    .nav-links a{ padding:7px 8px; font-size:12px; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    padding:6vh 6vw 9vh;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(135% 78% at 50% 122%, rgba(244,147,107,0.60), rgba(232,88,158,0.34) 32%, transparent 64%),
+      radial-gradient(120% 60% at 50% -8%, rgba(215,196,240,0.26), transparent 55%),
+      linear-gradient(180deg, #19112E 0%, #221544 52%, #2C1A50 100%);
+    z-index:-2;
+  }
+  .skyline{ display:none; }
+  .hero-avatar{
+    width:88px; height:88px; border-radius:50%; object-fit:cover; margin-bottom:22px;
+    border:2px solid rgba(183,155,230,0.55);
+    box-shadow:0 0 0 4px rgba(25,17,46,0.5), 0 10px 26px rgba(0,0,0,0.45);
+  }
+  /* soleil + grille retirés */
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12px; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--teal); border:1px solid rgba(183,155,230,0.4);
+    padding:6px 14px; border-radius:999px; margin-bottom:26px;
+    background:rgba(183,155,230,0.06);
+  }
+  .eyebrow span.blip{width:6px;height:6px;border-radius:50%;background:var(--teal); box-shadow:0 0 8px var(--teal); animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:0.25;}}
+
+  .builder-tag{
+    display:inline-flex; align-items:center; gap:10px;
+    margin-bottom:18px; font-size:13px; color:var(--cream);
+  }
+
+  .headline{
+    font-family:'Pricedown','Anton', sans-serif;
+    font-weight:400;
+    font-size:clamp(46px, 10vw, 124px);
+    line-height:0.84;
+    text-wrap:balance;
+    color:var(--cream);
+    text-shadow:0 0 30px rgba(232,88,158,0.22);
+  }
+  .headline .accent{color:var(--pink); text-shadow:0 0 30px rgba(232,88,158,0.6);}
+  .headline .accent2{color:var(--orange); text-shadow:0 0 30px rgba(244,147,107,0.5);}
+  .gta-vi{
+    background:var(--sunset);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    -webkit-text-stroke:1.5px rgba(25,17,46,0.55);
+    filter:drop-shadow(0 4px 0 rgba(200,72,150,0.55)) drop-shadow(0 0 34px rgba(244,147,107,0.55));
+  }
+  .gta-logo{
+    display:block; margin:26px auto 0;
+    width:clamp(150px, 22vw, 270px); height:auto;
+    filter:drop-shadow(0 10px 30px rgba(232,88,158,0.4)) drop-shadow(0 0 50px rgba(244,147,107,0.3));
+  }
+
+  .sub{
+    max-width:600px; margin:26px auto 0;
+    color:var(--muted); font-size:17px; line-height:1.65;
+  }
+  .sub strong{color:var(--cream); font-weight:600;}
+
+  /* ---------- countdown ---------- */
+  .countdown{
+    display:flex; justify-content:center; align-items:baseline; gap:2px; flex-wrap:wrap;
+    margin-top:56px;
+  }
+  .cd-block{
+    background:transparent;
+    border:none;
+    padding:0 10px;
+    min-width:84px;
+    position:relative;
+  }
+  .cd-num{font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:clamp(46px,8vw,72px); color:var(--cream); text-shadow:0 0 22px rgba(255,255,255,0.25); line-height:1; letter-spacing:0.02em;}
+  .cd-label{font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-top:10px;}
+  .cd-sep{font-family:'Pricedown','Bebas Neue',sans-serif; font-size:clamp(40px,7vw,64px); line-height:1; color:var(--muted); opacity:0.45;}
+  @media(max-width:560px){
+    .countdown{ gap:4px; margin-top:36px; flex-wrap:nowrap; }
+    .cd-block{ padding:6px 4px; min-width:auto; }
+    .cd-num{ font-size:40px; }
+    .cd-label{ font-size:9px; letter-spacing:0.06em; margin-top:6px; }
+    .cd-sep{ font-size:34px; align-self:center; transform:translateY(-2px); }
+    .eyebrow{ font-size:10px; letter-spacing:0.08em; padding:5px 11px; margin-bottom:20px; }
+    .headline{ font-size:54px; line-height:0.88; }
+    .gta-logo{ width:112px; margin-top:18px; }
+    .sub{ font-size:15px; }
+  }
+
+  .target-date{margin-top:18px; font-size:12px; color:var(--muted); letter-spacing:0.04em;}
+  .target-date strong{color:var(--orange);}
+
+  /* ---------- sections shared ---------- */
+  section{padding:90px 6vw; max-width:1180px; margin:0 auto;}
+  .section-head{margin-bottom:46px; text-align:center;}
+  .section-eyebrow{font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--pink); margin-bottom:10px;}
+  .section-title{font-family:'Pricedown','Bebas Neue',sans-serif; font-size:clamp(34px,5.4vw,58px); letter-spacing:0.01em;}
+  .section-desc{color:var(--muted); max-width:520px; margin:14px auto 0; font-size:15px; line-height:1.6;}
+
+  /* ---------- revenue ---------- */
+  .demo-ribbon{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--orange); border:1px dashed rgba(244,147,107,0.5);
+    padding:5px 12px; border-radius:6px; margin-bottom:18px;
+  }
+
+  .total-mrr{ margin-bottom:54px; display:flex; flex-direction:column; align-items:center; width:100%; }
+  .mrr-head{ text-align:center; margin-bottom:26px; }
+  .mrr-head .big{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:clamp(60px,12vw,118px); line-height:.86; letter-spacing:.02em; color:var(--cream); text-shadow:0 0 30px rgba(232,88,158,0.28); }
+  .mrr-head .big .cur{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:.28em; color:var(--teal); vertical-align:.6em; margin-right:3px; text-shadow:none; }
+  .mrr-head .pct{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; color:var(--pink); font-size:clamp(22px,4vw,34px); line-height:1; margin-top:4px; }
+  .mrr-head .of{ color:var(--muted); font-size:13px; margin-top:6px; }
+  .hslider{ position:relative; width:min(640px,90vw); height:26px; }
+  .htrack{ position:absolute; inset:0; border-radius:14px; background:rgba(246,231,214,0.07); border:1px solid var(--line); overflow:hidden; }
+  .hfill{ position:absolute; left:0; top:0; bottom:0; width:0; background:linear-gradient(90deg,var(--orange),var(--pink)); box-shadow:0 0 22px rgba(232,88,158,0.55); transition:width 1.6s cubic-bezier(.22,1,.36,1); }
+  .hnotch{ position:absolute; top:0; bottom:0; width:2px; background:rgba(25,17,46,0.6); z-index:1; }
+  .hthumb{ position:absolute; left:0; top:50%; transform:translate(-50%,-50%); z-index:3; transition:left 1.6s cubic-bezier(.22,1,.36,1); }
+  .hthumb .knob{ width:26px; height:26px; border-radius:50%; background:var(--cream); border:3px solid var(--pink); box-shadow:0 0 18px rgba(232,88,158,0.75); }
+  .hscale{ position:relative; width:min(640px,90vw); display:flex; justify-content:space-between; margin-top:12px; }
+  .hscale span{ font-family:'Bebas Neue',sans-serif; font-size:16px; letter-spacing:.04em; color:var(--muted); }
+  .hscale span.goal{ color:var(--orange); }
+  .mrr-delta{ display:inline-flex; align-items:center; gap:7px; margin-top:26px; padding:7px 14px; border-radius:999px; background:rgba(95,200,140,0.12); border:1px solid rgba(95,200,140,0.4); color:#7fe0a6; font-size:14px; font-weight:600; }
+  .mrr-delta svg{ width:14px; height:14px; }
+  .trustmrr-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top:16px; padding:7px 14px; border-radius:999px;
+    background:var(--bg-panel); border:1px solid var(--line);
+    font-size:12px; color:var(--muted);
+  }
+  .trustmrr-badge .tick{width:14px;height:14px;border-radius:50%;background:var(--teal); display:flex; align-items:center; justify-content:center;}
+  .trustmrr-badge .tick svg{width:9px;height:9px;}
+  .trustmrr-badge a{color:var(--cream); font-weight:600;}
+
+  /* ---------- projets · barre segmentée ---------- */
+  .pf-bar{ display:flex; height:66px; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:var(--bg-panel); }
+  .pf-seg{ position:relative; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:14px; flex-grow:0; transition:flex-grow 1.3s cubic-bezier(.22,1,.36,1); min-width:0; }
+  .pf-seg span{ padding:0 6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-shadow:0 1px 3px rgba(0,0,0,.45); }
+  .pf-list{ display:flex; flex-direction:column; gap:10px; margin-top:22px; }
+  .pf-row{ display:flex; align-items:center; gap:14px; background:var(--bg-panel); border:1px solid var(--line); border-radius:12px; padding:13px 16px; transition:border-color .15s ease, transform .15s ease; }
+  .pf-row:hover{ border-color:var(--pink); transform:translateX(3px); }
+  .pf-row .logo{ width:40px; height:40px; border-radius:10px; flex:none; display:flex; align-items:center; justify-content:center; overflow:hidden; font-family:'Bebas Neue',sans-serif; font-size:19px; color:#fff; }
+  .pf-row .logo img{ width:100%; height:100%; object-fit:cover; }
+  .pf-row .meta{ min-width:0; }
+  .pf-row .nm{ font-weight:600; font-size:15px; }
+  .pf-row .src{ font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+  .pf-row .spacer{ flex:1; }
+  .pf-row .pct{ color:var(--muted); font-size:13px; min-width:42px; text-align:right; }
+  .pf-row .mrr{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:.03em; color:var(--cream); min-width:88px; text-align:right; }
+  .pf-row .mrr .cur{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:.46em; color:var(--teal); vertical-align:.22em; margin-right:1px; }
+
+  /* ---------- route · carte GPS Vice City ---------- */
+  .route-block{ max-width:980px; margin:44px auto 0; }
+  .route-cap{
+    text-align:center; color:var(--muted); font-size:14px; line-height:1.6;
+    max-width:520px; margin:24px auto 0;
+  }
+  .gps-map{ position:relative; width:100%; aspect-ratio:1696/954; border-radius:18px; overflow:hidden; border:1px solid var(--line); box-shadow:0 24px 60px rgba(0,0,0,0.45); }
+  .gps-map .bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .gps-map .shade{ position:absolute; inset:0; pointer-events:none; background:radial-gradient(130% 110% at 50% -10%, transparent 55%, rgba(25,17,46,0.5)); }
+  .gps-map svg.route{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
+  .road-glow{ stroke:rgba(255,255,255,0.35); stroke-width:16; stroke-linecap:round; }
+  .road-base{ stroke:rgba(21,11,46,0.7); stroke-width:11; stroke-linecap:round; }
+  .road-prog{ stroke:url(#gpsGrad); stroke-width:11; stroke-linecap:round; stroke-dasharray:1; stroke-dashoffset:1; filter:drop-shadow(0 0 5px #fff) drop-shadow(0 0 12px rgba(244,147,107,0.95)); transition:stroke-dashoffset 1.8s cubic-bezier(.22,1,.36,1); }
+  .road-flow{ stroke:rgba(255,255,255,0.9); stroke-width:3; stroke-linecap:round; stroke-dasharray:2 22; animation:flow 1.1s linear infinite; }
+  @keyframes flow{ to{ stroke-dashoffset:-24; } }
+  .gps-stop{ position:absolute; transform:translate(-50%,-50%); z-index:3; }
+  .gps-stop .dot{ width:15px; height:15px; border-radius:50%; background:#150B2E; border:3px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,.6); }
+  .gps-stop.reached .dot{ background:var(--orange); border-color:#fff; box-shadow:0 0 16px var(--orange); }
+  .gps-stop.final .dot{ width:19px; height:19px; border-radius:5px; background:var(--teal); }
+  .gps-stop .tag{ position:absolute; left:50%; top:calc(100% + 12px); transform:translateX(-50%); white-space:nowrap; background:rgba(21,11,46,0.94); border:1px solid rgba(255,255,255,0.22); border-radius:11px; padding:8px 12px; text-align:center; box-shadow:0 6px 16px rgba(0,0,0,.55); transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease; }
+  .gps-stop .tag .gift{ display:block; width:120px; max-height:0; opacity:0; object-fit:contain; margin:0 auto; border-radius:6px; transition:max-height .3s ease, opacity .22s ease, margin .3s ease; }
+  .gps-stop .tag .amt{ font-family:'Pricedown','Bebas Neue',sans-serif; font-size:21px; line-height:1; letter-spacing:.04em; color:#fff; }
+  .gps-stop .tag .pz{ font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-top:4px; }
+  .gps-stop.reached .tag .pz{ color:var(--orange); }
+  .gps-stop.final .tag .pz{ color:var(--teal); }
+  .gps-stop:hover{ z-index:9; }
+  .gps-stop:hover .tag{ transform:translateX(-50%) scale(1.06); border-color:var(--pink); box-shadow:0 14px 34px rgba(0,0,0,.6); }
+  .gps-stop:hover .tag .gift{ max-height:150px; opacity:1; margin-top:10px; }
+  .gps-car{ position:absolute; transform:translate(-50%,-50%); z-index:4; display:flex; flex-direction:column; align-items:center; transition:left 1.8s cubic-bezier(.22,1,.36,1), top 1.8s cubic-bezier(.22,1,.36,1); }
+  .gps-car .bub{ font-weight:700; font-size:13px; color:#fff; background:var(--bg-panel-2); border:1px solid var(--teal); padding:4px 10px; border-radius:9px; white-space:nowrap; box-shadow:0 6px 16px rgba(0,0,0,.5); }
+  .gps-car .bub small{ display:block; font-size:8px; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); font-weight:600; }
+  .gps-car .pin{ width:15px; height:15px; background:var(--teal); transform:rotate(45deg); box-shadow:0 0 16px var(--teal); margin-top:5px; }
+
+  .follow-note{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    flex-wrap:wrap; text-align:center;
+    font-size:13px; color:var(--cream);
+    background:rgba(232,88,158,0.08); border:1px solid rgba(232,88,158,0.3);
+    border-radius:10px; padding:12px 18px; margin-bottom:10px;
+  }
+  .follow-note a{color:var(--teal); font-weight:600;}
+  .follow-note a:hover{text-decoration:underline;}
+
+  /* ---------- comment participer ---------- */
+  .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:34px; }
+  .step{ background:var(--bg-panel); border:1px solid var(--line); border-radius:18px; padding:30px 28px; position:relative; }
+  .step .num{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:56px; line-height:1; letter-spacing:.03em; background:var(--sunset); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .step h4{ font-size:22px; font-weight:700; margin:14px 0 8px; }
+  .step p{ font-size:16px; color:var(--cream); opacity:.82; line-height:1.6; }
+  .step .hl{ color:var(--pink); font-weight:600; opacity:1; }
+  @media(max-width:760px){ .steps{ grid-template-columns:1fr; } }
+
+  .paliers-m{ display:none; }
+  @media(max-width:760px){
+    .gps-stop .tag{ display:none; }
+    .gps-car .bub{ font-size:11px; padding:3px 8px; }
+    .gps-map{ box-shadow:0 14px 36px rgba(0,0,0,.4); }
+    .paliers-m{ display:flex; flex-direction:column; gap:12px; margin-top:16px; }
+    .palier-m{ display:flex; align-items:center; gap:14px; background:var(--bg-panel); border:1px solid var(--line); border-radius:14px; padding:13px 14px; }
+    .palier-m img{ width:62px; height:62px; object-fit:contain; flex:none; }
+    .palier-m .pm-meta{ flex:1; min-width:0; }
+    .palier-m .pm-amt{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:34px; line-height:1; letter-spacing:.03em; color:var(--cream); }
+    .palier-m .pm-pz{ font-size:12px; color:var(--muted); margin-top:4px; }
+    .palier-m.reached{ border-color:rgba(244,147,107,.5); }
+    .palier-m .pm-state{ font-size:10px; text-transform:uppercase; letter-spacing:.08em; padding:4px 9px; border-radius:999px; background:rgba(164,145,196,.14); color:var(--muted); white-space:nowrap; }
+    .palier-m.reached .pm-state{ background:rgba(244,147,107,.16); color:var(--orange); }
+    .palier-m.final .pm-amt{ color:var(--teal); }
+  }
+
+  /* ---------- à propos ---------- */
+  #about{ }
+  .about-grid{ display:grid; grid-template-columns:300px 1fr; gap:48px; align-items:center; }
+  .about-photo{ position:relative; }
+  .about-photo img{ width:100%; aspect-ratio:1; object-fit:cover; border-radius:50%; border:2px solid rgba(183,155,230,0.45); box-shadow:0 24px 60px rgba(0,0,0,0.45); }
+  .about-kick{ font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--pink); margin-bottom:14px; }
+  .about-grid h2{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:clamp(34px,5vw,58px); letter-spacing:0.01em; line-height:0.95; }
+  .about-grid p{ color:var(--cream); opacity:.85; font-size:17px; line-height:1.7; margin-top:18px; max-width:560px; }
+  .about-chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+  .about-chips span{ font-size:13px; font-weight:600; color:var(--cream); background:rgba(183,155,230,0.1); border:1px solid rgba(183,155,230,0.32); border-radius:999px; padding:8px 14px; }
+  .about-social{ display:inline-flex; align-items:center; gap:8px; }
+  .about-social a{ width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:rgba(183,155,230,0.1); border:1px solid rgba(183,155,230,0.32); transition:transform .15s ease, border-color .15s ease; }
+  .about-social a:hover{ transform:translateY(-2px); border-color:var(--pink); }
+  .about-social svg{ width:19px; height:19px; }
+  .about-why{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:44px; }
+  .about-why .why-head{ grid-column:1 / -1; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--pink); margin-bottom:-4px; }
+  .why{ background:var(--bg-panel); border:1px solid var(--line); border-radius:16px; padding:22px 20px; }
+  .why .why-n{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:28px; line-height:1; background:var(--sunset); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .why .why-t{ font-weight:700; font-size:17px; margin:12px 0 6px; }
+  .why .why-d{ font-size:14px; color:var(--cream); opacity:.78; line-height:1.55; }
+  @media(max-width:760px){
+    .about-grid{ grid-template-columns:1fr; gap:26px; text-align:center; }
+    .about-photo{ max-width:240px; margin:0 auto; }
+    .about-grid p{ margin-left:auto; margin-right:auto; }
+    .about-chips{ justify-content:center; }
+    .about-why{ grid-template-columns:1fr; gap:12px; text-align:left; }
+  }
+  @media(max-width:460px){ .about-why{ grid-template-columns:1fr; } }
+
+  /* ---------- social ---------- */
+  .social-row{
+    display:flex; justify-content:center; align-items:flex-start;
+    gap:40px; flex-wrap:wrap;
+  }
+  .social-icon-link{
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+  }
+  .social-icon{
+    width:56px; height:56px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    transition:transform 0.15s ease;
+  }
+  .social-icon-link:hover .social-icon{transform:translateY(-4px) scale(1.05);}
+  .social-icon svg{width:24px; height:24px;}
+  .social-name{font-size:12px; color:var(--muted); letter-spacing:0.04em;}
+  .social-icon-link:hover .social-name{color:var(--cream);}
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:none;
+    padding:0 0 50px;
+    text-align:center;
+  }
+  .footer-banner{ position:relative; width:100%; line-height:0; }
+  .footer-banner img{ width:100%; height:clamp(340px,40vw,520px); object-fit:cover; object-position:center; display:block; }
+  .footer-banner::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:linear-gradient(180deg, var(--bg-deep) 0%, transparent 20%, transparent 64%, var(--bg-deep) 100%);
+  }
+  .foot-inner{ padding:30px 6vw 0; }
+  .foot-rule{font-size:12px; color:var(--muted); max-width:480px; margin:0 auto 14px; line-height:1.6;}
+  .foot-links{display:flex; justify-content:center; gap:18px; font-size:12px; color:var(--muted);}
+  .foot-links a:hover{color:var(--cream);}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="#defi" class="brand"><b>20Kavant</b><small>.fr</small></a>
+  <div class="nav-links">
+    <a href="#about">Moi</a>
+    <a href="#revenus">Compteur</a>
+    <a href="#projets">Projets</a>
+    <a href="#lots">Concours</a>
+    <a href="#participer">Participer</a>
+  </div>
+</nav>
+
+<header class="hero" id="defi">
+  <img class="hero-avatar" src="gta-avatar.png" alt="Robin">
+  <div class="eyebrow"><span class="blip"></span> Build in public · Solo, taf, famille</div>
+  <h1 class="headline">
+    <span class="accent2">20K</span> DE <span class="accent">MRR</span><br>
+    AVANT LA SORTIE DE
+  </h1>
+  <img class="gta-logo" src="gta-vi-logo.png" alt="Grand Theft Auto VI">
+  <p class="sub">Un objectif, une deadline fixe : le <strong>19 novembre 2026</strong>, jour de sortie de GTA VI. Construit le soir, le week-end, entre un job et une famille. Tout est documenté, chaque semaine.</p>
+
+  <div class="countdown" id="countdown">
+    <div class="cd-block"><div class="cd-num" id="cd-days">000</div><div class="cd-label">Jours</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-block"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">Heures</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-block"><div class="cd-num" id="cd-min">00</div><div class="cd-label">Min</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-block"><div class="cd-num" id="cd-sec">00</div><div class="cd-label">Sec</div></div>
+  </div>
+  <div class="target-date">Compte à rebours jusqu'au <strong>19/11/2026</strong>, sortie de GTA VI</div>
+</header>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-photo">
+      <img src="gta-avatar.png" alt="Robin">
+    </div>
+    <div>
+      <div class="about-kick">Qui suis-je</div>
+      <h2>Moi c'est Robin</h2>
+      <p>Solo founder, je construis des produits le soir et le week-end, entre un job à plein temps et une vie de famille. Ce défi, c'est ma façon de me mettre la pression : atteindre 20K de MRR avant la sortie de GTA VI, en public et sans filtre. Chaque euro vient de vrais produits, agrégé et vérifié par TrustMRR.</p>
+      <div class="about-chips">
+        <span>Solo founder</span>
+        <span>Build in public</span>
+        <span>Job + famille</span>
+        <div class="about-social">
+          <a href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none"><path d="M9 8L17 12L9 16V8Z" fill="#E8589E"/><rect x="3" y="5" width="18" height="14" rx="3" stroke="#E8589E" stroke-width="1.6"/></svg></a>
+          <a href="#" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none"><path d="M12 4V15.5C12 17.43 10.43 19 8.5 19C6.57 19 5 17.43 5 15.5C5 13.57 6.57 12 8.5 12" stroke="#B79BE6" stroke-width="1.6" stroke-linecap="round"/><path d="M12 4C12 6.5 14 8.3 16.5 8.3" stroke="#B79BE6" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+          <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="5" stroke="#F4936B" stroke-width="1.6"/><circle cx="12" cy="12" r="3.4" stroke="#F4936B" stroke-width="1.6"/><circle cx="16.6" cy="7.4" r="1" fill="#F4936B"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-why">
+    <div class="why-head">Pourquoi ce défi</div>
+    <div class="why"><div class="why-n">01</div><div class="why-t">En vivre</div><div class="why-d">Atteindre 20K de MRR, le seuil pour gagner ma vie avec mes produits.</div></div>
+    <div class="why"><div class="why-n">02</div><div class="why-t">Le prouver</div><div class="why-d">Montrer que c'est possible, même avec un boulot à plein temps et une famille.</div></div>
+    <div class="why"><div class="why-n">03</div><div class="why-t">La transparence</div><div class="why-d">Tout est public et vérifié : les vrais chiffres, les bons jours comme les mauvais.</div></div>
+    <div class="why"><div class="why-n">04</div><div class="why-t">Profiter de GTA VI</div><div class="why-d">Et savourer la sortie le 19/11, pari tenu, l'esprit tranquille.</div></div>
+  </div>
+</section>
+
+<section id="revenus">
+  <div class="section-head">
+    <div class="demo-ribbon">● Mode démo · connexion TrustMRR à venir</div>
+    <div class="section-title">Le compteur, en direct</div>
+    <p class="section-desc">Pas de chiffres déclarés, le MRR vient de Stripe et RevenueCat, vérifié via TrustMRR.</p>
+  </div>
+
+  <div class="total-mrr">
+    <div class="mrr-head">
+      <div class="big"><span class="cur">€</span><span id="mrrFig">0</span></div>
+      <div class="pct" id="mrrPct">0%</div>
+      <div class="of">objectif 20 000 €</div>
+    </div>
+    <div class="hslider">
+      <div class="htrack">
+        <div class="hfill" id="hfill"></div>
+      </div>
+      <div class="hthumb" id="hthumb"><div class="knob"></div></div>
+    </div>
+    <div class="hscale"><span>€0</span><span class="goal">Objectif 20K</span></div>
+    <div class="mrr-delta" id="mrrDelta">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M12 5l-6 6M12 5l6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      +0 € ce mois-ci
+    </div>
+    <div class="trustmrr-badge">
+      <span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="#150B2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      Vérifié sur <a href="https://trustmrr.com" target="_blank" rel="noopener" class="link-arrow">TrustMRR <svg class="ico-arrow" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+
+  <!-- d'où vient le MRR -->
+  <div class="section-head" id="projets" style="margin-top:74px;">
+    <div class="section-title">D'où vient le MRR</div>
+    <p class="section-desc">Le détail, projet par projet.</p>
+  </div>
+  <!-- TODO: brancher les vraies valeurs / URLs / logos dans le script (objet PROJECTS) -->
+  <div class="pf">
+    <div class="pf-list" id="pfList"></div>
+  </div>
+</section>
+
+<section id="lots">
+  <div class="section-head">
+    <div class="demo-ribbon">● Concours · gratuit, sans obligation d'achat</div>
+    <div class="section-title">Le concours</div>
+    <p class="section-desc">Chaque palier de MRR débloque un tirage au sort parmi les abonnés, jusqu'au palier final, le jour de la sortie de GTA VI.</p>
+  </div>
+
+  <!-- la route des paliers · carte GPS Vice City -->
+  <div class="route-block">
+    <div class="gps-map">
+      <img class="bg" src="vice-city-map.png" alt="Carte Vice City">
+      <div class="shade"></div>
+      <svg class="route" id="gpsSvg" viewBox="0 0 1696 954" preserveAspectRatio="none" fill="none">
+        <defs><linearGradient id="gpsGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#F4936B"/><stop offset="1" stop-color="#E8589E"/></linearGradient></defs>
+        <path class="road-glow" id="gpsRoad" d="M300 880 C270 790 250 760 270 690 S330 560 380 520 S470 470 520 460 S660 435 720 430 S880 440 940 440 S1050 500 1080 520 S1150 430 1160 400 S1270 330 1300 300 S1410 240 1440 220"/>
+        <path class="road-base" d="M300 880 C270 790 250 760 270 690 S330 560 380 520 S470 470 520 460 S660 435 720 430 S880 440 940 440 S1050 500 1080 520 S1150 430 1160 400 S1270 330 1300 300 S1410 240 1440 220"/>
+        <path class="road-prog" id="gpsProg" pathLength="1" d="M300 880 C270 790 250 760 270 690 S330 560 380 520 S470 470 520 460 S660 435 720 430 S880 440 940 440 S1050 500 1080 520 S1150 430 1160 400 S1270 330 1300 300 S1410 240 1440 220"/>
+      </svg>
+      <div class="gps-stop start" data-frac="0" id="gpsStart"></div>
+      <div class="gps-stop" data-th="5000" data-frac="0.25"><div class="dot"></div><div class="tag"><div class="amt">5K</div><div class="pz">Jeu GTA VI</div><img class="gift" src="gift-gtavi.png" alt=""></div></div>
+      <div class="gps-stop" data-th="10000" data-frac="0.5"><div class="dot"></div><div class="tag"><div class="amt">10K</div><div class="pz">Jeu GTA VI</div><img class="gift" src="gift-gtavi.png" alt=""></div></div>
+      <div class="gps-stop" data-th="15000" data-frac="0.75"><div class="dot"></div><div class="tag"><div class="amt">15K</div><div class="pz">Jeu GTA VI</div><img class="gift" src="gift-gtavi.png" alt=""></div></div>
+      <div class="gps-stop final" data-th="20000" data-frac="1"><div class="dot"></div><div class="tag"><div class="amt">20K</div><div class="pz">PS5 + GTA VI · 19/11</div><img class="gift" src="gift-ps5-sm.png" alt=""></div></div>
+      <div class="gps-car" id="gpsCar"><div class="bub"><small>Vous êtes ici</small><span id="gpsCarVal">€0</span></div><div class="pin"></div></div>
+    </div>
+    <!-- version mobile : liste verticale des paliers -->
+    <div class="paliers-m">
+      <div class="palier-m" data-th="5000"><img src="gift-gtavi.png" alt=""><div class="pm-meta"><div class="pm-amt">5K</div><div class="pm-pz">Jeu GTA VI · Tirage n°1</div></div><span class="pm-state">À venir</span></div>
+      <div class="palier-m" data-th="10000"><img src="gift-gtavi.png" alt=""><div class="pm-meta"><div class="pm-amt">10K</div><div class="pm-pz">Jeu GTA VI · Tirage n°2</div></div><span class="pm-state">À venir</span></div>
+      <div class="palier-m" data-th="15000"><img src="gift-gtavi.png" alt=""><div class="pm-meta"><div class="pm-amt">15K</div><div class="pm-pz">Jeu GTA VI · Tirage n°3</div></div><span class="pm-state">À venir</span></div>
+      <div class="palier-m final" data-th="20000"><img src="gift-ps5-sm.png" alt=""><div class="pm-meta"><div class="pm-amt">20K</div><div class="pm-pz">PS5 + GTA VI · 19/11</div></div><span class="pm-state">À venir</span></div>
+    </div>
+    <p class="route-cap">Survole un palier pour voir le lot. La voiture, c'est ta position actuelle sur la route.</p>
+  </div>
+
+  <!-- comment participer -->
+  <div class="section-head" id="participer" style="margin-top:74px;">
+    <div class="section-title">Comment participer</div>
+    <p class="section-desc">Gratuit, sans achat. Chaque réseau où tu me suis est une chance de gagner en plus.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h4>Suis le défi</h4><p>YouTube, TikTok, Instagram. <span class="hl">Chaque suivi = une chance de gagner</span>, suis les trois pour tripler tes chances.</p></div>
+    <div class="step"><div class="num">2</div><h4>Un palier tombe</h4><p>À chaque palier franchi (5K, 10K, 15K, 20K), un <span class="hl">tirage au sort</span> parmi tous les abonnés.</p></div>
+    <div class="step"><div class="num">3</div><h4>Tu peux gagner</h4><p>Le gagnant repart avec le lot : un jeu GTA VI, et une <span class="hl">PS5 + GTA VI</span> au palier final.</p></div>
+  </div>
+</section>
+
+<section id="suivre">
+  <div class="section-head">
+    <div class="section-title">Suivre le défi</div>
+    <p class="section-desc">Vidéo longue chaque dimanche. Build log brut le reste de la semaine.</p>
+  </div>
+  <div class="social-row">
+    <a class="social-icon-link" href="#" target="_blank" rel="noopener">
+      <div class="social-icon" style="background:rgba(232,88,158,0.12);">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 8L17 12L9 16V8Z" fill="#E8589E"/><rect x="3" y="5" width="18" height="14" rx="3" stroke="#E8589E" stroke-width="1.6"/></svg>
+      </div>
+      <div class="social-name">YouTube</div>
+    </a>
+    <a class="social-icon-link" href="#" target="_blank" rel="noopener">
+      <div class="social-icon" style="background:rgba(183,155,230,0.12);">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 4V15.5C12 17.43 10.43 19 8.5 19C6.57 19 5 17.43 5 15.5C5 13.57 6.57 12 8.5 12" stroke="#B79BE6" stroke-width="1.6" stroke-linecap="round"/><path d="M12 4C12 6.5 14 8.3 16.5 8.3" stroke="#B79BE6" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+      <div class="social-name">TikTok</div>
+    </a>
+    <a class="social-icon-link" href="#" target="_blank" rel="noopener">
+      <div class="social-icon" style="background:rgba(244,147,107,0.12);">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="5" stroke="#F4936B" stroke-width="1.6"/><circle cx="12" cy="12" r="3.4" stroke="#F4936B" stroke-width="1.6"/><circle cx="16.6" cy="7.4" r="1" fill="#F4936B"/></svg>
+      </div>
+      <div class="social-name">Instagram</div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-banner"><img src="gta-hero-banner.png" alt="Vice City"></div>
+  <div class="foot-inner">
+    <p class="foot-rule">Jeu-concours gratuit, sans obligation d'achat. Tirages au sort parmi les abonnés au moment de chaque palier. Règlement complet disponible sur demande. TikTok, Instagram et YouTube ne sont ni organisateurs ni parrains de ce concours.</p>
+    <div class="foot-links">
+      <a href="#defi">Le défi</a>
+      <a href="#lots">Règlement</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const target = new Date('2026-11-19T00:00:00+01:00').getTime();
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function tick(){
+    const now = Date.now();
+    let diff = target - now;
+    if(diff < 0) diff = 0;
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff / (1000*60*60)) % 24);
+    const min = Math.floor((diff / (1000*60)) % 60);
+    const sec = Math.floor((diff / 1000) % 60);
+    document.getElementById('cd-days').textContent = String(days).padStart(3,'0');
+    document.getElementById('cd-hours').textContent = pad(hours);
+    document.getElementById('cd-min').textContent = pad(min);
+    document.getElementById('cd-sec').textContent = pad(sec);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* ====== DONNÉES (démo, à brancher sur TrustMRR) ====== */
+  const MRR = {
+    total: 7840,          // MRR total cumulé (€)
+    goal: 20000,          // objectif
+    deltaMonth: 1240      // variation du mois (€)
+  };
+  const PROJECTS = [
+    { name:'AdPilot',   src:'Stripe',      mrr:3200, color:'#E8589E', url:'#' },
+    { name:'Mondes',    src:'Stripe',      mrr:2100, color:'#F4936B', url:'#' },
+    { name:'LaunchKit', src:'Stripe',      mrr:1640, color:'#B79BE6', url:'#' },
+    { name:'CelebDex',  src:'RevenueCat',  mrr:900,  color:'#6FC6D6', url:'#' }
+  ].sort((a,b)=>b.mrr-a.mrr);
+
+  const fmtEur = n => Math.round(n).toLocaleString('fr-FR').replace(/\u202f|\u00a0|,/g,'\u202f');
+
+  /* ---- compteur · slider horizontal (jauge + odomètre) ---- */
+  function renderMRR(){
+    const pct = Math.min(MRR.total/MRR.goal, 1);
+    requestAnimationFrame(()=>{
+      document.getElementById('hfill').style.width = (pct*100)+'%';
+      document.getElementById('hthumb').style.left = (pct*100)+'%';
+    });
+    const start = performance.now();
+    (function step(t){
+      const p = Math.min((t-start)/1600, 1);
+      const e = 1-Math.pow(1-p,3);
+      document.getElementById('mrrFig').textContent = fmtEur(MRR.total*e);
+      document.getElementById('mrrPct').textContent = Math.round(MRR.total*e/MRR.goal*100)+'%';
+      if(p<1) requestAnimationFrame(step);
+    })(performance.now());
+    const d = document.getElementById('mrrDelta');
+    if(MRR.deltaMonth>0){ d.childNodes[d.childNodes.length-1].textContent = ' +'+fmtEur(MRR.deltaMonth)+' € ce mois-ci'; }
+    else { d.style.display='none'; }
+  }
+
+  /* ---- carte GPS : pins posés sur la route + voiture ---- */
+  function renderRoute(){
+    const road = document.getElementById('gpsRoad');
+    const len = road.getTotalLength();
+    const VW = 1696, VH = 954;
+    const place = (el, frac)=>{
+      const pt = road.getPointAtLength(len*frac);
+      el.style.left = (pt.x/VW*100)+'%';
+      el.style.top  = (pt.y/VH*100)+'%';
+    };
+    document.querySelectorAll('.gps-stop[data-frac]').forEach(s=>{
+      place(s, parseFloat(s.dataset.frac));
+      if(s.dataset.th && MRR.total >= +s.dataset.th) s.classList.add('reached');
+    });
+    // version mobile : états des paliers
+    document.querySelectorAll('.palier-m[data-th]').forEach(p=>{
+      if(MRR.total >= +p.dataset.th){ p.classList.add('reached'); p.querySelector('.pm-state').textContent = 'Tirage fait'; }
+    });
+    const pct = Math.min(MRR.total/MRR.goal, 1);
+    const car = document.getElementById('gpsCar');
+    place(car, 0);                       // départ, puis transition vers la position réelle
+    document.getElementById('gpsCarVal').textContent = '€'+fmtEur(MRR.total);
+    document.getElementById('gpsProg').style.strokeDashoffset = '1';
+    requestAnimationFrame(()=> requestAnimationFrame(()=>{
+      place(car, pct);
+      document.getElementById('gpsProg').style.strokeDashoffset = (1-pct).toString();
+    }));
+  }
+
+  /* ---- projets : liste ---- */
+  function renderProjects(){
+    const total = PROJECTS.reduce((s,p)=>s+p.mrr,0) || 1;
+    document.getElementById('pfList').innerHTML = PROJECTS.map(p=>`
+      <a class="pf-row" href="${p.url}" target="_blank" rel="noopener">
+        <span class="logo" style="background:${p.color}33;border:1px solid ${p.color}66;color:${p.color}">${p.name[0]}</span>
+        <span class="meta"><span class="nm">${p.name}</span><div class="src">${p.src}</div></span>
+        <span class="spacer"></span>
+        <span class="pct">${Math.round(p.mrr/total*100)}%</span>
+        <span class="mrr"><span class="cur">€</span>${fmtEur(p.mrr)}</span>
+      </a>`).join('');
+  }
+
+  /* ---- lancer les animations (au chargement + rejoue au scroll dans la vue) ---- */
+  renderProjects();
+  let played = false;
+  const run = ()=>{ if(played) return; played = true; renderMRR(); renderRoute(); };
+  function maybeRun(){
+    const t = document.getElementById('revenus');
+    if(!t) { run(); return; }
+    const r = t.getBoundingClientRect();
+    if(r.top < window.innerHeight*0.85 && r.bottom > 0) run();
+  }
+  window.addEventListener('load', ()=> setTimeout(maybeRun, 200));
+  window.addEventListener('scroll', maybeRun, { passive:true });
+  // filet de sécurité : si rien n'a tourné après 1,2 s, on lance quand même
+  setTimeout(run, 1200);
+</script>
+
+</body>
+</html>
