@@ -12,6 +12,19 @@ const nextConfig = {
       },
     ];
   },
+  async headers() {
+    return [
+      {
+        // cache long + immuable pour les polices : plus de re-téléchargement
+        // (ni flash) à chaque rafraîchissement. Renomme le fichier si tu le
+        // changes un jour.
+        source: "/fonts/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

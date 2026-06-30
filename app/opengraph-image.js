@@ -90,15 +90,15 @@ export default function Image() {
             style={{
               display: "flex",
               alignItems: "center",
-              marginTop: 14,
+              marginTop: 16,
               fontFamily: "Pricedown",
-              fontSize: 70,
+              fontSize: 104,
               letterSpacing: 2,
               color: "#F6E7D6",
             }}
           >
             <span>AVANT LA SORTIE DE</span>
-            <img src={logo} width={210} height={159} style={{ marginLeft: 30 }} alt="" />
+            <img src={logo} width={236} height={179} style={{ marginLeft: 32 }} alt="" />
           </div>
 
           <div style={{ display: "flex", marginTop: 34, fontSize: 31, color: "#A491C4" }}>
