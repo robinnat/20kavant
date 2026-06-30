@@ -335,6 +335,10 @@
   .social-icon svg{width:24px; height:24px;}
   .social-name{font-size:12px; color:var(--muted); letter-spacing:0.04em;}
   .social-icon-link:hover .social-name{color:var(--cream);}
+  /* mobile : boutons réseaux plus rapprochés */
+  @media(max-width:560px){
+    .social-row{ gap:18px; }
+  }
 
   /* ---------- footer ---------- */
   footer{

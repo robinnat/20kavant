@@ -73,7 +73,7 @@ export default function Contest() {
           </div>
           <div className="gps-car" id="gpsCar">
             <div className="bub">
-              <small>Vous êtes ici</small>
+              <small>MRR actuel</small>
               <span id="gpsCarVal">$0</span>
             </div>
             <div className="pin"></div>
@@ -115,7 +115,7 @@ export default function Contest() {
           </div>
         </div>
         <p className="route-cap">
-          Survole un palier pour voir le lot. La voiture, c&apos;est ta position actuelle sur la
+          Survole un palier pour voir le lot. La voiture, c&apos;est où en est le MRR sur la
           route.
         </p>
       </div>
