@@ -11,9 +11,11 @@ export default function Footer() {
           YouTube ne sont ni organisateurs ni parrains de ce concours.
         </p>
         <div className="foot-links">
-          <a href="#defi">Le défi</a>
-          <a href="#lots">Règlement</a>
-          <a href="#">Contact</a>
+          <a href="#about">Moi</a>
+          <a href="#revenus">Compteur</a>
+          <a href="#projets">Projets</a>
+          <a href="#lots">Concours</a>
+          <a href="#participer">Participer</a>
         </div>
       </div>
     </footer>
