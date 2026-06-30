@@ -132,8 +132,8 @@ export default function Contest() {
           <div className="num">1</div>
           <h4>Suis le défi</h4>
           <p>
-            YouTube, TikTok, Instagram. <span className="hl">Chaque suivi = une chance de gagner</span>,
-            suis les trois pour tripler tes chances.
+            YouTube, TikTok, Instagram, X. <span className="hl">Chaque suivi = une chance de gagner</span>,
+            suis les quatre pour quadrupler tes chances.
           </p>
         </div>
         <div className="step">
