@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 import { supabase } from "../lib/supabase";
 
 const NETWORKS = ["YouTube", "TikTok", "Instagram", "X"];
@@ -47,6 +48,10 @@ export default function SignupForm() {
       );
       return;
     }
+    track("signup_started", {
+      profils: profils.join(", "),
+      reseaux: reseaux.join(", "),
+    });
     setStatus("sent");
   }
 
