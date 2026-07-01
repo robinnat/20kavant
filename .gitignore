@@ -9,5 +9,9 @@ node_modules/
 out/
 next-env.d.ts
 
+# env (secrets never committed; public NEXT_PUBLIC_* keys are in code)
+.env
+.env*.local
+
 # Design-system export source (not part of the deployed site)
 Site prototype GTA style/

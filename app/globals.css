@@ -357,3 +357,44 @@
   .foot-links{display:flex; justify-content:center; gap:18px; font-size:12px; color:var(--muted);}
   .foot-links a:hover{color:var(--cream);}
 
+  /* ---------- formulaire d'inscription concours ---------- */
+  .signup-card{ max-width:520px; margin:0 auto; background:var(--bg-panel); border:1px solid var(--line); border-radius:18px; padding:30px 28px; display:flex; flex-direction:column; gap:20px; }
+  .signup-field{ display:flex; flex-direction:column; gap:8px; }
+  .signup-field label{ font-size:13px; font-weight:600; color:var(--cream); letter-spacing:.02em; }
+  .signup-field label .signup-opt{ color:var(--muted); font-weight:400; }
+  .signup-field input{ width:100%; background:var(--bg-deep); border:1px solid var(--line); border-radius:11px; padding:13px 15px; color:var(--cream); font-family:inherit; font-size:15px; transition:border-color .15s ease, box-shadow .15s ease; }
+  .signup-field input::placeholder{ color:var(--muted); opacity:.7; }
+  .signup-field input:focus{ outline:none; border-color:var(--pink); box-shadow:0 0 0 3px rgba(232,88,158,0.18); }
+  .signup-chips{ display:flex; flex-wrap:wrap; gap:9px; }
+  .signup-chip{ font-family:inherit; font-size:13px; font-weight:600; color:var(--cream); background:rgba(183,155,230,0.1); border:1px solid rgba(183,155,230,0.32); border-radius:999px; padding:8px 15px; cursor:pointer; transition:all .15s ease; }
+  .signup-chip:hover{ border-color:var(--pink); }
+  .signup-chip.on{ background:rgba(232,88,158,0.16); border-color:var(--pink); color:#fff; }
+  .signup-error{ font-size:13px; color:#ff9db5; background:rgba(232,88,158,0.1); border:1px solid rgba(232,88,158,0.32); border-radius:10px; padding:10px 14px; }
+  .signup-submit{ width:100%; border:none; cursor:pointer; font-family:inherit; font-weight:700; font-size:16px; color:#19112E; background:linear-gradient(90deg,var(--orange),var(--pink)); padding:15px 18px; border-radius:12px; box-shadow:0 10px 26px rgba(232,88,158,0.35); transition:transform .15s ease, opacity .15s ease; }
+  .signup-submit:hover{ transform:translateY(-2px); }
+  .signup-submit:disabled{ opacity:.6; cursor:default; transform:none; }
+  .signup-legal{ font-size:11px; color:var(--muted); text-align:center; line-height:1.5; margin-top:-4px; }
+  .signup-sent{ text-align:center; align-items:center; }
+  .signup-sent h4{ font-size:22px; font-weight:700; margin-top:6px; }
+  .signup-sent p{ font-size:15px; color:var(--cream); opacity:.85; line-height:1.6; }
+  .signup-sent .signup-hint{ font-size:12px; color:var(--muted); }
+  .signup-check{ width:52px; height:52px; border-radius:50%; background:var(--teal); display:flex; align-items:center; justify-content:center; margin:0 auto 6px; }
+  .signup-check svg{ width:26px; height:26px; }
+
+  /* ---------- page de confirmation ---------- */
+  .confirm-wrap{ min-height:100vh; display:flex; align-items:center; justify-content:center; padding:48px 22px; background:
+    radial-gradient(120% 70% at 50% -10%, rgba(215,196,240,0.16), transparent 55%),
+    radial-gradient(130% 80% at 50% 120%, rgba(244,147,107,0.40), rgba(232,88,158,0.24) 34%, transparent 64%),
+    linear-gradient(180deg,#19112E 0%, #221544 55%, #2C1A50 100%); }
+  .confirm-card{ width:100%; max-width:440px; text-align:center; }
+  .confirm-card h1{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:clamp(30px,7vw,44px); letter-spacing:.01em; margin:18px 0 12px; color:var(--cream); }
+  .confirm-card p{ color:var(--cream); opacity:.85; font-size:16px; line-height:1.6; max-width:400px; margin:0 auto; }
+  .confirm-check, .confirm-cross{ width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto; }
+  .confirm-check{ background:var(--teal); }
+  .confirm-cross{ background:var(--orange); }
+  .confirm-check svg, .confirm-cross svg{ width:32px; height:32px; }
+  .confirm-cta{ display:inline-flex; align-items:center; justify-content:center; margin-top:26px; padding:14px 22px; border-radius:12px; font-weight:700; font-size:15px; color:#19112E; background:linear-gradient(90deg,var(--orange),var(--pink)); box-shadow:0 10px 26px rgba(232,88,158,0.35); transition:transform .15s ease; }
+  .confirm-cta:hover{ transform:translateY(-2px); }
+  .confirm-spinner{ width:46px; height:46px; border-radius:50%; border:4px solid rgba(246,231,214,0.18); border-top-color:var(--pink); margin:0 auto; animation:confirm-spin .8s linear infinite; }
+  @keyframes confirm-spin{ to{ transform:rotate(360deg); } }
+

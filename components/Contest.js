@@ -1,3 +1,5 @@
+import SignupForm from "./SignupForm";
+
 export default function Contest() {
   return (
     <section id="lots">
@@ -122,37 +124,14 @@ export default function Contest() {
 
       {/* comment participer */}
       <div className="section-head" id="participer" style={{ marginTop: "74px" }}>
-        <div className="section-title">Comment participer</div>
+        <div className="section-title">Participer au concours</div>
         <p className="section-desc">
-          Gratuit, sans achat. Chaque réseau où tu me suis est une chance de gagner en plus.
+          Gratuit, sans obligation d&apos;achat. Inscris-toi, confirme via l&apos;email qu&apos;on
+          t&apos;envoie, et tu es dans <span className="hl">tous les tirages au sort</span> jusqu&apos;au
+          palier final.
         </p>
       </div>
-      <div className="steps">
-        <div className="step">
-          <div className="num">1</div>
-          <h4>Suis le défi</h4>
-          <p>
-            YouTube, TikTok, Instagram, X. <span className="hl">Chaque suivi = une chance de gagner</span>,
-            suis les quatre pour quadrupler tes chances.
-          </p>
-        </div>
-        <div className="step">
-          <div className="num">2</div>
-          <h4>Un palier tombe</h4>
-          <p>
-            À chaque palier franchi (5K, 10K, 15K, 20K), un <span className="hl">tirage au sort</span>{" "}
-            parmi tous les abonnés.
-          </p>
-        </div>
-        <div className="step">
-          <div className="num">3</div>
-          <h4>Tu peux gagner</h4>
-          <p>
-            Le gagnant repart avec le lot : un jeu GTA VI, et une{" "}
-            <span className="hl">PS5 + GTA VI</span> au palier final.
-          </p>
-        </div>
-      </div>
+      <SignupForm />
     </section>
   );
 }
