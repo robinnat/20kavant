@@ -9,13 +9,16 @@ const PROFILS = ["Gamer", "Développeur", "Entrepreneur", "Créateur", "Autre"];
 export default function SignupForm() {
   const [prenom, setPrenom] = useState("");
   const [email, setEmail] = useState("");
-  const [profil, setProfil] = useState("");
+  const [profils, setProfils] = useState([]);
   const [reseaux, setReseaux] = useState([]);
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [error, setError] = useState("");
 
   function toggleReseau(n) {
     setReseaux((r) => (r.includes(n) ? r.filter((x) => x !== n) : [...r, n]));
+  }
+  function toggleProfil(p) {
+    setProfils((r) => (r.includes(p) ? r.filter((x) => x !== p) : [...r, p]));
   }
 
   async function onSubmit(e) {
@@ -24,7 +27,7 @@ export default function SignupForm() {
     const mail = email.trim().toLowerCase();
     if (!prenom.trim()) return setError("Indique ton prénom.");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) return setError("Email invalide.");
-    if (!profil) return setError("Dis-moi qui tu es.");
+    if (!profils.length) return setError("Dis-moi qui tu es.");
 
     setStatus("sending");
     const { error } = await supabase.auth.signInWithOtp({
@@ -32,7 +35,7 @@ export default function SignupForm() {
       options: {
         shouldCreateUser: true,
         emailRedirectTo: `${window.location.origin}/robinnat/inscription/confirmee`,
-        data: { prenom: prenom.trim(), profil, reseaux },
+        data: { prenom: prenom.trim(), profil: profils, reseaux },
       },
     });
     if (error) {
@@ -93,15 +96,15 @@ export default function SignupForm() {
       </div>
 
       <div className="signup-field">
-        <label>Tu es plutôt ?</label>
+        <label>Tu es plutôt ? <span className="signup-opt">(plusieurs possibles)</span></label>
         <div className="signup-chips">
           {PROFILS.map((p) => (
             <button
               type="button"
               key={p}
-              className={`signup-chip${profil === p ? " on" : ""}`}
-              onClick={() => setProfil(p)}
-              aria-pressed={profil === p}
+              className={`signup-chip${profils.includes(p) ? " on" : ""}`}
+              onClick={() => toggleProfil(p)}
+              aria-pressed={profils.includes(p)}
             >
               {p}
             </button>
