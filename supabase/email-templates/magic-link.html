@@ -1,6 +1,11 @@
 <!--
-  Template email "Magic Link" pour l'inscription au concours 20Kavant.
-  À coller dans : Supabase → Authentication → Emails → Templates → Magic Link
+  Template email d'inscription au concours 20Kavant.
+  À coller dans LES DEUX templates (même sujet, même HTML) :
+    Supabase → Authentication → Emails → Templates → "Confirm signup"
+    Supabase → Authentication → Emails → Templates → "Magic Link"
+  (Un nouvel email reçoit "Confirm signup", un email déjà connu reçoit
+   "Magic Link" — les deux utilisent {{ .ConfirmationURL }}, donc ce HTML
+   fonctionne pour les deux.)
   Sujet suggéré : Confirme ton inscription au concours 20Kavant 🎮
   IMPORTANT :
    - garder {{ .ConfirmationURL }} intact (lien de validation).
