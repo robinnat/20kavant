@@ -21,6 +21,7 @@ export default function ConfirmeePage() {
         user_id: user.id,
         email: user.email,
         prenom: md.prenom ?? null,
+        profil: md.profil ?? null,
         reseaux: Array.isArray(md.reseaux) ? md.reseaux : [],
       });
       // 23505 = déjà inscrit → on considère que c'est bon

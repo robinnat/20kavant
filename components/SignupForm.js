@@ -4,10 +4,12 @@ import { useState } from "react";
 import { supabase } from "../lib/supabase";
 
 const NETWORKS = ["YouTube", "TikTok", "Instagram", "X"];
+const PROFILS = ["Gamer", "Développeur", "Entrepreneur", "Créateur", "Autre"];
 
 export default function SignupForm() {
   const [prenom, setPrenom] = useState("");
   const [email, setEmail] = useState("");
+  const [profil, setProfil] = useState("");
   const [reseaux, setReseaux] = useState([]);
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [error, setError] = useState("");
@@ -22,6 +24,7 @@ export default function SignupForm() {
     const mail = email.trim().toLowerCase();
     if (!prenom.trim()) return setError("Indique ton prénom.");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) return setError("Email invalide.");
+    if (!profil) return setError("Dis-moi qui tu es.");
 
     setStatus("sending");
     const { error } = await supabase.auth.signInWithOtp({
@@ -29,7 +32,7 @@ export default function SignupForm() {
       options: {
         shouldCreateUser: true,
         emailRedirectTo: `${window.location.origin}/robinnat/inscription/confirmee`,
-        data: { prenom: prenom.trim(), reseaux },
+        data: { prenom: prenom.trim(), profil, reseaux },
       },
     });
     if (error) {
@@ -90,6 +93,23 @@ export default function SignupForm() {
       </div>
 
       <div className="signup-field">
+        <label>Tu es plutôt ?</label>
+        <div className="signup-chips">
+          {PROFILS.map((p) => (
+            <button
+              type="button"
+              key={p}
+              className={`signup-chip${profil === p ? " on" : ""}`}
+              onClick={() => setProfil(p)}
+              aria-pressed={profil === p}
+            >
+              {p}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="signup-field">
         <label>Tu me suis sur ? <span className="signup-opt">(facultatif)</span></label>
         <div className="signup-chips">
           {NETWORKS.map((n) => (
@@ -112,8 +132,8 @@ export default function SignupForm() {
         {status === "sending" ? "Envoi…" : "Je participe"}
       </button>
       <p className="signup-legal">
-        Gratuit, sans obligation d&apos;achat. Un email de confirmation te sera envoyé pour valider
-        ta participation.
+        Gratuit, sans obligation d&apos;achat. En t&apos;inscrivant, tu participes au concours et tu
+        reçois la newsletter du défi. Un email de confirmation te sera envoyé — désinscription à tout moment.
       </p>
     </form>
   );

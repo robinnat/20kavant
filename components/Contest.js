@@ -127,9 +127,9 @@ export default function Contest() {
       <div className="section-head" id="participer" style={{ marginTop: "74px" }}>
         <div className="section-title">Participer au concours</div>
         <p className="section-desc">
-          Gratuit, sans obligation d&apos;achat. Inscris-toi, confirme via l&apos;email qu&apos;on
-          t&apos;envoie, et tu es dans <span className="hl">tous les tirages au sort</span> jusqu&apos;au
-          palier final.
+          Une inscription = le <span className="hl">concours</span> (tous les tirages au sort jusqu&apos;au
+          palier final) + la <span className="hl">newsletter</span> du défi. Gratuit, confirme via
+          l&apos;email qu&apos;on t&apos;envoie.
         </p>
       </div>
       <SignupCount />
