@@ -2,46 +2,84 @@
   Template email "Magic Link" pour l'inscription au concours 20Kavant.
   À coller dans : Supabase → Authentication → Emails → Templates → Magic Link
   Sujet suggéré : Confirme ton inscription au concours 20Kavant 🎮
-  IMPORTANT : garder {{ .ConfirmationURL }} intact (c'est le lien de validation).
+  IMPORTANT :
+   - garder {{ .ConfirmationURL }} intact (lien de validation).
+   - {{ .SiteURL }}/gta-avatar.png charge la photo publique du site (résolue
+     depuis le Site URL configuré dans Authentication → URL Configuration).
+  NB : les clients email ne chargent pas les polices custom, donc le titre
+  utilise les couleurs de la marque plutôt que la police GTA.
 -->
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f1fa;padding:24px 0;font-family:Arial,Helvetica,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#19112E;padding:30px 0;font-family:Arial,Helvetica,sans-serif;">
   <tr>
     <td align="center">
-      <table width="480" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;max-width:480px;width:100%;box-shadow:0 8px 30px rgba(25,17,46,.12);">
+      <table width="500" cellpadding="0" cellspacing="0" style="max-width:500px;width:100%;">
+
+        <!-- photo -->
         <tr>
-          <td style="background:linear-gradient(135deg,#F4936B,#E8589E);padding:26px 30px;">
-            <span style="font-size:22px;font-weight:bold;color:#ffffff;letter-spacing:.5px;">20Kavant<span style="opacity:.85;font-size:15px;">.fr</span></span>
+          <td align="center" style="padding:0 24px;">
+            <img src="{{ .SiteURL }}/gta-avatar.png" width="88" height="88" alt="Robin"
+                 style="border-radius:50%;border:2px solid #B79BE6;display:block;" />
+          </td>
+        </tr>
+
+        <!-- marque + titre -->
+        <tr>
+          <td align="center" style="padding:16px 24px 0;">
+            <div style="font-size:24px;font-weight:bold;color:#F6E7D6;letter-spacing:.4px;">20Kavant<span style="color:#A491C4;font-size:15px;">.fr</span></div>
           </td>
         </tr>
         <tr>
-          <td style="padding:32px 30px 8px;">
-            <h1 style="margin:0 0 10px;font-size:22px;color:#19112E;">Confirme ton inscription 🎮</h1>
-            <p style="margin:0 0 22px;font-size:15px;line-height:1.6;color:#4a4266;">
-              Plus qu'une étape pour participer au concours <strong>20K de MRR avant GTA VI</strong>.
-              Clique sur le bouton ci-dessous pour valider ta participation à tous les tirages au sort,
-              jusqu'au palier final le 19/11/2026.
-            </p>
+          <td align="center" style="padding:8px 24px 0;">
+            <div style="font-size:28px;font-weight:800;letter-spacing:.5px;color:#F6E7D6;line-height:1.12;">
+              <span style="color:#F4936B;">20K</span> DE <span style="color:#E8589E;">MRR</span>
+            </div>
+            <div style="font-size:16px;font-weight:bold;color:#A491C4;margin-top:6px;">avant la sortie de GTA VI</div>
           </td>
         </tr>
+
+        <!-- carte -->
         <tr>
-          <td align="center" style="padding:4px 30px 26px;">
-            <a href="{{ .ConfirmationURL }}" style="display:inline-block;background:linear-gradient(135deg,#F4936B,#E8589E);color:#ffffff;text-decoration:none;font-weight:bold;font-size:16px;padding:14px 34px;border-radius:10px;">
-              Confirmer mon inscription
-            </a>
+          <td style="padding:26px 10px 0;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#251743;border:1px solid #3a2c57;border-radius:16px;">
+              <tr>
+                <td style="padding:28px 28px 4px;">
+                  <h1 style="margin:0 0 12px;font-size:21px;color:#F6E7D6;">Confirme ton inscription 🎮</h1>
+                  <p style="margin:0 0 22px;font-size:15px;line-height:1.6;color:#C9BFDE;">
+                    Plus qu'une étape pour participer au concours. Clique sur le bouton ci-dessous pour valider
+                    ta participation à tous les tirages au sort, jusqu'au palier final le 19/11/2026.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" style="padding:0 28px 26px;">
+                  <a href="{{ .ConfirmationURL }}"
+                     style="display:inline-block;background:linear-gradient(135deg,#F4936B,#E8589E);color:#19112E;text-decoration:none;font-weight:bold;font-size:16px;padding:14px 34px;border-radius:10px;">
+                    Confirmer mon inscription
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:0 28px 26px;">
+                  <p style="margin:0 0 6px;font-size:12px;color:#8f83ac;">Ou copie-colle ce lien dans ton navigateur :</p>
+                  <p style="margin:0;font-size:12px;word-break:break-all;">
+                    <a href="{{ .ConfirmationURL }}" style="color:#E8589E;">{{ .ConfirmationURL }}</a>
+                  </p>
+                </td>
+              </tr>
+            </table>
           </td>
         </tr>
+
+        <!-- mention légale -->
         <tr>
-          <td style="padding:0 30px 28px;">
-            <p style="margin:0 0 6px;font-size:12px;color:#8a83a3;">Ou copie-colle ce lien dans ton navigateur :</p>
-            <p style="margin:0;font-size:12px;color:#8a83a3;word-break:break-all;">
-              <a href="{{ .ConfirmationURL }}" style="color:#E8589E;">{{ .ConfirmationURL }}</a>
-            </p>
-            <p style="margin:20px 0 0;font-size:11px;color:#b0aac2;line-height:1.5;">
+          <td align="center" style="padding:18px 30px 0;">
+            <p style="margin:0;font-size:11px;color:#6f6690;line-height:1.5;">
               Tu reçois cet email car ton adresse a été utilisée pour t'inscrire au concours 20Kavant.
               Si ce n'est pas toi, ignore ce message. Jeu-concours gratuit, sans obligation d'achat.
             </p>
           </td>
         </tr>
+
       </table>
     </td>
   </tr>
