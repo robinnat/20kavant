@@ -10,7 +10,6 @@ const asset = (p) => join(process.cwd(), p);
 const dataUri = (p) => `data:image/png;base64,${readFileSync(asset(p)).toString("base64")}`;
 
 export default function Image() {
-  const logo = dataUri("public/gta-vi-logo.png");
   const avatar = dataUri("public/gta-avatar.png");
   const pricedown = readFileSync(asset("public/fonts/pricedown.ttf"));
   const sg400 = readFileSync(asset("public/fonts/space-grotesk-400.woff"));
@@ -75,30 +74,28 @@ export default function Image() {
               display: "flex",
               marginTop: 22,
               fontFamily: "Pricedown",
-              fontSize: 120,
+              fontSize: 108,
               lineHeight: 1,
               letterSpacing: 2,
               color: "#F6E7D6",
             }}
           >
             <span style={{ color: "#F4936B" }}>20K</span>
-            <span style={{ margin: "0 24px" }}>DE</span>
+            <span style={{ margin: "0 22px" }}>DE</span>
             <span style={{ color: "#E8589E" }}>MRR</span>
           </div>
 
           <div
             style={{
               display: "flex",
-              alignItems: "center",
               marginTop: 12,
               fontFamily: "Pricedown",
-              fontSize: 120,
+              fontSize: 108,
               letterSpacing: 2,
               color: "#F6E7D6",
             }}
           >
-            <span>AVANT LA SORTIE DE</span>
-            <img src={logo} width={210} height={159} style={{ marginLeft: 30 }} alt="" />
+            AVANT LA SORTIE DE GTA VI
           </div>
 
           <div style={{ display: "flex", marginTop: 34, fontSize: 31, color: "#A491C4" }}>

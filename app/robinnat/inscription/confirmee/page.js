@@ -69,8 +69,8 @@ export default function ConfirmeePage() {
             </div>
             <h1>{prenom ? `C'est validé, ${prenom} !` : "C'est validé !"}</h1>
             <p>
-              Ton inscription au concours est confirmée. Tu es dans tous les tirages au sort, jusqu&apos;au
-              palier final le 19/11/2026. Bonne chance !
+              Ton inscription est confirmée : tu participes au <strong>concours</strong> (tous les tirages au
+              sort jusqu&apos;au 19/11/2026) et tu reçois la <strong>newsletter</strong> du défi. Bonne chance !
             </p>
             <Link href="/robinnat" className="confirm-cta">Retour au défi →</Link>
           </>
