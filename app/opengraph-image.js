@@ -63,7 +63,7 @@ export default function Image() {
             justifyContent: "center",
             width: "100%",
             height: "100%",
-            padding: "0 86px",
+            padding: "0 76px",
           }}
         >
           <div style={{ display: "flex", fontSize: 26, fontWeight: 600, letterSpacing: 4, color: "#B79BE6" }}>
@@ -75,14 +75,14 @@ export default function Image() {
               display: "flex",
               marginTop: 22,
               fontFamily: "Pricedown",
-              fontSize: 150,
+              fontSize: 120,
               lineHeight: 1,
               letterSpacing: 2,
               color: "#F6E7D6",
             }}
           >
             <span style={{ color: "#F4936B" }}>20K</span>
-            <span style={{ margin: "0 26px" }}>DE</span>
+            <span style={{ margin: "0 24px" }}>DE</span>
             <span style={{ color: "#E8589E" }}>MRR</span>
           </div>
 
@@ -90,15 +90,15 @@ export default function Image() {
             style={{
               display: "flex",
               alignItems: "center",
-              marginTop: 16,
+              marginTop: 12,
               fontFamily: "Pricedown",
-              fontSize: 104,
+              fontSize: 120,
               letterSpacing: 2,
               color: "#F6E7D6",
             }}
           >
             <span>AVANT LA SORTIE DE</span>
-            <img src={logo} width={236} height={179} style={{ marginLeft: 32 }} alt="" />
+            <img src={logo} width={210} height={159} style={{ marginLeft: 30 }} alt="" />
           </div>
 
           <div style={{ display: "flex", marginTop: 34, fontSize: 31, color: "#A491C4" }}>
