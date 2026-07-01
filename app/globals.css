@@ -357,6 +357,11 @@
   .foot-links{display:flex; justify-content:center; gap:18px; font-size:12px; color:var(--muted);}
   .foot-links a:hover{color:var(--cream);}
 
+  /* ---------- compteur d'inscrits ---------- */
+  .signup-count{ display:flex; align-items:center; justify-content:center; gap:9px; width:max-content; max-width:100%; margin:0 auto 22px; padding:9px 18px; border-radius:999px; background:var(--bg-panel); border:1px solid var(--line); font-size:14px; color:var(--muted); }
+  .signup-count strong{ color:var(--cream); font-weight:700; }
+  .signup-count .dot{ width:7px; height:7px; border-radius:50%; background:var(--teal); box-shadow:0 0 8px var(--teal); animation:pulse 1.6s infinite; }
+
   /* ---------- formulaire d'inscription concours ---------- */
   .signup-card{ max-width:520px; margin:0 auto; background:var(--bg-panel); border:1px solid var(--line); border-radius:18px; padding:30px 28px; display:flex; flex-direction:column; gap:20px; }
   .signup-field{ display:flex; flex-direction:column; gap:8px; }

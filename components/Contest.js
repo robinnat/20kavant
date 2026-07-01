@@ -1,4 +1,5 @@
 import SignupForm from "./SignupForm";
+import SignupCount from "./SignupCount";
 
 export default function Contest() {
   return (
@@ -131,6 +132,7 @@ export default function Contest() {
           palier final.
         </p>
       </div>
+      <SignupCount />
       <SignupForm />
     </section>
   );
