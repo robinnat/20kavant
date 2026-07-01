@@ -33,7 +33,7 @@ export async function GET() {
           <span style={{ margin: "0 22px" }}>DE</span>
           <span style={{ color: "#E8589E" }}>MRR</span>
         </div>
-        <div style={{ display: "flex", marginTop: 6, fontSize: 40, letterSpacing: 1, color: "#A491C4" }}>
+        <div style={{ display: "flex", marginTop: 8, fontSize: 62, letterSpacing: 1, color: "#A491C4" }}>
           AVANT LA SORTIE DE GTA VI
         </div>
       </div>
