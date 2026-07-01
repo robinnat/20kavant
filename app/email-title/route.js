@@ -25,15 +25,12 @@ export async function GET() {
           fontFamily: "Pricedown",
         }}
       >
-        <div style={{ display: "flex", fontSize: 34, letterSpacing: 3, color: "#A491C4" }}>
-          20KAVANT.FR
-        </div>
-        <div style={{ display: "flex", marginTop: 14, fontSize: 120, color: "#F6E7D6" }}>
+        <div style={{ display: "flex", fontSize: 120, color: "#F6E7D6" }}>
           <span style={{ color: "#F4936B" }}>20K</span>
           <span style={{ margin: "0 22px" }}>DE</span>
           <span style={{ color: "#E8589E" }}>MRR</span>
         </div>
-        <div style={{ display: "flex", marginTop: 8, fontSize: 62, letterSpacing: 1, color: "#A491C4" }}>
+        <div style={{ display: "flex", marginTop: 10, fontSize: 62, letterSpacing: 1, color: "#FFFFFF" }}>
           AVANT LA SORTIE DE GTA VI
         </div>
       </div>
