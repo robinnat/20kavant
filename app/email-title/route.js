@@ -25,19 +25,19 @@ export async function GET() {
           fontFamily: "Pricedown",
         }}
       >
-        <div style={{ display: "flex", fontSize: 120, color: "#F6E7D6" }}>
+        <div style={{ display: "flex", fontSize: 104, color: "#F6E7D6" }}>
           <span style={{ color: "#F4936B" }}>20K</span>
-          <span style={{ margin: "0 22px" }}>DE</span>
+          <span style={{ margin: "0 20px" }}>DE</span>
           <span style={{ color: "#E8589E" }}>MRR</span>
         </div>
-        <div style={{ display: "flex", marginTop: 10, fontSize: 62, letterSpacing: 1, color: "#FFFFFF" }}>
+        <div style={{ display: "flex", marginTop: 12, fontSize: 104, color: "#F6E7D6" }}>
           AVANT LA SORTIE DE GTA VI
         </div>
       </div>
     ),
     {
-      width: 1000,
-      height: 360,
+      width: 1200,
+      height: 420,
       fonts: [{ name: "Pricedown", data: pricedown, weight: 400, style: "normal" }],
     }
   );
