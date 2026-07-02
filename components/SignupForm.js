@@ -132,6 +132,11 @@ export default function SignupForm() {
             </button>
           ))}
         </div>
+        <p className="signup-hint">
+          Coche uniquement les réseaux où tu me suis vraiment : les suivis sont{" "}
+          <strong>vérifiés avant chaque tirage</strong>. Pas encore abonné ?{" "}
+          <a href="#suivre">Suis-moi d&apos;abord ici</a>, puis reviens cocher.
+        </p>
       </div>
 
       {error && <div className="signup-error">{error}</div>}

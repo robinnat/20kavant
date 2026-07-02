@@ -146,7 +146,7 @@ export default function Contest() {
           <h4>Suis le défi</h4>
           <p>
             YouTube, TikTok, Instagram, X. <span className="hl">Chaque suivi = une chance en plus</span>,
-            suis les quatre pour multiplier tes chances par 5.
+            suis les quatre pour multiplier tes chances par 5. Les suivis sont vérifiés avant chaque tirage.
           </p>
         </div>
         <div className="step">
