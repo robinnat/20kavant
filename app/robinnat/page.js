@@ -19,8 +19,8 @@ export default async function Page() {
     <>
       <SiteNav />
       <Hero />
-      <PresentationVideo />
       <About />
+      <PresentationVideo />
       <Revenue demo={data.demo} />
       <Contest />
       <Follow />

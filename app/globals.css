@@ -49,6 +49,7 @@
     .nav-links{ overflow-x:auto; gap:0; -webkit-overflow-scrolling:touch; scrollbar-width:none; justify-content:center; width:100%; }
     .nav-links::-webkit-scrollbar{ display:none; }
     .nav-links a{ padding:7px 8px; font-size:12px; }
+    .nav-links .nav-video{ display:none; }
   }
 
   /* ---------- hero ---------- */
