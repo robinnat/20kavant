@@ -118,7 +118,7 @@ export default function SignupForm() {
       </div>
 
       <div className="signup-field">
-        <label>Tu me suis sur ? <span className="signup-opt">(facultatif, à titre indicatif)</span></label>
+        <label>Tu me suis sur ? <span className="signup-opt">(facultatif)</span></label>
         <div className="signup-chips">
           {NETWORKS.map((n) => (
             <button
@@ -132,11 +132,6 @@ export default function SignupForm() {
             </button>
           ))}
         </div>
-        <p className="signup-hint">
-          Cette question ne compte pas pour le tirage : c&apos;est ton <strong>suivi réel</strong> sur
-          les réseaux qui donne les chances en plus, vérifié avant chaque tirage.{" "}
-          <a href="#suivre">Suis-moi ici</a> pour multiplier tes chances.
-        </p>
       </div>
 
       {error && <div className="signup-error">{error}</div>}
