@@ -1,5 +1,4 @@
 import SignupForm from "./SignupForm";
-import SignupCount from "./SignupCount";
 
 export default function Contest() {
   return (
@@ -158,7 +157,6 @@ export default function Contest() {
           </p>
         </div>
       </div>
-      <SignupCount />
       <SignupForm />
     </section>
   );
