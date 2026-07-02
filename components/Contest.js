@@ -127,10 +127,36 @@ export default function Contest() {
       <div className="section-head" id="participer" style={{ marginTop: "74px" }}>
         <div className="section-title">Participer au concours</div>
         <p className="section-desc">
-          Une inscription = le <span className="hl">concours</span> (tous les tirages au sort jusqu&apos;au
-          palier final) + la <span className="hl">newsletter</span> du défi. Gratuit, confirme via
-          l&apos;email qu&apos;on t&apos;envoie.
+          Gratuit, sans achat. Inscris-toi avec le formulaire, puis suis-moi sur les réseaux :
+          chaque suivi est une chance en plus, de quoi{" "}
+          <span className="hl">multiplier tes chances par 5</span>.
         </p>
+      </div>
+      <div className="steps">
+        <div className="step">
+          <div className="num">1</div>
+          <h4>Inscris-toi</h4>
+          <p>
+            Remplis le formulaire ci-dessous : c&apos;est <span className="hl">ta première chance</span> à
+            chaque tirage, et tu reçois la <span className="hl">newsletter</span> du défi.
+          </p>
+        </div>
+        <div className="step">
+          <div className="num">2</div>
+          <h4>Suis le défi</h4>
+          <p>
+            YouTube, TikTok, Instagram, X. <span className="hl">Chaque suivi = une chance en plus</span>,
+            suis les quatre pour multiplier tes chances par 5.
+          </p>
+        </div>
+        <div className="step">
+          <div className="num">3</div>
+          <h4>Tu peux gagner</h4>
+          <p>
+            À chaque palier franchi (5K, 10K, 15K, 20K), un <span className="hl">tirage au sort</span> :
+            un jeu GTA VI, et une <span className="hl">PS5 + GTA VI</span> au palier final.
+          </p>
+        </div>
       </div>
       <SignupCount />
       <SignupForm />

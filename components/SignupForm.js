@@ -118,7 +118,7 @@ export default function SignupForm() {
       </div>
 
       <div className="signup-field">
-        <label>Tu me suis sur ? <span className="signup-opt">(facultatif)</span></label>
+        <label>Tu me suis sur ? <span className="signup-opt">(chaque réseau suivi = une chance en plus)</span></label>
         <div className="signup-chips">
           {NETWORKS.map((n) => (
             <button
