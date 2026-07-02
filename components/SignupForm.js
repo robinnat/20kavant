@@ -118,7 +118,7 @@ export default function SignupForm() {
       </div>
 
       <div className="signup-field">
-        <label>Tu me suis sur ? <span className="signup-opt">(chaque réseau suivi = une chance en plus)</span></label>
+        <label>Tu me suis sur ? <span className="signup-opt">(facultatif, à titre indicatif)</span></label>
         <div className="signup-chips">
           {NETWORKS.map((n) => (
             <button
@@ -133,9 +133,9 @@ export default function SignupForm() {
           ))}
         </div>
         <p className="signup-hint">
-          Coche uniquement les réseaux où tu me suis vraiment : les suivis sont{" "}
-          <strong>vérifiés avant chaque tirage</strong>. Pas encore abonné ?{" "}
-          <a href="#suivre">Suis-moi d&apos;abord ici</a>, puis reviens cocher.
+          Cette question ne compte pas pour le tirage : c&apos;est ton <strong>suivi réel</strong> sur
+          les réseaux qui donne les chances en plus, vérifié avant chaque tirage.{" "}
+          <a href="#suivre">Suis-moi ici</a> pour multiplier tes chances.
         </p>
       </div>
 
