@@ -42,6 +42,11 @@ export default function Hero() {
       <div className="target-date">
         Compte à rebours jusqu&apos;au <strong>19/11/2026</strong>, sortie de GTA VI
       </div>
+
+      <a className="hero-cta" href="#participer">
+        <span className="hero-cta-main">Participer au concours</span>
+        <span className="hero-cta-sub">Une PS5 + GTA VI à gagner · gratuit</span>
+      </a>
     </header>
   );
 }
