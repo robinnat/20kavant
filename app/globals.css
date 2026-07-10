@@ -155,12 +155,12 @@
   .hero-cta{
     display:inline-flex; flex-direction:column; align-items:center; gap:3px;
     margin-top:34px; padding:16px 34px; border-radius:14px;
-    background:linear-gradient(90deg,var(--orange),var(--pink));
+    background:#fff;
     color:#19112E; text-align:center;
-    box-shadow:0 10px 30px rgba(232,88,158,0.4), 0 0 50px rgba(244,147,107,0.2);
+    box-shadow:0 10px 30px rgba(255,255,255,0.18), 0 0 50px rgba(246,231,214,0.12);
     transition:transform .15s ease, box-shadow .15s ease;
   }
-  .hero-cta:hover{ transform:translateY(-2px); box-shadow:0 14px 36px rgba(232,88,158,0.5), 0 0 60px rgba(244,147,107,0.28); }
+  .hero-cta:hover{ transform:translateY(-2px); box-shadow:0 14px 36px rgba(255,255,255,0.24), 0 0 60px rgba(246,231,214,0.18); }
   .hero-cta-main{ font-weight:700; font-size:17px; letter-spacing:.01em; }
   .hero-cta-sub{ font-size:12px; font-weight:600; opacity:.78; }
   @media(max-width:560px){ .hero-cta{ margin-top:26px; padding:14px 26px; } .hero-cta-main{ font-size:15px; } .hero-cta-sub{ font-size:11px; } }
