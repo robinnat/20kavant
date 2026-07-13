@@ -21,7 +21,8 @@ export default async function About() {
             <span>Solo founder</span>
             <span>Build in public</span>
             <span>Job + famille</span>
-            <div className="about-social">
+          </div>
+          <div className="about-social">
               <a href="https://youtube.com/@robinnat20" target="_blank" rel="noopener" aria-label="YouTube">
                 <svg viewBox="0 0 24 24" fill="none">
                   <path d="M9 8L17 12L9 16V8Z" fill="#E8589E" />
@@ -59,12 +60,11 @@ export default async function About() {
                   />
                 </svg>
               </a>
-            </div>
           </div>
           {total > 0 && (
             <div className="about-followers">
               <span className="dot"></span>
-              <strong>{total.toLocaleString("fr-FR")}</strong>&nbsp;abonnés cumulés sur les réseaux
+              <strong>{total.toLocaleString("fr-FR")}</strong>&nbsp;abonnés
             </div>
           )}
         </div>
