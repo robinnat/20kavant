@@ -1,4 +1,7 @@
-export default function About() {
+import { getSocialFollowers } from "../lib/socialstats";
+
+export default async function About() {
+  const { total } = await getSocialFollowers();
   return (
     <section id="about">
       <div className="about-grid">
@@ -58,6 +61,12 @@ export default function About() {
               </a>
             </div>
           </div>
+          {total > 0 && (
+            <div className="about-followers">
+              <span className="dot"></span>
+              <strong>{total.toLocaleString("fr-FR")}</strong>&nbsp;abonnés cumulés sur les réseaux
+            </div>
+          )}
         </div>
       </div>
 

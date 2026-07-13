@@ -322,6 +322,9 @@
   .about-social a{ width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:rgba(183,155,230,0.1); border:1px solid rgba(183,155,230,0.32); transition:transform .15s ease, border-color .15s ease; }
   .about-social a:hover{ transform:translateY(-2px); border-color:var(--pink); }
   .about-social svg{ width:19px; height:19px; }
+  .about-followers{ display:inline-flex; align-items:center; gap:9px; margin-top:16px; padding:9px 16px; border-radius:999px; background:var(--bg-panel); border:1px solid var(--line); font-size:14px; color:var(--muted); }
+  .about-followers strong{ color:var(--cream); font-weight:700; }
+  .about-followers .dot{ width:7px; height:7px; border-radius:50%; background:var(--teal); box-shadow:0 0 8px var(--teal); animation:pulse 1.6s infinite; }
   .about-why{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:44px; }
   .about-why .why-head{ grid-column:1 / -1; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--pink); margin-bottom:-4px; }
   .why{ background:var(--bg-panel); border:1px solid var(--line); border-radius:16px; padding:22px 20px; }
