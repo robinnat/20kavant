@@ -229,6 +229,9 @@
   .pf-row .meta{ min-width:0; }
   .pf-row .nm{ font-weight:600; font-size:15px; }
   .pf-row .src{ font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+  .pf-row .pf-site{ flex:none; font-size:12px; font-weight:600; color:var(--cream); background:rgba(183,155,230,0.1); border:1px solid rgba(183,155,230,0.32); border-radius:999px; padding:6px 12px; white-space:nowrap; cursor:pointer; transition:border-color .15s ease, background .15s ease; }
+  .pf-row .pf-site:hover{ border-color:var(--pink); background:rgba(232,88,158,0.12); }
+  @media(max-width:560px){ .pf-row .pf-site .t{ display:none; } .pf-row .pf-site{ padding:6px 10px; } }
   .pf-row .spacer{ flex:1; }
   .pf-row .pct{ color:var(--muted); font-size:13px; min-width:42px; text-align:right; }
   .pf-row .mrr{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:.03em; color:var(--cream); min-width:88px; text-align:right; }

@@ -46,7 +46,7 @@ export default function Interactions({ data }) {
       goal: data.goal, // objectif
       deltaMonth: data.deltaMonth, // variation du mois
     };
-    const PROJECTS = [...data.projects].sort((a, b) => b.mrr - a.mrr);
+    const PROJECTS = [...data.projects];
 
     const fmtUsd = (n) => Math.round(n).toLocaleString("en-US");
 
@@ -122,11 +122,29 @@ export default function Interactions({ data }) {
           p.icon ? `<img src="${p.icon}" alt="${p.name}">` : p.name[0]
         }</span>
         <span class="meta"><span class="nm">${p.name}</span><div class="src">${p.src}</div></span>
+        ${
+          p.site
+            ? `<span class="pf-site" role="link" tabindex="0" data-url="${p.site}" title="Visiter ${p.name}"><span class="t">Visiter</span> ↗</span>`
+            : ""
+        }
         <span class="spacer"></span>
         <span class="pct">${Math.round((p.mrr / total) * 100)}%</span>
         <span class="mrr"><span class="cur">$</span>${fmtUsd(p.mrr)}<span class="unit">MRR</span></span>
       </a>`
       ).join("");
+      // La ligne entière est déjà un lien (TrustMRR) : le bouton "Visiter"
+      // ouvre le site du produit sans déclencher le lien parent.
+      document.querySelectorAll("#pfList .pf-site").forEach((el) => {
+        const open = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.open(el.dataset.url, "_blank", "noopener");
+        };
+        el.addEventListener("click", open);
+        el.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") open(e);
+        });
+      });
     }
 
     /* ---- lancer les animations (au chargement + rejoue au scroll dans la vue) ---- */
