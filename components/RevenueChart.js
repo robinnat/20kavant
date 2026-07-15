@@ -7,11 +7,11 @@ import { useMemo, useState } from "react";
 // est ignoré). Le point du mois en cours vient de TrustMRR automatiquement.
 const HISTORY = [
   { month: "2026-01", value: 0 },
-  { month: "2026-02", value: null },
-  { month: "2026-03", value: null },
-  { month: "2026-04", value: null },
-  { month: "2026-05", value: null },
-  { month: "2026-06", value: null },
+  { month: "2026-02", value: 0 },
+  { month: "2026-03", value: 0 },
+  { month: "2026-04", value: 23 },
+  { month: "2026-05", value: 0 },
+  { month: "2026-06", value: 9 },
   { month: "2026-07", value: null },
   { month: "2026-08", value: null },
   { month: "2026-09", value: null },
