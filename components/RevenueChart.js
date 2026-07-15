@@ -35,24 +35,36 @@ const IH = H - M.top - M.bottom;
 
 const fmtUsd = (n) => `$${Math.round(n).toLocaleString("en-US")}`;
 
-export default function RevenueChart({ total = 0 }) {
+export default function RevenueChart({ total = 0, history = [] }) {
   const [hover, setHover] = useState(null);
 
   const { points, yMax } = useMemo(() => {
-    const pts = HISTORY.filter((h) => h.value != null).map((h) => {
-      const [y, m] = h.month.split("-").map(Number);
-      return { date: new Date(y, m - 1, 1), value: h.value };
-    });
+    // Historique API (TrustMRR) + surcharges manuelles de HISTORY.
+    const byMonth = {};
+    for (const h of history) {
+      if (h?.month && h.value != null) byMonth[h.month] = h.value;
+    }
+    for (const h of HISTORY) {
+      if (h.value != null) byMonth[h.month] = h.value;
+    }
     // Point "live" du jour (tronqué au jour pour un rendu stable).
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+    // Les mois passés viennent de l'historique ; le mois en cours, du point live.
+    const pts = Object.entries(byMonth)
+      .map(([month, value]) => {
+        const [y, m] = month.split("-").map(Number);
+        return { date: new Date(y, m - 1, 1), value };
+      })
+      .filter((p) => p.date < monthStart);
     if (today >= START && today <= END) {
       pts.push({ date: today, value: total, live: true });
     }
     pts.sort((a, b) => a.date - b.date);
     const maxVal = Math.max(GOAL, ...pts.map((p) => p.value));
     return { points: pts, yMax: Math.ceil((maxVal * 1.1) / 1000) * 1000 };
-  }, [total]);
+  }, [total, history]);
 
   const x = (d) => M.left + ((d - START) / (END - START)) * IW;
   const y = (v) => M.top + IH - (v / yMax) * IH;
