@@ -9,7 +9,8 @@ export default function Revenue({ demo = true }) {
         </div>
         <div className="section-title">Le compteur, en direct</div>
         <p className="section-desc">
-          Pas de chiffres déclarés, le MRR vient de Stripe et RevenueCat, vérifié via TrustMRR.
+          Pas de chiffres déclarés : les revenus viennent de Stripe et RevenueCat, vérifiés via
+          TrustMRR.
         </p>
       </div>
 
@@ -18,7 +19,7 @@ export default function Revenue({ demo = true }) {
           <div className="big">
             <span className="cur">$</span>
             <span id="mrrFig">0</span>
-            <span className="unit">MRR</span>
+            <span className="unit">/mois</span>
           </div>
           <div className="pct" id="mrrPct">0%</div>
           <div className="of">objectif $20,000</div>
@@ -77,7 +78,7 @@ export default function Revenue({ demo = true }) {
 
       {/* d'où vient le MRR */}
       <div className="section-head" id="projets" style={{ marginTop: "74px" }}>
-        <div className="section-title">D&apos;où vient le MRR</div>
+        <div className="section-title">D&apos;où viennent les revenus</div>
         <p className="section-desc">Le détail, projet par projet.</p>
       </div>
       {/* TODO: brancher les vraies valeurs / URLs / logos dans le script (objet PROJECTS) */}

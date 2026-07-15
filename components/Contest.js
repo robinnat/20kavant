@@ -8,8 +8,8 @@ export default function Contest() {
         <div className="demo-ribbon">● Concours · gratuit, sans obligation d&apos;achat</div>
         <div className="section-title">Le concours</div>
         <p className="section-desc">
-          Chaque palier de MRR débloque un tirage au sort parmi les abonnés, jusqu&apos;au palier
-          final, le jour de la sortie de GTA VI.
+          Chaque palier de revenus débloque un tirage au sort parmi les abonnés, jusqu&apos;au
+          palier final, le jour de la sortie de GTA VI.
         </p>
       </div>
 
@@ -76,7 +76,7 @@ export default function Contest() {
           </div>
           <div className="gps-car" id="gpsCar">
             <div className="bub">
-              <small>MRR actuel</small>
+              <small>Revenus / mois</small>
               <span id="gpsCarVal">$0</span>
             </div>
             <div className="pin"></div>
@@ -118,8 +118,8 @@ export default function Contest() {
           </div>
         </div>
         <p className="route-cap">
-          Survole un palier pour voir le lot. La voiture, c&apos;est où en est le MRR sur la
-          route.
+          Survole un palier pour voir le lot. La voiture, c&apos;est où en sont les revenus sur
+          la route.
         </p>
       </div>
 

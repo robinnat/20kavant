@@ -129,7 +129,7 @@ export default function Interactions({ data }) {
         }
         <span class="spacer"></span>
         <span class="pct">${Math.round((p.mrr / total) * 100)}%</span>
-        <span class="mrr"><span class="cur">$</span>${fmtUsd(p.mrr)}<span class="unit">MRR</span></span>
+        <span class="mrr"><span class="cur">$</span>${fmtUsd(p.mrr)}<span class="unit">/mois</span></span>
       </a>`
       ).join("");
       // La ligne entière est déjà un lien (TrustMRR) : le bouton "Visiter"
