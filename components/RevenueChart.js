@@ -82,12 +82,14 @@ export default function RevenueChart({ total = 0, history = [] }) {
     const svg = e.currentTarget;
     const rect = svg.getBoundingClientRect();
     const mx = ((e.clientX - rect.left) / rect.width) * W;
+    // On accroche toujours le point le plus proche : survoler un mois
+    // suffit à afficher son revenu.
     let best = null;
     for (const p of points) {
       const d = Math.abs(x(p.date) - mx);
       if (!best || d < best.d) best = { p, d };
     }
-    setHover(best && best.d < 60 ? best.p : null);
+    setHover(best ? best.p : null);
   }
 
   return (
@@ -183,8 +185,9 @@ export default function RevenueChart({ total = 0, history = [] }) {
             <g transform={`translate(${Math.min(x(hover.date) + 10, W - 150)}, ${Math.max(y(hover.value) - 40, 8)})`}>
               <rect width="140" height="34" rx="8" fill="#19112E" stroke="rgba(246,231,214,0.18)" />
               <text x="10" y="14" fontSize="10" fill="#A491C4">
-                {hover.date.toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" })}
-                {hover.live ? " · en direct" : ""}
+                {hover.live
+                  ? `${hover.date.toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" })} · en direct`
+                  : hover.date.toLocaleDateString("fr-FR", { month: "long", year: "numeric" })}
               </text>
               <text x="10" y="28" fontSize="12" fontWeight="700" fill="#F6E7D6">
                 {fmtUsd(hover.value)} / mois
