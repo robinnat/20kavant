@@ -1,4 +1,6 @@
-export default function Revenue({ demo = true }) {
+import RevenueChart from "./RevenueChart";
+
+export default function Revenue({ demo = true, total = 0 }) {
   return (
     <section id="revenus">
       <div className="section-head">
@@ -75,6 +77,9 @@ export default function Revenue({ demo = true }) {
           </a>
         </div>
       </div>
+
+      {/* progression sur l'année */}
+      <RevenueChart total={total} />
 
       {/* d'où vient le MRR */}
       <div className="section-head" id="projets" style={{ marginTop: "74px" }}>

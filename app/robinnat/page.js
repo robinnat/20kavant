@@ -21,7 +21,7 @@ export default async function Page() {
       <Hero />
       <About />
       <PresentationVideo />
-      <Revenue demo={data.demo} />
+      <Revenue demo={data.demo} total={data.total} />
       <Contest />
       <Follow />
       <Footer />

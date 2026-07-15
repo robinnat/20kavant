@@ -218,6 +218,9 @@
   .trustmrr-badge a{color:var(--cream); font-weight:600;}
 
   /* ---------- projets · barre segmentée ---------- */
+  .rev-chart{ max-width:860px; margin:26px auto 0; background:var(--bg-panel); border:1px solid var(--line); border-radius:18px; padding:16px 12px 6px; }
+  .rev-chart svg{ width:100%; height:auto; display:block; }
+
   .pf-bar{ display:flex; height:66px; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:var(--bg-panel); }
   .pf-seg{ position:relative; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:14px; flex-grow:0; transition:flex-grow 1.3s cubic-bezier(.22,1,.36,1); min-width:0; }
   .pf-seg span{ padding:0 6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-shadow:0 1px 3px rgba(0,0,0,.45); }
