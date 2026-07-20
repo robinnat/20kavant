@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export default function Interactions({ data }) {
   useEffect(() => {
     // Cible : minuit (heure LOCALE du visiteur) le 19 novembre 2026, jour de
-    // sortie de GTA VI. On raisonne en jours calendaires locaux pour que le
+    // sortie de GTA 6. On raisonne en jours calendaires locaux pour que le
     // changement de jour coïncide pile avec minuit sur l'horloge du visiteur,
     // quelle que soit l'heure d'été/hiver (pas de décalage DST).
     const TARGET_YEAR = 2026;

@@ -14,7 +14,7 @@ export default async function About() {
           <p>
             Solo founder, je construis des produits le soir et le week-end, entre un job à plein
             temps et une vie de famille. Ce défi, c&apos;est ma façon de me mettre la pression :
-            atteindre 20K de MRR avant la sortie de GTA VI, en public et sans filtre. Chaque dollar
+            atteindre 20K de MRR avant la sortie de GTA 6, en public et sans filtre. Chaque dollar
             vient de vrais produits, agrégé et vérifié par TrustMRR.
           </p>
           <div className="about-chips">
@@ -93,7 +93,7 @@ export default async function About() {
         </div>
         <div className="why">
           <div className="why-n">04</div>
-          <div className="why-t">Profiter de GTA VI</div>
+          <div className="why-t">Profiter de GTA 6</div>
           <div className="why-d">Et savourer la sortie le 19/11, pari tenu, l&apos;esprit tranquille.</div>
         </div>
       </div>

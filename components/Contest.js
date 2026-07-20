@@ -9,7 +9,7 @@ export default function Contest() {
         <div className="section-title">Le concours</div>
         <p className="section-desc">
           Chaque palier de revenus débloque un tirage au sort parmi les abonnés, jusqu&apos;au
-          palier final, le jour de la sortie de GTA VI.
+          palier final, le jour de la sortie de GTA 6.
         </p>
       </div>
 
@@ -46,7 +46,7 @@ export default function Contest() {
             <div className="dot"></div>
             <div className="tag">
               <div className="amt">5K</div>
-              <div className="pz">Jeu GTA VI</div>
+              <div className="pz">Jeu GTA 6</div>
               <img className="gift" src="/gift-gtavi.png" alt="" />
             </div>
           </div>
@@ -54,7 +54,7 @@ export default function Contest() {
             <div className="dot"></div>
             <div className="tag">
               <div className="amt">10K</div>
-              <div className="pz">Jeu GTA VI</div>
+              <div className="pz">Jeu GTA 6</div>
               <img className="gift" src="/gift-gtavi.png" alt="" />
             </div>
           </div>
@@ -62,7 +62,7 @@ export default function Contest() {
             <div className="dot"></div>
             <div className="tag">
               <div className="amt">15K</div>
-              <div className="pz">Jeu GTA VI</div>
+              <div className="pz">Jeu GTA 6</div>
               <img className="gift" src="/gift-gtavi.png" alt="" />
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function Contest() {
             <div className="dot"></div>
             <div className="tag">
               <div className="amt">20K</div>
-              <div className="pz">PS5 + GTA VI · 19/11</div>
+              <div className="pz">PS5 + GTA 6 · 19/11</div>
               <img className="gift" src="/gift-ps5-sm.png" alt="" />
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function Contest() {
             <img src="/gift-gtavi.png" alt="" />
             <div className="pm-meta">
               <div className="pm-amt">5K</div>
-              <div className="pm-pz">Jeu GTA VI · Tirage n°1</div>
+              <div className="pm-pz">Jeu GTA 6 · Tirage n°1</div>
             </div>
             <span className="pm-state">À venir</span>
           </div>
@@ -96,7 +96,7 @@ export default function Contest() {
             <img src="/gift-gtavi.png" alt="" />
             <div className="pm-meta">
               <div className="pm-amt">10K</div>
-              <div className="pm-pz">Jeu GTA VI · Tirage n°2</div>
+              <div className="pm-pz">Jeu GTA 6 · Tirage n°2</div>
             </div>
             <span className="pm-state">À venir</span>
           </div>
@@ -104,7 +104,7 @@ export default function Contest() {
             <img src="/gift-gtavi.png" alt="" />
             <div className="pm-meta">
               <div className="pm-amt">15K</div>
-              <div className="pm-pz">Jeu GTA VI · Tirage n°3</div>
+              <div className="pm-pz">Jeu GTA 6 · Tirage n°3</div>
             </div>
             <span className="pm-state">À venir</span>
           </div>
@@ -112,7 +112,7 @@ export default function Contest() {
             <img src="/gift-ps5-sm.png" alt="" />
             <div className="pm-meta">
               <div className="pm-amt">20K</div>
-              <div className="pm-pz">PS5 + GTA VI · 19/11</div>
+              <div className="pm-pz">PS5 + GTA 6 · 19/11</div>
             </div>
             <span className="pm-state">À venir</span>
           </div>

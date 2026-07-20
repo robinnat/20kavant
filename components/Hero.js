@@ -14,7 +14,7 @@ export default function Hero() {
       <img className="gta-logo" src="/gta-vi-logo.png" alt="Grand Theft Auto VI" />
       <p className="sub">
         Un objectif, une deadline fixe : le <strong>19 novembre 2026</strong>, jour de sortie de
-        GTA VI. Construit le soir, le week-end, entre un job et une famille. Tout est documenté,
+        GTA 6. Construit le soir, le week-end, entre un job et une famille. Tout est documenté,
         chaque semaine.
       </p>
 
@@ -40,12 +40,12 @@ export default function Hero() {
         </div>
       </div>
       <div className="target-date">
-        Compte à rebours jusqu&apos;au <strong>19/11/2026</strong>, sortie de GTA VI
+        Compte à rebours jusqu&apos;au <strong>19/11/2026</strong>, sortie de GTA 6
       </div>
 
       <a className="hero-cta" href="#participer">
         <span className="hero-cta-main">Participer au concours</span>
-        <span className="hero-cta-sub">Une PS5 + GTA VI à gagner · gratuit</span>
+        <span className="hero-cta-sub">Une PS5 + GTA 6 à gagner · gratuit</span>
       </a>
     </header>
   );

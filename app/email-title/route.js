@@ -31,7 +31,7 @@ export async function GET() {
           <span style={{ color: "#E8589E" }}>MRR</span>
         </div>
         <div style={{ display: "flex", marginTop: 12, fontSize: 104, color: "#F6E7D6" }}>
-          AVANT LA SORTIE DE GTA VI
+          AVANT LA SORTIE DE GTA 6
         </div>
       </div>
     ),

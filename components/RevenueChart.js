@@ -97,7 +97,7 @@ export default function RevenueChart({ total = 0, history = [] }) {
       <svg
         viewBox={`0 0 ${W} ${H}`}
         role="img"
-        aria-label={`Progression des revenus mensuels en 2026, objectif ${fmtUsd(GOAL)} avant la sortie de GTA VI le 19 novembre. Dernier point : ${fmtUsd(total)}.`}
+        aria-label={`Progression des revenus mensuels en 2026, objectif ${fmtUsd(GOAL)} avant la sortie de GTA 6 le 19 novembre. Dernier point : ${fmtUsd(total)}.`}
         onMouseMove={onMove}
         onMouseLeave={() => setHover(null)}
       >
@@ -139,7 +139,7 @@ export default function RevenueChart({ total = 0, history = [] }) {
           Objectif $20K
         </text>
 
-        {/* sortie GTA VI : 19/11 */}
+        {/* sortie GTA 6 : 19/11 */}
         <line
           x1={x(RELEASE)}
           x2={x(RELEASE)}
@@ -149,7 +149,7 @@ export default function RevenueChart({ total = 0, history = [] }) {
           strokeDasharray="5 5"
         />
         <text x={x(RELEASE)} y={M.top - 10} textAnchor="middle" fontSize="11" fontWeight="600" fill="#F4936B">
-          GTA VI · 19/11
+          GTA 6 · 19/11
         </text>
 
         {/* série */}

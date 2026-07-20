@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
 import { join } from "path";
 
-export const alt = "20Kavant.fr — 20K de MRR avant la sortie de GTA VI";
+export const alt = "20Kavant.fr — 20K de MRR avant la sortie de GTA 6";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -95,7 +95,7 @@ export default function Image() {
               color: "#F6E7D6",
             }}
           >
-            AVANT LA SORTIE DE GTA VI
+            AVANT LA SORTIE DE GTA 6
           </div>
 
           <div style={{ display: "flex", marginTop: 34, fontSize: 31, color: "#A491C4" }}>
