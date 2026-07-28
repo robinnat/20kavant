@@ -1,25 +1,28 @@
-// Route de diagnostic : renvoie la réponse brute de l'API TrustMRR pour
-// chaque startup, sans cache. À ouvrir avec ?key=debug20k :
-//   https://20kavant.fr/api/trustmrr-debug?key=debug20k
-// Les chiffres sont déjà publics sur trustmrr.com ; le paramètre évite
-// juste l'indexation/le fuzzing. Supprimer la route une fois le souci réglé.
+// Route de diagnostic temporaire : renvoie la réponse brute de l'API TrustMRR
+// pour chaque startup, sans cache.
+//   https://20kavant.fr/api/trustmrr-debug
+// Les montants sont déjà publics sur trustmrr.com. Aucune clé n'est exposée
+// (seulement un booléen indiquant sa présence). À supprimer une fois réglé.
 
 const SLUGS = ["ninou", "magicon", "coddo"];
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
-export async function GET(req) {
-  const url = new URL(req.url);
-  if (url.searchParams.get("key") !== "debug20k") {
-    return new Response("Not found", { status: 404 });
-  }
-
+export async function GET() {
   const apiKey = process.env.TRUSTMRR_API_KEY;
+  const out = {
+    ok: true,
+    hasKey: Boolean(apiKey),
+    keyLength: apiKey ? apiKey.length : 0,
+    now: new Date().toISOString(),
+  };
+
   if (!apiKey) {
-    return Response.json({ error: "TRUSTMRR_API_KEY absente de l'environnement Vercel" });
+    out.error = "TRUSTMRR_API_KEY absente de l'environnement Vercel";
+    return Response.json(out);
   }
 
-  const out = { keyPrefix: `${apiKey.slice(0, 8)}…` };
   for (const slug of SLUGS) {
     try {
       const res = await fetch(`https://trustmrr.com/api/v1/startups/${slug}`, {
