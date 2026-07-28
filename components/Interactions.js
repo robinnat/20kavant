@@ -49,6 +49,8 @@ export default function Interactions({ data }) {
     const PROJECTS = [...data.projects];
 
     const fmtUsd = (n) => Math.round(n).toLocaleString("en-US");
+    const fmtPct = (n) =>
+      n.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + "%";
 
     /* ---- compteur · slider horizontal (jauge + odomètre) ---- */
     function renderMRR() {
@@ -64,8 +66,7 @@ export default function Interactions({ data }) {
         const p = Math.min((t - start) / 1600, 1);
         const e = 1 - Math.pow(1 - p, 3);
         document.getElementById("mrrFig").textContent = fmtUsd(MRR.total * e);
-        document.getElementById("mrrPct").textContent =
-          Math.round((MRR.total * e) / MRR.goal * 100) + "%";
+        document.getElementById("mrrPct").textContent = fmtPct((MRR.total * e) / MRR.goal * 100);
         if (p < 1) requestAnimationFrame(step);
       })(performance.now());
       const d = document.getElementById("mrrDelta");
