@@ -125,7 +125,7 @@ export default function Interactions({ data }) {
         <span class="meta"><span class="nm">${p.name}</span><div class="src">${p.src}</div></span>
         ${
           p.site
-            ? `<span class="pf-site" role="link" tabindex="0" data-url="${p.site}" title="Visiter ${p.name}"><span class="t">Visiter</span> ↗</span>`
+            ? `<span class="pf-site" role="link" tabindex="0" data-url="${p.site}" title="Visiter ${p.name}"><span class="t">Visiter</span> <svg class="ico-arrow" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`
             : ""
         }
         <span class="spacer"></span>
