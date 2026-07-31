@@ -8,11 +8,11 @@ export default function SiteNav() {
         <small>.fr</small>
       </Link>
       <div className="nav-links">
-        <a href="#video" className="nav-video">Vidéo</a>
         <a href="#about">Moi</a>
         <a href="#revenus">Compteur</a>
         <a href="#projets">Projets</a>
         <a href="#lots">Concours</a>
+        <a href="#video" className="nav-video">Vidéo</a>
         <a href="#participer">Participer</a>
       </div>
     </nav>

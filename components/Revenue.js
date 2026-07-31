@@ -1,5 +1,8 @@
 import RevenueChart from "./RevenueChart";
 
+// Graphique de progression masqué pour l'instant — repasse à true pour le réafficher.
+const SHOW_CHART = false;
+
 export default function Revenue({ demo = true, total = 0, history = [] }) {
   return (
     <section id="revenus">
@@ -79,7 +82,7 @@ export default function Revenue({ demo = true, total = 0, history = [] }) {
       </div>
 
       {/* progression sur l'année */}
-      <RevenueChart total={total} history={history} />
+      {SHOW_CHART && <RevenueChart total={total} history={history} />}
 
       {/* d'où vient le MRR */}
       <div className="section-head" id="projets" style={{ marginTop: "74px" }}>
