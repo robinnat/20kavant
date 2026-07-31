@@ -148,7 +148,7 @@ export default function Interactions({ data }) {
       });
     }
 
-    /* ---- lancer les animations (au chargement + rejoue au scroll dans la vue) ---- */
+    /* ---- lancer les animations seulement quand la section entre dans l'écran ---- */
     renderProjects();
     let played = false;
     const run = () => {
@@ -157,28 +157,27 @@ export default function Interactions({ data }) {
       renderMRR();
       renderRoute();
     };
-    function maybeRun() {
-      const t = document.getElementById("revenus");
-      if (!t) {
-        run();
-        return;
-      }
-      const r = t.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.85 && r.bottom > 0) run();
+    const revenusEl = document.getElementById("revenus");
+    let io;
+    if (revenusEl && "IntersectionObserver" in window) {
+      io = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            run();
+            io.disconnect();
+          }
+        },
+        { threshold: 0.3 }
+      );
+      io.observe(revenusEl);
+    } else {
+      // section absente ou navigateur sans IntersectionObserver : on lance direct
+      run();
     }
-    const onLoad = () => setTimeout(maybeRun, 200);
-    window.addEventListener("load", onLoad);
-    window.addEventListener("scroll", maybeRun, { passive: true });
-    // filet de sécurité : si rien n'a tourné après 1,2 s, on lance quand même
-    const safety = setTimeout(run, 1200);
-    // si le document est déjà chargé (navigation client), on déclenche aussi
-    maybeRun();
 
     return () => {
       clearInterval(cdInterval);
-      clearTimeout(safety);
-      window.removeEventListener("load", onLoad);
-      window.removeEventListener("scroll", maybeRun);
+      io?.disconnect();
     };
   }, [data]);
 
