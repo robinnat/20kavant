@@ -19,10 +19,10 @@ export default async function Page() {
     <>
       <SiteNav />
       <Hero />
-      <About />
+      <PresentationVideo />
       <Revenue demo={data.demo} total={data.total} history={data.history ?? []} />
       <Contest />
-      <PresentationVideo />
+      <About />
       <Follow />
       <Footer />
       <Interactions data={data} />
