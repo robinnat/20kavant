@@ -38,7 +38,8 @@ export default function Revenue({ demo = true, total = 0, history = [] }) {
           </div>
         </div>
         <div className="hscale">
-          <span>$0</span>
+          {/* montant courant (rempli par Interactions.js) — plus un "$0" figé */}
+          <span id="mrrScaleNow">$0</span>
           <span className="goal">Objectif 20K</span>
         </div>
         <div className="mrr-delta" id="mrrDelta">

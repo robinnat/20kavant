@@ -4,7 +4,7 @@
 // Les montants sont déjà publics sur trustmrr.com. Aucune clé n'est exposée
 // (seulement un booléen indiquant sa présence). À supprimer une fois réglé.
 
-const SLUGS = ["ninou", "magicon", "coddo"];
+const SLUGS = ["ninou", "magicon", "flash"];
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -13,10 +13,27 @@ export async function GET() {
   const apiKey = process.env.TRUSTMRR_API_KEY;
   const out = {
     ok: true,
+    // Commit réellement déployé (Vercel le fournit automatiquement) : permet
+    // de vérifier d'un coup d'œil si la prod est à jour avec le dépôt.
+    deployedCommit: process.env.VERCEL_GIT_COMMIT_SHA ?? "inconnu (hors Vercel)",
+    deployedBranch: process.env.VERCEL_GIT_COMMIT_REF ?? "?",
     hasKey: Boolean(apiKey),
     keyLength: apiKey ? apiKey.length : 0,
     now: new Date().toISOString(),
   };
+
+  // Ce que la page calcule réellement à partir de l'API (total, par projet).
+  try {
+    const { getTrustMrrData } = await import("../../../lib/trustmrr");
+    const computed = await getTrustMrrData();
+    out.computed = {
+      demo: computed.demo,
+      total: computed.total,
+      projects: computed.projects.map((p) => ({ name: p.name, mrr: p.mrr })),
+    };
+  } catch (err) {
+    out.computed = { error: String(err) };
+  }
 
   if (!apiKey) {
     out.error = "TRUSTMRR_API_KEY absente de l'environnement Vercel";

@@ -61,6 +61,8 @@ export default function Interactions({ data }) {
         // pour qu'il reste à l'intérieur du track à 0% comme à 100%.
         document.getElementById("hthumb").style.left = `calc(13px + ${pct} * (100% - 26px))`;
       });
+      // libellé gauche de l'échelle : le montant réel, pas un "$0" figé
+      document.getElementById("mrrScaleNow").textContent = "$" + fmtUsd(MRR.total);
       const start = performance.now();
       (function step(t) {
         const p = Math.min((t - start) / 1600, 1);
