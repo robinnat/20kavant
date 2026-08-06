@@ -9,11 +9,11 @@ import Footer from "../../components/Footer";
 import Interactions from "../../components/Interactions";
 import { getTrustMrrData } from "../../lib/trustmrr";
 
-// La page se régénère toute seule toutes les 5 min : un nouveau paiement
+// La page se régénère toute seule toutes les 30 min : un nouveau paiement
 // visible sur TrustMRR remonte sans redéploiement ni intervention.
 // Next.js exige ici une valeur littérale (analyse statique) — garder la même
 // valeur que REVALIDATE_SECONDS dans lib/trustmrr.js.
-export const revalidate = 300;
+export const revalidate = 1800;
 
 export default async function Page() {
   const data = await getTrustMrrData();
