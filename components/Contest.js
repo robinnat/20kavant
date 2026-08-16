@@ -128,8 +128,7 @@ export default function Contest() {
         <div className="section-title">Participer au concours</div>
         <p className="section-desc">
           Une inscription = le <span className="hl">concours</span> (tous les tirages au sort jusqu&apos;au
-          palier final) + la <span className="hl">newsletter</span> du défi. Gratuit, confirme via
-          l&apos;email qu&apos;on t&apos;envoie.
+          palier final). Gratuit, en un clic.
         </p>
       </div>
       <SignupCount />

@@ -14,6 +14,7 @@ export default function SignupForm() {
   const [reseaux, setReseaux] = useState([]);
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [error, setError] = useState("");
+  const [dejaInscrit, setDejaInscrit] = useState(false);
 
   function toggleReseau(n) {
     setReseaux((r) => (r.includes(n) ? r.filter((x) => x !== n) : [...r, n]));
@@ -31,24 +32,21 @@ export default function SignupForm() {
     if (!profils.length) return setError("Dis-moi qui tu es.");
 
     setStatus("sending");
-    const { error } = await supabase.auth.signInWithOtp({
+    // Inscription directe : pas de lien magique, pas d'email envoyé.
+    const { error } = await supabase.from("contest_signups").insert({
       email: mail,
-      options: {
-        shouldCreateUser: true,
-        emailRedirectTo: `${window.location.origin}/robinnat/inscription/confirmee`,
-        data: { prenom: prenom.trim(), profil: profils, reseaux },
-      },
+      prenom: prenom.trim(),
+      profil: profils,
+      reseaux,
     });
-    if (error) {
+    // 23505 = email déjà présent → l'inscription existe, c'est un succès.
+    if (error && error.code !== "23505") {
       setStatus("error");
-      setError(
-        error.message?.includes("rate")
-          ? "Trop de tentatives, réessaie dans quelques minutes."
-          : "Une erreur est survenue. Réessaie."
-      );
+      setError("Une erreur est survenue. Réessaie.");
       return;
     }
-    track("signup_started", {
+    setDejaInscrit(error?.code === "23505");
+    track("signup_completed", {
       profils: profils.join(", "),
       reseaux: reseaux.join(", "),
     });
@@ -63,12 +61,13 @@ export default function SignupForm() {
             <path d="M4 12L9 17L20 6" stroke="#150B2E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
-        <h4>Vérifie ta boîte mail</h4>
+        <h4>{prenom.trim() ? `C'est bon, ${prenom.trim()} !` : "C'est bon !"}</h4>
         <p>
-          On vient d&apos;envoyer un lien de confirmation à <strong>{email.trim().toLowerCase()}</strong>.
-          Clique dessus pour valider ton inscription au concours.
+          {dejaInscrit
+            ? "Tu étais déjà inscrit avec cet email — ta participation est bien enregistrée."
+            : "Tu es inscrit au concours. Tu participes à tous les tirages au sort jusqu'au 19/11/2026."}
         </p>
-        <p className="signup-hint">Pense à regarder tes spams. Le lien est valable un moment.</p>
+        <p className="signup-hint">Rien d&apos;autre à faire. Bonne chance !</p>
       </div>
     );
   }
@@ -140,8 +139,8 @@ export default function SignupForm() {
         {status === "sending" ? "Envoi…" : "Je participe"}
       </button>
       <p className="signup-legal">
-        Gratuit, sans obligation d&apos;achat. En t&apos;inscrivant, tu participes au concours et tu
-        reçois la newsletter du défi. Un email de confirmation te sera envoyé — désinscription à tout moment.
+        Gratuit, sans obligation d&apos;achat. En t&apos;inscrivant, tu participes à tous les tirages
+        au sort du concours jusqu&apos;au 19/11/2026.
       </p>
     </form>
   );
