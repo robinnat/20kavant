@@ -1,6 +1,3 @@
-import SignupForm from "./SignupForm";
-import SignupCount from "./SignupCount";
-
 export default function Contest() {
   return (
     <section id="lots">
@@ -125,14 +122,42 @@ export default function Contest() {
 
       {/* comment participer */}
       <div className="section-head" id="participer" style={{ marginTop: "74px" }}>
-        <div className="section-title">Participer au concours</div>
+        <div className="section-title">Comment participer</div>
         <p className="section-desc">
-          Une inscription = le <span className="hl">concours</span> (tous les tirages au sort jusqu&apos;au
-          palier final). Gratuit, en un clic.
+          Gratuit, sans obligation d&apos;achat. Il suffit de me suivre : chaque réseau où tu
+          t&apos;abonnes est une chance de gagner en plus.
         </p>
       </div>
-      <SignupCount />
-      <SignupForm />
+      <div className="steps">
+        <div className="step">
+          <div className="num">1</div>
+          <h4>Abonne-toi</h4>
+          <p>
+            YouTube, TikTok, Instagram, X.{" "}
+            <span className="hl">Chaque abonnement = une chance de gagner</span>, suis les quatre
+            pour quadrupler tes chances.
+          </p>
+        </div>
+        <div className="step">
+          <div className="num">2</div>
+          <h4>Un palier tombe</h4>
+          <p>
+            À chaque palier franchi (5K, 10K, 15K, 20K), un <span className="hl">tirage au sort</span>{" "}
+            parmi tous les abonnés.
+          </p>
+        </div>
+        <div className="step">
+          <div className="num">3</div>
+          <h4>Tu gagnes GTA 6</h4>
+          <p>
+            Le gagnant repart avec <span className="hl">le jeu GTA 6</span>, et une{" "}
+            <span className="hl">PS5 + GTA 6</span> au palier final.
+          </p>
+        </div>
+      </div>
+      <p className="steps-cta">
+        <a href="#suivre">Suis-moi sur les réseaux pour participer →</a>
+      </p>
     </section>
   );
 }
