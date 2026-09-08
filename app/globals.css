@@ -148,18 +148,75 @@
     padding:5px 12px; border-radius:6px; margin-bottom:18px;
   }
 
-  .defi-card{
-    max-width:760px; margin:0 auto; padding:34px 30px 30px;
-    border:1px solid var(--line); border-radius:22px;
-    background:
-      radial-gradient(120% 100% at 50% 0%, rgba(122,79,191,0.07), transparent 62%),
-      linear-gradient(180deg, #FFFFFF 0%, #FBF9FC 100%);
-    box-shadow:0 10px 34px rgba(22,18,33,0.06);
-    text-align:center;
+  /* encadré du compteur sur la page concours (fond clair) */
+  .counter-panel{
+    max-width:760px; margin:0 auto; padding:30px 30px 26px;
+    border:1px solid var(--line); border-radius:20px; background:var(--bg-panel);
+    box-shadow:0 10px 30px rgba(22,18,33,0.05);
   }
-  .defi-card-slim{ padding:26px 30px 22px; margin-bottom:10px; }
-  .defi-kick{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--pink); font-weight:600; }
-  .defi-sep{ height:1px; background:var(--line); margin:30px -30px 0; }
+  .counter-panel .total-mrr{ margin:0; }
+
+  /* ---------- le défi : bande sombre pleine largeur ---------- */
+  /* Les variables sont redéfinies ici : tout ce qui est à l'intérieur
+     (compteur, jauge, bouton, compte à rebours) se re-thème automatiquement. */
+  .defi{
+    --cream:#F6E7D6;
+    --muted:#A491C4;
+    --line:rgba(246,231,214,0.16);
+    --pink:#F06BA8;
+    --orange:#F4936B;
+    --teal:#B79BE6;
+    --bg-deep:#19112E;
+    max-width:none; width:100%; margin:0;
+    padding:0; color:var(--cream);
+    background:
+      radial-gradient(90% 120% at 50% 0%, rgba(232,88,158,0.16), transparent 60%),
+      radial-gradient(70% 90% at 92% 100%, rgba(244,147,107,0.14), transparent 62%),
+      #19112E;
+  }
+  .defi-inner{ max-width:1180px; margin:0 auto; padding:104px 6vw; }
+  .defi-head{ max-width:640px; }
+  .defi-eyebrow{ font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--pink); font-weight:600; }
+  .defi-title{
+    font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400;
+    font-size:clamp(38px,6vw,72px); line-height:.96; letter-spacing:.01em;
+    margin-top:14px;
+  }
+  .defi-title .accent{ color:var(--pink); }
+  .defi-title .accent2{ color:var(--orange); }
+  .defi-sub{ color:var(--muted); font-size:16px; line-height:1.65; margin-top:16px; max-width:520px; }
+
+  /* le compteur reprend toute la largeur de la bande */
+  .defi .total-mrr{ align-items:stretch; margin-top:56px; }
+  .defi .mrr-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; text-align:left; margin-bottom:20px; }
+  .defi .mrr-side{ text-align:right; }
+  .defi .mrr-side .pct{ margin-top:0; }
+  .defi .mrr-side .of{ margin-top:4px; }
+  .defi .hslider, .defi .hscale{ width:100%; }
+  .defi .htrack{ background:rgba(246,231,214,0.09); }
+
+  /* échéance : chiffres nus séparés par un filet, pas des cartes */
+  .defi-deadline{ display:flex; align-items:center; gap:26px; flex-wrap:wrap; margin-top:56px; padding-top:34px; border-top:1px solid var(--line); }
+  .defi-kick{ font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); font-weight:600; }
+  .defi .countdown{ margin-top:0; gap:0; justify-content:flex-start; }
+  .defi .cd-block{ background:transparent; border:none; border-left:1px solid var(--line); border-radius:0; padding:2px 26px; min-width:0; }
+  .defi .cd-block:first-child{ border-left:none; padding-left:0; }
+  .defi .cd-num{ font-size:clamp(34px,4.4vw,48px); }
+  .defi .cd-label{ margin-top:6px; }
+
+  .defi-foot{ margin-top:52px; }
+  .defi-foot .challenge-note{ text-align:left; margin:16px 0 0; }
+
+  @media(max-width:760px){
+    .defi-inner{ padding:72px 6vw; }
+    .defi .mrr-head{ justify-content:flex-start; }
+    .defi-deadline{ gap:14px; margin-top:42px; padding-top:26px; }
+    .defi .countdown{ width:100%; }
+    .defi .cd-block{ padding:2px 14px; flex:1; }
+    .defi-foot{ margin-top:38px; }
+    .defi-foot .btn{ width:100%; }
+  }
+
   .total-mrr{ margin-top:26px; margin-bottom:0; display:flex; flex-direction:column; align-items:center; width:100%; }
   .mrr-head{ text-align:center; margin-bottom:26px; }
   .mrr-head .big{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:clamp(60px,12vw,118px); line-height:.86; letter-spacing:.02em; color:var(--cream); }

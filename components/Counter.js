@@ -65,8 +65,10 @@ export default function Counter({ total = 0, goal = 20000 }) {
           <span className="js-fig">0</span>
           <span className="unit">au total</span>
         </div>
-        <div className="pct js-pct">0%</div>
-        <div className="of">objectif ${goal.toLocaleString("en-US")} de revenus</div>
+        <div className="mrr-side">
+          <div className="pct js-pct">0%</div>
+          <div className="of">objectif ${goal.toLocaleString("en-US")} de revenus</div>
+        </div>
       </div>
       <div className="hslider">
         <div className="htrack">

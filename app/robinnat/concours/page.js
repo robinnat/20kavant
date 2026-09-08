@@ -8,7 +8,7 @@ import { getTrustMrrData } from "../../../lib/trustmrr";
 export const revalidate = 1800;
 
 export const metadata = {
-  title: "Tente de gagner GTA 6 · 20Kavant.fr",
+  title: "Tente de gagner une PS5 + GTA 6 · 20Kavant.fr",
   description:
     "Concours gratuit : à chaque palier de revenus franchi, un tirage au sort parmi mes abonnés pour gagner GTA 6, et une PS5 + GTA 6 au palier final.",
 };

@@ -15,7 +15,7 @@ export default function Contest({ total = 0 }) {
     <>
       <section id="lots">
         <div className="section-head">
-          <div className="section-title">Tente de gagner GTA 6</div>
+          <div className="section-title">Tente de gagner une PS5 + GTA 6</div>
           <p className="section-desc">
             Je vise 20K de revenus avant la sortie du jeu. À chaque palier franchi, je tire au
             sort un abonné et je lui offre GTA 6, et une PS5 avec le jeu au palier final.
@@ -24,7 +24,7 @@ export default function Contest({ total = 0 }) {
         </div>
 
         {/* où en est le défi, rappelé ici */}
-        <div className="defi-card defi-card-slim">
+        <div className="counter-panel">
           <Counter total={total} goal={20000} />
         </div>
 
