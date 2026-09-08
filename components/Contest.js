@@ -13,24 +13,31 @@ const PALIERS = [
 export default function Contest({ total = 0 }) {
   return (
     <>
-      <section id="lots">
-        <div className="section-head">
-          <div className="section-title">Tente de gagner une PS5 + GTA 6</div>
-          <p className="section-desc">
-            Je vise 20K de revenus avant la sortie du jeu. À chaque palier franchi, je tire au
-            sort un abonné et je lui offre GTA 6, et une PS5 avec le jeu au palier final.
-            Gratuit, sans obligation d&apos;achat.
-          </p>
-        </div>
+      {/* même bande que le défi sur l'accueil, ici en en-tête de page */}
+      <section className="defi">
+        <div className="defi-inner">
+          <div className="defi-head">
+            <div className="defi-eyebrow">Le concours</div>
+            <h1 className="defi-title">
+              Tente de gagner une <span className="accent">PS5 + GTA 6</span>
+            </h1>
+            <p className="defi-sub">
+              Je vise 20K de revenus avant la sortie du jeu. À chaque palier franchi, je tire au
+              sort un abonné et je lui offre GTA 6, et une PS5 avec le jeu au palier final.
+              Gratuit, sans obligation d&apos;achat.
+            </p>
+          </div>
 
-        {/* où en est le défi, rappelé ici */}
-        <div className="counter-panel">
           <Counter total={total} goal={20000} />
         </div>
+      </section>
 
-        <div className="sub-head">
-          <h3 className="sub-title">Les paliers</h3>
-          <p className="sub-desc">Un tirage au sort à chaque palier franchi, jusqu&apos;au 19/11.</p>
+      <section id="lots">
+        <div className="section-head">
+          <div className="section-title">Les paliers</div>
+          <p className="section-desc">
+            Un tirage au sort à chaque palier franchi, jusqu&apos;au 19/11.
+          </p>
         </div>
         <div className="paliers">
           {PALIERS.map((p) => (

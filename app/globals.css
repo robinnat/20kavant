@@ -160,17 +160,7 @@
     padding:5px 12px; border-radius:6px; margin-bottom:18px;
   }
 
-  /* encadré du compteur sur la page concours (fond clair) */
-  .counter-panel{
-    max-width:760px; margin:0 auto; padding:30px 30px 26px;
-    border:1px solid var(--line); border-radius:20px; background:var(--bg-panel);
-    box-shadow:0 10px 30px rgba(22,18,33,0.05);
-  }
-  .counter-panel .total-mrr{ margin:0; }
-
-  /* ---------- le défi : bande sombre pleine largeur ---------- */
-  /* Les variables sont redéfinies ici : tout ce qui est à l'intérieur
-     (compteur, jauge, bouton, compte à rebours) se re-thème automatiquement. */
+  /* ---------- bande du défi / du concours (pleine largeur, teintée) ---------- */
   .defi{
     max-width:none; width:100%; margin:0; padding:0;
     border-top:1px solid var(--line); border-bottom:1px solid var(--line);
