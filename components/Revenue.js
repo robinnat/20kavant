@@ -3,7 +3,7 @@ import RevenueChart from "./RevenueChart";
 // Graphique de progression masqué pour l'instant — repasse à true pour le réafficher.
 const SHOW_CHART = false;
 
-export default function Revenue({ demo = true, total = 0, history = [], children = null }) {
+export default function Revenue({ demo = true, total = 0, history = [] }) {
   return (
     <section id="revenus">
       <div className="section-head">
@@ -12,11 +12,37 @@ export default function Revenue({ demo = true, total = 0, history = [], children
             ? "● Mode démo · connexion TrustMRR à venir"
             : "● En direct · revenus vérifiés via TrustMRR"}
         </div>
-        <div className="section-title">Le compteur, en direct</div>
+        <div className="section-title">Le défi, en direct</div>
         <p className="section-desc">
-          Pas de chiffres déclarés : les revenus viennent de Stripe et RevenueCat, vérifiés via
-          TrustMRR.
+          20K de revenus avant la sortie de GTA 6. Pas de chiffres déclarés : ils viennent de
+          Stripe et RevenueCat, vérifiés via TrustMRR.
         </p>
+      </div>
+
+      {/* compte à rebours jusqu'à la sortie de GTA 6 (déplacé depuis le hero) */}
+      <div className="countdown" id="countdown">
+        <div className="cd-block">
+          <div className="cd-num" id="cd-days">000</div>
+          <div className="cd-label">Jours</div>
+        </div>
+        <div className="cd-sep">:</div>
+        <div className="cd-block">
+          <div className="cd-num" id="cd-hours">00</div>
+          <div className="cd-label">Heures</div>
+        </div>
+        <div className="cd-sep">:</div>
+        <div className="cd-block">
+          <div className="cd-num" id="cd-min">00</div>
+          <div className="cd-label">Min</div>
+        </div>
+        <div className="cd-sep">:</div>
+        <div className="cd-block">
+          <div className="cd-num" id="cd-sec">00</div>
+          <div className="cd-label">Sec</div>
+        </div>
+      </div>
+      <div className="target-date">
+        Jusqu&apos;au <strong>19/11/2026</strong>, jour de sortie de GTA 6
       </div>
 
       <div className="total-mrr">
@@ -93,9 +119,6 @@ export default function Revenue({ demo = true, total = 0, history = [], children
       <div className="pf">
         <div className="pf-list" id="pfList"></div>
       </div>
-
-      {/* le concours, regroupé dans le même bloc que le compteur */}
-      {children}
     </section>
   );
 }

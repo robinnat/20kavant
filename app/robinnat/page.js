@@ -1,5 +1,4 @@
 import SiteNav from "../../components/SiteNav";
-import Hero from "../../components/Hero";
 import Videos from "../../components/Videos";
 import Guides from "../../components/Guides";
 import About from "../../components/About";
@@ -22,14 +21,12 @@ export default async function Page() {
   return (
     <>
       <SiteNav />
-      <Hero total={data.total} goal={data.goal} />
+      {/* pas de hero : la présentation ouvre directement la page */}
+      <About />
       <Videos />
       <Guides />
-      {/* compteur, projets et concours regroupés dans un seul bloc */}
-      <Revenue demo={data.demo} total={data.total} history={data.history ?? []}>
-        <Contest />
-      </Revenue>
-      <About />
+      <Revenue demo={data.demo} total={data.total} history={data.history ?? []} />
+      <Contest />
       <Follow />
       <Footer />
       <Interactions data={data} />

@@ -8,16 +8,19 @@
      --cream reste le nom de la couleur de texte principale : elle est
      simplement passée du crème au violet sombre. */
   :root{
-    --bg-deep:#FAF6F0;
+    --bg-deep:#FFFFFF;
     --bg-panel:#FFFFFF;
-    --bg-panel-2:#F2EBE1;
+    --bg-panel-2:#F7F7F8;
     --pink:#D42D7D;
     --teal:#7A4FBF;
     --orange:#B85520;
-    --cream:#1E1330;
-    --muted:#6B5B84;
-    --line: rgba(30,19,48,0.14);
+    --cream:#161221;
+    --muted:#6B6580;
+    --line: rgba(22,18,33,0.11);
     --sunset: linear-gradient(180deg,#7A4FBF 0%,#D42D7D 55%,#B85520 100%);
+    /* le pied de page repasse en sombre : le dégradé du bandeau Vice City y
+       plonge naturellement */
+    --footer-dark:#19112E;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -39,90 +42,33 @@
 
   /* ---------- nav (header sticky) ---------- */
   html{ scroll-behavior:smooth; }
-  :target{ scroll-margin-top:78px; }
-  .site-nav{ position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 6vw; background:rgba(250,246,240,0.82); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
-  .site-nav .brand{ display:inline-flex; align-items:baseline; gap:1px; white-space:nowrap; }
+  :target{ scroll-margin-top:96px; }
+  /* barre flottante en pilule, posée sur la page */
+  .site-nav{
+    position:sticky; top:14px; z-index:50;
+    width:min(1080px, calc(100% - 28px)); margin:14px auto 0;
+    display:flex; align-items:center; gap:18px;
+    padding:9px 20px; border-radius:999px;
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border:1px solid var(--line);
+    box-shadow:0 2px 12px rgba(22,18,33,0.06);
+  }
+  .site-nav .brand{ display:inline-flex; align-items:baseline; gap:1px; white-space:nowrap; padding-right:18px; border-right:1px solid var(--line); }
   .site-nav .brand b{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:24px; letter-spacing:.04em; background:var(--sunset); -webkit-background-clip:text; background-clip:text; color:transparent; }
   .site-nav .brand small{ font-size:13px; letter-spacing:.02em; color:var(--muted); font-weight:600; }
   .nav-links{ display:flex; gap:4px; }
   .nav-links a{ font-size:13px; font-weight:600; color:var(--muted); padding:8px 12px; border-radius:8px; white-space:nowrap; transition:color .15s ease, background .15s ease; }
   .nav-links a:hover{ color:var(--cream); background:rgba(30,19,48,0.05); }
   @media(max-width:760px){
-    .site-nav{ padding:10px 14px; gap:10px; }
+    .site-nav{ padding:8px 12px; gap:10px; top:10px; margin-top:10px; width:calc(100% - 20px); }
     .site-nav .brand{ display:none; }
     .nav-links{ overflow-x:auto; gap:0; -webkit-overflow-scrolling:touch; scrollbar-width:none; justify-content:center; width:100%; }
     .nav-links::-webkit-scrollbar{ display:none; }
     .nav-links a{ padding:7px 8px; font-size:12px; }
   }
-
-  /* ---------- hero ---------- */
-  /* page perso : le hero présente Robin, il ne prend plus tout l'écran */
-  .hero{
-    position:relative;
-    display:flex; flex-direction:column; justify-content:center; align-items:center;
-    padding:56px 6vw 68px;
-    text-align:center;
-    overflow:hidden;
-  }
-  .hero::before{
-    content:"";
-    position:absolute; inset:0;
-    background:
-      radial-gradient(135% 78% at 50% 122%, rgba(244,147,107,0.26), rgba(232,88,158,0.14) 32%, transparent 64%),
-      radial-gradient(120% 60% at 50% -8%, rgba(183,155,230,0.20), transparent 55%),
-      linear-gradient(180deg, #FAF6F0 0%, #F7F0E8 52%, #F3EAF2 100%);
-    z-index:-2;
-  }
-  .skyline{ display:none; }
-  .hero-avatar{
-    width:88px; height:88px; border-radius:50%; object-fit:cover; margin-bottom:22px;
-    border:2px solid rgba(183,155,230,0.55);
-    box-shadow:0 0 0 4px rgba(250,246,240,0.9), 0 8px 20px rgba(30,19,48,0.14);
-  }
-  /* soleil + grille retirés */
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:12px; letter-spacing:0.18em; text-transform:uppercase;
-    color:var(--teal); border:1px solid rgba(183,155,230,0.4);
-    padding:6px 14px; border-radius:999px; margin-bottom:26px;
-    background:rgba(183,155,230,0.06);
-  }
-  .eyebrow span.blip{width:6px;height:6px;border-radius:50%;background:var(--teal); box-shadow:0 0 8px var(--teal); animation:pulse 1.6s infinite;}
-  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:0.25;}}
-
-  .builder-tag{
-    display:inline-flex; align-items:center; gap:10px;
-    margin-bottom:18px; font-size:13px; color:var(--cream);
-  }
-
-  .hero-kick{ font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--pink); margin-bottom:12px; }
-  .headline{
-    font-family:'Pricedown','Anton', sans-serif;
-    font-weight:400;
-    font-size:clamp(42px, 7.5vw, 86px);
-    line-height:0.9;
-    text-wrap:balance;
-    color:var(--cream);
-  }
-  .headline .accent{color:var(--pink);}
-  .headline .accent2{color:var(--orange);}
-  .gta-vi{
-    background:var(--sunset);
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-    -webkit-text-stroke:1.5px rgba(25,17,46,0.55);
-    filter:drop-shadow(0 4px 0 rgba(200,72,150,0.55)) drop-shadow(0 0 34px rgba(244,147,107,0.55));
-  }
-  /* le logo GTA vit maintenant dans la ligne d'objectif, à hauteur de texte */
-  .gta-logo{
-    display:inline-block; vertical-align:-.24em; margin-left:12px;
-    height:1.5em; width:auto;
-  }
-
-  .sub{
-    max-width:600px; margin:26px auto 0;
-    color:var(--muted); font-size:17px; line-height:1.65;
-  }
-  .sub strong{color:var(--cream); font-weight:600;}
+  /* la page ouvre sur « Moi c'est Robin » : de l'air sous la barre flottante */
+  #about{ padding-top:66px; }
 
   /* ---------- countdown ---------- */
   .countdown{
@@ -145,18 +91,15 @@
     .cd-num{ font-size:min(42px, 10vw); }
     .cd-label{ font-size:10px; letter-spacing:0.05em; margin-top:7px; }
     .cd-sep{ font-size:min(36px, 8.5vw); align-self:center; transform:translateY(-2px); }
-    .eyebrow{ font-size:10px; letter-spacing:0.08em; padding:5px 11px; margin-bottom:20px; }
-    .headline{ font-size:44px; line-height:0.92; }
-    .sub{ font-size:15px; }
   }
 
-  .target-date{margin-top:16px; font-size:12px; color:var(--muted); letter-spacing:0.04em;}
+  .target-date{margin-top:16px; text-align:center; font-size:12px; color:var(--muted); letter-spacing:0.04em;}
   .target-date strong{color:var(--orange);}
   .target-date a{color:var(--teal); font-weight:600;}
   .target-date a:hover{text-decoration:underline;}
 
-  .hero-actions{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:30px; }
-  .hero-cta{
+  .btn-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:30px; }
+  .btn{
     display:inline-flex; align-items:center; justify-content:center;
     padding:14px 26px; border-radius:12px;
     font-weight:700; font-size:15px; letter-spacing:.01em;
@@ -164,34 +107,9 @@
     border:1px solid transparent;
     transition:transform .15s ease, background .15s ease, border-color .15s ease;
   }
-  .hero-cta:hover{ transform:translateY(-2px); }
-  .hero-cta.ghost{ background:transparent; color:var(--cream); border-color:rgba(30,19,48,0.22); }
-  .hero-cta.ghost:hover{ border-color:var(--pink); background:rgba(232,88,158,0.08); }
-
-  /* bandeau du défi, sous la présentation */
-  .hero-goal{
-    margin-top:44px; width:100%; max-width:760px;
-    padding:26px 26px 24px; border-radius:18px;
-    background:rgba(255,255,255,0.72); border:1px solid var(--line);
-  }
-  .hero-goal-kick{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--pink); }
-  .hero-goal-line{
-    font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400;
-    font-size:clamp(26px,4.4vw,42px); line-height:1.12; letter-spacing:.01em;
-    color:var(--cream); margin-top:10px;
-  }
-  .hero-goal-line .accent{ color:var(--pink); }
-  .hero-goal-line .accent2{ color:var(--orange); }
-  .hero-progress{ margin-top:18px; }
-  .hero-progress-bar{ height:6px; border-radius:999px; background:rgba(30,19,48,0.07); border:1px solid var(--line); overflow:hidden; }
-  .hero-progress-bar span{ display:block; height:100%; min-width:4px; border-radius:999px; background:linear-gradient(90deg,var(--orange),var(--pink)); }
-  .hero-progress-txt{ margin-top:10px; font-size:13px; color:var(--muted); }
-  .hero-progress-txt strong{ color:var(--cream); font-weight:700; }
-  .hero-progress-pct{ color:var(--pink); font-weight:600; }
-  @media(max-width:560px){
-    .hero-goal{ padding:22px 18px; margin-top:34px; }
-    .hero-cta{ padding:13px 20px; font-size:14px; }
-  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn.ghost{ background:transparent; color:var(--cream); border-color:rgba(30,19,48,0.22); }
+  .btn.ghost:hover{ border-color:var(--pink); background:rgba(232,88,158,0.08); }
 
   /* ---------- sections shared ---------- */
   section{padding:90px 6vw; max-width:1180px; margin:0 auto;}
@@ -391,17 +309,21 @@
     border-top:none;
     padding:0 0 50px;
     text-align:center;
+    background:var(--footer-dark);
+    color:#F6E7D6;
   }
   .footer-banner{ position:relative; width:100%; line-height:0; }
   .footer-banner img{ width:100%; height:clamp(340px,40vw,520px); object-fit:cover; object-position:center; display:block; }
+  /* plus de fondu en haut : l'image démarre franchement. En bas elle plonge
+     dans le sombre du pied de page. */
   .footer-banner::after{
     content:""; position:absolute; inset:0; pointer-events:none;
-    background:linear-gradient(180deg, var(--bg-deep) 0%, transparent 20%, transparent 64%, var(--bg-deep) 100%);
+    background:linear-gradient(180deg, transparent 62%, var(--footer-dark) 100%);
   }
   .foot-inner{ padding:30px 6vw 0; }
-  .foot-rule{font-size:12px; color:var(--muted); max-width:480px; margin:0 auto 14px; line-height:1.6;}
-  .foot-links{display:flex; justify-content:center; gap:18px; font-size:12px; color:var(--muted);}
-  .foot-links a:hover{color:var(--cream);}
+  .foot-rule{font-size:12px; color:rgba(246,231,214,0.62); max-width:480px; margin:0 auto 14px; line-height:1.6;}
+  .foot-links{display:flex; justify-content:center; gap:18px; font-size:12px; color:rgba(246,231,214,0.72);}
+  .foot-links a:hover{color:#F6E7D6;}
 
   /* ---------- CTA sous les étapes de participation ---------- */
   .steps-cta{ text-align:center; margin-top:28px; }

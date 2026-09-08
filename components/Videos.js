@@ -10,7 +10,7 @@ export default function Videos() {
       </div>
 
       <p className="video-cta">
-        <a className="hero-cta" href="https://youtube.com/@robinnat20" target="_blank" rel="noopener">
+        <a className="btn" href="https://youtube.com/@robinnat20" target="_blank" rel="noopener">
           Voir mes vidéos sur YouTube
         </a>
       </p>
