@@ -48,7 +48,7 @@
     position:sticky; top:14px; z-index:50;
     width:min(1080px, calc(100% - 28px)); margin:14px auto 0;
     display:flex; align-items:center; gap:18px;
-    padding:9px 20px; border-radius:999px;
+    padding:9px 18px; border-radius:16px;
     background:rgba(255,255,255,0.88);
     backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
     border:1px solid var(--line);
@@ -136,7 +136,7 @@
     padding:5px 12px; border-radius:6px; margin-bottom:18px;
   }
 
-  .total-mrr{ margin-bottom:54px; display:flex; flex-direction:column; align-items:center; width:100%; }
+  .total-mrr{ margin-top:44px; margin-bottom:10px; display:flex; flex-direction:column; align-items:center; width:100%; }
   .mrr-head{ text-align:center; margin-bottom:26px; }
   .mrr-head .big{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:clamp(60px,12vw,118px); line-height:.86; letter-spacing:.02em; color:var(--cream); }
   .mrr-head .big .cur{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:.42em; color:var(--teal); vertical-align:.28em; margin-right:4px; text-shadow:none; }
@@ -161,6 +161,7 @@
   }
   .mrr-delta{ display:inline-flex; align-items:center; gap:7px; margin-top:26px; padding:7px 14px; border-radius:999px; background:rgba(23,121,74,0.10); border:1px solid rgba(23,121,74,0.32); color:#17794A; font-size:14px; font-weight:600; }
   .mrr-delta svg{ width:14px; height:14px; }
+  .pf-verified{ display:flex; justify-content:center; margin-top:26px; }
   .trustmrr-badge{
     display:inline-flex; align-items:center; gap:8px;
     margin-top:16px; padding:7px 14px; border-radius:999px;
@@ -327,5 +328,4 @@
 
   /* ---------- CTA sous les étapes de participation ---------- */
   .steps-cta{ text-align:center; margin-top:28px; }
-  .steps-cta a{ display:inline-flex; align-items:center; justify-content:center; padding:14px 26px; border-radius:12px; font-weight:700; font-size:15px; color:#FFF6EF; background:linear-gradient(90deg,var(--orange),var(--pink)); box-shadow:0 8px 18px rgba(30,19,48,0.18); transition:transform .15s ease; }
-  .steps-cta a:hover{ transform:translateY(-2px); }
+  /* le bouton reprend la classe .btn : plus de dégradé orange/rose */

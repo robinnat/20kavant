@@ -8,12 +8,12 @@ export default function SiteNav() {
         <small>.fr</small>
       </Link>
       <div className="nav-links">
-        <a href="#video">Vidéos</a>
-        {/* guides masqués pour l'instant — voir components/Guides.js */}
-        <a href="#revenus">Compteur</a>
-        <a href="#projets">Projets</a>
-        <a href="#lots">Concours</a>
         <a href="#about">Moi</a>
+        <a href="#projets">Projets</a>
+        {/* guides masqués pour l'instant — voir components/Guides.js */}
+        <a href="#lots">Le défi</a>
+        <a href="#participer">Participer</a>
+        <a href="#suivre">Réseaux</a>
       </div>
     </nav>
   );

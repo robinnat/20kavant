@@ -1,8 +1,7 @@
 import SiteNav from "../../components/SiteNav";
-import Videos from "../../components/Videos";
 import Guides from "../../components/Guides";
 import About from "../../components/About";
-import Revenue from "../../components/Revenue";
+import Projects from "../../components/Projects";
 import Contest from "../../components/Contest";
 import Follow from "../../components/Follow";
 import Footer from "../../components/Footer";
@@ -23,9 +22,8 @@ export default async function Page() {
       <SiteNav />
       {/* pas de hero : la présentation ouvre directement la page */}
       <About />
-      <Videos />
+      <Projects demo={data.demo} />
       <Guides />
-      <Revenue demo={data.demo} total={data.total} history={data.history ?? []} />
       <Contest />
       <Follow />
       <Footer />

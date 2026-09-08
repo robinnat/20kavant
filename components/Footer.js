@@ -5,18 +5,11 @@ export default function Footer() {
         <img src="/gta-hero-banner.png" alt="Vice City" />
       </div>
       <div className="foot-inner">
-        <p className="foot-rule">
-          Jeu-concours gratuit, sans obligation d&apos;achat. Tirages au sort parmi les abonnés au
-          moment de chaque palier. Règlement complet disponible sur demande. TikTok, Instagram et
-          YouTube ne sont ni organisateurs ni parrains de ce concours.
-        </p>
         <div className="foot-links">
-          <a href="#video">Vidéos</a>
-          {/* guides masqués pour l'instant — voir components/Guides.js */}
-          <a href="#revenus">Compteur</a>
-          <a href="#projets">Projets</a>
-          <a href="#lots">Concours</a>
           <a href="#about">Moi</a>
+          <a href="#projets">Projets</a>
+          <a href="#lots">Le défi</a>
+          <a href="#suivre">Réseaux</a>
         </div>
       </div>
     </footer>
