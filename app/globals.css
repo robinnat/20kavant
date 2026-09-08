@@ -21,6 +21,8 @@
     /* le pied de page repasse en sombre : le dégradé du bandeau Vice City y
        plonge naturellement */
     --footer-dark:#19112E;
+    /* motif ASCII de fond, réutilisable par les sections qui ont leur propre fond */
+    --ascii: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Cg font-family='monospace' font-size='13' fill='%23161221' fill-opacity='0.055'%3E%3Ctext x='4' y='16'%3E%2B%3C/text%3E%3Ctext x='40' y='16'%3E%C2%B7%3C/text%3E%3Ctext x='22' y='40'%3E%2F%3C/text%3E%3Ctext x='58' y='40'%3E%2B%3C/text%3E%3Ctext x='4' y='64'%3E%C2%B7%3C/text%3E%3Ctext x='40' y='64'%3E%2B%3C/text%3E%3C/g%3E%3C/svg%3E");
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -31,6 +33,16 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
+  /* Motif ASCII discret en fond de page : une tuile SVG de caractères
+     monospace, fixée derrière le contenu. Les sections et les cartes qui
+     posent leur propre fond le masquent, ce qui les détache du fond. */
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background-image:var(--ascii);
+    background-repeat:repeat;
+  }
+  @media(max-width:560px){ body::before{ opacity:.7; } }
   .display{font-family:'Bebas Neue',sans-serif; letter-spacing:0.02em;}
   .gta{font-family:'Pricedown','Anton',sans-serif; letter-spacing:0.01em;}
   .mono{font-family:'JetBrains Mono',monospace;}
@@ -160,19 +172,13 @@
   /* Les variables sont redéfinies ici : tout ce qui est à l'intérieur
      (compteur, jauge, bouton, compte à rebours) se re-thème automatiquement. */
   .defi{
-    --cream:#F6E7D6;
-    --muted:#A491C4;
-    --line:rgba(246,231,214,0.16);
-    --pink:#F06BA8;
-    --orange:#F4936B;
-    --teal:#B79BE6;
-    --bg-deep:#19112E;
-    max-width:none; width:100%; margin:0;
-    padding:0; color:var(--cream);
+    max-width:none; width:100%; margin:0; padding:0;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
     background:
-      radial-gradient(90% 120% at 50% 0%, rgba(232,88,158,0.16), transparent 60%),
-      radial-gradient(70% 90% at 92% 100%, rgba(244,147,107,0.14), transparent 62%),
-      #19112E;
+      var(--ascii),
+      radial-gradient(80% 120% at 12% 0%, rgba(122,79,191,0.10), transparent 58%),
+      radial-gradient(70% 100% at 92% 100%, rgba(212,45,125,0.09), transparent 60%),
+      #FBF8FC;
   }
   .defi-inner{ max-width:1180px; margin:0 auto; padding:104px 6vw; }
   .defi-head{ max-width:640px; }
@@ -193,7 +199,6 @@
   .defi .mrr-side .pct{ margin-top:0; }
   .defi .mrr-side .of{ margin-top:4px; }
   .defi .hslider, .defi .hscale{ width:100%; }
-  .defi .htrack{ background:rgba(246,231,214,0.09); }
 
   /* échéance : chiffres nus séparés par un filet, pas des cartes */
   .defi-deadline{ display:flex; align-items:center; gap:26px; flex-wrap:wrap; margin-top:56px; padding-top:34px; border-top:1px solid var(--line); }
