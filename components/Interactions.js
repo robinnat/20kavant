@@ -84,21 +84,28 @@ export default function Interactions({ data }) {
     function renderProjects() {
       const liste = document.getElementById("pfList");
       if (!liste) return;
-      const total = PROJECTS.reduce((s, p) => s + p.mrr, 0) || 1;
+      const total = PROJECTS.reduce((s, p) => s + (p.mrr ?? 0), 0) || 1;
       // La ligne mène directement au site du produit (repli sur TrustMRR si
-      // aucun site n'est renseigné dans lib/trustmrr.js).
-      liste.innerHTML = PROJECTS.map(
-        (p) => `
+      // aucun site n'est renseigné dans lib/trustmrr.js). Un projet sans
+      // revenu suivi (mrr null) s'affiche sans montant ni pourcentage.
+      liste.innerHTML = PROJECTS.map((p) => {
+        const initiale = p.name[0].replace(/"/g, "");
+        const logo = p.icon
+          ? `<img src="${p.icon}" alt="${p.name}" onerror="this.parentNode.textContent='${initiale}'">`
+          : initiale;
+        const chiffres =
+          p.mrr == null
+            ? ""
+            : `<span class="pct">${Math.round((p.mrr / total) * 100)}%</span>
+        <span class="mrr"><span class="cur">$</span>${fmtUsd(p.mrr)}<span class="unit">total</span></span>`;
+        return `
       <a class="pf-row" href="${p.site || p.url}" target="_blank" rel="noopener">
-        <span class="logo" style="background:${p.color}33;border:1px solid ${p.color}66;color:${p.color}">${
-          p.icon ? `<img src="${p.icon}" alt="${p.name}">` : p.name[0]
-        }</span>
+        <span class="logo" style="background:${p.color}33;border:1px solid ${p.color}66;color:${p.color}">${logo}</span>
         <span class="meta"><span class="nm">${p.name}</span><div class="src">${p.src}</div></span>
         <span class="spacer"></span>
-        <span class="pct">${Math.round((p.mrr / total) * 100)}%</span>
-        <span class="mrr"><span class="cur">$</span>${fmtUsd(p.mrr)}<span class="unit">total</span></span>
-      </a>`
-      ).join("");
+        ${chiffres}
+      </a>`;
+      }).join("");
     }
 
     /* ---- lancer les animations seulement quand la section entre dans l'écran ---- */
