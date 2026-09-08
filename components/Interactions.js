@@ -80,62 +80,36 @@ export default function Interactions({ data }) {
       }
     }
 
-    /* ---- paliers du concours : marque ceux déjà franchis ---- */
-    function renderPaliers() {
-      document.querySelectorAll(".palier[data-th]").forEach((p) => {
-        if (MRR.total >= +p.dataset.th) {
-          p.classList.add("reached");
-          const state = p.querySelector(".palier-state");
-          if (state) state.textContent = "Tirage fait";
-        }
-      });
-    }
-
     /* ---- projets : liste ---- */
     function renderProjects() {
+      const liste = document.getElementById("pfList");
+      if (!liste) return;
       const total = PROJECTS.reduce((s, p) => s + p.mrr, 0) || 1;
-      document.getElementById("pfList").innerHTML = PROJECTS.map(
+      // La ligne mène directement au site du produit (repli sur TrustMRR si
+      // aucun site n'est renseigné dans lib/trustmrr.js).
+      liste.innerHTML = PROJECTS.map(
         (p) => `
-      <a class="pf-row" href="${p.url}" target="_blank" rel="noopener">
+      <a class="pf-row" href="${p.site || p.url}" target="_blank" rel="noopener">
         <span class="logo" style="background:${p.color}33;border:1px solid ${p.color}66;color:${p.color}">${
           p.icon ? `<img src="${p.icon}" alt="${p.name}">` : p.name[0]
         }</span>
         <span class="meta"><span class="nm">${p.name}</span><div class="src">${p.src}</div></span>
-        ${
-          p.site
-            ? `<span class="pf-site" role="link" tabindex="0" data-url="${p.site}" title="Visiter ${p.name}"><span class="t">Visiter</span> <svg class="ico-arrow" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`
-            : ""
-        }
         <span class="spacer"></span>
         <span class="pct">${Math.round((p.mrr / total) * 100)}%</span>
         <span class="mrr"><span class="cur">$</span>${fmtUsd(p.mrr)}<span class="unit">total</span></span>
       </a>`
       ).join("");
-      // La ligne entière est déjà un lien (TrustMRR) : le bouton "Visiter"
-      // ouvre le site du produit sans déclencher le lien parent.
-      document.querySelectorAll("#pfList .pf-site").forEach((el) => {
-        const open = (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          window.open(el.dataset.url, "_blank", "noopener");
-        };
-        el.addEventListener("click", open);
-        el.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") open(e);
-        });
-      });
     }
 
     /* ---- lancer les animations seulement quand la section entre dans l'écran ---- */
     renderProjects();
-    renderPaliers();
     let played = false;
     const run = () => {
       if (played) return;
       played = true;
       renderMRR();
     };
-    const revenusEl = document.getElementById("revenus");
+    const revenusEl = document.getElementById("defi");
     let io;
     if (revenusEl && "IntersectionObserver" in window) {
       io = new IntersectionObserver(

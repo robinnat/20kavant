@@ -6,10 +6,11 @@ export default function Footer() {
       </div>
       <div className="foot-inner">
         <div className="foot-links">
-          <a href="#about">Moi</a>
-          <a href="#projets">Projets</a>
-          <a href="#lots">Le défi</a>
-          <a href="#suivre">Réseaux</a>
+          <a href="/robinnat#about">Moi</a>
+          <a href="/robinnat#projets">Projets</a>
+          <a href="/robinnat#defi">Le défi</a>
+          <a href="/robinnat/concours">Concours</a>
+          <a href="/robinnat#suivre">Réseaux</a>
         </div>
       </div>
     </footer>

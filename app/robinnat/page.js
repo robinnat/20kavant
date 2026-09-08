@@ -2,7 +2,7 @@ import SiteNav from "../../components/SiteNav";
 import Guides from "../../components/Guides";
 import About from "../../components/About";
 import Projects from "../../components/Projects";
-import Contest from "../../components/Contest";
+import Challenge from "../../components/Challenge";
 import Follow from "../../components/Follow";
 import Footer from "../../components/Footer";
 import Interactions from "../../components/Interactions";
@@ -22,9 +22,9 @@ export default async function Page() {
       <SiteNav />
       {/* pas de hero : la présentation ouvre directement la page */}
       <About />
-      <Projects demo={data.demo} />
+      <Projects />
       <Guides />
-      <Contest />
+      <Challenge />
       <Follow />
       <Footer />
       <Interactions data={data} />

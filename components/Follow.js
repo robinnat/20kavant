@@ -2,9 +2,9 @@ export default function Follow() {
   return (
     <section id="suivre">
       <div className="section-head">
-        <div className="section-title">Suivre le défi</div>
+        <div className="section-title">Suis-moi</div>
         <p className="section-desc">
-          Vidéo longue chaque dimanche. Build log brut le reste de la semaine.
+          Je partage l&apos;avancée du défi et ce que j&apos;apprends en construisant.
         </p>
       </div>
       <div className="social-row">

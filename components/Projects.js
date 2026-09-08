@@ -1,14 +1,9 @@
 // Mes projets : la liste est rendue par components/Interactions.js à partir
 // des données TrustMRR (voir lib/trustmrr.js).
-export default function Projects({ demo = true }) {
+export default function Projects() {
   return (
     <section id="projets">
       <div className="section-head">
-        <div className="demo-ribbon">
-          {demo
-            ? "● Mode démo · connexion TrustMRR à venir"
-            : "● En direct · revenus vérifiés via TrustMRR"}
-        </div>
         <div className="section-title">Mes projets</div>
         <p className="section-desc">
           Les produits que je développe, et ce qu&apos;ils rapportent vraiment. Pas de chiffres
