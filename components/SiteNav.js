@@ -9,7 +9,7 @@ export default function SiteNav() {
       </Link>
       <div className="nav-links">
         <a href="#video">Vidéos</a>
-        <a href="#guides">Guides</a>
+        {/* guides masqués pour l'instant — voir components/Guides.js */}
         <a href="#revenus">Compteur</a>
         <a href="#projets">Projets</a>
         <a href="#lots">Concours</a>

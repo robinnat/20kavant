@@ -3,14 +3,14 @@ import RevenueChart from "./RevenueChart";
 // Graphique de progression masqué pour l'instant — repasse à true pour le réafficher.
 const SHOW_CHART = false;
 
-export default function Revenue({ demo = true, total = 0, history = [] }) {
+export default function Revenue({ demo = true, total = 0, history = [], children = null }) {
   return (
     <section id="revenus">
       <div className="section-head">
         <div className="demo-ribbon">
           {demo
             ? "● Mode démo · connexion TrustMRR à venir"
-            : "● En direct · MRR vérifié via TrustMRR"}
+            : "● En direct · revenus vérifiés via TrustMRR"}
         </div>
         <div className="section-title">Le compteur, en direct</div>
         <p className="section-desc">
@@ -24,10 +24,10 @@ export default function Revenue({ demo = true, total = 0, history = [] }) {
           <div className="big">
             <span className="cur">$</span>
             <span id="mrrFig">0</span>
-            <span className="unit">/mois</span>
+            <span className="unit">au total</span>
           </div>
           <div className="pct" id="mrrPct">0%</div>
-          <div className="of">objectif $20,000</div>
+          <div className="of">objectif $20,000 de revenus</div>
         </div>
         <div className="hslider">
           <div className="htrack">
@@ -85,15 +85,17 @@ export default function Revenue({ demo = true, total = 0, history = [] }) {
       {/* progression sur l'année */}
       {SHOW_CHART && <RevenueChart total={total} history={history} />}
 
-      {/* d'où vient le MRR */}
-      <div className="section-head" id="projets" style={{ marginTop: "74px" }}>
-        <div className="section-title">D&apos;où viennent les revenus</div>
-        <p className="section-desc">Le détail, projet par projet.</p>
+      {/* d'où viennent les revenus */}
+      <div className="sub-head" id="projets">
+        <h3 className="sub-title">D&apos;où viennent les revenus</h3>
+        <p className="sub-desc">Le détail, projet par projet.</p>
       </div>
-      {/* TODO: brancher les vraies valeurs / URLs / logos dans le script (objet PROJECTS) */}
       <div className="pf">
         <div className="pf-list" id="pfList"></div>
       </div>
+
+      {/* le concours, regroupé dans le même bloc que le compteur */}
+      {children}
     </section>
   );
 }

@@ -178,6 +178,12 @@
   }
   .hero-goal-line .accent{ color:var(--pink); }
   .hero-goal-line .accent2{ color:var(--orange); }
+  .hero-progress{ margin-top:18px; }
+  .hero-progress-bar{ height:6px; border-radius:999px; background:rgba(246,231,214,0.09); border:1px solid var(--line); overflow:hidden; }
+  .hero-progress-bar span{ display:block; height:100%; min-width:4px; border-radius:999px; background:linear-gradient(90deg,var(--orange),var(--pink)); }
+  .hero-progress-txt{ margin-top:10px; font-size:13px; color:var(--muted); }
+  .hero-progress-txt strong{ color:var(--cream); font-weight:700; }
+  .hero-progress-pct{ color:var(--pink); font-weight:600; }
   @media(max-width:560px){
     .hero-goal{ padding:22px 18px; margin-top:34px; }
     .hero-cta{ padding:13px 20px; font-size:14px; }
@@ -189,6 +195,11 @@
   .section-eyebrow{font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--pink); margin-bottom:10px;}
   .section-title{font-family:'Pricedown','Bebas Neue',sans-serif; font-size:clamp(34px,5.4vw,58px); letter-spacing:0.01em;}
   .section-desc{color:var(--muted); max-width:520px; margin:14px auto 0; font-size:15px; line-height:1.6;}
+  /* sous-bloc d'une section (compteur → projets → concours) : plus discret
+     qu'un titre de section, pour que l'ensemble se lise comme un seul bloc */
+  .sub-head{ text-align:center; margin:74px 0 30px; }
+  .sub-title{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:clamp(26px,3.4vw,38px); letter-spacing:.01em; color:var(--cream); }
+  .sub-desc{ color:var(--muted); max-width:520px; margin:10px auto 0; font-size:14px; line-height:1.6; }
 
   /* ---------- vidéo de présentation ---------- */
   #video{ padding-top:70px; padding-bottom:40px; }

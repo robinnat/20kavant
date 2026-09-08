@@ -12,7 +12,7 @@ export default function Footer() {
         </p>
         <div className="foot-links">
           <a href="#video">Vidéos</a>
-          <a href="#guides">Guides</a>
+          {/* guides masqués pour l'instant — voir components/Guides.js */}
           <a href="#revenus">Compteur</a>
           <a href="#projets">Projets</a>
           <a href="#lots">Concours</a>

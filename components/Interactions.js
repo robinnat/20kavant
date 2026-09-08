@@ -42,7 +42,7 @@ export default function Interactions({ data }) {
 
     /* ====== DONNÉES (réelles, via TrustMRR — voir lib/trustmrr.js) ====== */
     const MRR = {
-      total: data.total, // MRR total cumulé
+      total: data.total, // revenu total cumulé
       goal: data.goal, // objectif
       deltaMonth: data.deltaMonth, // variation du mois
     };
@@ -108,7 +108,7 @@ export default function Interactions({ data }) {
         }
         <span class="spacer"></span>
         <span class="pct">${Math.round((p.mrr / total) * 100)}%</span>
-        <span class="mrr"><span class="cur">$</span>${fmtUsd(p.mrr)}<span class="unit">/mois</span></span>
+        <span class="mrr"><span class="cur">$</span>${fmtUsd(p.mrr)}<span class="unit">total</span></span>
       </a>`
       ).join("");
       // La ligne entière est déjà un lien (TrustMRR) : le bouton "Visiter"

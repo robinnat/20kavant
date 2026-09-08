@@ -9,9 +9,9 @@ const SITE_URL =
     `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ||
   "https://20kavant.fr";
 
-const TITLE = "20Kavant.fr · 20K de MRR avant GTA 6";
+const TITLE = "20Kavant.fr · 20K de revenus avant GTA 6";
 const DESCRIPTION =
-  "Objectif : 20K de MRR avant la sortie de GTA 6 (19/11/2026). Build in public, solo, entre un job et une famille. MRR vérifié via TrustMRR.";
+  "Objectif : 20K de revenus avant la sortie de GTA 6 (19/11/2026). Build in public, solo, entre un job et une famille. Revenus vérifiés via TrustMRR.";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),

@@ -1,23 +1,21 @@
-// Guides / tutos mis en avant sur la page.
+// Section « Mes guides » — MASQUÉE pour l'instant.
 //
-// Pour en ajouter un : une entrée de plus dans GUIDES.
+// Pour l'afficher : passer AFFICHER à true et remplir GUIDES.
+// La section réapparaîtra aussi dans la nav (components/SiteNav.js), le pied
+// de page (components/Footer.js) et le second bouton du hero — les liens y
+// sont commentés au même endroit.
+const AFFICHER = false;
+
+// Une entrée par guide :
 //   tag   : catégorie affichée au-dessus du titre
 //   title : titre du guide
 //   desc  : une phrase, ce que le lecteur y apprend
-//   url   : lien externe (ouvert dans un nouvel onglet)
-//
-// ⚠️ La première entrée est l'exemple que tu m'as donné, à remplacer par tes
-// propres guides.
-const GUIDES = [
-  {
-    tag: "Création de contenu",
-    title: "MiniMax H3 — le modèle vidéo gratuit",
-    desc: "Générer des vidéos avec un modèle gratuit, de l'installation aux premiers rendus.",
-    url: "https://guides.0xloucash.xyz/Création+de+Contenu/Guides+DM/MiniMax+H3+-+le+modele+video+gratuit",
-  },
-];
+//   url   : lien externe (Obsidian Publish, par exemple), ouvert dans un onglet
+const GUIDES = [];
 
 export default function Guides() {
+  if (!AFFICHER || !GUIDES.length) return null;
+
   return (
     <section id="guides">
       <div className="section-head">

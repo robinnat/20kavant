@@ -22,11 +22,13 @@ export default async function Page() {
   return (
     <>
       <SiteNav />
-      <Hero />
+      <Hero total={data.total} goal={data.goal} />
       <Videos />
       <Guides />
-      <Revenue demo={data.demo} total={data.total} history={data.history ?? []} />
-      <Contest />
+      {/* compteur, projets et concours regroupés dans un seul bloc */}
+      <Revenue demo={data.demo} total={data.total} history={data.history ?? []}>
+        <Contest />
+      </Revenue>
       <About />
       <Follow />
       <Footer />

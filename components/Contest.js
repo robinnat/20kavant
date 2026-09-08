@@ -7,10 +7,10 @@ const PALIERS = [
 
 export default function Contest() {
   return (
-    <section id="lots">
-      <div className="section-head">
-        <div className="section-title">Le concours</div>
-        <p className="section-desc">
+    <>
+      <div className="sub-head" id="lots">
+        <h3 className="sub-title">Le concours</h3>
+        <p className="sub-desc">
           Chaque palier franchi débloque un tirage au sort parmi mes abonnés, jusqu&apos;au palier
           final le jour de la sortie de GTA 6. Gratuit, sans obligation d&apos;achat.
         </p>
@@ -32,9 +32,9 @@ export default function Contest() {
         ))}
       </div>
 
-      <div className="section-head" id="participer" style={{ marginTop: "64px" }}>
-        <div className="section-title">Comment participer</div>
-        <p className="section-desc">
+      <div className="sub-head" id="participer">
+        <h3 className="sub-title">Comment participer</h3>
+        <p className="sub-desc">
           Il suffit de me suivre : chaque réseau où tu t&apos;abonnes est une chance de gagner en
           plus.
         </p>
@@ -69,6 +69,6 @@ export default function Contest() {
       <p className="steps-cta">
         <a href="#suivre">Suis-moi sur les réseaux pour participer →</a>
       </p>
-    </section>
+    </>
   );
 }
