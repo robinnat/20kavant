@@ -12,15 +12,16 @@ export default async function About() {
           <div className="about-kick">Qui suis-je</div>
           <h2>Moi c&apos;est Robin</h2>
           <p>
-            Je viens de la tech et je travaille sur l&apos;IA au quotidien. Je développe des
-            logiciels et des applications, et j&apos;accompagne des entreprises sur leurs projets :
-            automatiser ce qui peut l&apos;être, intégrer l&apos;IA là où elle sert vraiment,
-            construire les outils qui manquent.
+            Ingénieur en électronique de formation, je travaille aujourd&apos;hui dans la tech
+            et sur l&apos;IA au quotidien. Je développe des logiciels et des applications, et
+            j&apos;accompagne des entreprises sur leurs projets : automatiser ce qui peut
+            l&apos;être, intégrer l&apos;IA là où elle sert vraiment, construire les outils qui
+            manquent.
           </p>
           <p>
-            En dehors de mon travail, je construis mes propres produits — le soir, le week-end,
-            entre un job à plein temps et une vie de famille. Tout ce qu&apos;ils rapportent est
-            public et vérifié.
+            En dehors de mon travail, je construis mes propres produits, le soir et le
+            week-end, entre un job à plein temps et une vie de famille. Tout ce qu&apos;ils
+            rapportent est public et vérifié.
           </p>
           <div className="about-social">
             <a href="https://youtube.com/@robinnat20" target="_blank" rel="noopener" aria-label="YouTube">

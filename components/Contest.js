@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Counter from "./Counter";
 import PaliersState from "./PaliersState";
 
 const PALIERS = [
@@ -17,11 +18,20 @@ export default function Contest({ total = 0 }) {
           <div className="section-title">Tente de gagner GTA 6</div>
           <p className="section-desc">
             Je vise 20K de revenus avant la sortie du jeu. À chaque palier franchi, je tire au
-            sort un abonné et je lui offre GTA 6 — et une PS5 avec le jeu au palier final.
+            sort un abonné et je lui offre GTA 6, et une PS5 avec le jeu au palier final.
             Gratuit, sans obligation d&apos;achat.
           </p>
         </div>
 
+        {/* où en est le défi, rappelé ici */}
+        <div className="defi-card defi-card-slim">
+          <Counter total={total} goal={20000} />
+        </div>
+
+        <div className="sub-head">
+          <h3 className="sub-title">Les paliers</h3>
+          <p className="sub-desc">Un tirage au sort à chaque palier franchi, jusqu&apos;au 19/11.</p>
+        </div>
         <div className="paliers">
           {PALIERS.map((p) => (
             <div key={p.th} className={`palier${p.final ? " final" : ""}`} data-th={p.th}>

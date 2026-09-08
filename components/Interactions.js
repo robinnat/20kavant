@@ -41,44 +41,9 @@ export default function Interactions({ data }) {
     const cdInterval = setInterval(tick, 1000);
 
     /* ====== DONNÉES (réelles, via TrustMRR — voir lib/trustmrr.js) ====== */
-    const MRR = {
-      total: data.total, // revenu total cumulé
-      goal: data.goal, // objectif
-      deltaMonth: data.deltaMonth, // variation du mois
-    };
     const PROJECTS = [...data.projects];
 
     const fmtUsd = (n) => Math.round(n).toLocaleString("en-US");
-    const fmtPct = (n) =>
-      n.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + "%";
-
-    /* ---- compteur · slider horizontal (jauge + odomètre) ---- */
-    function renderMRR() {
-      const pct = Math.min(MRR.total / MRR.goal, 1);
-      requestAnimationFrame(() => {
-        document.getElementById("hfill").style.width = pct * 100 + "%";
-        // le curseur (Ø 26px) est borné de son rayon (13px) à chaque extrémité
-        // pour qu'il reste à l'intérieur du track à 0% comme à 100%.
-        document.getElementById("hthumb").style.left = `calc(13px + ${pct} * (100% - 26px))`;
-      });
-      // libellé gauche de l'échelle : le montant réel, pas un "$0" figé
-      document.getElementById("mrrScaleNow").textContent = "$" + fmtUsd(MRR.total);
-      const start = performance.now();
-      (function step(t) {
-        const p = Math.min((t - start) / 1600, 1);
-        const e = 1 - Math.pow(1 - p, 3);
-        document.getElementById("mrrFig").textContent = fmtUsd(MRR.total * e);
-        document.getElementById("mrrPct").textContent = fmtPct((MRR.total * e) / MRR.goal * 100);
-        if (p < 1) requestAnimationFrame(step);
-      })(performance.now());
-      const d = document.getElementById("mrrDelta");
-      if (MRR.deltaMonth > 0) {
-        d.childNodes[d.childNodes.length - 1].textContent =
-          " +$" + fmtUsd(MRR.deltaMonth) + " ce mois-ci";
-      } else {
-        d.style.display = "none";
-      }
-    }
 
     /* ---- projets : liste ---- */
     function renderProjects() {
@@ -108,35 +73,11 @@ export default function Interactions({ data }) {
       }).join("");
     }
 
-    /* ---- lancer les animations seulement quand la section entre dans l'écran ---- */
+    /* ---- rendu de la liste des projets ---- */
     renderProjects();
-    let played = false;
-    const run = () => {
-      if (played) return;
-      played = true;
-      renderMRR();
-    };
-    const revenusEl = document.getElementById("defi");
-    let io;
-    if (revenusEl && "IntersectionObserver" in window) {
-      io = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            run();
-            io.disconnect();
-          }
-        },
-        { threshold: 0.3 }
-      );
-      io.observe(revenusEl);
-    } else {
-      // section absente ou navigateur sans IntersectionObserver : on lance direct
-      run();
-    }
 
     return () => {
       clearInterval(cdInterval);
-      io?.disconnect();
     };
   }, [data]);
 

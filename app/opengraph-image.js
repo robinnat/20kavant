@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
 import { join } from "path";
 
-export const alt = "20Kavant.fr — 20K de MRR avant la sortie de GTA 6";
+export const alt = "20Kavant.fr · 20K de revenus avant la sortie de GTA 6";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -99,7 +99,7 @@ export default function Image() {
           </div>
 
           <div style={{ display: "flex", marginTop: 34, fontSize: 31, color: "#A491C4" }}>
-            Solo, taf, famille — objectif $20,000 de MRR avant le 19/11/2026
+            Solo, taf, famille · objectif $20,000 de revenus avant le 19/11/2026
           </div>
         </div>
       </div>

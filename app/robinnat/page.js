@@ -24,7 +24,7 @@ export default async function Page() {
       <About />
       <Projects />
       <Guides />
-      <Challenge />
+      <Challenge total={data.total} goal={data.goal} />
       <Follow />
       <Footer />
       <Interactions data={data} />
