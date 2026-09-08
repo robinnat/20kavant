@@ -3,17 +3,21 @@
     src:url('/fonts/pricedown.woff2') format('woff2');
     font-weight:normal; font-style:normal; font-display:swap;
   }
+  /* Thème clair. Les accents sont des versions assombries des couleurs GTA
+     d'origine, pour rester lisibles sur fond clair (contraste ≥ 4.4:1).
+     --cream reste le nom de la couleur de texte principale : elle est
+     simplement passée du crème au violet sombre. */
   :root{
-    --bg-deep:#19112E;
-    --bg-panel:#251743;
-    --bg-panel-2:#2E1B52;
-    --pink:#E8589E;
-    --teal:#B79BE6;
-    --orange:#F4936B;
-    --cream:#F6E7D6;
-    --muted:#A491C4;
-    --line: rgba(246,231,214,0.12);
-    --sunset: linear-gradient(180deg,#D7C4F0 0%,#E79DBE 38%,#F2A079 72%,#E8589E 100%);
+    --bg-deep:#FAF6F0;
+    --bg-panel:#FFFFFF;
+    --bg-panel-2:#F2EBE1;
+    --pink:#D42D7D;
+    --teal:#7A4FBF;
+    --orange:#B85520;
+    --cream:#1E1330;
+    --muted:#6B5B84;
+    --line: rgba(30,19,48,0.14);
+    --sunset: linear-gradient(180deg,#7A4FBF 0%,#D42D7D 55%,#B85520 100%);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -36,13 +40,13 @@
   /* ---------- nav (header sticky) ---------- */
   html{ scroll-behavior:smooth; }
   :target{ scroll-margin-top:78px; }
-  .site-nav{ position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 6vw; background:rgba(21,11,46,0.72); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  .site-nav{ position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 6vw; background:rgba(250,246,240,0.82); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
   .site-nav .brand{ display:inline-flex; align-items:baseline; gap:1px; white-space:nowrap; }
   .site-nav .brand b{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:24px; letter-spacing:.04em; background:var(--sunset); -webkit-background-clip:text; background-clip:text; color:transparent; }
   .site-nav .brand small{ font-size:13px; letter-spacing:.02em; color:var(--muted); font-weight:600; }
   .nav-links{ display:flex; gap:4px; }
   .nav-links a{ font-size:13px; font-weight:600; color:var(--muted); padding:8px 12px; border-radius:8px; white-space:nowrap; transition:color .15s ease, background .15s ease; }
-  .nav-links a:hover{ color:var(--cream); background:rgba(246,231,214,0.06); }
+  .nav-links a:hover{ color:var(--cream); background:rgba(30,19,48,0.05); }
   @media(max-width:760px){
     .site-nav{ padding:10px 14px; gap:10px; }
     .site-nav .brand{ display:none; }
@@ -64,16 +68,16 @@
     content:"";
     position:absolute; inset:0;
     background:
-      radial-gradient(135% 78% at 50% 122%, rgba(244,147,107,0.38), rgba(232,88,158,0.20) 32%, transparent 64%),
-      radial-gradient(120% 60% at 50% -8%, rgba(215,196,240,0.16), transparent 55%),
-      linear-gradient(180deg, #19112E 0%, #221544 52%, #2C1A50 100%);
+      radial-gradient(135% 78% at 50% 122%, rgba(244,147,107,0.26), rgba(232,88,158,0.14) 32%, transparent 64%),
+      radial-gradient(120% 60% at 50% -8%, rgba(183,155,230,0.20), transparent 55%),
+      linear-gradient(180deg, #FAF6F0 0%, #F7F0E8 52%, #F3EAF2 100%);
     z-index:-2;
   }
   .skyline{ display:none; }
   .hero-avatar{
     width:88px; height:88px; border-radius:50%; object-fit:cover; margin-bottom:22px;
     border:2px solid rgba(183,155,230,0.55);
-    box-shadow:0 0 0 4px rgba(25,17,46,0.5), 0 10px 26px rgba(0,0,0,0.45);
+    box-shadow:0 0 0 4px rgba(250,246,240,0.9), 0 8px 20px rgba(30,19,48,0.14);
   }
   /* soleil + grille retirés */
   .eyebrow{
@@ -156,19 +160,19 @@
     display:inline-flex; align-items:center; justify-content:center;
     padding:14px 26px; border-radius:12px;
     font-weight:700; font-size:15px; letter-spacing:.01em;
-    background:var(--cream); color:#19112E;
+    background:var(--cream); color:var(--bg-deep);
     border:1px solid transparent;
     transition:transform .15s ease, background .15s ease, border-color .15s ease;
   }
   .hero-cta:hover{ transform:translateY(-2px); }
-  .hero-cta.ghost{ background:transparent; color:var(--cream); border-color:rgba(246,231,214,0.3); }
+  .hero-cta.ghost{ background:transparent; color:var(--cream); border-color:rgba(30,19,48,0.22); }
   .hero-cta.ghost:hover{ border-color:var(--pink); background:rgba(232,88,158,0.08); }
 
   /* bandeau du défi, sous la présentation */
   .hero-goal{
     margin-top:44px; width:100%; max-width:760px;
     padding:26px 26px 24px; border-radius:18px;
-    background:rgba(37,23,67,0.55); border:1px solid var(--line);
+    background:rgba(255,255,255,0.72); border:1px solid var(--line);
   }
   .hero-goal-kick{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--pink); }
   .hero-goal-line{
@@ -179,7 +183,7 @@
   .hero-goal-line .accent{ color:var(--pink); }
   .hero-goal-line .accent2{ color:var(--orange); }
   .hero-progress{ margin-top:18px; }
-  .hero-progress-bar{ height:6px; border-radius:999px; background:rgba(246,231,214,0.09); border:1px solid var(--line); overflow:hidden; }
+  .hero-progress-bar{ height:6px; border-radius:999px; background:rgba(30,19,48,0.07); border:1px solid var(--line); overflow:hidden; }
   .hero-progress-bar span{ display:block; height:100%; min-width:4px; border-radius:999px; background:linear-gradient(90deg,var(--orange),var(--pink)); }
   .hero-progress-txt{ margin-top:10px; font-size:13px; color:var(--muted); }
   .hero-progress-txt strong{ color:var(--cream); font-weight:700; }
@@ -203,7 +207,7 @@
 
   /* ---------- vidéo de présentation ---------- */
   #video{ padding-top:70px; padding-bottom:40px; }
-  .video-frame{ position:relative; max-width:860px; margin:0 auto; aspect-ratio:16/9; border-radius:18px; overflow:hidden; border:1px solid var(--line); background:var(--bg-panel); box-shadow:0 18px 50px rgba(0,0,0,0.35); }
+  .video-frame{ position:relative; max-width:860px; margin:0 auto; aspect-ratio:16/9; border-radius:18px; overflow:hidden; border:1px solid var(--line); background:var(--bg-panel); box-shadow:0 16px 40px rgba(30,19,48,0.12); }
   .video-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
 
   /* ---------- revenue ---------- */
@@ -222,14 +226,14 @@
   .mrr-head .pct{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; color:var(--pink); font-size:clamp(22px,4vw,34px); line-height:1; margin-top:4px; }
   .mrr-head .of{ color:var(--muted); font-size:13px; margin-top:6px; }
   .hslider{ position:relative; width:min(640px,90vw); height:26px; }
-  .htrack{ position:absolute; inset:0; border-radius:14px; background:rgba(246,231,214,0.07); border:1px solid var(--line); overflow:hidden; }
+  .htrack{ position:absolute; inset:0; border-radius:14px; background:rgba(30,19,48,0.06); border:1px solid var(--line); overflow:hidden; }
   /* min-width : un revenu réel mais minuscule face à l'objectif 20K resterait
      invisible (0,05% ≈ 0,3px) — on garde un liseré visible dès que width>0. */
   .hfill{ position:absolute; left:0; top:0; bottom:0; width:0; background:linear-gradient(90deg,var(--orange),var(--pink)); transition:width 1.6s cubic-bezier(.22,1,.36,1); }
   .hfill:not([style*="width: 0%"]){ min-width:26px; }
   .hnotch{ position:absolute; top:0; bottom:0; width:2px; background:rgba(25,17,46,0.6); z-index:1; }
   .hthumb{ position:absolute; left:13px; top:50%; transform:translate(-50%,-50%); z-index:3; transition:left 1.6s cubic-bezier(.22,1,.36,1); }
-  .hthumb .knob{ width:26px; height:26px; border-radius:50%; background:var(--cream); border:3px solid var(--pink); box-shadow:0 2px 8px rgba(0,0,0,0.35); }
+  .hthumb .knob{ width:26px; height:26px; border-radius:50%; background:#fff; border:3px solid var(--pink); box-shadow:0 2px 8px rgba(0,0,0,0.35); }
   .hscale{ position:relative; width:min(640px,90vw); display:flex; justify-content:space-between; margin-top:12px; }
   .hscale span{ font-family:'Bebas Neue',sans-serif; font-size:16px; letter-spacing:.04em; color:var(--muted); }
   .hscale span.goal{ color:var(--orange); }
@@ -237,7 +241,7 @@
   @media(max-width:560px){
     .hslider, .hscale{ width:84vw; }
   }
-  .mrr-delta{ display:inline-flex; align-items:center; gap:7px; margin-top:26px; padding:7px 14px; border-radius:999px; background:rgba(95,200,140,0.12); border:1px solid rgba(95,200,140,0.4); color:#7fe0a6; font-size:14px; font-weight:600; }
+  .mrr-delta{ display:inline-flex; align-items:center; gap:7px; margin-top:26px; padding:7px 14px; border-radius:999px; background:rgba(23,121,74,0.10); border:1px solid rgba(23,121,74,0.32); color:#17794A; font-size:14px; font-weight:600; }
   .mrr-delta svg{ width:14px; height:14px; }
   .trustmrr-badge{
     display:inline-flex; align-items:center; gap:8px;
@@ -259,7 +263,7 @@
   .pf-list{ display:flex; flex-direction:column; gap:10px; margin-top:22px; }
   .pf-row{ display:flex; align-items:center; gap:14px; background:var(--bg-panel); border:1px solid var(--line); border-radius:12px; padding:13px 16px; transition:border-color .15s ease, transform .15s ease; }
   .pf-row:hover{ border-color:var(--pink); transform:translateX(3px); }
-  .pf-row .logo{ width:40px; height:40px; border-radius:10px; flex:none; display:flex; align-items:center; justify-content:center; overflow:hidden; font-family:'Bebas Neue',sans-serif; font-size:19px; color:#fff; }
+  .pf-row .logo{ width:40px; height:40px; border-radius:10px; flex:none; display:flex; align-items:center; justify-content:center; overflow:hidden; font-family:'Bebas Neue',sans-serif; font-size:19px; color:var(--cream); }
   .pf-row .logo img{ width:100%; height:100%; object-fit:cover; }
   .pf-row .meta{ min-width:0; }
   .pf-row .nm{ font-weight:600; font-size:15px; }
@@ -331,7 +335,7 @@
   #about{ }
   .about-grid{ display:grid; grid-template-columns:300px 1fr; gap:48px; align-items:center; }
   .about-photo{ position:relative; }
-  .about-photo img{ width:100%; aspect-ratio:1; object-fit:cover; border-radius:50%; border:2px solid rgba(183,155,230,0.45); box-shadow:0 24px 60px rgba(0,0,0,0.45); }
+  .about-photo img{ width:100%; aspect-ratio:1; object-fit:cover; border-radius:50%; border:2px solid rgba(183,155,230,0.45); box-shadow:0 16px 40px rgba(30,19,48,0.12); }
   .about-kick{ font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--pink); margin-bottom:14px; }
   .about-grid h2{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:clamp(34px,5vw,58px); letter-spacing:0.01em; line-height:0.95; }
   .about-grid p{ color:var(--cream); opacity:.85; font-size:17px; line-height:1.7; margin-top:18px; max-width:560px; }
@@ -401,5 +405,5 @@
 
   /* ---------- CTA sous les étapes de participation ---------- */
   .steps-cta{ text-align:center; margin-top:28px; }
-  .steps-cta a{ display:inline-flex; align-items:center; justify-content:center; padding:14px 26px; border-radius:12px; font-weight:700; font-size:15px; color:#19112E; background:linear-gradient(90deg,var(--orange),var(--pink)); box-shadow:0 8px 18px rgba(0,0,0,0.3); transition:transform .15s ease; }
+  .steps-cta a{ display:inline-flex; align-items:center; justify-content:center; padding:14px 26px; border-radius:12px; font-weight:700; font-size:15px; color:#FFF6EF; background:linear-gradient(90deg,var(--orange),var(--pink)); box-shadow:0 8px 18px rgba(30,19,48,0.18); transition:transform .15s ease; }
   .steps-cta a:hover{ transform:translateY(-2px); }
