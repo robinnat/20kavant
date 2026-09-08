@@ -1,6 +1,7 @@
 import SiteNav from "../../components/SiteNav";
 import Hero from "../../components/Hero";
-import PresentationVideo from "../../components/PresentationVideo";
+import Videos from "../../components/Videos";
+import Guides from "../../components/Guides";
 import About from "../../components/About";
 import Revenue from "../../components/Revenue";
 import Contest from "../../components/Contest";
@@ -22,7 +23,8 @@ export default async function Page() {
     <>
       <SiteNav />
       <Hero />
-      <PresentationVideo />
+      <Videos />
+      <Guides />
       <Revenue demo={data.demo} total={data.total} history={data.history ?? []} />
       <Contest />
       <About />

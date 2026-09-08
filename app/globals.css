@@ -49,15 +49,14 @@
     .nav-links{ overflow-x:auto; gap:0; -webkit-overflow-scrolling:touch; scrollbar-width:none; justify-content:center; width:100%; }
     .nav-links::-webkit-scrollbar{ display:none; }
     .nav-links a{ padding:7px 8px; font-size:12px; }
-    .nav-links .nav-video{ display:none; }
   }
 
   /* ---------- hero ---------- */
+  /* page perso : le hero présente Robin, il ne prend plus tout l'écran */
   .hero{
     position:relative;
-    min-height:92vh;
     display:flex; flex-direction:column; justify-content:center; align-items:center;
-    padding:6vh 6vw 9vh;
+    padding:56px 6vw 68px;
     text-align:center;
     overflow:hidden;
   }
@@ -65,8 +64,8 @@
     content:"";
     position:absolute; inset:0;
     background:
-      radial-gradient(135% 78% at 50% 122%, rgba(244,147,107,0.60), rgba(232,88,158,0.34) 32%, transparent 64%),
-      radial-gradient(120% 60% at 50% -8%, rgba(215,196,240,0.26), transparent 55%),
+      radial-gradient(135% 78% at 50% 122%, rgba(244,147,107,0.38), rgba(232,88,158,0.20) 32%, transparent 64%),
+      radial-gradient(120% 60% at 50% -8%, rgba(215,196,240,0.16), transparent 55%),
       linear-gradient(180deg, #19112E 0%, #221544 52%, #2C1A50 100%);
     z-index:-2;
   }
@@ -96,24 +95,23 @@
   .headline{
     font-family:'Pricedown','Anton', sans-serif;
     font-weight:400;
-    font-size:clamp(46px, 10vw, 124px);
-    line-height:0.84;
+    font-size:clamp(42px, 7.5vw, 86px);
+    line-height:0.9;
     text-wrap:balance;
     color:var(--cream);
-    text-shadow:0 0 30px rgba(232,88,158,0.22);
   }
-  .headline .accent{color:var(--pink); text-shadow:0 0 30px rgba(232,88,158,0.6);}
-  .headline .accent2{color:var(--orange); text-shadow:0 0 30px rgba(244,147,107,0.5);}
+  .headline .accent{color:var(--pink);}
+  .headline .accent2{color:var(--orange);}
   .gta-vi{
     background:var(--sunset);
     -webkit-background-clip:text; background-clip:text; color:transparent;
     -webkit-text-stroke:1.5px rgba(25,17,46,0.55);
     filter:drop-shadow(0 4px 0 rgba(200,72,150,0.55)) drop-shadow(0 0 34px rgba(244,147,107,0.55));
   }
+  /* le logo GTA vit maintenant dans la ligne d'objectif, à hauteur de texte */
   .gta-logo{
-    display:block; margin:26px auto 0;
-    width:clamp(150px, 22vw, 270px); height:auto;
-    filter:drop-shadow(0 10px 30px rgba(232,88,158,0.4)) drop-shadow(0 0 50px rgba(244,147,107,0.3));
+    display:inline-block; vertical-align:-.24em; margin-left:12px;
+    height:1.5em; width:auto;
   }
 
   .sub{
@@ -125,7 +123,7 @@
   /* ---------- countdown ---------- */
   .countdown{
     display:flex; justify-content:center; align-items:baseline; gap:2px; flex-wrap:wrap;
-    margin-top:56px;
+    margin-top:22px;
   }
   .cd-block{
     background:transparent;
@@ -134,36 +132,56 @@
     min-width:84px;
     position:relative;
   }
-  .cd-num{font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:clamp(46px,8vw,72px); color:var(--cream); text-shadow:0 0 22px rgba(255,255,255,0.25); line-height:1; letter-spacing:0.02em;}
+  .cd-num{font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:clamp(38px,6.4vw,58px); color:var(--cream); line-height:1; letter-spacing:0.02em;}
   .cd-label{font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-top:10px;}
   .cd-sep{font-family:'Pricedown','Bebas Neue',sans-serif; font-size:clamp(40px,7vw,64px); line-height:1; color:var(--muted); opacity:0.45;}
   @media(max-width:560px){
-    .countdown{ gap:4px; margin-top:36px; flex-wrap:nowrap; }
+    .countdown{ gap:4px; margin-top:18px; flex-wrap:nowrap; }
     .cd-block{ padding:6px 4px; min-width:auto; }
-    .cd-num{ font-size:min(54px, 12.5vw); }
+    .cd-num{ font-size:min(42px, 10vw); }
     .cd-label{ font-size:10px; letter-spacing:0.05em; margin-top:7px; }
-    .cd-sep{ font-size:min(46px, 10.5vw); align-self:center; transform:translateY(-2px); }
+    .cd-sep{ font-size:min(36px, 8.5vw); align-self:center; transform:translateY(-2px); }
     .eyebrow{ font-size:10px; letter-spacing:0.08em; padding:5px 11px; margin-bottom:20px; }
-    .headline{ font-size:54px; line-height:0.88; }
-    .gta-logo{ width:112px; margin-top:18px; }
+    .headline{ font-size:44px; line-height:0.92; }
     .sub{ font-size:15px; }
   }
 
-  .target-date{margin-top:18px; font-size:12px; color:var(--muted); letter-spacing:0.04em;}
+  .target-date{margin-top:16px; font-size:12px; color:var(--muted); letter-spacing:0.04em;}
   .target-date strong{color:var(--orange);}
+  .target-date a{color:var(--teal); font-weight:600;}
+  .target-date a:hover{text-decoration:underline;}
 
+  .hero-actions{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:30px; }
   .hero-cta{
-    display:inline-flex; flex-direction:column; align-items:center; gap:3px;
-    margin-top:34px; padding:16px 34px; border-radius:14px;
-    background:#fff;
-    color:#19112E; text-align:center;
-    box-shadow:0 10px 30px rgba(255,255,255,0.18), 0 0 50px rgba(246,231,214,0.12);
-    transition:transform .15s ease, box-shadow .15s ease;
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:14px 26px; border-radius:12px;
+    font-weight:700; font-size:15px; letter-spacing:.01em;
+    background:var(--cream); color:#19112E;
+    border:1px solid transparent;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
   }
-  .hero-cta:hover{ transform:translateY(-2px); box-shadow:0 14px 36px rgba(255,255,255,0.24), 0 0 60px rgba(246,231,214,0.18); }
-  .hero-cta-main{ font-weight:700; font-size:17px; letter-spacing:.01em; }
-  .hero-cta-sub{ font-size:12px; font-weight:600; opacity:.78; }
-  @media(max-width:560px){ .hero-cta{ margin-top:26px; padding:14px 26px; } .hero-cta-main{ font-size:15px; } .hero-cta-sub{ font-size:11px; } }
+  .hero-cta:hover{ transform:translateY(-2px); }
+  .hero-cta.ghost{ background:transparent; color:var(--cream); border-color:rgba(246,231,214,0.3); }
+  .hero-cta.ghost:hover{ border-color:var(--pink); background:rgba(232,88,158,0.08); }
+
+  /* bandeau du défi, sous la présentation */
+  .hero-goal{
+    margin-top:44px; width:100%; max-width:760px;
+    padding:26px 26px 24px; border-radius:18px;
+    background:rgba(37,23,67,0.55); border:1px solid var(--line);
+  }
+  .hero-goal-kick{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--pink); }
+  .hero-goal-line{
+    font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400;
+    font-size:clamp(26px,4.4vw,42px); line-height:1.12; letter-spacing:.01em;
+    color:var(--cream); margin-top:10px;
+  }
+  .hero-goal-line .accent{ color:var(--pink); }
+  .hero-goal-line .accent2{ color:var(--orange); }
+  @media(max-width:560px){
+    .hero-goal{ padding:22px 18px; margin-top:34px; }
+    .hero-cta{ padding:13px 20px; font-size:14px; }
+  }
 
   /* ---------- sections shared ---------- */
   section{padding:90px 6vw; max-width:1180px; margin:0 auto;}
@@ -174,7 +192,7 @@
 
   /* ---------- vidéo de présentation ---------- */
   #video{ padding-top:70px; padding-bottom:40px; }
-  .video-frame{ position:relative; max-width:860px; margin:0 auto; aspect-ratio:16/9; border-radius:18px; overflow:hidden; border:1px solid var(--line); background:var(--bg-panel); box-shadow:0 18px 50px rgba(0,0,0,0.4), 0 0 60px rgba(232,88,158,0.12); }
+  .video-frame{ position:relative; max-width:860px; margin:0 auto; aspect-ratio:16/9; border-radius:18px; overflow:hidden; border:1px solid var(--line); background:var(--bg-panel); box-shadow:0 18px 50px rgba(0,0,0,0.35); }
   .video-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
 
   /* ---------- revenue ---------- */
@@ -187,7 +205,7 @@
 
   .total-mrr{ margin-bottom:54px; display:flex; flex-direction:column; align-items:center; width:100%; }
   .mrr-head{ text-align:center; margin-bottom:26px; }
-  .mrr-head .big{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:clamp(60px,12vw,118px); line-height:.86; letter-spacing:.02em; color:var(--cream); text-shadow:0 0 30px rgba(232,88,158,0.28); }
+  .mrr-head .big{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:clamp(60px,12vw,118px); line-height:.86; letter-spacing:.02em; color:var(--cream); }
   .mrr-head .big .cur{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:.42em; color:var(--teal); vertical-align:.28em; margin-right:4px; text-shadow:none; }
   .mrr-head .big .unit{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:.26em; letter-spacing:.04em; color:var(--muted); vertical-align:.62em; margin-left:12px; }
   .mrr-head .pct{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; color:var(--pink); font-size:clamp(22px,4vw,34px); line-height:1; margin-top:4px; }
@@ -196,11 +214,11 @@
   .htrack{ position:absolute; inset:0; border-radius:14px; background:rgba(246,231,214,0.07); border:1px solid var(--line); overflow:hidden; }
   /* min-width : un revenu réel mais minuscule face à l'objectif 20K resterait
      invisible (0,05% ≈ 0,3px) — on garde un liseré visible dès que width>0. */
-  .hfill{ position:absolute; left:0; top:0; bottom:0; width:0; background:linear-gradient(90deg,var(--orange),var(--pink)); box-shadow:0 0 22px rgba(232,88,158,0.55); transition:width 1.6s cubic-bezier(.22,1,.36,1); }
+  .hfill{ position:absolute; left:0; top:0; bottom:0; width:0; background:linear-gradient(90deg,var(--orange),var(--pink)); transition:width 1.6s cubic-bezier(.22,1,.36,1); }
   .hfill:not([style*="width: 0%"]){ min-width:26px; }
   .hnotch{ position:absolute; top:0; bottom:0; width:2px; background:rgba(25,17,46,0.6); z-index:1; }
   .hthumb{ position:absolute; left:13px; top:50%; transform:translate(-50%,-50%); z-index:3; transition:left 1.6s cubic-bezier(.22,1,.36,1); }
-  .hthumb .knob{ width:26px; height:26px; border-radius:50%; background:var(--cream); border:3px solid var(--pink); box-shadow:0 0 18px rgba(232,88,158,0.75); }
+  .hthumb .knob{ width:26px; height:26px; border-radius:50%; background:var(--cream); border:3px solid var(--pink); box-shadow:0 2px 8px rgba(0,0,0,0.35); }
   .hscale{ position:relative; width:min(640px,90vw); display:flex; justify-content:space-between; margin-top:12px; }
   .hscale span{ font-family:'Bebas Neue',sans-serif; font-size:16px; letter-spacing:.04em; color:var(--muted); }
   .hscale span.goal{ color:var(--orange); }
@@ -244,38 +262,40 @@
   .pf-row .mrr .cur{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:.62em; color:var(--teal); vertical-align:.1em; margin-right:2px; }
   .pf-row .mrr .unit{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:.52em; letter-spacing:.03em; color:var(--muted); vertical-align:.14em; margin-left:6px; }
 
-  /* ---------- route · carte GPS Vice City ---------- */
-  .route-block{ max-width:980px; margin:44px auto 0; }
-  .route-cap{
-    text-align:center; color:var(--muted); font-size:14px; line-height:1.6;
-    max-width:520px; margin:24px auto 0;
+  /* ---------- paliers du concours ---------- */
+  .paliers{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:34px; }
+  .palier{ background:var(--bg-panel); border:1px solid var(--line); border-radius:16px; padding:22px 18px; text-align:center; }
+  .palier img{ display:block; width:84px; height:84px; object-fit:contain; margin:0 auto 12px; }
+  .palier-amt{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:38px; line-height:1; letter-spacing:.03em; color:var(--cream); }
+  .palier-pz{ font-size:14px; font-weight:600; margin-top:8px; }
+  .palier-draw{ font-size:12px; color:var(--muted); margin-top:4px; }
+  .palier-state{ display:inline-block; margin-top:14px; font-size:10px; text-transform:uppercase; letter-spacing:.08em; padding:4px 10px; border-radius:999px; background:rgba(164,145,196,.14); color:var(--muted); }
+  .palier.final{ border-color:rgba(183,155,230,.45); }
+  .palier.final .palier-amt{ color:var(--teal); }
+  .palier.reached{ border-color:rgba(244,147,107,.5); }
+  .palier.reached .palier-state{ background:rgba(244,147,107,.16); color:var(--orange); }
+  @media(max-width:860px){ .paliers{ grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:460px){
+    .paliers{ grid-template-columns:1fr; gap:10px; }
+    .palier{ padding:16px; }
+    .palier img{ width:56px; height:56px; margin-bottom:8px; }
+    .palier-amt{ font-size:30px; }
+    .palier-state{ margin-top:10px; }
   }
-  .gps-map{ position:relative; width:100%; aspect-ratio:1696/954; border-radius:18px; overflow:hidden; border:1px solid var(--line); box-shadow:0 24px 60px rgba(0,0,0,0.45); }
-  .gps-map .bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-  .gps-map .shade{ position:absolute; inset:0; pointer-events:none; background:radial-gradient(130% 110% at 50% -10%, transparent 55%, rgba(25,17,46,0.5)); }
-  .gps-map svg.route{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
-  .road-glow{ stroke:rgba(255,255,255,0.35); stroke-width:16; stroke-linecap:round; }
-  .road-base{ stroke:rgba(21,11,46,0.7); stroke-width:11; stroke-linecap:round; }
-  .road-prog{ stroke:url(#gpsGrad); stroke-width:11; stroke-linecap:round; stroke-dasharray:1; stroke-dashoffset:1; filter:drop-shadow(0 0 5px #fff) drop-shadow(0 0 12px rgba(244,147,107,0.95)); transition:stroke-dashoffset 1.8s cubic-bezier(.22,1,.36,1); }
-  .road-flow{ stroke:rgba(255,255,255,0.9); stroke-width:3; stroke-linecap:round; stroke-dasharray:2 22; animation:flow 1.1s linear infinite; }
-  @keyframes flow{ to{ stroke-dashoffset:-24; } }
-  .gps-stop{ position:absolute; transform:translate(-50%,-50%); z-index:3; }
-  .gps-stop .dot{ width:15px; height:15px; border-radius:50%; background:#150B2E; border:3px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,.6); }
-  .gps-stop.reached .dot{ background:var(--orange); border-color:#fff; box-shadow:0 0 16px var(--orange); }
-  .gps-stop.final .dot{ width:19px; height:19px; border-radius:5px; background:var(--teal); }
-  .gps-stop .tag{ position:absolute; left:50%; top:calc(100% + 12px); transform:translateX(-50%); white-space:nowrap; background:rgba(21,11,46,0.94); border:1px solid rgba(255,255,255,0.22); border-radius:11px; padding:8px 12px; text-align:center; box-shadow:0 6px 16px rgba(0,0,0,.55); transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease; }
-  .gps-stop .tag .gift{ display:block; width:120px; max-height:0; opacity:0; object-fit:contain; margin:0 auto; border-radius:6px; transition:max-height .3s ease, opacity .22s ease, margin .3s ease; }
-  .gps-stop .tag .amt{ font-family:'Pricedown','Bebas Neue',sans-serif; font-size:21px; line-height:1; letter-spacing:.04em; color:#fff; }
-  .gps-stop .tag .pz{ font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-top:4px; }
-  .gps-stop.reached .tag .pz{ color:var(--orange); }
-  .gps-stop.final .tag .pz{ color:var(--teal); }
-  .gps-stop:hover{ z-index:9; }
-  .gps-stop:hover .tag{ transform:translateX(-50%) scale(1.06); border-color:var(--pink); box-shadow:0 14px 34px rgba(0,0,0,.6); }
-  .gps-stop:hover .tag .gift{ max-height:150px; opacity:1; margin-top:10px; }
-  .gps-car{ position:absolute; transform:translate(-50%,-50%); z-index:4; display:flex; flex-direction:column; align-items:center; transition:left 1.8s cubic-bezier(.22,1,.36,1), top 1.8s cubic-bezier(.22,1,.36,1); }
-  .gps-car .bub{ font-weight:700; font-size:13px; color:#fff; background:var(--bg-panel-2); border:1px solid var(--teal); padding:4px 10px; border-radius:9px; white-space:nowrap; box-shadow:0 6px 16px rgba(0,0,0,.5); }
-  .gps-car .bub small{ display:block; font-size:8px; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); font-weight:600; }
-  .gps-car .pin{ width:15px; height:15px; background:var(--teal); transform:rotate(45deg); box-shadow:0 0 16px var(--teal); margin-top:5px; }
+
+  /* ---------- guides ---------- */
+  .guide-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
+  .guide-card{ display:flex; flex-direction:column; background:var(--bg-panel); border:1px solid var(--line); border-radius:16px; padding:24px 22px; transition:border-color .15s ease, transform .15s ease; }
+  .guide-card:hover{ border-color:var(--pink); transform:translateY(-3px); }
+  .guide-tag{ font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--pink); }
+  .guide-title{ font-size:19px; font-weight:700; line-height:1.35; margin:12px 0 8px; color:var(--cream); }
+  .guide-desc{ font-size:14px; line-height:1.6; color:var(--cream); opacity:.78; }
+  .guide-more{ display:inline-flex; align-items:center; gap:6px; margin-top:auto; padding-top:18px; font-size:13px; font-weight:600; color:var(--teal); }
+
+  /* ---------- lien chaîne sous la vidéo ---------- */
+  .video-cta{ text-align:center; margin-top:22px; }
+  .video-cta a{ display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:600; color:var(--teal); }
+  .video-cta a:hover{ text-decoration:underline; }
 
   .follow-note{
     display:flex; align-items:center; justify-content:center; gap:8px;
@@ -295,27 +315,6 @@
   .step p{ font-size:16px; color:var(--cream); opacity:.82; line-height:1.6; }
   .step .hl{ color:var(--pink); font-weight:600; opacity:1; }
   @media(max-width:760px){ .steps{ grid-template-columns:1fr; } }
-
-  .paliers-m{ display:none; }
-  @media(max-width:760px){
-    .gps-stop .tag{ display:none; }
-    .gps-car .bub{ font-size:11px; padding:3px 8px; }
-    /* la carte est courte sur mobile : on ancre la voiture au-dessus du point
-       (pointe de l'épingle sur la route) pour que le marqueur ne soit pas coupé
-       en bas quand la position est au tout début du parcours (MRR proche de 0). */
-    .gps-car{ transform:translate(-50%,-100%); }
-    .gps-map{ box-shadow:0 14px 36px rgba(0,0,0,.4); }
-    .paliers-m{ display:flex; flex-direction:column; gap:12px; margin-top:16px; }
-    .palier-m{ display:flex; align-items:center; gap:14px; background:var(--bg-panel); border:1px solid var(--line); border-radius:14px; padding:13px 14px; }
-    .palier-m img{ width:62px; height:62px; object-fit:contain; flex:none; }
-    .palier-m .pm-meta{ flex:1; min-width:0; }
-    .palier-m .pm-amt{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:34px; line-height:1; letter-spacing:.03em; color:var(--cream); }
-    .palier-m .pm-pz{ font-size:12px; color:var(--muted); margin-top:4px; }
-    .palier-m.reached{ border-color:rgba(244,147,107,.5); }
-    .palier-m .pm-state{ font-size:10px; text-transform:uppercase; letter-spacing:.08em; padding:4px 9px; border-radius:999px; background:rgba(164,145,196,.14); color:var(--muted); white-space:nowrap; }
-    .palier-m.reached .pm-state{ background:rgba(244,147,107,.16); color:var(--orange); }
-    .palier-m.final .pm-amt{ color:var(--teal); }
-  }
 
   /* ---------- à propos ---------- */
   #about{ }
@@ -391,5 +390,5 @@
 
   /* ---------- CTA sous les étapes de participation ---------- */
   .steps-cta{ text-align:center; margin-top:28px; }
-  .steps-cta a{ display:inline-flex; align-items:center; justify-content:center; padding:14px 26px; border-radius:12px; font-weight:700; font-size:15px; color:#19112E; background:linear-gradient(90deg,var(--orange),var(--pink)); box-shadow:0 10px 26px rgba(232,88,158,0.35); transition:transform .15s ease; }
+  .steps-cta a{ display:inline-flex; align-items:center; justify-content:center; padding:14px 26px; border-radius:12px; font-weight:700; font-size:15px; color:#19112E; background:linear-gradient(90deg,var(--orange),var(--pink)); box-shadow:0 8px 18px rgba(0,0,0,0.3); transition:transform .15s ease; }
   .steps-cta a:hover{ transform:translateY(-2px); }

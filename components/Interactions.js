@@ -80,39 +80,15 @@ export default function Interactions({ data }) {
       }
     }
 
-    /* ---- carte GPS : pins posés sur la route + voiture ---- */
-    function renderRoute() {
-      const road = document.getElementById("gpsRoad");
-      const len = road.getTotalLength();
-      const VW = 1696,
-        VH = 954;
-      const place = (el, frac) => {
-        const pt = road.getPointAtLength(len * frac);
-        el.style.left = (pt.x / VW) * 100 + "%";
-        el.style.top = (pt.y / VH) * 100 + "%";
-      };
-      document.querySelectorAll(".gps-stop[data-frac]").forEach((s) => {
-        place(s, parseFloat(s.dataset.frac));
-        if (s.dataset.th && MRR.total >= +s.dataset.th) s.classList.add("reached");
-      });
-      // version mobile : états des paliers
-      document.querySelectorAll(".palier-m[data-th]").forEach((p) => {
+    /* ---- paliers du concours : marque ceux déjà franchis ---- */
+    function renderPaliers() {
+      document.querySelectorAll(".palier[data-th]").forEach((p) => {
         if (MRR.total >= +p.dataset.th) {
           p.classList.add("reached");
-          p.querySelector(".pm-state").textContent = "Tirage fait";
+          const state = p.querySelector(".palier-state");
+          if (state) state.textContent = "Tirage fait";
         }
       });
-      const pct = Math.min(MRR.total / MRR.goal, 1);
-      const car = document.getElementById("gpsCar");
-      place(car, 0); // départ, puis transition vers la position réelle
-      document.getElementById("gpsCarVal").textContent = "$" + fmtUsd(MRR.total);
-      document.getElementById("gpsProg").style.strokeDashoffset = "1";
-      requestAnimationFrame(() =>
-        requestAnimationFrame(() => {
-          place(car, pct);
-          document.getElementById("gpsProg").style.strokeDashoffset = (1 - pct).toString();
-        })
-      );
     }
 
     /* ---- projets : liste ---- */
@@ -152,12 +128,12 @@ export default function Interactions({ data }) {
 
     /* ---- lancer les animations seulement quand la section entre dans l'écran ---- */
     renderProjects();
+    renderPaliers();
     let played = false;
     const run = () => {
       if (played) return;
       played = true;
       renderMRR();
-      renderRoute();
     };
     const revenusEl = document.getElementById("revenus");
     let io;
