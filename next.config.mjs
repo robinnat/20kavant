@@ -7,6 +7,9 @@ const nextConfig = {
       // des navigateurs si tu veux changer la home plus tard.
       {
         source: "/",
+        // pas sur le sous-domaine des guides : là, c'est le middleware qui
+        // décide (les redirections d'ici s'exécutent avant lui).
+        missing: [{ type: "host", value: process.env.NEXT_PUBLIC_GUIDES_HOST || "guides.20kavant.fr" }],
         destination: "/robinnat",
         permanent: false,
       },

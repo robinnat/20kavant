@@ -406,7 +406,18 @@
   .challenge-note{ text-align:center; max-width:520px; margin:16px auto 0; font-size:12px; color:var(--muted); line-height:1.6; }
 
   /* ---------- guides (Markdown, accessibles par lien) ---------- */
-  .guide-head-inner{ padding-bottom:74px; }
+  /* en-tête réduit du sous-domaine des guides */
+  .guide-nav{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    max-width:1180px; margin:0 auto; padding:22px 6vw 0;
+  }
+  .guide-nav .brand{ display:inline-flex; align-items:baseline; gap:1px; }
+  .guide-nav .brand b{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:22px; letter-spacing:.04em; background:var(--sunset); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .guide-nav .brand small{ font-size:12px; color:var(--muted); font-weight:600; }
+  .guide-nav-tag{ font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+  .guide-foot{ text-align:center; padding:0 6vw 56px; font-size:12px; color:var(--muted); }
+  .guide-foot a:hover{ color:var(--cream); }
+  .guide-head-inner{ padding-top:56px; padding-bottom:74px; }
   .guide-date{ margin-top:14px; font-size:12px; letter-spacing:.04em; color:var(--muted); }
   .guide-body{ max-width:760px; }
   .guide-private{

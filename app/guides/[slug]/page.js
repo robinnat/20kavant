@@ -1,7 +1,5 @@
 import { notFound } from "next/navigation";
 import { marked } from "marked";
-import SiteNav from "../../../components/SiteNav";
-import Footer from "../../../components/Footer";
 import { listerSlugs, lireGuide } from "../../../lib/guides";
 
 // Les guides sont générés au build à partir des fichiers Markdown.
@@ -14,7 +12,7 @@ export async function generateMetadata({ params }) {
   const guide = lireGuide(slug);
   if (!guide) return {};
   return {
-    title: `${guide.title} · 20Kavant.fr`,
+    title: `${guide.title} · Guides 20Kavant`,
     description: guide.description,
     // accessible par lien seulement : on ne veut pas le voir dans Google
     robots: { index: false, follow: false },
@@ -37,11 +35,18 @@ export default async function GuidePage({ params }) {
 
   return (
     <>
-      <SiteNav />
+      {/* en-tête réduit : la navigation du site n'a pas sa place sur le
+          sous-domaine des guides */}
+      <header className="guide-nav">
+        <a className="brand" href="https://20kavant.fr/robinnat">
+          <b>20Kavant</b>
+          <small>.fr</small>
+        </a>
+        <span className="guide-nav-tag">Guide</span>
+      </header>
 
       <section className="defi">
         <div className="defi-inner guide-head-inner">
-          <div className="defi-eyebrow">Guide</div>
           <h1 className="defi-title">{guide.title}</h1>
           {guide.description && <p className="defi-sub">{guide.description}</p>}
           {dateLisible && <p className="guide-date">Mis à jour le {dateLisible}</p>}
@@ -51,12 +56,13 @@ export default async function GuidePage({ params }) {
       <section className="guide-body">
         <article className="prose" dangerouslySetInnerHTML={{ __html: html }} />
         <p className="guide-private">
-          Ce guide est privé : il n&apos;est listé nulle part et n&apos;apparaît pas dans les
-          moteurs de recherche. Partage-le avec son lien.
+          Guide privé, partagé par lien. Merci de ne pas le rediffuser.
         </p>
       </section>
 
-      <Footer />
+      <footer className="guide-foot">
+        <a href="https://20kavant.fr/robinnat">20kavant.fr</a>
+      </footer>
     </>
   );
 }
