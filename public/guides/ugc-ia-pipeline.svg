@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
-  <rect width="880" height="300" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" width="880" height="420" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="880" height="420" fill="#FFFFFF"/>
 
   <defs>
     <marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
@@ -7,57 +7,72 @@
     </marker>
   </defs>
 
-  <!-- étapes -->
+  <!-- bandeau 1 : investissement unique -->
+  <rect x="20" y="30" width="840" height="150" rx="18" fill="#FAF8FC" stroke="#E2DDE9"/>
+  <text x="44" y="58" font-size="11.5" font-weight="700" letter-spacing="1.4" fill="#7A4FBF">UNE SEULE FOIS</text>
+
   <g>
-    <rect x="20" y="70" width="146" height="120" rx="16" fill="#F7F7F8" stroke="#7A4FBF" stroke-width="1.5"/>
-    <circle cx="42" cy="94" r="13" fill="#7A4FBF"/>
-    <text x="42" y="99" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">1</text>
-    <text x="93" y="132" text-anchor="middle" font-size="14.5" font-weight="700" fill="#161221">Character</text>
-    <text x="93" y="151" text-anchor="middle" font-size="14.5" font-weight="700" fill="#161221">sheet</text>
-    <text x="93" y="172" text-anchor="middle" font-size="11.5" fill="#6B6580">fiche + planche</text>
+    <rect x="44" y="72" width="230" height="88" rx="14" fill="#FFFFFF" stroke="#7A4FBF" stroke-width="1.5"/>
+    <circle cx="66" cy="94" r="12" fill="#7A4FBF"/>
+    <text x="66" y="99" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">1</text>
+    <text x="159" y="118" text-anchor="middle" font-size="14" font-weight="700" fill="#161221">Photo de profil</text>
+    <text x="159" y="139" text-anchor="middle" font-size="11.5" fill="#6B6580">l’identité de départ</text>
 
-    <rect x="196" y="70" width="146" height="120" rx="16" fill="#F7F7F8" stroke="#7A4FBF" stroke-width="1.5"/>
-    <circle cx="218" cy="94" r="13" fill="#7A4FBF"/>
-    <text x="218" y="99" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">2</text>
-    <text x="269" y="141" text-anchor="middle" font-size="14.5" font-weight="700" fill="#161221">Outfits</text>
-    <text x="269" y="164" text-anchor="middle" font-size="11.5" fill="#6B6580">même visage,</text>
-    <text x="269" y="180" text-anchor="middle" font-size="11.5" fill="#6B6580">tenues variées</text>
+    <rect x="325" y="72" width="230" height="88" rx="14" fill="#FFFFFF" stroke="#7A4FBF" stroke-width="1.5"/>
+    <circle cx="347" cy="94" r="12" fill="#7A4FBF"/>
+    <text x="347" y="99" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">2</text>
+    <text x="440" y="118" text-anchor="middle" font-size="14" font-weight="700" fill="#161221">Fiche 3×3</text>
+    <text x="440" y="139" text-anchor="middle" font-size="11.5" fill="#6B6580">9 vues, identité verrouillée</text>
 
-    <rect x="372" y="70" width="146" height="120" rx="16" fill="#FBEAF3" stroke="#D42D7D" stroke-width="1.5"/>
-    <circle cx="394" cy="94" r="13" fill="#D42D7D"/>
-    <text x="394" y="99" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">3</text>
-    <text x="445" y="132" text-anchor="middle" font-size="14.5" font-weight="700" fill="#161221">Image UGC</text>
-    <text x="445" y="155" text-anchor="middle" font-size="11.5" fill="#6B6580">cadrage selfie,</text>
-    <text x="445" y="171" text-anchor="middle" font-size="11.5" fill="#6B6580">lumière du salon</text>
-
-    <rect x="548" y="70" width="146" height="120" rx="16" fill="#FBEAF3" stroke="#D42D7D" stroke-width="1.5"/>
-    <circle cx="570" cy="94" r="13" fill="#D42D7D"/>
-    <text x="570" y="99" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">4</text>
-    <text x="621" y="132" text-anchor="middle" font-size="14.5" font-weight="700" fill="#161221">Vidéo</text>
-    <text x="621" y="155" text-anchor="middle" font-size="11.5" fill="#6B6580">image → vidéo</text>
-    <text x="621" y="171" text-anchor="middle" font-size="11.5" fill="#6B6580">MiniMax H3</text>
-
-    <rect x="724" y="70" width="146" height="120" rx="16" fill="#F7F7F8" stroke="#B85520" stroke-width="1.5"/>
-    <circle cx="746" cy="94" r="13" fill="#B85520"/>
-    <text x="746" y="99" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">5</text>
-    <text x="797" y="132" text-anchor="middle" font-size="14.5" font-weight="700" fill="#161221">Hook + pub</text>
-    <text x="797" y="155" text-anchor="middle" font-size="11.5" fill="#6B6580">3 s qui accrochent,</text>
-    <text x="797" y="171" text-anchor="middle" font-size="11.5" fill="#6B6580">mention IA</text>
+    <rect x="606" y="72" width="230" height="88" rx="14" fill="#FFFFFF" stroke="#7A4FBF" stroke-width="1.5"/>
+    <circle cx="628" cy="94" r="12" fill="#7A4FBF"/>
+    <text x="628" y="99" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">3</text>
+    <text x="721" y="118" text-anchor="middle" font-size="14" font-weight="700" fill="#161221">Base raw 5×3</text>
+    <text x="721" y="139" text-anchor="middle" font-size="11.5" fill="#6B6580">corps neutre réutilisable</text>
   </g>
 
-  <!-- flèches -->
   <g stroke="#B9B3C6" stroke-width="1.8" marker-end="url(#fleche)">
-    <path d="M 170 130 L 190 130"/>
-    <path d="M 346 130 L 366 130"/>
-    <path d="M 522 130 L 542 130"/>
-    <path d="M 698 130 L 718 130"/>
+    <path d="M 278 116 L 319 116"/>
+    <path d="M 559 116 L 600 116"/>
   </g>
 
-  <text x="440" y="40" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.4" fill="#6B6580">LA CHAÎNE DE PRODUCTION</text>
-  <text x="440" y="235" text-anchor="middle" font-size="12.5" fill="#6B6580">
-    Les étapes 1 et 2 ne se font qu’une fois. Ensuite, chaque vidéo ne coûte que les étapes 3 à 5.
-  </text>
-  <text x="440" y="262" text-anchor="middle" font-size="12.5" fill="#6B6580">
-    C’est ce qui permet de sortir dix vidéos par semaine sans jamais filmer.
+  <!-- bandeau 2 : répété à chaque vidéo -->
+  <rect x="20" y="210" width="840" height="150" rx="18" fill="#FDF4F8" stroke="#F0D9E5"/>
+  <text x="44" y="238" font-size="11.5" font-weight="700" letter-spacing="1.4" fill="#D42D7D">POUR CHAQUE VIDÉO</text>
+
+  <g>
+    <rect x="44" y="252" width="190" height="88" rx="14" fill="#FFFFFF" stroke="#D42D7D" stroke-width="1.5"/>
+    <circle cx="66" cy="274" r="12" fill="#D42D7D"/>
+    <text x="66" y="279" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">4</text>
+    <text x="139" y="298" text-anchor="middle" font-size="14" font-weight="700" fill="#161221">Outfit</text>
+    <text x="139" y="319" text-anchor="middle" font-size="11.5" fill="#6B6580">image → image</text>
+
+    <rect x="250" y="252" width="190" height="88" rx="14" fill="#FFFFFF" stroke="#D42D7D" stroke-width="1.5"/>
+    <circle cx="272" cy="274" r="12" fill="#D42D7D"/>
+    <text x="272" y="279" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">5</text>
+    <text x="345" y="298" text-anchor="middle" font-size="14" font-weight="700" fill="#161221">Image UGC</text>
+    <text x="345" y="319" text-anchor="middle" font-size="11.5" fill="#6B6580">selfie, réaction</text>
+
+    <rect x="456" y="252" width="190" height="88" rx="14" fill="#FFFFFF" stroke="#D42D7D" stroke-width="1.5"/>
+    <circle cx="478" cy="274" r="12" fill="#D42D7D"/>
+    <text x="478" y="279" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">6</text>
+    <text x="551" y="298" text-anchor="middle" font-size="14" font-weight="700" fill="#161221">Vidéo</text>
+    <text x="551" y="319" text-anchor="middle" font-size="11.5" fill="#6B6580">MiniMax H3, 5 s, 9:16</text>
+
+    <rect x="662" y="252" width="174" height="88" rx="14" fill="#FFFFFF" stroke="#B85520" stroke-width="1.5"/>
+    <circle cx="684" cy="274" r="12" fill="#B85520"/>
+    <text x="684" y="279" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">7</text>
+    <text x="749" y="298" text-anchor="middle" font-size="14" font-weight="700" fill="#161221">Montage</text>
+    <text x="749" y="319" text-anchor="middle" font-size="11.5" fill="#6B6580">hook + démo + CTA</text>
+  </g>
+
+  <g stroke="#B9B3C6" stroke-width="1.8" marker-end="url(#fleche)">
+    <path d="M 238 296 L 244 296"/>
+    <path d="M 444 296 L 450 296"/>
+    <path d="M 650 296 L 656 296"/>
+  </g>
+
+  <text x="440" y="395" text-anchor="middle" font-size="12.5" fill="#6B6580">
+    Un avatar et ses tenues donnent une infinité de contenus, avec la même personne, sans jamais retourner filmer.
   </text>
 </svg>

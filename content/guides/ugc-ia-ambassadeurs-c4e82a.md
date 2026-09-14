@@ -1,6 +1,6 @@
 ---
 title: Faire de l'UGC avec l'IA pour son app
-description: La méthode qui a amené les 222 premiers dollars de Flash, sans filmer une seule vidéo.
+description: La méthode complète, avec les prompts, qui a amené les 222 premiers dollars de Flash sans filmer une seule vidéo.
 date: 2026-09-14
 ---
 
@@ -13,12 +13,11 @@ par un utilisateur normal, dans son salon, avec son téléphone. Pas une pub lé
 C'est précisément ce qui les rend efficaces : les gens ont appris à ignorer les
 publicités, pas les recommandations.
 
-Ce guide explique la méthode exacte que j'ai utilisée pour **Flash**, et comment la
-refaire pour ton app.
+Ce guide donne la méthode exacte que j'ai utilisée pour **Flash**, prompts compris.
 
 ## Le résultat
 
-Voilà les chiffres réels de Flash, tels qu'ils sortent de RevenueCat :
+Les chiffres réels de Flash, tels qu'ils sortent de RevenueCat :
 
 | Période | Revenus | Achats |
 | --- | --- | --- |
@@ -50,12 +49,15 @@ qu'ils n'ont pas envie de se montrer. C'est aussi un goulot d'étranglement : tu
 peux pas sortir dix vidéos par semaine.
 
 **Créer des ambassadeurs avec l'IA.** C'est ce que j'ai fait. Un personnage cohérent,
-qu'on décline à l'infini, sans jamais allumer une caméra. Le coût par vidéo devient
-quasi nul, et c'est ce qui change tout : **l'UGC est un jeu de volume**.
+qu'on décline à l'infini, sans jamais allumer une caméra.
 
-> Sur dix vidéos, huit ne feront rien, une fera un peu, une décollera. Si chaque
-> vidéo te coûte 200 € et deux jours, tu ne peux pas jouer à ce jeu. Si elle te coûte
-> quelques centimes et dix minutes, tu peux.
+> **Le pitch tient en une phrase :** un avatar plus une garde-robe donnent une
+> infinité de contenus UGC, avec la même personne, sans jamais retourner filmer.
+
+C'est ce qui change tout, parce que **l'UGC est un jeu de volume**. Sur dix vidéos,
+huit ne feront rien, une fera un peu, une décollera. Si chaque vidéo te coûte 200 €
+et deux jours, tu ne peux pas jouer à ce jeu. Si elle te coûte quelques centimes et
+dix minutes, tu peux.
 
 ## Ce qui fait vraiment la viralité
 
@@ -73,69 +75,113 @@ Ce qui retient, dans l'ordre :
    produit.
 2. **Un visage dès la première image.** Un écran d'app en ouverture, c'est une pub.
    Un visage, c'est quelqu'un qui te parle.
-3. **Du mouvement.** Un plan fixe donne envie de scroller.
+3. **De l'émotion.** C'est là que l'IA vidéo sert vraiment : une réaction, un rire,
+   des larmes. Un visage inexpressif ne retient personne.
 4. **Le produit tard.** L'app arrive au milieu, comme une solution, pas comme un
    sponsor.
 
 L'objectif d'une vidéo UGC n'est pas de convaincre. C'est de **faire rester**. La
 conversion, c'est le travail de ta fiche App Store.
 
-## La méthode, étape par étape
+## La chaîne de production
 
-![La chaîne de production : character sheet, outfits, image UGC, vidéo, publication](/guides/ugc-ia-pipeline.svg)
+![Les sept étapes : photo de profil, fiche 3x3, base raw, outfit, image UGC, vidéo, montage](/guides/ugc-ia-pipeline.svg)
 
-Le principe tient en une phrase : **on construit un personnage une bonne fois, puis
-on le décline**. Les deux premières étapes sont un investissement unique ; ensuite
-chaque vidéo ne coûte presque rien.
+Sept étapes, mais **les trois premières ne se font qu'une fois**. Ensuite, chaque
+vidéo ne coûte que les quatre dernières.
 
-### Étape 1 : la character sheet
+Je fais tourner tout ça via l'**API de fal.ai**, depuis mon agent. Les prompts
+ci-dessous sont ceux que j'utilise réellement, à copier tels quels : tu ne changes
+que ce qui est entre crochets.
+
+### Étape 1 : la photo de profil
+
+Une seule image frontale du visage, nette, éclairage neutre. C'est ton point de
+départ : toute l'identité en découle. Tu peux la générer, ou partir d'une image
+existante dont tu as le droit d'usage.
+
+### Étape 2 : la fiche de personnage (3×3)
 
 C'est le cœur de la méthode, et l'étape que tout le monde saute. Sans elle, ton
 personnage change de visage à chaque génération et l'illusion tombe.
 
-Une character sheet, c'est **deux choses combinées** :
+Tu génères une planche de **9 vues du même visage**, en passant la photo de profil en
+image de référence (`reference_image_urls`) pour verrouiller l'identité.
 
-**a) Une fiche écrite**, aussi précise que possible, que tu réutiliseras mot pour mot
-dans chaque prompt. Décris :
+Le prompt ne change jamais, seuls les blocs entre crochets bougent :
 
-- l'âge apparent et l'origine
-- la forme du visage, la couleur et la forme des yeux, le nez, la bouche
-- les cheveux : couleur exacte, longueur, texture, coiffure
-- les signes distinctifs : grain de beauté, taches de rousseur, lunettes
-- la morphologie et la posture
-- le style vestimentaire général
+```
+A 3x3 grid reference sheet of the SAME [woman/man] in all 9 panels
+(identical face, same hairstyle, same outfit as the reference image),
+neutral light gray studio background, photorealistic, perfectly
+consistent identity.
 
-Plus tu es précis, plus le personnage sera stable. « Une jeune femme brune » te
-donnera une inconnue différente à chaque fois.
+Row 1 (head and shoulders): FRONT, LEFT PROFILE, RIGHT PROFILE.
+Row 2 (head and shoulders): THREE-QUARTER LEFT, THREE-QUARTER RIGHT, BACK view.
+Row 3 (wider framing): FRONT full bust from the waist up, THREE-QUARTER
+full bust from the waist up, and a close-up of [his/her] LEFT HAND with
+[a gold wedding band / a diamond engagement ring and gold wedding band]
+on the ring finger.
 
-**b) Une planche de référence** : une image du même personnage sous plusieurs angles
-(face, trois quarts, profil), avec une expression neutre et un fond uni. Tu la
-génères une fois à partir de ta fiche écrite, tu la valides, et **tu la renvoies
-ensuite en image de référence à chaque génération**.
+Small text labels in each panel corner. Neutral color grading, cool
+balanced daylight white balance (5500K), accurate skin tones.
+```
 
-C'est la combinaison des deux qui fait la cohérence : la fiche verrouille les mots,
-la planche verrouille les traits.
+Deux détails qui comptent : la **balance des blancs fixée à 5500K** et le **color
+grading neutre**. C'est ce qui fait que toutes tes générations suivantes auront la
+même carnation, au lieu de dériver vers le jaune ou le bleu d'une image à l'autre.
 
-> **Le test qui ne trompe pas :** génère trois images dans trois décors différents.
-> Mets-les côte à côte. Si un inconnu peut dire « c'est la même personne », ta
-> character sheet est bonne. Sinon, reprends-la avant d'aller plus loin. Tout le
-> reste en dépend.
+> **Le test qui ne trompe pas :** mets trois générations côte à côte. Si un inconnu
+> peut dire « c'est la même personne », ta fiche est bonne. Sinon, reprends-la avant
+> d'aller plus loin. Tout le reste en dépend.
 
-### Étape 2 : la garde-robe
+### Étape 3 : la base raw (optionnelle mais rentable)
 
-Avec ta référence validée, génère le même personnage dans **différentes tenues** :
-tenue d'intérieur, tenue de sport, tenue de travail, pyjama.
+Si tu comptes réutiliser le même avatar sur plusieurs niches, fais une planche plus
+complète : **15 panneaux en 5×3**, soit 6 visages, 3 corps entiers, un panneau
+mains/pieds/cou et 3 expressions.
 
-Pourquoi c'est important : dix vidéos avec le même pull, c'est visiblement la même
-séance, et ça sent le contenu industriel. Des tenues différentes donnent l'illusion
-de **jours différents**, donc d'une vraie personne qui poste régulièrement.
+Deux réglages importants ici :
 
-Garde chaque tenue dans un dossier. C'est ta banque d'assets.
+- une **tenue neutre** (débardeur gris, short gris), justement pour pouvoir
+  l'habiller ensuite sans que l'ancien vêtement transparaisse ;
+- **`NO TEXT, no labels`** : contrairement à la fiche 3×3, pas d'étiquettes, sinon
+  elles se retrouvent dans les images dérivées.
 
-### Étape 3 : l'image UGC
+C'est ton corps neutre réutilisable. Tu le fais une fois, il sert pour tout.
 
-Maintenant, tu fabriques l'image qui servira de première frame à la vidéo. J'utilise
-**GPT Image** pour cette étape.
+### Étape 4 : habiller l'avatar
+
+Tu repars de la base raw (ou de la fiche) en **image vers image** : la base passe en
+`image_url`, et tu reprends **le prompt de l'étape précédente tel quel**, en ajoutant
+seulement le bloc tenue :
+
+```
+[le prompt de la fiche/base TEL QUEL]
+
+... wearing an elegant white wedding dress with a diamond engagement
+ring and gold wedding band on the ring finger, identical skin tone and
+color grading across all panels.
+```
+
+**Les trois règles qui évitent 90 % des ratés :**
+
+1. **Liste tous les accessoires**, sans exception : bagues, boucles d'oreilles,
+   chaussures, montre. Ce que tu ne nommes pas, le modèle l'invente, et il l'invente
+   différemment à chaque génération.
+2. **Sois explicite sur les quantités** : `exactly two rings`, `NO rings on any other
+   finger`. Les modèles ajoutent spontanément des bijoux.
+3. **Vérifie la main.** Gauche et droite s'inversent très facilement. Repasse l'image
+   dans un modèle de vision pour confirmer avant de valider la série.
+
+Répète l'opération pour chaque tenue : intérieur, sport, travail, pyjama. Dix vidéos
+avec le même pull, c'est visiblement la même séance. Des tenues différentes donnent
+l'illusion de **jours différents**, donc d'une vraie personne qui poste régulièrement.
+
+### Étape 5 : l'image UGC
+
+Tu fabriques maintenant l'image qui servira de première frame à la vidéo : une image
+qui a l'air prise au téléphone.
 
 Ce qui distingue une image UGC d'une belle image :
 
@@ -149,49 +195,61 @@ Ce qui distingue une image UGC d'une belle image :
 Le réflexe à combattre : tu vas vouloir une belle image. Une belle image ne convertit
 pas, parce qu'elle ressemble à une publicité.
 
-### Étape 4 : la vidéo
+### Étape 6 : la vidéo
 
-Tu passes ton image dans un modèle **image-to-video**. J'utilise **MiniMax H3**
-(la famille Hailuo), qui a l'avantage de tenir une physique et des mouvements
-crédibles plutôt que de déformer les visages.
+Modèle **`minimax/h3/reference-to-video`**, avec la fiche outfit passée en
+`reference_image_urls`, et un prompt qui anime **l'expression** plutôt que l'action :
 
-Quelques principes :
+```
+Image 1: this woman crying happy tears of joy. She lifts her hand to
+her face and wipes a tear, then lowers it. She blinks softly, takes a
+deep breath, then breaks into a tearful smile. Natural head movements,
+candid handheld footage, documentary style. Keep the exact same identity
+and scene as Image 1.
+```
 
-- **Demande un mouvement simple.** Une personne qui parle en regardant l'objectif, un
-  léger mouvement de main. Les modèles vidéo cassent sur les actions complexes.
-- **Reste court.** 5 à 8 secondes par plan. Tu en assembles deux ou trois si besoin.
+Les réglages :
+
+```
+duration = 5
+aspect_ratio = "9:16"
+resolution = "768P"
+```
+
+Trois principes :
+
+- **Anime une émotion, pas une action.** Un enchaînement d'expressions (cligner,
+  respirer, sourire) tient beaucoup mieux qu'un geste complexe, sur lequel les
+  modèles cassent.
+- **`Keep the exact same identity and scene as Image 1`** : cette phrase n'est pas
+  décorative, c'est elle qui empêche la dérive du visage.
 - **Génère plusieurs fois.** Le même prompt ne donne pas le même résultat. Prends la
   meilleure prise sur trois ou quatre, exactement comme un vrai tournage.
 
-### Étape 5 : le hook, le son, la publication
+### Étape 7 : le montage
 
 La vidéo brute ne suffit pas. Il reste :
 
-- **le texte d'accroche** en surimpression dès la première frame, qui porte la
-  tension dont on a parlé
+- **le hook** : le texte d'accroche en surimpression dès la première frame
+- **la démo** : quelques secondes de l'app, au milieu
+- **le CTA** : quoi faire maintenant
 - **une voix** ou un son. Une voix off, même synthétique, retient mieux qu'une vidéo
   muette
-- **le montage** : coupe tout ce qui n'est pas indispensable, surtout au début
 - **la mention « contenu généré par IA »**, qui n'est pas optionnelle (voir plus bas)
 
 Puis tu publies sur **TikTok et Instagram**, les deux plateformes où ce format
 fonctionne le mieux.
 
-## Comment j'automatise tout ça
+## Les outils
 
-Je fais tourner cette chaîne depuis mon propre agent, **Hermès**, qui appelle les API
-image et vidéo et enchaîne les étapes. C'est ce qui me permet de sortir une série de
-vidéos sans repasser manuellement d'un outil à l'autre.
+J'appelle tout par l'**API de fal.ai**, orchestrée depuis mon agent, ce qui me permet
+d'enchaîner les sept étapes sans repasser manuellement d'un outil à l'autre. Les
+paramètres cités plus haut (`reference_image_urls`, `image_url`, `duration`,
+`aspect_ratio`, `resolution`) sont ceux de cette API.
 
-Tu n'as pas besoin de ça pour commencer. La même chaîne se fait à la main :
-
-- **GPT Image** via ChatGPT pour les étapes 1 à 3
-- **MiniMax / Hailuo** via leur site, ou via une plateforme comme fal.ai ou
-  Replicate si tu préfères l'API
-- n'importe quel éditeur vidéo pour le montage
-
-Commence à la main. Tu automatiseras quand tu sauras ce qui marche : automatiser une
-mécanique qui ne convertit pas, c'est produire du déchet plus vite.
+Tu n'as pas besoin d'automatiser pour commencer. Les mêmes prompts fonctionnent à la
+main, dans l'interface web des modèles. Automatise quand tu sauras ce qui marche :
+automatiser une mécanique qui ne convertit pas, c'est produire du déchet plus vite.
 
 ## Obligatoire : signaler que c'est de l'IA
 
@@ -212,8 +270,11 @@ bien un personnage IA quand on ne cherche pas à leur faire croire le contraire.
 
 ## Les erreurs qui coûtent du temps
 
-**Bâcler la character sheet.** Si ton personnage n'est pas stable, aucune quantité de
+**Bâcler la fiche de personnage.** Si ton avatar n'est pas stable, aucune quantité de
 vidéos ne rattrapera ça. C'est l'étape qui mérite deux heures.
+
+**Oublier de nommer les accessoires.** Les mains et les bijoux sont là où les modèles
+dérapent le plus, et c'est le premier détail qui trahit une image générée.
 
 **Faire une vidéo par semaine.** C'est un jeu de volume. Une vidéo qui décolle sur
 dix, c'est normal ; avec une seule vidéo, tu n'as pas d'échantillon.
@@ -233,4 +294,4 @@ ce que tu ne paies pas en budget.
 - [TikTok · règles de divulgation des contenus IA](https://www.tiktok.com/creators/creator-portal/)
 - [Meta · étiquetage des contenus générés par IA](https://transparency.meta.com/)
 - [AI Act européen, article 50 · obligations de transparence](https://artificialintelligenceact.eu/article/50/)
-- [MiniMax Hailuo · génération image vers vidéo](https://hailuoai.video/)
+- [fal.ai · MiniMax H3, référence vers vidéo](https://fal.ai/models/fal-ai/minimax/h3/reference-to-video)
