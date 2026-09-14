@@ -12,9 +12,12 @@ export function middleware(request) {
 
   const url = request.nextUrl.clone();
 
-  // Pas d'index des guides : la racine du sous-domaine renvoie au site.
+  // Pas d'index des guides : la racine du sous-domaine répond 404. On ne la
+  // redirige pas vers le site principal, sinon le sous-domaine donne
+  // l'impression de ne pas fonctionner.
   if (url.pathname === "/") {
-    return NextResponse.redirect(`${SITE}/robinnat`);
+    url.pathname = "/guides";
+    return NextResponse.rewrite(url);
   }
 
   // Les pages du site principal n'ont rien à faire ici.
