@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="880" height="300" fill="#FFFFFF"/>
+
+  <defs>
+    <marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B9B3C6"/>
+    </marker>
+  </defs>
+
+  <!-- étapes -->
+  <g>
+    <rect x="20" y="70" width="146" height="120" rx="16" fill="#F7F7F8" stroke="#7A4FBF" stroke-width="1.5"/>
+    <circle cx="42" cy="94" r="13" fill="#7A4FBF"/>
+    <text x="42" y="99" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">1</text>
+    <text x="93" y="132" text-anchor="middle" font-size="14.5" font-weight="700" fill="#161221">Character</text>
+    <text x="93" y="151" text-anchor="middle" font-size="14.5" font-weight="700" fill="#161221">sheet</text>
+    <text x="93" y="172" text-anchor="middle" font-size="11.5" fill="#6B6580">fiche + planche</text>
+
+    <rect x="196" y="70" width="146" height="120" rx="16" fill="#F7F7F8" stroke="#7A4FBF" stroke-width="1.5"/>
+    <circle cx="218" cy="94" r="13" fill="#7A4FBF"/>
+    <text x="218" y="99" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">2</text>
+    <text x="269" y="141" text-anchor="middle" font-size="14.5" font-weight="700" fill="#161221">Outfits</text>
+    <text x="269" y="164" text-anchor="middle" font-size="11.5" fill="#6B6580">même visage,</text>
+    <text x="269" y="180" text-anchor="middle" font-size="11.5" fill="#6B6580">tenues variées</text>
+
+    <rect x="372" y="70" width="146" height="120" rx="16" fill="#FBEAF3" stroke="#D42D7D" stroke-width="1.5"/>
+    <circle cx="394" cy="94" r="13" fill="#D42D7D"/>
+    <text x="394" y="99" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">3</text>
+    <text x="445" y="132" text-anchor="middle" font-size="14.5" font-weight="700" fill="#161221">Image UGC</text>
+    <text x="445" y="155" text-anchor="middle" font-size="11.5" fill="#6B6580">cadrage selfie,</text>
+    <text x="445" y="171" text-anchor="middle" font-size="11.5" fill="#6B6580">lumière du salon</text>
+
+    <rect x="548" y="70" width="146" height="120" rx="16" fill="#FBEAF3" stroke="#D42D7D" stroke-width="1.5"/>
+    <circle cx="570" cy="94" r="13" fill="#D42D7D"/>
+    <text x="570" y="99" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">4</text>
+    <text x="621" y="132" text-anchor="middle" font-size="14.5" font-weight="700" fill="#161221">Vidéo</text>
+    <text x="621" y="155" text-anchor="middle" font-size="11.5" fill="#6B6580">image → vidéo</text>
+    <text x="621" y="171" text-anchor="middle" font-size="11.5" fill="#6B6580">MiniMax H3</text>
+
+    <rect x="724" y="70" width="146" height="120" rx="16" fill="#F7F7F8" stroke="#B85520" stroke-width="1.5"/>
+    <circle cx="746" cy="94" r="13" fill="#B85520"/>
+    <text x="746" y="99" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">5</text>
+    <text x="797" y="132" text-anchor="middle" font-size="14.5" font-weight="700" fill="#161221">Hook + pub</text>
+    <text x="797" y="155" text-anchor="middle" font-size="11.5" fill="#6B6580">3 s qui accrochent,</text>
+    <text x="797" y="171" text-anchor="middle" font-size="11.5" fill="#6B6580">mention IA</text>
+  </g>
+
+  <!-- flèches -->
+  <g stroke="#B9B3C6" stroke-width="1.8" marker-end="url(#fleche)">
+    <path d="M 170 130 L 190 130"/>
+    <path d="M 346 130 L 366 130"/>
+    <path d="M 522 130 L 542 130"/>
+    <path d="M 698 130 L 718 130"/>
+  </g>
+
+  <text x="440" y="40" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.4" fill="#6B6580">LA CHAÎNE DE PRODUCTION</text>
+  <text x="440" y="235" text-anchor="middle" font-size="12.5" fill="#6B6580">
+    Les étapes 1 et 2 ne se font qu’une fois. Ensuite, chaque vidéo ne coûte que les étapes 3 à 5.
+  </text>
+  <text x="440" y="262" text-anchor="middle" font-size="12.5" fill="#6B6580">
+    C’est ce qui permet de sortir dix vidéos par semaine sans jamais filmer.
+  </text>
+</svg>
