@@ -120,29 +120,25 @@ export default function ContestForm() {
   function onFollow(s) {
     if (followed[s.name] || pending[s.name]) return;
     setPending((p) => ({ ...p, [s.name]: true }));
-    setTimeout(async () => {
+    setTimeout(() => {
       setPending((p) => {
         const n = { ...p };
         delete n[s.name];
         return n;
       });
+      // coche optimiste : on marque suivi tout de suite, sans attendre le réseau
+      setFollowed((f) => ({ ...f, [s.name]: true }));
       if (registered && email) {
-        // réseau supplémentaire → on l'ajoute côté Sheet (nouveau ticket)
+        const newCount = followedList.length + 1;
+        setTickets(newCount);
+        let nets = [];
         try {
-          const data = await postEntry(email, "", [s.name]);
-          if (data.ok) {
-            setFollowed((f) => ({ ...f, [s.name]: true }));
-            setTickets(followedList.length + 1);
-            let nets = [];
-            try {
-              nets = JSON.parse(localStorage.getItem(LS_NETS) || "[]");
-            } catch {}
-            if (!nets.includes(s.name)) nets.push(s.name);
-            saveLocal(email, nets, followedList.length + 1);
-          }
+          nets = JSON.parse(localStorage.getItem(LS_NETS) || "[]");
         } catch {}
-      } else {
-        setFollowed((f) => ({ ...f, [s.name]: true }));
+        if (!nets.includes(s.name)) nets.push(s.name);
+        saveLocal(email, nets, newCount);
+        // écriture côté Sheet en arrière-plan (ne bloque pas l'UI)
+        postEntry(email, "", [s.name]).catch(() => {});
       }
     }, 5000);
   }
@@ -209,6 +205,7 @@ export default function ContestForm() {
         <p className="done-sub">
           {tickets} ticket{tickets > 1 ? "s" : ""} enregistré{tickets > 1 ? "s" : ""}.
         </p>
+        <p className="form-hint">Inscrit avec : {email}</p>
         <div className="form-fields">
           <div className="form-step-label">Envie de plus de chances ?</div>
           {renderFollowButtons()}
