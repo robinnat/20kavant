@@ -134,11 +134,16 @@ export default function ContestForm() {
               <a
                 key={s.name}
                 className={`follow-btn${isFollowed ? " followed" : ""}${isPending ? " pending" : ""}`}
-                href={isFollowed || isPending ? undefined : s.url}
+                href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => onFollow(s)}
-                aria-disabled={isFollowed || isPending}
+                onClick={(e) => {
+                  if (followed[s.name] || pending[s.name]) {
+                    e.preventDefault();
+                    return;
+                  }
+                  onFollow(s);
+                }}
               >
                 <div className="social-icon" style={{ background: `${s.color}1f` }}>
                   {isFollowed ? <Check /> : s.icon}
