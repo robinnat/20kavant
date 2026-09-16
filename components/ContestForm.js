@@ -79,7 +79,6 @@ export default function ContestForm() {
 
   function onFollow(s) {
     if (followed[s.name] || pending[s.name]) return;
-    window.open(s.url, "_blank", "noopener");
     setPending((p) => ({ ...p, [s.name]: true }));
     setTimeout(() => {
       setPending((p) => {
@@ -132,12 +131,14 @@ export default function ContestForm() {
             const isFollowed = !!followed[s.name];
             const isPending = !!pending[s.name];
             return (
-              <button
+              <a
                 key={s.name}
-                type="button"
                 className={`follow-btn${isFollowed ? " followed" : ""}${isPending ? " pending" : ""}`}
+                href={isFollowed || isPending ? undefined : s.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => onFollow(s)}
-                disabled={isFollowed || isPending}
+                aria-disabled={isFollowed || isPending}
               >
                 <div className="social-icon" style={{ background: `${s.color}1f` }}>
                   {isFollowed ? <Check /> : s.icon}
@@ -145,7 +146,7 @@ export default function ContestForm() {
                 <div className="social-name">
                   {isFollowed ? "Suivi · 1 ticket" : isPending ? "Vérification…" : s.name}
                 </div>
-              </button>
+              </a>
             );
           })}
         </div>
