@@ -509,3 +509,27 @@
   .prose table{ width:100%; border-collapse:collapse; font-size:15px; display:block; overflow-x:auto; }
   .prose th, .prose td{ border:1px solid var(--line); padding:10px 12px; text-align:left; }
   .prose th{ background:var(--bg-panel-2); font-weight:700; }
+
+  /* ---------- formulaire concours ---------- */
+  .contest-form{
+    max-width:520px; margin:34px auto 0;
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:20px;
+    padding:34px 30px; text-align:center;
+  }
+  .form-step-label{
+    font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400;
+    font-size:22px; letter-spacing:.02em; color:var(--cream); margin-bottom:16px;
+  }
+  .form-follow .social-row{ justify-content:center; }
+  .form-hint{ font-size:13px; color:var(--muted); margin-top:14px; }
+  .form-fields{ margin-top:26px; padding-top:26px; border-top:1px solid var(--line); }
+  .form-fields input{
+    display:block; width:100%; margin:0 auto 12px;
+    padding:13px 16px; border-radius:12px;
+    border:1px solid var(--line); background:var(--bg-panel-2);
+    color:var(--cream); font-size:15px; font-family:inherit;
+  }
+  .form-fields input:focus{ outline:none; border-color:var(--pink); }
+  .form-fields .btn{ width:100%; margin-top:6px; }
+  .form-note{ margin-top:16px; font-size:14px; color:var(--green); font-weight:600; }
+  .form-note.err{ color:var(--orange); }

@@ -1,6 +1,6 @@
-import Link from "next/link";
 import Counter from "./Counter";
 import PaliersState from "./PaliersState";
+import ContestForm from "./ContestForm";
 
 const PALIERS = [
   { th: 5000, amt: "5K", prize: "Jeu GTA 6", img: "/gift-gtavi.png", draw: "Tirage n°1" },
@@ -63,9 +63,9 @@ export default function Contest({ total = 0 }) {
             <div className="num">1</div>
             <h4>Abonne-toi</h4>
             <p>
-              YouTube, TikTok, Instagram, X.{" "}
+              YouTube, TikTok, Instagram.{" "}
               <span className="hl">Chaque abonnement = une chance de gagner</span>, suis les
-              quatre pour quadrupler tes chances.
+              trois pour tripler tes chances.
             </p>
           </div>
           <div className="step">
@@ -86,11 +86,7 @@ export default function Contest({ total = 0 }) {
           </div>
         </div>
 
-        <p className="steps-cta">
-          <Link className="btn" href="/robinnat#suivre">
-            Suis-moi sur les réseaux pour participer
-          </Link>
-        </p>
+        <ContestForm />
         <p className="challenge-note">
           Tirages au sort parmi les abonnés au moment de chaque palier. TikTok, Instagram et
           YouTube ne sont ni organisateurs ni parrains de ce concours.
