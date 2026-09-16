@@ -3,8 +3,7 @@
 import { useState } from "react";
 
 // URL du Google Apps Script (Web App) qui écrit dans le Google Sheet.
-// À remplir une fois le script déployé (voir étapes fournies à Robin).
-const APPS_SCRIPT_URL = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL || "";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwtIgtRGYz7c11rl2YQR3u928V7UvCYO2t0KWGM-Fi-AuDcBbnQHhyBdk8oF5T-rULUHg/exec";
 
 const SOCIALS = [
   {
