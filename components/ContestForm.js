@@ -54,20 +54,6 @@ const SOCIALS = [
   },
 ];
 
-function Check() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" style={{ width: 24, height: 24 }}>
-      <path
-        d="M5 13l4 4L19 7"
-        stroke="#127A4B"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 export default function ContestForm() {
   const [email, setEmail] = useState("");
   const [handle, setHandle] = useState("");
@@ -175,16 +161,12 @@ export default function ContestForm() {
               href={s.url}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => {
-                if (isFollowed || isPending) {
-                  e.preventDefault();
-                  return;
-                }
-                onFollow(s);
+              onClick={() => {
+                if (!isFollowed && !isPending) onFollow(s);
               }}
             >
               <div className="social-icon" style={{ background: `${s.color}1f` }}>
-                {isFollowed ? <Check /> : s.icon}
+                {s.icon}
               </div>
               <div className="social-name">
                 {isFollowed ? "Suivi" : isPending ? "Vérification…" : s.name}
