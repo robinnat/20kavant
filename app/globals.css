@@ -533,3 +533,16 @@
   .form-fields .btn{ width:100%; margin-top:6px; }
   .form-note{ margin-top:16px; font-size:14px; color:var(--green); font-weight:600; }
   .form-note.err{ color:var(--orange); }
+  .form-fields .btn:disabled{ opacity:0.4; cursor:not-allowed; transform:none; }
+  .follow-btn{
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+    background:none; border:none; cursor:pointer; padding:0;
+    font-family:inherit; font-size:12px; color:var(--muted); letter-spacing:0.04em;
+  }
+  .follow-btn:hover .social-icon{ transform:translateY(-4px) scale(1.05); }
+  .follow-btn:hover .social-name{ color:var(--cream); }
+  .follow-btn:disabled{ cursor:default; }
+  .follow-btn.followed .social-icon{ background:rgba(18,122,75,0.12) !important; }
+  .follow-btn.followed .social-name{ color:var(--green); }
+  .follow-btn.pending .social-icon{ animation:pulse 1s ease-in-out infinite; }
+  @keyframes pulse{ 0%,100%{opacity:0.55;} 50%{opacity:0.2;} }

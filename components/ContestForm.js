@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 
-// URL du Google Apps Script (Web App) qui écrit dans le Google Sheet.
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwtIgtRGYz7c11rl2YQR3u928V7UvCYO2t0KWGM-Fi-AuDcBbnQHhyBdk8oF5T-rULUHg/exec";
 
 const SOCIALS = [
@@ -52,26 +51,73 @@ const SOCIALS = [
   },
 ];
 
+function Check() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" style={{ width: 24, height: 24 }}>
+      <path
+        d="M5 13l4 4L19 7"
+        stroke="#127A4B"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function ContestForm() {
   const [email, setEmail] = useState("");
   const [handle, setHandle] = useState("");
-  const [status, setStatus] = useState("idle"); // idle | sending | ok | error
+  const [followed, setFollowed] = useState({}); // { YouTube: true, ... }
+  const [pending, setPending] = useState({}); // réseaux en cours de vérif (5s)
+  const [status, setStatus] = useState("idle"); // idle | sending | ok | dup | error
+  const [tickets, setTickets] = useState(0);
+
+  const followedCount = SOCIALS.filter((s) => followed[s.name]).length;
+  const canSubmit =
+    followedCount >= 1 && email.trim() !== "" && status !== "sending" && status !== "ok";
+
+  function onFollow(s) {
+    if (followed[s.name] || pending[s.name]) return;
+    window.open(s.url, "_blank", "noopener");
+    setPending((p) => ({ ...p, [s.name]: true }));
+    setTimeout(() => {
+      setPending((p) => {
+        const n = { ...p };
+        delete n[s.name];
+        return n;
+      });
+      setFollowed((f) => ({ ...f, [s.name]: true }));
+    }, 5000);
+  }
 
   async function onSubmit(e) {
     e.preventDefault();
-    if (!email || !APPS_SCRIPT_URL) return;
+    if (!canSubmit) return;
     setStatus("sending");
     try {
-      // mode no-cors + text/plain : évite le préflight CORS du Web App
-      await fetch(APPS_SCRIPT_URL, {
+      const res = await fetch(APPS_SCRIPT_URL, {
         method: "POST",
-        mode: "no-cors",
+        mode: "cors",
         headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify({ email, handle }),
+        body: JSON.stringify({
+          email,
+          handle,
+          networks: SOCIALS.filter((s) => followed[s.name]).map((s) => s.name),
+        }),
       });
-      setStatus("ok");
-      setEmail("");
-      setHandle("");
+      const data = await res.json();
+      if (data.ok) {
+        setTickets(data.tickets || followedCount);
+        setStatus("ok");
+        setEmail("");
+        setHandle("");
+        setFollowed({});
+      } else if (data.error === "email_exists") {
+        setStatus("dup");
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }
@@ -82,16 +128,30 @@ export default function ContestForm() {
       <div className="form-follow">
         <div className="form-step-label">1 · Suis-moi sur les réseaux</div>
         <div className="social-row">
-          {SOCIALS.map((s) => (
-            <a key={s.name} className="social-icon-link" href={s.url} target="_blank" rel="noopener">
-              <div className="social-icon" style={{ background: `${s.color}1f` }}>
-                {s.icon}
-              </div>
-              <div className="social-name">{s.name}</div>
-            </a>
-          ))}
+          {SOCIALS.map((s) => {
+            const isFollowed = !!followed[s.name];
+            const isPending = !!pending[s.name];
+            return (
+              <button
+                key={s.name}
+                type="button"
+                className={`follow-btn${isFollowed ? " followed" : ""}${isPending ? " pending" : ""}`}
+                onClick={() => onFollow(s)}
+                disabled={isFollowed || isPending}
+              >
+                <div className="social-icon" style={{ background: `${s.color}1f` }}>
+                  {isFollowed ? <Check /> : s.icon}
+                </div>
+                <div className="social-name">
+                  {isFollowed ? "Suivi · 1 ticket" : isPending ? "Vérification…" : s.name}
+                </div>
+              </button>
+            );
+          })}
         </div>
-        <p className="form-hint">Chaque réseau suivi = une chance de gagner en plus.</p>
+        <p className="form-hint">
+          Chaque réseau suivi = 1 ticket. La coche apparaît après 5 secondes.
+        </p>
       </div>
 
       <div className="form-fields">
@@ -109,16 +169,21 @@ export default function ContestForm() {
           value={handle}
           onChange={(e) => setHandle(e.target.value)}
         />
-        <button
-          type="submit"
-          className="btn"
-          disabled={status === "sending" || status === "ok" || !APPS_SCRIPT_URL}
-        >
-          {status === "sending" ? "Envoi…" : status === "ok" ? "Inscrit ✓" : "Participer"}
+        <button type="submit" className="btn" disabled={!canSubmit}>
+          {status === "sending"
+            ? "Envoi…"
+            : status === "ok"
+              ? "Inscrit ✓"
+              : `Participer (${followedCount} ticket${followedCount > 1 ? "s" : ""})`}
         </button>
       </div>
 
-      {status === "ok" && <p className="form-note">T&apos;es dans le tirage. Bonne chance 🤞</p>}
+      {status === "ok" && (
+        <p className="form-note">
+          T&apos;es dans le tirage avec {tickets} ticket{tickets > 1 ? "s" : ""}. Bonne chance 🤞
+        </p>
+      )}
+      {status === "dup" && <p className="form-note err">Cet email est déjà inscrit.</p>}
       {status === "error" && <p className="form-note err">Oups, une erreur. Réessaie.</p>}
     </form>
   );
