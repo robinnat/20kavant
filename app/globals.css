@@ -530,6 +530,7 @@
     color:var(--cream); font-size:15px; font-family:inherit;
   }
   .form-fields input:focus{ outline:none; border-color:var(--pink); }
+  .field-hint{ display:block; text-align:left; margin:-6px 0 12px; font-size:12px; color:var(--muted); }
   .form-fields .btn{ width:100%; margin-top:6px; }
   .form-note{ margin-top:16px; font-size:14px; color:var(--green); font-weight:600; }
   .form-note.err{ color:var(--orange); }

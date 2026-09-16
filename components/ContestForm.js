@@ -165,10 +165,13 @@ export default function ContestForm() {
         />
         <input
           type="text"
-          placeholder="@pseudo (optionnel)"
+          placeholder="@pseudo"
           value={handle}
           onChange={(e) => setHandle(e.target.value)}
         />
+        <small className="field-hint">
+          Optionnel · ton @pseudo nous aide à te retrouver si tu gagnes
+        </small>
         <button type="submit" className="btn" disabled={!canSubmit}>
           {status === "sending"
             ? "Envoi…"
