@@ -2,12 +2,17 @@ import Counter from "./Counter";
 import PaliersState from "./PaliersState";
 import ContestForm from "./ContestForm";
 
-const PALIERS = [
-  { th: 5000, amt: "5K", prize: "Jeu GTA 6", img: "/gift-gtavi.png", draw: "Tirage n°1" },
-  { th: 10000, amt: "10K", prize: "Jeu GTA 6", img: "/gift-gtavi.png", draw: "Tirage n°2" },
-  { th: 15000, amt: "15K", prize: "Jeu GTA 6", img: "/gift-gtavi.png", draw: "Tirage n°3" },
-  { th: 20000, amt: "20K", prize: "PS5 + GTA 6", img: "/gift-ps5-sm.png", draw: "Le 19/11", final: true },
-];
+// Un palier tous les 1 000 $ de revenus : GTA 6 à chaque palier franchi, et
+// une PS5 avec le jeu au palier final. Les 19 premiers sont affichés en
+// pastilles (ils donnent tous le même lot, les répéter en cartes n'apprendrait
+// rien) ; le palier final a sa propre carte.
+const PAS = 1000;
+const OBJECTIF = 20000;
+const PALIERS = Array.from({ length: OBJECTIF / PAS - 1 }, (_, i) => ({
+  th: (i + 1) * PAS,
+  amt: `${i + 1}K`,
+  n: i + 1,
+}));
 
 // Page dédiée au concours. `total` sert à marquer les paliers déjà franchis.
 export default function Contest({ total = 0 }) {
@@ -22,9 +27,9 @@ export default function Contest({ total = 0 }) {
               Tente de gagner une <span className="accent">PS5 + GTA 6</span>
             </h1>
             <p className="defi-sub">
-              Je vise 20K de revenus avant la sortie du jeu. À chaque palier franchi, je tire au
-              sort un abonné et je lui offre GTA 6, et une PS5 avec le jeu au palier final.
-              Gratuit, sans obligation d&apos;achat.
+              Je vise 20K de revenus avant la sortie du jeu. Tous les 1 000 $ franchis, je tire au
+              sort un abonné et je lui offre GTA 6. Au palier final, c&apos;est une PS5 avec le
+              jeu. Gratuit, sans obligation d&apos;achat.
             </p>
           </div>
 
@@ -36,19 +41,29 @@ export default function Contest({ total = 0 }) {
         <div className="section-head">
           <div className="section-title">Les paliers</div>
           <p className="section-desc">
-            Un tirage au sort à chaque palier franchi, jusqu&apos;au 19/11.
+            Un tirage au sort tous les 1 000 $ de revenus, jusqu&apos;au 19/11. Vingt paliers,
+            donc vingt gagnants.
           </p>
         </div>
         <div className="paliers">
           {PALIERS.map((p) => (
-            <div key={p.th} className={`palier${p.final ? " final" : ""}`} data-th={p.th}>
-              <img src={p.img} alt="" />
-              <div className="palier-amt">{p.amt}</div>
-              <div className="palier-pz">{p.prize}</div>
-              <div className="palier-draw">{p.draw}</div>
-              <span className="palier-state">À venir</span>
+            <div key={p.th} className="palier" data-th={p.th}>
+              <span className="palier-amt">{p.amt}</span>
+              <span className="palier-draw">Tirage n°{p.n}</span>
             </div>
           ))}
+        </div>
+
+        <div className="palier final" data-th={OBJECTIF}>
+          <img src="/gift-ps5-sm.png" alt="" />
+          <div>
+            <div className="palier-amt">20K</div>
+            <div className="palier-pz">PS5 + GTA 6</div>
+            <div className="palier-draw">Le 19/11, jour de sortie du jeu</div>
+            <span className="palier-state" data-done="Tirage fait">
+              Palier final
+            </span>
+          </div>
         </div>
 
         <div className="sub-head" id="participer">
@@ -72,7 +87,7 @@ export default function Contest({ total = 0 }) {
             <div className="num">2</div>
             <h4>Un palier tombe</h4>
             <p>
-              À chaque palier franchi (5K, 10K, 15K, 20K), un{" "}
+              Tous les 1 000 $ de revenus franchis, un{" "}
               <span className="hl">tirage au sort</span> parmi tous les abonnés.
             </p>
           </div>
@@ -86,7 +101,11 @@ export default function Contest({ total = 0 }) {
           </div>
         </div>
 
-        <ContestForm />
+        {/* ancre stable pour pointer directement sur le formulaire depuis
+            l'extérieur : /robinnat/concours#inscription */}
+        <div id="inscription">
+          <ContestForm />
+        </div>
         <p className="challenge-note">
           Tirages au sort parmi les abonnés au moment de chaque palier. TikTok, Instagram et
           YouTube ne sont ni organisateurs ni parrains de ce concours.

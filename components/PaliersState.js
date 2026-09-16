@@ -10,8 +10,11 @@ export default function PaliersState({ total = 0 }) {
     document.querySelectorAll(".palier[data-th]").forEach((p) => {
       if (total >= +p.dataset.th) {
         p.classList.add("reached");
+        // Tous les paliers n'affichent pas de pastille d'état : les
+        // intermédiaires se contentent de la classe `reached`, seul le palier
+        // final porte un libellé, défini via data-done.
         const state = p.querySelector(".palier-state");
-        if (state) state.textContent = "Tirage fait";
+        if (state) state.textContent = state.dataset.done || "Tirage fait";
       }
     });
   }, [total]);

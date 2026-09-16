@@ -317,24 +317,57 @@
   .pf-row .mrr .unit{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:.36em; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); vertical-align:.32em; margin-left:7px; }
 
   /* ---------- paliers du concours ---------- */
-  .paliers{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:34px; }
-  .palier{ background:var(--bg-panel); border:1px solid var(--line); border-radius:16px; padding:22px 18px; text-align:center; }
-  .palier img{ display:block; width:84px; height:84px; object-fit:contain; margin:0 auto 12px; }
-  .palier-amt{ font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400; font-size:38px; line-height:1; letter-spacing:.03em; color:var(--cream); }
-  .palier-pz{ font-size:14px; font-weight:600; margin-top:8px; }
-  .palier-draw{ font-size:12px; color:var(--muted); margin-top:4px; }
-  .palier-state{ display:inline-block; margin-top:14px; font-size:10px; text-transform:uppercase; letter-spacing:.08em; padding:4px 10px; border-radius:999px; background:rgba(164,145,196,.14); color:var(--muted); }
-  .palier.final{ border-color:rgba(183,155,230,.45); }
-  .palier.final .palier-amt{ color:var(--teal); }
-  .palier.reached{ border-color:rgba(244,147,107,.5); }
-  .palier.reached .palier-state{ background:rgba(244,147,107,.16); color:var(--orange); }
-  @media(max-width:860px){ .paliers{ grid-template-columns:repeat(2,1fr); } }
-  @media(max-width:460px){
-    .paliers{ grid-template-columns:1fr; gap:10px; }
-    .palier{ padding:16px; }
-    .palier img{ width:56px; height:56px; margin-bottom:8px; }
-    .palier-amt{ font-size:30px; }
-    .palier-state{ margin-top:10px; }
+  /* 19 paliers intermédiaires qui donnent tous le même lot : des pastilles
+     suffisent, 19 cartes identiques n'apprendraient rien de plus. Le palier
+     final, lui, a sa propre carte. */
+  /* 10 colonnes : 19 pastilles tombent en 10 + 9, la ligne du bas n'est
+     amputée que d'une case. Un nombre de colonnes automatique donnait 11 + 8
+     et laissait un trou visible à droite. */
+  .paliers{
+    display:grid; grid-template-columns:repeat(10,minmax(0,1fr));
+    gap:8px; margin-top:30px;
+  }
+  @media(max-width:900px){ .paliers{ grid-template-columns:repeat(5,minmax(0,1fr)); } }
+  .palier{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:12px;
+    padding:12px 8px; text-align:center;
+  }
+  .palier-amt{
+    display:block; font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400;
+    font-size:26px; line-height:1; letter-spacing:.03em; color:var(--cream);
+  }
+  .palier-draw{ display:block; font-size:10.5px; color:var(--muted); margin-top:5px; }
+  .palier.reached{ border-color:rgba(184,85,32,.42); background:rgba(244,147,107,.09); }
+  .palier.reached .palier-amt{ color:var(--orange); }
+  .palier.reached .palier-draw{ color:var(--orange); }
+  .palier.reached .palier-draw::after{ content:" ✓"; }
+
+  /* palier final : hors de la grille, en carte */
+  .palier.final{
+    display:flex; align-items:center; gap:24px; text-align:left;
+    margin-top:12px; padding:24px 26px; border-radius:18px;
+    border-color:rgba(122,79,191,.38);
+    background:
+      radial-gradient(70% 150% at 0% 50%, rgba(122,79,191,0.10), transparent 62%),
+      var(--bg-panel);
+  }
+  .palier.final img{ display:block; width:92px; height:92px; object-fit:contain; flex:none; }
+  .palier.final .palier-amt{ font-size:46px; color:var(--teal); }
+  .palier.final .palier-pz{ font-size:16px; font-weight:700; margin-top:6px; }
+  .palier.final .palier-draw{ font-size:12.5px; margin-top:4px; }
+  .palier-state{
+    display:inline-block; margin-top:12px; font-size:10px; text-transform:uppercase;
+    letter-spacing:.08em; padding:4px 10px; border-radius:999px;
+    background:rgba(164,145,196,.14); color:var(--muted);
+  }
+  .palier.final.reached .palier-state{ background:rgba(244,147,107,.16); color:var(--orange); }
+  @media(max-width:560px){
+    .paliers{ grid-template-columns:repeat(4,minmax(0,1fr)); gap:6px; }
+    .palier{ padding:10px 6px; }
+    .palier-amt{ font-size:22px; }
+    .palier.final{ flex-direction:column; text-align:center; gap:14px; padding:22px 18px; }
+    .palier.final img{ width:72px; height:72px; }
+    .palier.final .palier-amt{ font-size:38px; }
   }
 
   /* ---------- guides ---------- */
