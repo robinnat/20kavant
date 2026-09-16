@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwtIgtRGYz7c11rl2YQR3u928V7UvCYO2t0KWGM-Fi-AuDcBbnQHhyBdk8oF5T-rULUHg/exec";
 
@@ -73,6 +73,14 @@ export default function ContestForm() {
   const [status, setStatus] = useState("idle"); // idle | sending | ok | dup | error
   const [tickets, setTickets] = useState(0);
 
+  // Si déjà inscrit (localStorage), on masque le formulaire au rechargement.
+  useEffect(() => {
+    if (typeof window !== "undefined" && localStorage.getItem("20kavant_concours_done") === "1") {
+      setTickets(parseInt(localStorage.getItem("20kavant_concours_tickets") || "0", 10));
+      setStatus("ok");
+    }
+  }, []);
+
   const followedCount = SOCIALS.filter((s) => followed[s.name]).length;
   const canSubmit =
     followedCount >= 1 && email.trim() !== "" && status !== "sending" && status !== "ok";
@@ -112,6 +120,10 @@ export default function ContestForm() {
         setEmail("");
         setHandle("");
         setFollowed({});
+        try {
+          localStorage.setItem("20kavant_concours_done", "1");
+          localStorage.setItem("20kavant_concours_tickets", String(data.tickets || followedCount));
+        } catch {}
       } else if (data.error === "email_exists") {
         setStatus("dup");
       } else {
@@ -120,6 +132,18 @@ export default function ContestForm() {
     } catch {
       setStatus("error");
     }
+  }
+
+  if (status === "ok") {
+    return (
+      <div className="contest-form contest-done">
+        <div className="done-check">✓</div>
+        <h3 className="done-title">T&apos;es dans le tirage !</h3>
+        <p className="done-sub">
+          {tickets} ticket{tickets > 1 ? "s" : ""} enregistré{tickets > 1 ? "s" : ""}. Bonne chance 🤞
+        </p>
+      </div>
+    );
   }
 
   return (
@@ -149,15 +173,13 @@ export default function ContestForm() {
                   {isFollowed ? <Check /> : s.icon}
                 </div>
                 <div className="social-name">
-                  {isFollowed ? "Suivi · 1 ticket" : isPending ? "Vérification…" : s.name}
+                  {isFollowed ? "Suivi" : isPending ? "Vérification…" : s.name}
                 </div>
               </a>
             );
           })}
         </div>
-        <p className="form-hint">
-          Chaque réseau suivi = 1 ticket. La coche apparaît après 5 secondes.
-        </p>
+        <p className="form-hint">Chaque réseau suivi = 1 ticket.</p>
       </div>
 
       <div className="form-fields">
@@ -187,11 +209,6 @@ export default function ContestForm() {
         </button>
       </div>
 
-      {status === "ok" && (
-        <p className="form-note">
-          T&apos;es dans le tirage avec {tickets} ticket{tickets > 1 ? "s" : ""}. Bonne chance 🤞
-        </p>
-      )}
       {status === "dup" && <p className="form-note err">Cet email est déjà inscrit.</p>}
       {status === "error" && <p className="form-note err">Oups, une erreur. Réessaie.</p>}
     </form>
