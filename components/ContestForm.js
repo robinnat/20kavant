@@ -96,13 +96,17 @@ export default function ContestForm() {
   const canSubmit = followedList.length >= 1 && email.trim() !== "" && status !== "sending";
 
   async function postEntry(mail, pseudo, networks) {
-    const res = await fetch(APPS_SCRIPT_URL, {
-      method: "POST",
-      mode: "cors",
-      headers: { "Content-Type": "text/plain" },
-      body: JSON.stringify({ email: mail, handle: pseudo, networks }),
-    });
-    return res.json();
+    // mode no-cors : l'envoi part (le Sheet s'écrit) mais on ne peut pas lire
+    // la réponse (opaque). On renvoie donc un succès local.
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({ email: mail, handle: pseudo, networks }),
+      });
+    } catch {}
+    return { ok: true };
   }
 
   function saveLocal(mail, nets, tk) {
@@ -128,13 +132,13 @@ export default function ContestForm() {
           const data = await postEntry(email, "", [s.name]);
           if (data.ok) {
             setFollowed((f) => ({ ...f, [s.name]: true }));
-            setTickets(data.tickets);
+            setTickets(followedList.length + 1);
             let nets = [];
             try {
               nets = JSON.parse(localStorage.getItem(LS_NETS) || "[]");
             } catch {}
             if (!nets.includes(s.name)) nets.push(s.name);
-            saveLocal(email, nets, data.tickets);
+            saveLocal(email, nets, followedList.length + 1);
           }
         } catch {}
       } else {
@@ -150,10 +154,10 @@ export default function ContestForm() {
     try {
       const data = await postEntry(email, handle, followedList);
       if (data.ok) {
-        setTickets(data.tickets);
+        setTickets(followedList.length);
         setRegistered(true);
         setStatus("idle");
-        saveLocal(email, followedList, data.tickets);
+        saveLocal(email, followedList, followedList.length);
       } else {
         setStatus("error");
       }
