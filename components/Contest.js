@@ -4,8 +4,10 @@ import ContestForm from "./ContestForm";
 
 // Un palier tous les 1 000 $ de revenus : GTA 6 à chaque palier franchi, et
 // une PS5 avec le jeu au palier final. Les 19 premiers sont affichés en
-// pastilles (ils donnent tous le même lot, les répéter en cartes n'apprendrait
-// rien) ; le palier final a sa propre carte.
+// pastilles compactes, avec la jaquette du jeu pour qu'on voie le lot d'un
+// coup d'oeil ; le palier final a sa propre carte.
+// La jaquette des pastilles est une version réduite (160 px, 18 Ko) : servir
+// l'originale de 745 Ko pour une vignette de 56 px serait du gâchis.
 const PAS = 1000;
 const OBJECTIF = 20000;
 const PALIERS = Array.from({ length: OBJECTIF / PAS - 1 }, (_, i) => ({
@@ -41,13 +43,15 @@ export default function Contest({ total = 0 }) {
         <div className="section-head">
           <div className="section-title">Les paliers</div>
           <p className="section-desc">
-            Un tirage au sort tous les 1 000 $ de revenus, jusqu&apos;au 19/11. Vingt paliers,
-            donc vingt gagnants.
+            Un tirage au sort tous les 1 000 $ de revenus, jusqu&apos;au 19/11. Chaque palier
+            franchi offre le jeu GTA 6, et le vingtième une PS5 avec le jeu. Vingt paliers, donc
+            vingt gagnants.
           </p>
         </div>
         <div className="paliers">
           {PALIERS.map((p) => (
             <div key={p.th} className="palier" data-th={p.th}>
+              <img src="/gift-gtavi-sm.png" alt="" />
               <span className="palier-amt">{p.amt}</span>
               <span className="palier-draw">Tirage n°{p.n}</span>
             </div>
@@ -55,7 +59,12 @@ export default function Contest({ total = 0 }) {
         </div>
 
         <div className="palier final" data-th={OBJECTIF}>
-          <img src="/gift-ps5-sm.png" alt="" />
+          {/* les deux lots côte à côte : le libellé dit « PS5 + GTA 6 », on le
+              montre plutôt que de l'écrire seulement */}
+          <div className="final-lots">
+            <img src="/gift-ps5-sm.png" alt="" />
+            <img className="final-jaquette" src="/gift-gtavi-sm.png" alt="" />
+          </div>
           <div>
             <div className="palier-amt">20K</div>
             <div className="palier-pz">PS5 + GTA 6</div>

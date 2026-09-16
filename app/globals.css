@@ -320,18 +320,27 @@
   /* 19 paliers intermédiaires qui donnent tous le même lot : des pastilles
      suffisent, 19 cartes identiques n'apprendraient rien de plus. Le palier
      final, lui, a sa propre carte. */
-  /* 10 colonnes : 19 pastilles tombent en 10 + 9, la ligne du bas n'est
-     amputée que d'une case. Un nombre de colonnes automatique donnait 11 + 8
-     et laissait un trou visible à droite. */
+  /* 7 colonnes : c'est le plus dense qui laisse la jaquette lisible (~84 px).
+     Les 19 pastilles tombent en 7 + 7 + 5. */
   .paliers{
-    display:grid; grid-template-columns:repeat(10,minmax(0,1fr));
-    gap:8px; margin-top:30px;
+    display:grid; grid-template-columns:repeat(7,minmax(0,1fr));
+    gap:10px; margin-top:30px;
   }
-  @media(max-width:900px){ .paliers{ grid-template-columns:repeat(5,minmax(0,1fr)); } }
+  @media(max-width:900px){ .paliers{ grid-template-columns:repeat(4,minmax(0,1fr)); } }
   .palier{
     background:var(--bg-panel); border:1px solid var(--line); border-radius:12px;
     padding:12px 8px; text-align:center;
   }
+  /* Vignette des pastilles seulement : la carte finale est hors de .paliers et
+     ne doit pas hériter d'ici (son margin:0 auto absorberait l'espace du flex).
+     La jaquette est atténuée tant que le palier n'est pas franchi : l'échelle
+     se lit alors d'un coup, les lots déjà tirés ressortent en couleur. */
+  .paliers .palier img{
+    display:block; width:100%; max-width:84px; aspect-ratio:1; object-fit:cover;
+    border-radius:8px; margin:0 auto 10px;
+    opacity:.62; filter:saturate(.62); transition:opacity .2s ease, filter .2s ease;
+  }
+  .paliers .palier.reached img{ opacity:1; filter:none; }
   .palier-amt{
     display:block; font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400;
     font-size:26px; line-height:1; letter-spacing:.03em; color:var(--cream);
@@ -351,7 +360,9 @@
       radial-gradient(70% 150% at 0% 50%, rgba(122,79,191,0.10), transparent 62%),
       var(--bg-panel);
   }
+  .palier.final .final-lots{ display:flex; align-items:center; gap:12px; flex:none; }
   .palier.final img{ display:block; width:92px; height:92px; object-fit:contain; flex:none; }
+  .palier.final .final-jaquette{ width:76px; height:76px; object-fit:cover; border-radius:9px; }
   .palier.final .palier-amt{ font-size:46px; color:var(--teal); }
   .palier.final .palier-pz{ font-size:16px; font-weight:700; margin-top:6px; }
   .palier.final .palier-draw{ font-size:12.5px; margin-top:4px; }
@@ -362,11 +373,12 @@
   }
   .palier.final.reached .palier-state{ background:rgba(244,147,107,.16); color:var(--orange); }
   @media(max-width:560px){
-    .paliers{ grid-template-columns:repeat(4,minmax(0,1fr)); gap:6px; }
+    .paliers{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
     .palier{ padding:10px 6px; }
     .palier-amt{ font-size:22px; }
     .palier.final{ flex-direction:column; text-align:center; gap:14px; padding:22px 18px; }
     .palier.final img{ width:72px; height:72px; }
+    .palier.final .final-jaquette{ width:62px; height:62px; }
     .palier.final .palier-amt{ font-size:38px; }
   }
 
