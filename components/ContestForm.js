@@ -52,6 +52,19 @@ const SOCIALS = [
       </svg>
     ),
   },
+  {
+    name: "X",
+    url: "https://x.com/robinnat20",
+    color: "#1E1330",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path
+          d="M17.53 3h2.94l-6.42 7.34L21.5 21h-5.9l-4.62-6.04L5.7 21H2.76l6.87-7.85L2.5 3h6.05l4.18 5.52L17.53 3z"
+          fill="#1E1330"
+        />
+      </svg>
+    ),
+  },
 ];
 
 export default function ContestForm() {

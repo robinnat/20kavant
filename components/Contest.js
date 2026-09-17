@@ -36,6 +36,14 @@ export default function Contest({ total = 0 }) {
           </div>
 
           <Counter total={total} goal={20000} />
+
+          <div className="defi-foot">
+            {/* lien d'ancre : sans JS, et le navigateur gère le défilement
+                doux déjà défini sur html */}
+            <a className="btn" href="#inscription">
+              Participer au tirage
+            </a>
+          </div>
         </div>
       </section>
 
@@ -79,7 +87,7 @@ export default function Contest({ total = 0 }) {
           <h3 className="sub-title">Comment participer</h3>
           <p className="sub-desc">
             Il suffit de me suivre : chaque réseau où tu t&apos;abonnes est une chance de gagner
-            en plus.
+            en plus, jusqu&apos;à quatre.
           </p>
         </div>
         <div className="steps">
@@ -87,9 +95,9 @@ export default function Contest({ total = 0 }) {
             <div className="num">1</div>
             <h4>Abonne-toi</h4>
             <p>
-              YouTube, TikTok, Instagram.{" "}
+              YouTube, TikTok, Instagram, X.{" "}
               <span className="hl">Chaque abonnement = une chance de gagner</span>, suis les
-              trois pour tripler tes chances.
+              quatre pour quadrupler tes chances.
             </p>
           </div>
           <div className="step">
