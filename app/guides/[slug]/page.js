@@ -1,6 +1,33 @@
 import { notFound } from "next/navigation";
-import { marked } from "marked";
+import { Marked } from "marked";
 import { listerSlugs, lireGuide } from "../../../lib/guides";
+
+// Identifiant d'ancre d'un titre : « Créer tes recettes » → creer-tes-recettes.
+// Les accents sont retirés pour que les liens restent simples à écrire et à
+// partager (guides.20kavant.fr/mon-guide#les-recettes).
+function ancre(texte) {
+  return texte
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/<[^>]+>/g, "")
+    .replace(/&[a-z0-9#]+;/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+// marked ne pose plus d'id sur les titres depuis sa version 8 (l'option
+// headerIds a disparu) : sans ça, aucun lien interne ni partage vers une
+// section précise ne fonctionne. Instance locale, pour ne pas modifier le
+// marked global.
+const md = new Marked({
+  renderer: {
+    heading({ tokens, depth }) {
+      const contenu = this.parser.parseInline(tokens);
+      return `<h${depth} id="${ancre(contenu)}">${contenu}</h${depth}>\n`;
+    },
+  },
+});
 
 // Les guides sont générés au build à partir des fichiers Markdown.
 export function generateStaticParams() {
@@ -24,7 +51,7 @@ export default async function GuidePage({ params }) {
   const guide = lireGuide(slug);
   if (!guide) notFound();
 
-  const html = marked.parse(guide.corps, { mangle: false, headerIds: true });
+  const html = md.parse(guide.corps);
   const dateLisible = guide.date
     ? new Date(guide.date).toLocaleDateString("fr-FR", {
         day: "numeric",

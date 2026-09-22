@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="880" height="500" fill="#FFFFFF"/>
+
+  <text x="40" y="44" font-size="11.5" font-weight="700" letter-spacing="1.4" fill="#6B6580">UN PROMPT, LIGNE PAR LIGNE</text>
+
+  <!-- panneau du prompt -->
+  <rect x="230" y="64" width="610" height="378" rx="16" fill="#19112E"/>
+
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14.5">
+    <!-- 1 sujet -->
+    <rect x="40" y="80" width="150" height="28" rx="14" fill="#161221"/>
+    <text x="115" y="99" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1" fill="#FFFFFF">SUJET</text>
+    <path d="M 196 94 L 222 94" stroke="#D9D5E0" stroke-width="1.5"/>
+    <text x="256" y="99" fill="#F6E7D6">Luxury wristwatch on a dark stone pedestal.</text>
+
+    <!-- 2 cadrage -->
+    <rect x="40" y="120" width="150" height="28" rx="14" fill="#7A4FBF"/>
+    <text x="115" y="139" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1" fill="#FFFFFF">CADRAGE</text>
+    <path d="M 196 134 L 222 134" stroke="#D9D5E0" stroke-width="1.5"/>
+    <text x="256" y="139" fill="#C9B3F2">/closeup /lowangle</text>
+
+    <!-- 3 objectif -->
+    <rect x="40" y="160" width="150" height="28" rx="14" fill="#5566C8"/>
+    <text x="115" y="179" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1" fill="#FFFFFF">OBJECTIF</text>
+    <path d="M 196 174 L 222 174" stroke="#D9D5E0" stroke-width="1.5"/>
+    <text x="256" y="179" fill="#AEB8F5">/85mm</text>
+
+    <!-- 4 lumière -->
+    <rect x="40" y="200" width="150" height="28" rx="14" fill="#B85520"/>
+    <text x="115" y="219" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1" fill="#FFFFFF">LUMIÈRE</text>
+    <path d="M 196 214 L 222 214" stroke="#D9D5E0" stroke-width="1.5"/>
+    <text x="256" y="219" fill="#F4B48E">/softlighting /rimlight</text>
+
+    <!-- 5 style -->
+    <rect x="40" y="240" width="150" height="28" rx="14" fill="#D42D7D"/>
+    <text x="115" y="259" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1" fill="#FFFFFF">STYLE</text>
+    <path d="M 196 254 L 222 254" stroke="#D9D5E0" stroke-width="1.5"/>
+    <text x="256" y="259" fill="#F49AC4">/productshot /luxury</text>
+
+    <!-- 6 matière -->
+    <rect x="40" y="280" width="150" height="28" rx="14" fill="#2A7F8C"/>
+    <text x="115" y="299" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1" fill="#FFFFFF">MATIÈRE</text>
+    <path d="M 196 294 L 222 294" stroke="#D9D5E0" stroke-width="1.5"/>
+    <text x="256" y="299" fill="#8FD3DC">/reflections</text>
+
+    <!-- 7 finition -->
+    <rect x="40" y="320" width="150" height="28" rx="14" fill="#127A4B"/>
+    <text x="115" y="339" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1" fill="#FFFFFF">FINITION</text>
+    <path d="M 196 334 L 222 334" stroke="#D9D5E0" stroke-width="1.5"/>
+    <text x="256" y="339" fill="#8EDBB3">/highdetail</text>
+
+    <!-- 8 format -->
+    <rect x="40" y="360" width="150" height="28" rx="14" fill="#6B6580"/>
+    <text x="115" y="379" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1" fill="#FFFFFF">FORMAT</text>
+    <path d="M 196 374 L 222 374" stroke="#D9D5E0" stroke-width="1.5"/>
+    <text x="256" y="379" fill="#CFCAD9">/square</text>
+
+    <!-- 9 contraintes -->
+    <rect x="40" y="400" width="150" height="28" rx="14" fill="#FFFFFF" stroke="#161221" stroke-width="1.5"/>
+    <text x="115" y="419" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1" fill="#161221">CONTRAINTES</text>
+    <path d="M 196 414 L 222 414" stroke="#D9D5E0" stroke-width="1.5"/>
+    <text x="256" y="419" fill="#F6E7D6">No text. No visible brand.</text>
+  </g>
+
+  <text x="440" y="476" text-anchor="middle" font-size="12.5" fill="#6B6580">
+    Une ligne par famille : le prompt se relit d'un coup d'oeil, et on sait quoi changer si le résultat déçoit.
+  </text>
+</svg>

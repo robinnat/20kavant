@@ -525,7 +525,19 @@
     font-size:clamp(28px,3.6vw,38px); letter-spacing:.01em;
     margin-top:52px; padding-top:22px; border-top:1px solid var(--line);
   }
+  /* grandes parties d'un guide long (# en Markdown) : plus imposantes que les
+     sections, avec un filet plein pour qu'on sente le changement de partie */
+  .prose h1{
+    font-family:'Pricedown','Bebas Neue',sans-serif; font-weight:400;
+    font-size:clamp(40px,5.6vw,60px); line-height:1; letter-spacing:.01em;
+    color:var(--pink);
+    margin-top:84px; padding-top:34px; border-top:2px solid var(--cream);
+  }
+  .prose h1 + p{ font-size:18px; }
+  .prose h1 + p + h2, .prose h1 + h2{ margin-top:36px; }
   .prose h3{ font-size:20px; font-weight:700; margin-top:34px; }
+  /* un titre visé par un lien d'ancre ne doit pas finir sous l'en-tête */
+  .prose [id]{ scroll-margin-top:24px; }
   .prose h4{ font-size:17px; font-weight:700; margin-top:26px; }
   .prose p{ color:var(--cream); opacity:.9; }
   .prose a{ color:var(--pink); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
