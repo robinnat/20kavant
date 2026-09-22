@@ -133,7 +133,7 @@ Do not include:
 
 # Le dictionnaire
 
-Toutes les commandes, rangées en dix familles. Tu n'as pas besoin de les
+Toutes les commandes, rangées en treize familles. Tu n'as pas besoin de les
 connaître par coeur : pioche dans la famille qui correspond à ce que tu veux
 changer.
 
