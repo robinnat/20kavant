@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
-import { Marked } from "marked";
+import { Marked, Renderer } from "marked";
 import { listerSlugs, lireGuide } from "../../../lib/guides";
+import CopyCode from "../../../components/CopyCode";
 
 // Identifiant d'ancre d'un titre : « Créer tes recettes » → creer-tes-recettes.
 // Les accents sont retirés pour que les liens restent simples à écrire et à
@@ -25,6 +26,28 @@ const md = new Marked({
     heading({ tokens, depth }) {
       const contenu = this.parser.parseInline(tokens);
       return `<h${depth} id="${ancre(contenu)}">${contenu}</h${depth}>\n`;
+    },
+    // Chaque bloc de code reçoit un bouton « Copier » (voir CopyCode). Le
+    // bouton est écrit ici, côté serveur, pour qu'il soit là dès l'affichage
+    // au lieu d'apparaître après coup.
+    code(token) {
+      const bloc = Renderer.prototype.code.call(this, token);
+      return (
+        `<div class="code-block">` +
+        `<button type="button" class="copy-btn" aria-label="Copier le code">Copier</button>` +
+        bloc +
+        `</div>\n`
+      );
+    },
+    // Tableaux enveloppés : le défilement horizontal se fait sur l'enveloppe,
+    // et le tableau peut ainsi occuper toute la largeur. Les tableaux du
+    // dictionnaire (première colonne « Commande ») ont des colonnes fixes, pour
+    // que tous s'alignent de la même façon d'une section à l'autre.
+    table(token) {
+      const tableau = Renderer.prototype.table.call(this, token);
+      const premier = token.header?.[0]?.text?.trim();
+      const classe = premier === "Commande" ? "table-wrap table-cmd" : "table-wrap";
+      return `<div class="${classe}">${tableau}</div>\n`;
     },
   },
 });
@@ -82,6 +105,7 @@ export default async function GuidePage({ params }) {
 
       <section className="guide-body">
         <article className="prose" dangerouslySetInnerHTML={{ __html: html }} />
+        <CopyCode />
         <p className="guide-private">
           Guide privé, partagé par lien. Merci de ne pas le rediffuser.
         </p>

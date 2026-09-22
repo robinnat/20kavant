@@ -36,8 +36,9 @@ Si ça marche, c'est parce que ChatGPT **comprend le sens des mots**. Quand tu
 il le lit comme :
 
 ```text
-Cinematic rendering, low-angle camera, golden-hour lighting,
-shallow depth of field with soft background bokeh.
+Cinematic rendering, low-angle camera,
+golden-hour lighting, shallow depth of field
+with soft background bokeh.
 ```
 
 Trois conséquences pratiques :
@@ -92,7 +93,7 @@ Clean background.
 Tu peux aussi tout mettre sur une ligne, ChatGPT ne fait pas la différence :
 
 ```text
-/productshot /closeup /85mm /softlighting /rimlight /highdetail
+/productshot /closeup /85mm /softlighting /highdetail
 ```
 
 Mais une ligne par famille a un vrai avantage : quand le résultat ne te plaît
@@ -133,9 +134,13 @@ Do not include:
 
 # Le dictionnaire
 
-Toutes les commandes, rangées en treize familles. Tu n'as pas besoin de les
+Toutes les commandes, rangées en treize familles. Chaque tableau donne la
+commande et ce qu'elle produit dans l'image. Tu n'as pas besoin de les
 connaître par coeur : pioche dans la famille qui correspond à ce que tu veux
 changer.
+
+Quand deux commandes veulent dire la même chose, c'est indiqué : garde celle
+qui te parle le plus, inutile de mettre les deux.
 
 ## 1. Cadrage
 
@@ -143,63 +148,112 @@ changer.
 
 Le plan dit **à quelle distance** on est du sujet.
 
-| Commande | Ce qu'on obtient |
+#### Plans rapprochés
+
+| Commande | Ce que ça donne |
 | --- | --- |
-| `/extremecloseup` | Très gros plan |
-| `/macrocloseup` | Détail extrêmement rapproché |
-| `/tightcloseup` | Sujet très serré dans le cadre |
-| `/closeup` | Gros plan |
-| `/headshot` | Portrait tête et épaules |
-| `/facecloseup` | Le visage domine l'image |
-| `/beautycloseup` | Portrait beauté |
-| `/detailshot` | Mise en avant d'un détail |
-| `/insertshot` | Très gros plan narratif sur un objet |
+| `/extremecloseup` | Très gros plan : un détail (un oeil, une texture) remplit l'image |
+| `/macrocloseup` | Détail extrêmement rapproché, comme vu à la loupe |
+| `/tightcloseup` | Sujet très serré, coupé par les bords du cadre |
+| `/closeup` | Gros plan : le visage ou l'objet occupe presque tout le cadre |
+| `/headshot` | Portrait tête et épaules, le classique de la photo de profil |
+| `/facecloseup` | Le visage seul domine l'image |
+| `/beautycloseup` | Portrait beauté : peau, maquillage et regard mis en valeur |
+| `/detailshot` | Met en avant un détail précis du sujet |
+| `/insertshot` | Très gros plan sur un objet qui raconte quelque chose, comme au cinéma |
 
-**Plans intermédiaires**, du buste aux genoux :
-`/mediumcloseup` `/bustshot` `/waistshot` `/mediumshot` `/kneeshot`
-`/threequartershot`
+#### Plans intermédiaires
 
-**Plans larges**, du corps entier au paysage :
-`/fullbody` `/fullshot` `/wideshot` `/longshot` `/extremewideshot`
-`/establishingshot` `/environmentalshot` `/panoramicshot`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/mediumcloseup` | Du haut de la poitrine à la tête |
+| `/bustshot` | Le buste entier |
+| `/waistshot` | Cadré à la taille |
+| `/mediumshot` | Plan moyen, à peu près de la taille à la tête |
+| `/kneeshot` | Cadré juste au-dessus des genoux |
+| `/threequartershot` | Les trois quarts du corps, coupé vers le bas des cuisses |
+
+#### Plans larges
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/fullbody` | Le sujet en entier, de la tête aux pieds |
+| `/fullshot` | Comme `/fullbody` : le personnage en pied |
+| `/wideshot` | Le sujet et une bonne partie de son environnement |
+| `/longshot` | Le sujet paraît petit dans un grand décor |
+| `/extremewideshot` | Très grand plan : le décor domine, le sujet est minuscule |
+| `/establishingshot` | Plan d'ensemble qui présente le lieu, comme en ouverture de film |
+| `/environmentalshot` | Portrait dans son environnement : le décor dit qui est la personne |
+| `/panoramicshot` | Vue très étendue en largeur |
 
 ### Les angles de vue
 
 L'angle dit **d'où** on regarde.
 
-**Hauteur de la caméra :**
-`/eyelevel` `/lowangle` `/extremelowangle` `/groundlevel` `/wormseye`
-`/highangle` `/extremehighangle`
+#### Hauteur de la caméra
 
-**Vues du dessus :**
-`/topdown` `/overhead` `/birdseye` `/aerialview` `/droneview`
-`/satelliteview` `/isometric`
-
-**Côté du sujet :**
-`/frontview` `/threequarterview` `/profileview` `/sideview` `/rearview`
-`/backview`
-
-**Angles qui racontent :**
-`/overtheshoulder` `/pov` `/firstperson` `/dutchangle`
-
-| Commande | Pourquoi l'utiliser |
+| Commande | Ce que ça donne |
 | --- | --- |
-| `/lowangle` | Donne de la présence, de la puissance au sujet |
-| `/extremelowangle` | Caméra presque au sol, effet monumental |
-| `/topdown` | Caméra pile au-dessus, idéal pour une table ou un flat lay |
-| `/birdseye` | Vue aérienne, plus haute que `/topdown` |
-| `/droneview` | Suggère une vraie photo aérienne |
-| `/overtheshoulder` | On regarde par-dessus l'épaule : très narratif |
-| `/dutchangle` | Horizon penché, crée de la tension |
+| `/eyelevel` | Caméra à hauteur des yeux : neutre, naturel |
+| `/lowangle` | Caméra plus basse que le sujet : présence, puissance |
+| `/extremelowangle` | Caméra presque au sol : effet monumental |
+| `/groundlevel` | Caméra posée au sol, horizon très bas |
+| `/wormseye` | Vue « de ver de terre » : tout est vu d'en bas, depuis le sol |
+| `/highangle` | Caméra au-dessus du sujet : il paraît plus petit, plus vulnérable |
+| `/extremehighangle` | Très en surplomb, presque à la verticale |
+
+#### Vues du dessus
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/topdown` | Caméra pile au-dessus, à la verticale : idéal pour une table ou un flat lay |
+| `/overhead` | Vue en surplomb, proche de `/topdown` |
+| `/birdseye` | Vue d'oiseau : aérienne, plus haute que `/topdown` |
+| `/aerialview` | Vue aérienne, comme depuis un avion ou un hélicoptère |
+| `/droneview` | Photo aérienne réaliste, prise par un drone |
+| `/satelliteview` | Vue satellite, verticale et très lointaine |
+| `/isometric` | Vue isométrique, sans perspective, façon maquette ou jeu vidéo |
+
+#### Côté du sujet
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/frontview` | Vu de face |
+| `/threequarterview` | Vu de trois quarts, entre face et profil |
+| `/profileview` | Vu de profil |
+| `/sideview` | Vu de côté, comme `/profileview` |
+| `/rearview` | Vu de derrière |
+| `/backview` | Vu de dos, comme `/rearview` |
+
+#### Angles qui racontent
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/overtheshoulder` | Par-dessus l'épaule d'un personnage : très narratif |
+| `/pov` | Point de vue subjectif : on voit ce que voit le personnage |
+| `/firstperson` | Vue à la première personne, les mains visibles dans le cadre |
+| `/dutchangle` | Horizon penché : tension, malaise |
 
 ### Les mouvements de caméra
 
 Une image est fixe, mais ces commandes lui donnent l'air d'une image extraite
 d'une vidéo : léger flou, cadrage en mouvement.
 
-`/trackingshot` `/dollyshot` `/dollyin` `/dollyout` `/pushin` `/pullout`
-`/panshot` `/tiltshot` `/orbitshot` `/craneshot` `/handheld` `/steadicam`
-`/actioncamera`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/trackingshot` | La caméra suit le sujet qui se déplace |
+| `/dollyshot` | Caméra sur rail : mouvement fluide et régulier |
+| `/dollyin` | La caméra avance vers le sujet |
+| `/dollyout` | La caméra recule, le sujet s'éloigne |
+| `/pushin` | Avancée lente vers le sujet, pour intensifier le moment |
+| `/pullout` | Recul qui révèle le décor autour du sujet |
+| `/panshot` | Rotation horizontale de la caméra, flou de balayage |
+| `/tiltshot` | Rotation verticale, de bas en haut ou l'inverse |
+| `/orbitshot` | La caméra tourne autour du sujet |
+| `/craneshot` | Caméra sur grue qui s'élève au-dessus de la scène |
+| `/handheld` | Caméra à l'épaule : léger bougé, côté pris sur le vif |
+| `/steadicam` | Mouvement fluide qui suit le sujet, sans secousse |
+| `/actioncamera` | Look caméra d'action : grand-angle, immersif |
 
 ## 2. Objectif et netteté
 
@@ -207,324 +261,877 @@ d'une vidéo : léger flou, cadrage en mouvement.
 
 La focale change **la perspective**, pas seulement le zoom.
 
-| Commandes | Rendu | Pour |
-| --- | --- | --- |
-| `/14mm` `/18mm` `/24mm` | Grand-angle : beaucoup d'espace, lignes étirées | Architecture, intérieurs, paysages |
-| `/28mm` `/35mm` | Large mais naturel | Reportage, rue, scène avec du contexte |
-| `/40mm` `/50mm` | Proche de l'oeil humain | Lifestyle, food, usage général |
-| `/70mm` `/85mm` `/105mm` | Visage flatteur, fond qui se détache | Portrait, produit |
-| `/135mm` `/200mm` | Téléobjectif : fond écrasé, sujet isolé | Sport, mode, détails lointains |
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/14mm` | Ultra grand-angle : espace immense, bords très étirés |
+| `/18mm` | Très grand-angle : intérieurs, paysages |
+| `/24mm` | Grand-angle : architecture, pièces entières |
+| `/28mm` | Grand-angle modéré : reportage, rue |
+| `/35mm` | Large mais naturel : scène avec du contexte, look film |
+| `/40mm` | Entre large et normal, très polyvalent |
+| `/50mm` | Proche de l'oeil humain : rendu naturel |
+| `/70mm` | Léger téléobjectif : portrait, détail |
+| `/85mm` | La focale portrait : visage flatteur, fond qui se détache |
+| `/105mm` | Portrait serré, produit, gros plan |
+| `/135mm` | Téléobjectif : fond écrasé, sujet isolé |
+| `/200mm` | Long téléobjectif : sport, sujet lointain, forte compression |
 
-**Types d'objectifs :**
-`/ultrawide` `/wideangle` `/standardlens` `/portraitlens` `/telephoto`
-`/supertelephoto` `/macro` `/fisheye` `/tiltshift` `/anamorphic`
+#### Types d'objectifs
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/ultrawide` | Ultra grand-angle |
+| `/wideangle` | Grand-angle |
+| `/standardlens` | Objectif standard, vision naturelle |
+| `/portraitlens` | Objectif portrait, autour de 85 mm |
+| `/telephoto` | Téléobjectif : rapproche le sujet et écrase les plans |
+| `/supertelephoto` | Très long téléobjectif : sport, animaux |
+| `/macro` | Objectif macro : les tout petits détails en très gros |
+| `/fisheye` | Fisheye : image ronde, très déformée |
+| `/tiltshift` | Bascule : zone nette étroite, effet maquette miniature |
+| `/anamorphic` | Anamorphique : format cinéma, reflets horizontaux, flou ovale |
 
 ### La profondeur de champ
 
 Ce qui est net, et ce qui ne l'est pas.
 
-`/shallowdepth` `/veryshallowdepth` `/deepfocus` `/selectivefocus`
-`/backgroundblur` `/foregroundblur` `/bokeh` `/creamybokeh` `/circularbokeh`
-`/cinematicbokeh`
-
-`/shallowdepth` et `/bokeh` isolent le sujet sur un fond flou. `/deepfocus` fait
-l'inverse : tout est net, du premier plan au fond.
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/shallowdepth` | Faible profondeur : sujet net, fond flou |
+| `/veryshallowdepth` | Très faible profondeur : seule une petite zone est nette |
+| `/deepfocus` | Tout est net, du premier plan au fond |
+| `/selectivefocus` | Mise au point sur un seul élément choisi |
+| `/backgroundblur` | Arrière-plan flou |
+| `/foregroundblur` | Premier plan flou, qui encadre le sujet net |
+| `/bokeh` | Fond flou parsemé de taches de lumière rondes |
+| `/creamybokeh` | Bokeh très doux et fondu |
+| `/circularbokeh` | Taches de lumière bien rondes |
+| `/cinematicbokeh` | Bokeh façon cinéma, souvent ovale |
 
 ### Netteté et mouvement
 
-`/sharpfocus` `/tacksharp` `/crispdetails` `/softfocus` `/dreamyfocus`
-`/rackfocus` `/motionblur` `/subtlemotionblur` `/freezeaction`
-`/highspeedphoto` `/longexposure`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/sharpfocus` | Mise au point nette |
+| `/tacksharp` | Netteté maximale, jusqu'au moindre détail |
+| `/crispdetails` | Détails francs et bien définis |
+| `/softfocus` | Léger flou doux sur toute l'image |
+| `/dreamyfocus` | Flou vaporeux, ambiance de rêve |
+| `/rackfocus` | La netteté passe d'un plan à l'autre, comme au cinéma |
+| `/motionblur` | Flou de mouvement : le sujet bouge |
+| `/subtlemotionblur` | Léger flou de mouvement, juste pour donner de la vie |
+| `/freezeaction` | Action figée net en plein mouvement |
+| `/highspeedphoto` | Photo haute vitesse : gouttes et éclaboussures figées |
+| `/longexposure` | Pose longue : traînées de lumière, eau lissée |
 
 ## 3. Composition
 
 Comment les éléments sont **placés dans le cadre**.
 
-**Placement :**
-`/centered` `/offcenter` `/symmetrical` `/asymmetrical` `/ruleofthirds`
-`/goldenratio`
+#### Placement
 
-**Lignes et formes :**
-`/leadinglines` `/diagonalcomposition` `/triangularcomposition`
-`/geometriccomposition`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/centered` | Sujet au centre du cadre |
+| `/offcenter` | Sujet décentré |
+| `/symmetrical` | Composition symétrique |
+| `/asymmetrical` | Composition volontairement déséquilibrée |
+| `/ruleofthirds` | Sujet placé sur les lignes des tiers |
+| `/goldenratio` | Placement selon le nombre d'or |
 
-**Densité :**
-`/minimalcomposition` `/cleancomposition` `/balancedcomposition`
-`/dynamiccomposition` `/densecomposition` `/creativecomposition`
+#### Lignes et formes
 
-**Profondeur :**
-`/layeredcomposition` `/layereddepth` `/deepcomposition` `/foregroundelement`
-`/foregroundfocus` `/backgroundfocus` `/framewithinframe` `/naturalframing`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/leadinglines` | Des lignes qui guident l'oeil vers le sujet |
+| `/diagonalcomposition` | Construite sur une diagonale : dynamisme |
+| `/triangularcomposition` | Éléments disposés en triangle : stabilité |
+| `/geometriccomposition` | Formes géométriques marquées |
 
-**Point focal :**
-`/clearfocalpoint` `/strongfocalpoint` `/visualhierarchy` `/negativespace`
-`/headroom`
+#### Densité
 
-**Compositions types :**
-`/herocomposition` `/postercomposition` `/editorialcomposition`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/minimalcomposition` | Peu d'éléments, beaucoup de vide |
+| `/cleancomposition` | Composition épurée, sans élément parasite |
+| `/balancedcomposition` | Poids visuel bien réparti |
+| `/dynamiccomposition` | Composition vivante, pleine de mouvement |
+| `/densecomposition` | Image riche, remplie d'éléments |
+| `/creativecomposition` | Cadrage original, inattendu |
+
+#### Profondeur
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/layeredcomposition` | Plusieurs plans superposés : avant, milieu, fond |
+| `/layereddepth` | Profondeur construite par couches successives |
+| `/deepcomposition` | Scène qui se lit en profondeur |
+| `/foregroundelement` | Un élément au premier plan pour donner de la profondeur |
+| `/foregroundfocus` | Netteté sur le premier plan |
+| `/backgroundfocus` | Netteté sur l'arrière-plan |
+| `/framewithinframe` | Sujet encadré par une porte, une fenêtre, un miroir |
+| `/naturalframing` | Cadre naturel : branches, arche, rochers |
+
+#### Point focal
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/clearfocalpoint` | Un seul point d'attention, évident |
+| `/strongfocalpoint` | Point focal très marqué |
+| `/visualhierarchy` | L'oeil lit les éléments dans un ordre clair |
+| `/negativespace` | Beaucoup d'espace vide autour du sujet |
+| `/headroom` | De l'air au-dessus de la tête du sujet |
+
+#### Compositions types
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/herocomposition` | Le sujet en héros, grand et central |
+| `/postercomposition` | Composition d'affiche, avec de la place pour le titre |
+| `/editorialcomposition` | Composition de magazine, élégante |
 
 ## 4. Lumière
 
-C'est la famille qui change le plus une image. Si tu ne dois en retenir
+C'est la famille qui change le plus une image. Si tu ne dois en soigner
 qu'une, c'est celle-ci.
 
 ### Le type de lumière
 
-`/softlighting` `/hardlighting` `/naturallight` `/studiolighting`
-`/cinematiclighting` `/dramaticlighting` `/editoriallighting`
-`/diffusedlight` `/directionallight` `/evenlighting` `/ambientlight`
-`/moodylighting` `/highkey` `/lowkey`
-
-| Commande | Effet |
+| Commande | Ce que ça donne |
 | --- | --- |
-| `/softlighting` | Ombres douces, peau et objets flatteurs |
-| `/hardlighting` | Ombres nettes, contraste, caractère |
-| `/evenlighting` | Éclairage uniforme, sans ombre marquée : catalogue |
-| `/highkey` | Image claire, lumineuse, peu d'ombres |
-| `/lowkey` | Image sombre, sujet qui sort du noir |
+| `/softlighting` | Lumière douce : ombres légères, rendu flatteur |
+| `/hardlighting` | Lumière dure : ombres nettes, contraste, caractère |
+| `/naturallight` | Lumière naturelle, sans éclairage artificiel |
+| `/studiolighting` | Éclairage de studio maîtrisé |
+| `/cinematiclighting` | Éclairage de cinéma, contrasté et directionnel |
+| `/dramaticlighting` | Lumière contrastée qui dramatise la scène |
+| `/editoriallighting` | Éclairage de shooting magazine |
+| `/diffusedlight` | Lumière diffusée, sans source visible |
+| `/directionallight` | Lumière qui vient d'un côté précis |
+| `/evenlighting` | Éclairage uniforme, sans ombre marquée : idéal catalogue |
+| `/ambientlight` | Lumière d'ambiance du lieu |
+| `/moodylighting` | Lumière sombre, chargée d'émotion |
+| `/highkey` | Image claire et lumineuse, très peu d'ombres |
+| `/lowkey` | Image sombre, le sujet sort du noir |
 
 ### La direction
 
 D'où vient la lumière par rapport au sujet.
 
-`/frontlight` `/sidelight` `/backlight` `/toplight` `/underlight` `/rimlight`
-`/edgelight` `/kickerlight` `/hairlight` `/windowlight` `/spotlight`
-
-| Commande | Effet |
+| Commande | Ce que ça donne |
 | --- | --- |
-| `/sidelight` | Relief et texture, un côté dans l'ombre |
-| `/backlight` | Lumière derrière le sujet, halo, silhouette |
-| `/rimlight` | Liseré lumineux sur les contours, détache le sujet du fond |
-| `/windowlight` | Lumière naturelle et douce venant d'une fenêtre |
+| `/frontlight` | Lumière de face : peu de relief |
+| `/sidelight` | De côté : relief et texture, une moitié dans l'ombre |
+| `/backlight` | Derrière le sujet : halo, silhouette |
+| `/toplight` | Du dessus, comme un plafonnier |
+| `/underlight` | Par en dessous : effet étrange, inquiétant |
+| `/rimlight` | Liseré lumineux sur les contours, qui détache le sujet du fond |
+| `/edgelight` | Lumière qui souligne les bords, proche de `/rimlight` |
+| `/kickerlight` | Petite lumière arrière qui accroche un côté du sujet |
+| `/hairlight` | Lumière arrière sur les cheveux |
+| `/windowlight` | Lumière douce venant d'une fenêtre |
+| `/spotlight` | Faisceau concentré sur le sujet, le reste dans l'ombre |
 
 ### Sources et effets de lumière
 
-`/volumetriclight` `/godrays` `/lightshafts` `/hazelight` `/foglight`
-`/practicallights` `/neonlight` `/neonglow` `/candlelight` `/firelight`
-`/moonlight` `/starlight` `/streetlight` `/headlights` `/projectorlight`
-
-`/volumetriclight` et `/godrays` rendent les rayons visibles dans l'air.
-`/practicallights` signifie que les lampes présentes dans la scène éclairent
-elles-mêmes la scène, comme au cinéma.
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/volumetriclight` | Rayons de lumière visibles dans l'air |
+| `/godrays` | Faisceaux de soleil à travers les nuages ou les arbres |
+| `/lightshafts` | Colonnes de lumière qui traversent la scène |
+| `/hazelight` | Lumière diffusée par une brume légère |
+| `/foglight` | Lumière qui se perd dans le brouillard |
+| `/practicallights` | Les lampes visibles dans la scène l'éclairent elles-mêmes, comme au cinéma |
+| `/neonlight` | Éclairage néon coloré |
+| `/neonglow` | Halo lumineux autour des néons |
+| `/candlelight` | Lumière de bougie, chaude et vacillante |
+| `/firelight` | Lumière d'un feu, orangée |
+| `/moonlight` | Clair de lune, bleuté |
+| `/starlight` | Lumière des étoiles, ciel nocturne |
+| `/streetlight` | Lampadaires de rue |
+| `/headlights` | Phares de voiture |
+| `/projectorlight` | Faisceau de projecteur |
 
 ### Le moment de la journée
 
-`/dawn` `/sunrise` `/morninglight` `/midday` `/afternoonlight` `/goldenhour`
-`/sunset` `/dusk` `/bluehour` `/twilight` `/night` `/midnight`
-
-`/goldenhour`, juste avant le coucher du soleil, donne une lumière chaude et
-rasante. `/bluehour`, juste après, un ciel bleu profond avec les lumières de la
-ville allumées.
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/dawn` | Aube : premières lueurs, bleutées |
+| `/sunrise` | Lever du soleil |
+| `/morninglight` | Lumière du matin, fraîche et claire |
+| `/midday` | Plein midi : lumière dure, ombres courtes |
+| `/afternoonlight` | Lumière d'après-midi |
+| `/goldenhour` | Heure dorée, juste avant le coucher : lumière chaude et rasante |
+| `/sunset` | Coucher du soleil |
+| `/dusk` | Crépuscule, juste après le coucher |
+| `/bluehour` | Heure bleue : ciel bleu profond, lumières de la ville allumées |
+| `/twilight` | Entre le jour et la nuit |
+| `/night` | Nuit |
+| `/midnight` | Pleine nuit, très sombre |
 
 ## 5. Couleur
 
-**Température :**
-`/warmtones` `/cooltones` `/neutraltones` `/warmwhite` `/coolwhite`
+#### Température
 
-**Saturation :**
-`/vibrantcolors` `/highsaturation` `/saturated` `/desaturated`
-`/mutedcolors` `/mutedtones` `/softcolors` `/pastelcolors` `/fadedcolors`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/warmtones` | Tons chauds : orangés, dorés |
+| `/cooltones` | Tons froids : bleus, verts |
+| `/neutraltones` | Tons neutres, sans dominante |
+| `/warmwhite` | Blanc chaud, légèrement crème |
+| `/coolwhite` | Blanc froid, légèrement bleuté |
 
-**Contraste :**
-`/highcontrast` `/lowcontrast` `/softcontrast` `/deepcontrast`
+#### Saturation
 
-**Palettes :**
-`/monochrome` `/blackandwhite` `/sepia` `/duotone` `/tritone`
-`/pastelpalette` `/softpalette` `/earthtones` `/jeweltones` `/neonpalette`
-`/vintagepalette` `/luxurypalette` `/minimalpalette`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/vibrantcolors` | Couleurs vives et éclatantes |
+| `/highsaturation` | Saturation poussée au maximum |
+| `/saturated` | Couleurs saturées |
+| `/desaturated` | Couleurs désaturées, presque grises |
+| `/mutedcolors` | Couleurs sourdes, adoucies |
+| `/mutedtones` | Comme `/mutedcolors` |
+| `/softcolors` | Couleurs douces |
+| `/pastelcolors` | Couleurs pastel |
+| `/fadedcolors` | Couleurs passées, délavées par le temps |
 
-**Duos de couleurs :**
-`/tealandorange` `/cyanmagenta` `/pinkblue` `/purpleorange`
+#### Contraste
 
-**Étalonnage**, le traitement des couleurs comme au cinéma :
-`/filmgrade` `/cinematicgrade` `/editorialgrade` `/commercialgrade`
-`/vintagegrade` `/retrograde` `/bleachbypass` `/fadedgrade` `/washedout`
-`/richblacks` `/cleanwhites` `/deepshadows` `/softshadows` `/liftedblacks`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/highcontrast` | Fort contraste : noirs profonds, blancs francs |
+| `/lowcontrast` | Faible contraste, image douce |
+| `/softcontrast` | Contraste adouci |
+| `/deepcontrast` | Contraste profond, ombres denses |
+
+#### Palettes
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/monochrome` | Une seule couleur, en différentes nuances |
+| `/blackandwhite` | Noir et blanc |
+| `/sepia` | Tons sépia, brun ancien |
+| `/duotone` | Deux couleurs seulement |
+| `/tritone` | Trois couleurs seulement |
+| `/pastelpalette` | Palette pastel |
+| `/softpalette` | Palette douce et harmonieuse |
+| `/earthtones` | Tons terre : beiges, bruns, ocres |
+| `/jeweltones` | Tons pierres précieuses : émeraude, rubis, saphir |
+| `/neonpalette` | Couleurs néon, fluo |
+| `/vintagepalette` | Palette rétro, légèrement passée |
+| `/luxurypalette` | Palette luxe : noir, or, crème |
+| `/minimalpalette` | Très peu de couleurs |
+
+#### Duos de couleurs
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/tealandorange` | Bleu-vert et orange : le duo des blockbusters |
+| `/cyanmagenta` | Cyan et magenta |
+| `/pinkblue` | Rose et bleu |
+| `/purpleorange` | Violet et orange |
+
+#### Étalonnage
+
+Le traitement des couleurs, comme au cinéma.
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/filmgrade` | Étalonnage façon pellicule |
+| `/cinematicgrade` | Étalonnage de film |
+| `/editorialgrade` | Étalonnage de magazine, propre et élégant |
+| `/commercialgrade` | Étalonnage publicitaire, net et flatteur |
+| `/vintagegrade` | Étalonnage à l'ancienne |
+| `/retrograde` | Étalonnage rétro |
+| `/bleachbypass` | Couleurs désaturées et très contrastées, look métallique |
+| `/fadedgrade` | Étalonnage délavé |
+| `/washedout` | Image délavée, peu contrastée |
+| `/richblacks` | Noirs profonds et denses |
+| `/cleanwhites` | Blancs purs, sans dominante |
+| `/deepshadows` | Ombres profondes |
+| `/softshadows` | Ombres douces |
+| `/liftedblacks` | Noirs relevés, un peu gris : look film mat |
 
 ## 6. Style
 
 ### Photo
 
-**Réalisme :**
-`/photo` `/photorealistic` `/hyperrealistic` `/ultrarealistic` `/truephoto`
-`/naturalphoto` `/realistic`
+#### Réalisme
 
-**Genres photo :**
-`/editorialphoto` `/commercialphoto` `/lifestylephoto` `/documentaryphoto`
-`/streetphoto` `/fashionphoto` `/beautyphoto` `/foodphoto`
-`/architecturephoto` `/interiorphoto` `/automotivephoto` `/sportsphoto`
-`/travelphoto`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/photo` | Une photographie |
+| `/photorealistic` | Rendu photoréaliste |
+| `/hyperrealistic` | Hyperréaliste, plus détaillé que nature |
+| `/ultrarealistic` | Ultra réaliste |
+| `/truephoto` | Ressemble à une vraie photo, pas à une image générée |
+| `/naturalphoto` | Photo naturelle, peu retouchée |
+| `/realistic` | Réaliste |
 
-**Photo produit :**
-`/productshot` `/packshot` `/producthero` `/heroproduct` `/catalogshot`
-`/ecommercephoto` `/studioproduct` `/floatingproduct` `/pedestalproduct`
-`/lifestyleproduct` `/luxuryproduct` `/beautyproduct` `/flatlay`
+#### Genres photo
 
-**Look cinéma :**
-`/cinemastill` `/filmstill` `/movieframe` `/blockbuster` `/arthouse`
-`/indiefilm` `/documentaryfilm` `/anamorphiclook` `/cinemascope`
-`/cinematicdepth`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/editorialphoto` | Photo de magazine |
+| `/commercialphoto` | Photo publicitaire |
+| `/lifestylephoto` | Photo lifestyle : des gens dans leur quotidien |
+| `/documentaryphoto` | Photo documentaire, prise sur le vif |
+| `/streetphoto` | Photo de rue |
+| `/fashionphoto` | Photo de mode |
+| `/beautyphoto` | Photo beauté : peau, maquillage |
+| `/foodphoto` | Photo culinaire |
+| `/architecturephoto` | Photo d'architecture |
+| `/interiorphoto` | Photo d'intérieur |
+| `/automotivephoto` | Photo automobile |
+| `/sportsphoto` | Photo de sport |
+| `/travelphoto` | Photo de voyage |
 
-**Argentique :**
-`/analogfilm` `/35mmfilm` `/mediumformat` `/largeformat` `/filmgrain`
-`/finegrain` `/heavygrain` `/vintagefilm` `/disposablecamera`
-`/instantcamera` `/polaroidlook` `/lightleaks` `/filmhalation`
+#### Photo de produit
 
-**Flash :**
-`/directflash` `/oncameraflash` `/softflash` `/editorialflash`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/productshot` | Photo produit |
+| `/packshot` | Produit seul, de face, sur fond neutre : catalogue |
+| `/producthero` | Produit en héros, mis en scène |
+| `/heroproduct` | Comme `/producthero` |
+| `/catalogshot` | Photo de catalogue, neutre |
+| `/ecommercephoto` | Photo pour une fiche produit en ligne |
+| `/studioproduct` | Produit photographié en studio |
+| `/floatingproduct` | Produit qui flotte dans les airs |
+| `/pedestalproduct` | Produit posé sur un socle |
+| `/lifestyleproduct` | Produit en situation d'usage |
+| `/luxuryproduct` | Mise en scène de produit de luxe |
+| `/beautyproduct` | Produit cosmétique |
+| `/flatlay` | Objets posés à plat, photographiés du dessus |
+
+#### Look cinéma
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/cinemastill` | Image fixe tirée d'un film |
+| `/filmstill` | Comme `/cinemastill` |
+| `/movieframe` | Une image de film |
+| `/blockbuster` | Look superproduction hollywoodienne |
+| `/arthouse` | Look film d'auteur |
+| `/indiefilm` | Look film indépendant |
+| `/documentaryfilm` | Look film documentaire |
+| `/anamorphiclook` | Rendu objectif anamorphique : format large, reflets horizontaux |
+| `/cinemascope` | Format cinéma très large |
+| `/cinematicdepth` | Plans étagés en profondeur, façon cinéma |
+
+#### Argentique
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/analogfilm` | Photo sur pellicule |
+| `/35mmfilm` | Pellicule 35 mm |
+| `/mediumformat` | Moyen format : grand piqué, rendu doux |
+| `/largeformat` | Grand format : détail extrême |
+| `/filmgrain` | Grain de pellicule |
+| `/finegrain` | Grain fin |
+| `/heavygrain` | Gros grain |
+| `/vintagefilm` | Vieille pellicule |
+| `/disposablecamera` | Appareil jetable : flash, couleurs un peu fausses |
+| `/instantcamera` | Appareil photo instantané |
+| `/polaroidlook` | Look Polaroid, couleurs douces |
+| `/lightleaks` | Fuites de lumière orangées sur les bords |
+| `/filmhalation` | Halo rouge autour des sources lumineuses, typique de la pellicule |
+
+#### Flash
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/directflash` | Flash direct : ombre dure derrière le sujet, look soirée |
+| `/oncameraflash` | Flash fixé sur l'appareil, comme `/directflash` |
+| `/softflash` | Flash adouci |
+| `/editorialflash` | Flash de shooting magazine, assumé |
 
 ### Dessin et peinture
 
-**Illustration :**
-`/illustration` `/digitalillustration` `/editorialillustration`
-`/conceptart` `/keyart` `/posterart` `/bookillustration` `/storybook`
-`/childrensillustration` `/fashionillustration` `/scientificillustration`
-`/technicalillustration`
+#### Illustration
 
-**Dessin :**
-`/pencil` `/pencilsketch` `/graphite` `/charcoal` `/ink` `/inkdrawing`
-`/penandink` `/lineart` `/cleanlineart` `/roughsketch` `/storyboardsketch`
-`/markersketch`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/illustration` | Illustration |
+| `/digitalillustration` | Illustration numérique |
+| `/editorialillustration` | Illustration de presse |
+| `/conceptart` | Recherche visuelle pour un film ou un jeu |
+| `/keyart` | Visuel principal d'un film ou d'un jeu |
+| `/posterart` | Illustration d'affiche |
+| `/bookillustration` | Illustration de livre |
+| `/storybook` | Livre d'histoires pour enfants |
+| `/childrensillustration` | Illustration jeunesse |
+| `/fashionillustration` | Illustration de mode |
+| `/scientificillustration` | Illustration scientifique, précise |
+| `/technicalillustration` | Illustration technique |
 
-**Peinture :**
-`/oilpainting` `/watercolor` `/gouache` `/acrylicpainting` `/pastel`
-`/digitalpainting` `/mattepainting` `/impasto`
+#### Dessin
 
-**BD et animation :**
-`/comic` `/comicbook` `/graphicnovel` `/manga` `/anime` `/celshading`
-`/cartoon` `/stylizedcartoon` `/animation` `/animationfilm` `/2danimation`
-`/3danimation`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/pencil` | Au crayon |
+| `/pencilsketch` | Croquis au crayon |
+| `/graphite` | Mine de graphite, gris nuancés |
+| `/charcoal` | Fusain, noirs profonds et charbonneux |
+| `/ink` | À l'encre |
+| `/inkdrawing` | Dessin à l'encre |
+| `/penandink` | Plume et encre, hachures |
+| `/lineart` | Dessin au trait, sans remplissage |
+| `/cleanlineart` | Trait propre et net |
+| `/roughsketch` | Croquis rapide, esquissé |
+| `/storyboardsketch` | Croquis de storyboard |
+| `/markersketch` | Croquis au feutre |
+
+#### Peinture
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/oilpainting` | Peinture à l'huile |
+| `/watercolor` | Aquarelle |
+| `/gouache` | Gouache : couleurs mates et couvrantes |
+| `/acrylicpainting` | Peinture acrylique |
+| `/pastel` | Pastel |
+| `/digitalpainting` | Peinture numérique |
+| `/mattepainting` | Décor peint très détaillé, façon cinéma |
+| `/impasto` | Peinture en empâtements épais |
+
+#### BD et animation
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/comic` | Bande dessinée |
+| `/comicbook` | Comics américain |
+| `/graphicnovel` | Roman graphique |
+| `/manga` | Manga |
+| `/anime` | Anime japonais |
+| `/celshading` | Aplats de couleur et ombres tranchées, façon dessin animé |
+| `/cartoon` | Dessin animé |
+| `/stylizedcartoon` | Dessin animé stylisé |
+| `/animation` | Style animation |
+| `/animationfilm` | Image de film d'animation |
+| `/2danimation` | Animation en 2D |
+| `/3danimation` | Animation en images de synthèse |
 
 ### Graphisme et 3D
 
-**Design graphique :**
-`/graphicdesign` `/vectorart` `/flaticons` `/flatillustration`
-`/geometricdesign` `/minimaldesign` `/editorialdesign` `/posterdesign`
-`/swissdesign` `/brutalistdesign` `/retrographic`
+#### Design graphique
 
-**3D :**
-`/3drender` `/realistic3d` `/stylized3d` `/cinematic3d` `/product3d`
-`/archviz` `/clayrender` `/claymation` `/plasticrender` `/toyrender`
-`/lowpoly` `/highpoly` `/voxel`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/graphicdesign` | Design graphique |
+| `/vectorart` | Dessin vectoriel, formes nettes |
+| `/flaticons` | Icônes plates |
+| `/flatillustration` | Illustration plate, sans relief |
+| `/geometricdesign` | Design géométrique |
+| `/minimaldesign` | Design minimaliste |
+| `/editorialdesign` | Mise en page de magazine |
+| `/posterdesign` | Design d'affiche |
+| `/swissdesign` | Style suisse : grille, typographie, sobriété |
+| `/brutalistdesign` | Design brutaliste : brut, contrasté, volontairement rugueux |
+| `/retrographic` | Graphisme rétro |
 
-**Artisanal :**
-`/papercut` `/papercraft` `/origami` `/collage` `/mixedmedia`
-`/screenprint` `/risograph` `/linocut` `/woodcut` `/embroidery`
-`/fabricart` `/feltart` `/clayart`
+#### 3D
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/3drender` | Rendu 3D |
+| `/realistic3d` | 3D réaliste |
+| `/stylized3d` | 3D stylisée |
+| `/cinematic3d` | 3D cinématographique |
+| `/product3d` | Produit modélisé en 3D |
+| `/archviz` | Visualisation d'architecture en 3D |
+| `/clayrender` | Rendu façon pâte à modeler, sans texture |
+| `/claymation` | Animation en pâte à modeler |
+| `/plasticrender` | Rendu plastique |
+| `/toyrender` | Rendu jouet |
+| `/lowpoly` | 3D à facettes, peu de polygones |
+| `/highpoly` | 3D très détaillée |
+| `/voxel` | 3D en petits cubes |
+
+#### Artisanal
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/papercut` | Papier découpé |
+| `/papercraft` | Construction en papier |
+| `/origami` | Origami |
+| `/collage` | Collage |
+| `/mixedmedia` | Techniques mixtes |
+| `/screenprint` | Sérigraphie |
+| `/risograph` | Risographie : grain et couleurs légèrement décalées |
+| `/linocut` | Linogravure |
+| `/woodcut` | Gravure sur bois |
+| `/embroidery` | Broderie |
+| `/fabricart` | Art textile |
+| `/feltart` | Feutrine |
+| `/clayart` | Sculpture en argile |
 
 ### Visuels fonctionnels
 
 Pour les images qui doivent **servir à quelque chose** avant d'être belles.
 
-**Logos, icônes, maquettes :**
-`/logo` `/appicon` `/appmockup` `/boldshape` `/geometric` `/simple`
+#### Logos, icônes, maquettes
 
-**Schémas et documents :**
-`/infographic` `/technicaldrawing` `/schematic` `/blueprint` `/annotations`
-`/cleanlayout` `/structured` `/precise`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/logo` | Un logo |
+| `/appicon` | Icône d'application |
+| `/appmockup` | Maquette d'app affichée sur un écran |
+| `/boldshape` | Forme simple et affirmée |
+| `/geometric` | Formes géométriques |
+| `/simple` | Simple, sans fioriture |
 
-**Mises en page multiples :**
-`/splitscreen` `/beforeafter` `/triptych` `/threepanels` `/multiplepanels`
-`/charactersheet` `/expressionsheet` `/storyboard` `/visualstorytelling`
+#### Schémas et documents
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/infographic` | Infographie |
+| `/technicaldrawing` | Dessin technique |
+| `/schematic` | Schéma |
+| `/blueprint` | Plan bleu d'architecte ou d'ingénieur |
+| `/annotations` | Avec des annotations |
+| `/cleanlayout` | Mise en page propre |
+| `/structured` | Organisé, structuré |
+| `/precise` | Précis |
+
+#### Mises en page multiples
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/splitscreen` | Image coupée en deux |
+| `/beforeafter` | Comparaison avant / après |
+| `/triptych` | Triptyque : trois images côte à côte |
+| `/threepanels` | Trois panneaux |
+| `/multiplepanels` | Plusieurs cases |
+| `/charactersheet` | Fiche personnage : le même personnage sous plusieurs angles |
+| `/expressionsheet` | Planche d'expressions du même visage |
+| `/storyboard` | Suite de cases qui racontent une scène |
+| `/visualstorytelling` | Image qui raconte une histoire |
 
 ## 7. Matière et surfaces
 
-**Finitions :**
-`/glossy` `/matte` `/satin`
+#### Finitions
 
-**Métaux :**
-`/metallic` `/chrome` `/brushedmetal` `/gold` `/silver` `/copper`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/glossy` | Brillant |
+| `/matte` | Mat |
+| `/satin` | Satiné, entre mat et brillant |
 
-**Verre :**
-`/glass` `/frostedglass` `/crystal` `/transparent` `/translucent`
+#### Métaux
 
-**Textiles :**
-`/fabric` `/velvet` `/silk` `/denim` `/leather`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/metallic` | Métallique |
+| `/chrome` | Chromé, effet miroir |
+| `/brushedmetal` | Métal brossé |
+| `/gold` | Or |
+| `/silver` | Argent |
+| `/copper` | Cuivre |
 
-**Autres matériaux :**
-`/plastic` `/rubber` `/wood` `/marble` `/stone` `/concrete` `/ceramic`
-`/porcelain` `/paper` `/cardboard`
+#### Verre
 
-**Reflets :**
-`/reflections` `/sharpreflections` `/softreflections` `/mirrorreflection`
-`/mirrorfinish` `/wetreflection` `/glossyreflection` `/chromereflection`
-`/wetlook` `/wetpavement` `/polishedsurface`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/glass` | Verre |
+| `/frostedglass` | Verre dépoli |
+| `/crystal` | Cristal |
+| `/transparent` | Transparent |
+| `/translucent` | Translucide : laisse passer la lumière sans être transparent |
 
-**Textures :**
-`/realistictextures`
+#### Textiles
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/fabric` | Tissu |
+| `/velvet` | Velours |
+| `/silk` | Soie |
+| `/denim` | Jean |
+| `/leather` | Cuir |
+
+#### Autres matériaux
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/plastic` | Plastique |
+| `/rubber` | Caoutchouc |
+| `/wood` | Bois |
+| `/marble` | Marbre |
+| `/stone` | Pierre |
+| `/concrete` | Béton |
+| `/ceramic` | Céramique |
+| `/porcelain` | Porcelaine |
+| `/paper` | Papier |
+| `/cardboard` | Carton |
+
+#### Reflets
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/reflections` | Reflets |
+| `/sharpreflections` | Reflets nets |
+| `/softreflections` | Reflets doux |
+| `/mirrorreflection` | Reflet miroir |
+| `/mirrorfinish` | Surface polie comme un miroir |
+| `/wetreflection` | Reflet sur une surface mouillée |
+| `/glossyreflection` | Reflet brillant |
+| `/chromereflection` | Reflet chromé |
+| `/wetlook` | Aspect mouillé |
+| `/wetpavement` | Sol mouillé qui reflète les lumières |
+| `/polishedsurface` | Surface polie |
+
+#### Textures
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/realistictextures` | Textures réalistes : peau, grain du bois, tissu |
 
 ## 8. Ambiance
 
-**Particules et effets :**
-`/fog` `/mist` `/haze` `/smoke` `/steam` `/dust` `/dustparticles`
-`/floatingparticles` `/lightparticles` `/sparkles` `/sparks` `/embers`
-`/pollen` `/confetti` `/rain` `/raindrops` `/snow` `/snowflakes`
-`/watersplash`
+#### Particules et effets
 
-**Météo :**
-`/sunny` `/overcast` `/cloudy` `/lightrain` `/rainy` `/heavyrain` `/storm`
-`/thunderstorm` `/lightning` `/foggy` `/misty` `/hazy` `/snowy` `/blizzard`
-`/windy` `/duststorm`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/fog` | Brouillard |
+| `/mist` | Brume légère |
+| `/haze` | Voile atmosphérique |
+| `/smoke` | Fumée |
+| `/steam` | Vapeur |
+| `/dust` | Poussière |
+| `/dustparticles` | Poussière en suspension dans la lumière |
+| `/floatingparticles` | Particules qui flottent autour du sujet |
+| `/lightparticles` | Particules lumineuses |
+| `/sparkles` | Scintillements |
+| `/sparks` | Étincelles |
+| `/embers` | Braises qui volent |
+| `/pollen` | Pollen |
+| `/confetti` | Confettis |
+| `/rain` | Pluie |
+| `/raindrops` | Gouttes de pluie |
+| `/snow` | Neige |
+| `/snowflakes` | Flocons |
+| `/watersplash` | Éclaboussure d'eau |
 
-**Émotion :**
-`/cinematic` `/epic` `/dramatic` `/atmospheric` `/mysterious` `/dark`
-`/moody` `/dreamy` `/surreal` `/ethereal` `/magical` `/whimsical`
-`/playful` `/fun` `/cozy` `/intimate` `/romantic` `/elegant` `/luxurious`
-`/luxury` `/minimalist` `/modern` `/artistic` `/peaceful` `/serene`
-`/melancholic` `/nostalgic` `/tense` `/suspenseful` `/energetic`
-`/powerful` `/heroic`
+#### Météo
 
-**Époques et univers :**
-`/1920s` `/1930s` `/1940s` `/1950s` `/1960s` `/1970s` `/1980s` `/1990s`
-`/y2k` `/retro` `/vintage` `/midcentury` `/artdeco` `/artnouveau`
-`/retrofuturism` `/futuristic` `/spaceage` `/cyberpunk` `/solarpunk`
-`/steampunk` `/fantasy`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/sunny` | Ensoleillé |
+| `/overcast` | Ciel couvert, lumière diffuse |
+| `/cloudy` | Nuageux |
+| `/lightrain` | Petite pluie |
+| `/rainy` | Pluvieux |
+| `/heavyrain` | Forte pluie |
+| `/storm` | Tempête |
+| `/thunderstorm` | Orage |
+| `/lightning` | Éclairs |
+| `/foggy` | Brumeux |
+| `/misty` | Embrumé |
+| `/hazy` | Voilé |
+| `/snowy` | Enneigé |
+| `/blizzard` | Blizzard |
+| `/windy` | Venteux |
+| `/duststorm` | Tempête de sable |
+
+#### Émotion
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/cinematic` | Cinématographique |
+| `/epic` | Épique, grandiose |
+| `/dramatic` | Dramatique |
+| `/atmospheric` | Ambiance très présente |
+| `/mysterious` | Mystérieux |
+| `/dark` | Sombre |
+| `/moody` | Chargé d'émotion, un peu sombre |
+| `/dreamy` | Rêveur |
+| `/surreal` | Surréaliste |
+| `/ethereal` | Éthéré, aérien |
+| `/magical` | Magique |
+| `/whimsical` | Fantaisiste, décalé |
+| `/playful` | Ludique |
+| `/fun` | Fun |
+| `/cozy` | Chaleureux, cocooning |
+| `/intimate` | Intime |
+| `/romantic` | Romantique |
+| `/elegant` | Élégant |
+| `/luxurious` | Luxueux |
+| `/luxury` | Luxe, comme `/luxurious` |
+| `/minimalist` | Minimaliste |
+| `/modern` | Moderne |
+| `/artistic` | Artistique |
+| `/peaceful` | Paisible |
+| `/serene` | Serein |
+| `/melancholic` | Mélancolique |
+| `/nostalgic` | Nostalgique |
+| `/tense` | Tendu |
+| `/suspenseful` | Plein de suspense |
+| `/energetic` | Énergique |
+| `/powerful` | Puissant |
+| `/heroic` | Héroïque |
+
+#### Époques et univers
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/1920s` | Années 20 |
+| `/1930s` | Années 30 |
+| `/1940s` | Années 40 |
+| `/1950s` | Années 50 |
+| `/1960s` | Années 60 |
+| `/1970s` | Années 70 |
+| `/1980s` | Années 80 |
+| `/1990s` | Années 90 |
+| `/y2k` | Années 2000 : chrome, couleurs acidulées |
+| `/retro` | Rétro |
+| `/vintage` | Vintage |
+| `/midcentury` | Design des années 50 et 60 |
+| `/artdeco` | Art déco : géométrie, dorures, années 20 et 30 |
+| `/artnouveau` | Art nouveau : courbes inspirées des plantes |
+| `/retrofuturism` | Le futur tel qu'on l'imaginait autrefois |
+| `/futuristic` | Futuriste |
+| `/spaceage` | Esthétique de la conquête spatiale, années 60 |
+| `/cyberpunk` | Ville de nuit, néons, high-tech et décor sale |
+| `/solarpunk` | Futur écologique, lumineux et végétal |
+| `/steampunk` | Vapeur, cuivre et engrenages |
+| `/fantasy` | Magie, créatures, mondes imaginaires |
 
 ## 9. Sujet et décor
 
 ### Le sujet
 
-**Poses :**
-`/staticpose` `/naturalpose` `/candidpose` `/candid` `/dynamicpose`
-`/actionpose` `/heropose` `/powerpose` `/relaxedpose` `/confidentpose`
-`/elegantpose` `/dramaticpose`
+#### Poses
 
-**Mouvements :**
-`/standing` `/sitting` `/walking` `/running` `/jumping` `/dancing`
-`/turning`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/staticpose` | Pose immobile |
+| `/naturalpose` | Pose naturelle |
+| `/candidpose` | Pris sur le vif, sans poser |
+| `/candid` | Photo spontanée, comme `/candidpose` |
+| `/dynamicpose` | Pose dynamique |
+| `/actionpose` | En pleine action |
+| `/heropose` | Pose de héros |
+| `/powerpose` | Pose affirmée, dominante |
+| `/relaxedpose` | Détendu |
+| `/confidentpose` | Assuré |
+| `/elegantpose` | Élégant |
+| `/dramaticpose` | Pose dramatique |
 
-**Regard :**
-`/lookingatcamera` `/eyecontact` `/lookingaway`
+#### Mouvements
 
-**Expressions :**
-`/neutralexpression` `/subtlesmile` `/bigsmile` `/laughing` `/serious`
-`/confident` `/thoughtful` `/determined` `/surprised` `/shocked`
-`/worried` `/sad` `/angry`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/standing` | Debout |
+| `/sitting` | Assis |
+| `/walking` | En train de marcher |
+| `/running` | En train de courir |
+| `/jumping` | En train de sauter |
+| `/dancing` | En train de danser |
+| `/turning` | En train de se retourner |
+
+#### Regard
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/lookingatcamera` | Regarde l'objectif |
+| `/eyecontact` | Regarde le spectateur droit dans les yeux |
+| `/lookingaway` | Regarde ailleurs |
+
+#### Expressions
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/neutralexpression` | Visage neutre |
+| `/subtlesmile` | Léger sourire |
+| `/bigsmile` | Grand sourire |
+| `/laughing` | En train de rire |
+| `/serious` | Sérieux |
+| `/confident` | Confiant |
+| `/thoughtful` | Pensif |
+| `/determined` | Déterminé |
+| `/surprised` | Surpris |
+| `/shocked` | Choqué |
+| `/worried` | Inquiet |
+| `/sad` | Triste |
+| `/angry` | En colère |
 
 ### Le décor
 
-**Studio :**
-`/studio` `/whitestudio` `/darkstudio` `/blackstudio`
+#### Studio
 
-**Ville :**
-`/urban` `/citystreet` `/downtown` `/rooftop` `/alley` `/futuristiccity`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/studio` | En studio |
+| `/whitestudio` | Studio blanc |
+| `/darkstudio` | Studio sombre |
+| `/blackstudio` | Studio noir |
 
-**Intérieurs :**
-`/home` `/livingroom` `/kitchen` `/bedroom` `/office` `/modernoffice`
-`/luxuryoffice` `/cafe` `/restaurant` `/hotel` `/luxuryhotel` `/warehouse`
-`/factory` `/gallery` `/museum` `/library`
+#### Ville
 
-**Nature :**
-`/garden` `/forest` `/jungle` `/beach` `/ocean` `/mountain` `/desert`
-`/countryside` `/snowlandscape` `/underwater` `/space`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/urban` | Urbain |
+| `/citystreet` | Rue de ville |
+| `/downtown` | Centre-ville |
+| `/rooftop` | Toit-terrasse |
+| `/alley` | Ruelle |
+| `/futuristiccity` | Ville futuriste |
+
+#### Intérieurs
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/home` | Maison |
+| `/livingroom` | Salon |
+| `/kitchen` | Cuisine |
+| `/bedroom` | Chambre |
+| `/office` | Bureau |
+| `/modernoffice` | Bureau moderne |
+| `/luxuryoffice` | Bureau de luxe |
+| `/cafe` | Café |
+| `/restaurant` | Restaurant |
+| `/hotel` | Hôtel |
+| `/luxuryhotel` | Hôtel de luxe |
+| `/warehouse` | Entrepôt |
+| `/factory` | Usine |
+| `/gallery` | Galerie d'art |
+| `/museum` | Musée |
+| `/library` | Bibliothèque |
+
+#### Nature
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/garden` | Jardin |
+| `/forest` | Forêt |
+| `/jungle` | Jungle |
+| `/beach` | Plage |
+| `/ocean` | Océan |
+| `/mountain` | Montagne |
+| `/desert` | Désert |
+| `/countryside` | Campagne |
+| `/snowlandscape` | Paysage enneigé |
+| `/underwater` | Sous l'eau |
+| `/space` | Espace |
 
 ### L'arrière-plan
 
-`/cleanbackground` `/plainbackground` `/minimalbackground`
-`/whitebackground` `/greybackground` `/blackbackground` `/darkbackground`
-`/gradientbackground` `/texturedbackground` `/blurredbackground`
-`/bokehbackground` `/detailedbackground` `/environmentalbackground`
-`/transparentbackground`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/cleanbackground` | Fond propre, sans élément parasite |
+| `/plainbackground` | Fond uni |
+| `/minimalbackground` | Fond minimaliste |
+| `/whitebackground` | Fond blanc |
+| `/greybackground` | Fond gris |
+| `/blackbackground` | Fond noir |
+| `/darkbackground` | Fond sombre |
+| `/gradientbackground` | Fond en dégradé |
+| `/texturedbackground` | Fond texturé |
+| `/blurredbackground` | Fond flou |
+| `/bokehbackground` | Fond flou avec des taches de lumière |
+| `/detailedbackground` | Fond détaillé |
+| `/environmentalbackground` | Le vrai décor du lieu en fond |
+| `/transparentbackground` | Fond transparent |
 
 Pour un fond transparent, précise-le aussi en toutes lettres
 (« transparent background, PNG ») : c'est une contrainte technique, pas
@@ -534,9 +1141,21 @@ seulement esthétique.
 
 ### Qualité et finition
 
-`/highdetail` `/ultradetail` `/finedetails` `/sharpdetails` `/crisp`
-`/clean` `/polished` `/refined` `/premium` `/highend` `/commercialquality`
-`/editorialquality` `/productionready`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/highdetail` | Très détaillé |
+| `/ultradetail` | Détail extrême |
+| `/finedetails` | Détails fins |
+| `/sharpdetails` | Détails nets |
+| `/crisp` | Net et précis |
+| `/clean` | Propre, épuré |
+| `/polished` | Soigné, bien fini |
+| `/refined` | Raffiné |
+| `/premium` | Haut de gamme |
+| `/highend` | Très haut de gamme |
+| `/commercialquality` | Qualité publicitaire |
+| `/editorialquality` | Qualité magazine |
+| `/productionready` | Prêt à être publié |
 
 Tu croiseras aussi `/4k`, `/8k` ou `/16k`. Ils **ne changent pas la résolution
 réelle** de l'image : ChatGPT les comprend comme « très détaillé ».
@@ -544,8 +1163,19 @@ réelle** de l'image : ChatGPT les comprend comme « très détaillé ».
 
 ### Formats
 
-`/square` `/portrait` `/landscape` `/vertical` `/horizontal` `/vertical916`
-`/horizontal169` `/fourfive` `/threefour` `/cinematicwide` `/panoramic`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/square` | Carré, 1:1 |
+| `/portrait` | Vertical |
+| `/landscape` | Horizontal |
+| `/vertical` | Vertical, comme `/portrait` |
+| `/horizontal` | Horizontal, comme `/landscape` |
+| `/vertical916` | Vertical 9:16 : story, Reel, TikTok |
+| `/horizontal169` | Horizontal 16:9 : YouTube, écran |
+| `/fourfive` | 4:5 : post Instagram |
+| `/threefour` | 3:4 |
+| `/cinematicwide` | Très large, format cinéma |
+| `/panoramic` | Panoramique |
 
 Le plus sûr reste d'écrire le ratio en clair :
 
@@ -563,30 +1193,83 @@ recadreras : garde le sujet au centre pour ne rien perdre.
 
 Dire à quoi sert l'image aide ChatGPT à choisir le bon cadrage.
 
-**Réseaux sociaux :**
-`/socialpost` `/instagram` `/story` `/reel` `/tiktok` `/youtubethumbnail`
-`/thumbnail`
+#### Réseaux sociaux
 
-**Web et app :**
-`/webhero` `/landingpagehero` `/banner` `/appstore`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/socialpost` | Post pour les réseaux |
+| `/instagram` | Pour Instagram |
+| `/story` | Story |
+| `/reel` | Reel |
+| `/tiktok` | Pour TikTok |
+| `/youtubethumbnail` | Miniature YouTube |
+| `/thumbnail` | Miniature |
 
-**Print :**
-`/poster` `/flyer` `/brochure` `/magazinecover` `/bookcover` `/albumcover`
-`/billboard`
+#### Web et app
 
-**Pub et vente :**
-`/adcreative` `/ecommerce` `/catalog` `/presentationcover`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/webhero` | Grande image d'en-tête de site |
+| `/landingpagehero` | Visuel d'en-tête de landing page |
+| `/banner` | Bannière |
+| `/appstore` | Visuel pour l'App Store |
+
+#### Print
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/poster` | Affiche |
+| `/flyer` | Flyer |
+| `/brochure` | Brochure |
+| `/magazinecover` | Couverture de magazine |
+| `/bookcover` | Couverture de livre |
+| `/albumcover` | Pochette d'album |
+| `/billboard` | Panneau d'affichage |
+
+#### Pub et vente
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/adcreative` | Visuel publicitaire |
+| `/ecommerce` | E-commerce |
+| `/catalog` | Catalogue |
+| `/presentationcover` | Couverture de présentation |
 
 ### Texte dans l'image
 
-`/withtext` `/title` `/headline` `/subtitle` `/caption`
-`/textoverlay` `/postertext` `/boldtitle` `/boldtypography` `/minimaltext`
-`/cleantypography` `/editorialtypography` `/legibletext` `/centeredtext`
-`/toptext` `/bottomtext`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/withtext` | Avec du texte |
+| `/title` | Un titre |
+| `/headline` | Un gros titre accrocheur |
+| `/subtitle` | Un sous-titre |
+| `/caption` | Une légende |
+| `/textoverlay` | Texte posé par-dessus l'image |
+| `/postertext` | Texte d'affiche |
+| `/boldtitle` | Titre en gras |
+| `/boldtypography` | Typographie grasse, imposante |
+| `/minimaltext` | Très peu de texte |
+| `/cleantypography` | Typographie propre |
+| `/editorialtypography` | Typographie de magazine |
+| `/legibletext` | Texte bien lisible |
+| `/centeredtext` | Texte centré |
+| `/toptext` | Texte en haut |
+| `/bottomtext` | Texte en bas |
 
-**Laisser de la place pour un texte** ajouté ensuite :
-`/copyspace` `/copyspacetop` `/copyspacebottom` `/copyspaceleft`
-`/copyspaceright` `/emptycenter` `/emptytop` `/emptybottom`
+#### Laisser de la place pour un texte
+
+Pour un texte que tu ajouteras toi-même ensuite.
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/copyspace` | Une zone vide pour du texte |
+| `/copyspacetop` | Zone vide en haut |
+| `/copyspacebottom` | Zone vide en bas |
+| `/copyspaceleft` | Zone vide à gauche |
+| `/copyspaceright` | Zone vide à droite |
+| `/emptycenter` | Centre laissé vide |
+| `/emptytop` | Haut laissé vide |
+| `/emptybottom` | Bas laissé vide |
 
 Pour un texte précis, utilise le bloc `Exact text` vu plus haut.
 
@@ -594,32 +1277,88 @@ Pour un texte précis, utilise le bloc `Exact text` vu plus haut.
 
 Utile quand tu envoies **une image de référence** à ChatGPT.
 
-**Ce qui ne doit pas bouger :**
-`/preservecomposition` `/preserveidentity` `/preserveface` `/preservepose`
-`/preserveoutfit` `/preservebackground` `/preservelighting`
-`/preservecolors` `/preservestyle` `/preservedetails`
+#### Ce qui ne doit pas bouger
 
-**Ce qu'on modifie :**
-`/changebackground` `/changeoutfit` `/changeexpression` `/changehairstyle`
-`/changelighting` `/changecolor` `/recolor` `/replaceobject` `/addobject`
-`/removeobject` `/cleanup` `/restore` `/enhance` `/sharpen`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/preservecomposition` | Garder la composition |
+| `/preserveidentity` | Garder l'identité de la personne |
+| `/preserveface` | Garder le visage |
+| `/preservepose` | Garder la pose |
+| `/preserveoutfit` | Garder la tenue |
+| `/preservebackground` | Garder le fond |
+| `/preservelighting` | Garder l'éclairage |
+| `/preservecolors` | Garder les couleurs |
+| `/preservestyle` | Garder le style |
+| `/preservedetails` | Garder les détails |
 
-**Garder la même chose d'une image à l'autre :**
-`/samecharacter` `/sameidentity` `/sameface` `/sameoutfit`
-`/sameproportions` `/samehairstyle` `/samecolors` `/samestyle`
-`/samelighting` `/sameenvironment` `/samecamera` `/consistentstyle`
-`/consistentlighting` `/consistentproportions` `/consistentcharacters`
-`/consistentcamera` `/matchingcamera` `/matchinglighting`
+#### Ce qu'on modifie
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/changebackground` | Changer le fond |
+| `/changeoutfit` | Changer la tenue |
+| `/changeexpression` | Changer l'expression |
+| `/changehairstyle` | Changer la coiffure |
+| `/changelighting` | Changer l'éclairage |
+| `/changecolor` | Changer une couleur |
+| `/recolor` | Recolorer |
+| `/replaceobject` | Remplacer un objet |
+| `/addobject` | Ajouter un objet |
+| `/removeobject` | Retirer un objet |
+| `/cleanup` | Nettoyer l'image : défauts, éléments parasites |
+| `/restore` | Restaurer une photo abîmée |
+| `/enhance` | Améliorer la qualité |
+| `/sharpen` | Rendre plus net |
+
+#### Garder la même chose d'une image à l'autre
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/samecharacter` | Même personnage |
+| `/sameidentity` | Même identité |
+| `/sameface` | Même visage |
+| `/sameoutfit` | Même tenue |
+| `/sameproportions` | Mêmes proportions |
+| `/samehairstyle` | Même coiffure |
+| `/samecolors` | Mêmes couleurs |
+| `/samestyle` | Même style |
+| `/samelighting` | Même éclairage |
+| `/sameenvironment` | Même décor |
+| `/samecamera` | Même cadrage |
+| `/consistentstyle` | Style cohérent d'une image à l'autre |
+| `/consistentlighting` | Éclairage cohérent |
+| `/consistentproportions` | Proportions cohérentes |
+| `/consistentcharacters` | Personnages cohérents |
+| `/consistentcamera` | Cadrage cohérent |
+| `/matchingcamera` | Même point de vue sur chaque image |
+| `/matchinglighting` | Même lumière sur chaque image |
 
 Pour un visage ou un produit, ces raccourcis ne suffisent pas toujours :
 ajoute la phrase `Preserve the subject's exact appearance` vue plus haut.
 
 ## 12. Contraintes négatives
 
-`/notext` `/nologo` `/nowatermark` `/noborder` `/noframe` `/nocrowd`
-`/nopeople` `/noanimals` `/novehicles` `/noclutter` `/nobackground`
-`/noreflections` `/noshadows` `/nobokeh` `/nograin` `/noblur`
-`/nodistortion` `/novisiblebrand`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/notext` | Pas de texte |
+| `/nologo` | Pas de logo |
+| `/nowatermark` | Pas de filigrane |
+| `/noborder` | Pas de bordure |
+| `/noframe` | Pas de cadre autour de l'image |
+| `/nocrowd` | Pas de foule |
+| `/nopeople` | Aucune personne dans l'image |
+| `/noanimals` | Pas d'animaux |
+| `/novehicles` | Pas de véhicules |
+| `/noclutter` | Pas de fouillis |
+| `/nobackground` | Pas de décor derrière le sujet |
+| `/noreflections` | Pas de reflets |
+| `/noshadows` | Pas d'ombres |
+| `/nobokeh` | Pas de bokeh |
+| `/nograin` | Pas de grain |
+| `/noblur` | Pas de flou |
+| `/nodistortion` | Pas de déformation |
+| `/novisiblebrand` | Aucune marque visible |
 
 Une liste `Do not include:` en toutes lettres reste plus efficace que ces
 raccourcis.
@@ -629,16 +1368,46 @@ raccourcis.
 Ces commandes ne décrivent pas un réglage technique mais **une intention**.
 ChatGPT les traduit en image nette, lisible, qui arrête le regard.
 
-`/adready` `/brandready` `/brandconsistent` `/premiumbranding`
-`/socialfirst` `/scrollstopping` `/attentiongrabbing` `/highimpact`
-`/heroasset` `/campaignvisual` `/campaignready` `/launchvisual`
-`/conversionfocused` `/luxuryad` `/catalogclean` `/ecommercevisual`
+#### Intentions
 
-Et d'autres, inventées sur le même principe :
-`/ultraclean` `/premiumlook` `/highendlook` `/cleanpremium` `/softpremium`
-`/modernluxury` `/luxuryfinish` `/editorialpolish` `/brandstudio`
-`/designforward` `/visualpunch` `/heroenergy` `/richlighting`
-`/cinemadepth` `/storytellingframe`
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/adready` | Prêt pour une pub |
+| `/brandready` | Prêt pour une marque |
+| `/brandconsistent` | Cohérent avec l'identité de la marque |
+| `/premiumbranding` | Image de marque haut de gamme |
+| `/socialfirst` | Pensé d'abord pour les réseaux |
+| `/scrollstopping` | Qui arrête le scroll |
+| `/attentiongrabbing` | Qui attire l'oeil |
+| `/highimpact` | Fort impact visuel |
+| `/heroasset` | Visuel principal d'une campagne |
+| `/campaignvisual` | Visuel de campagne |
+| `/campaignready` | Prêt pour une campagne |
+| `/launchvisual` | Visuel de lancement |
+| `/conversionfocused` | Pensé pour faire cliquer ou acheter |
+| `/luxuryad` | Pub de luxe |
+| `/catalogclean` | Propre comme un catalogue |
+| `/ecommercevisual` | Visuel e-commerce |
+
+#### Inventées sur le même principe
+
+| Commande | Ce que ça donne |
+| --- | --- |
+| `/ultraclean` | Ultra propre |
+| `/premiumlook` | Look premium |
+| `/highendlook` | Look très haut de gamme |
+| `/cleanpremium` | Propre et premium |
+| `/softpremium` | Premium tout en douceur |
+| `/modernluxury` | Luxe moderne |
+| `/luxuryfinish` | Finition luxe |
+| `/editorialpolish` | Finition magazine |
+| `/brandstudio` | Look studio de marque |
+| `/designforward` | Le design avant tout |
+| `/visualpunch` | Du punch visuel |
+| `/heroenergy` | Énergie de héros |
+| `/richlighting` | Lumière riche |
+| `/cinemadepth` | Profondeur de cinéma |
+| `/storytellingframe` | Un cadre qui raconte une histoire |
 
 # Les recettes
 
@@ -682,7 +1451,8 @@ Pour Amazon, Shopify, une fiche produit, une marketplace.
 ### Produit minimal, façon Apple
 
 ```text
-/productshot /centered /minimalcomposition /negativespace
+/productshot /centered
+/minimalcomposition /negativespace
 /softlighting
 /whitebackground /clean /premium
 /sharpdetails
@@ -1056,7 +1826,8 @@ Ajoute : `Keep the main subject inside the central safe area.`
 ### Publicité Meta
 
 ```text
-/adcreative /fourfive /producthero /cleancomposition /copyspace
+/adcreative /fourfive /producthero
+/cleancomposition /copyspace
 /highcontrast
 /premium /commercialquality
 ```
@@ -1075,7 +1846,8 @@ Ajoute : `Keep the main subject inside the central safe area.`
 ### Landing page SaaS
 
 ```text
-/webhero /horizontal169 /minimalcomposition /copyspaceleft
+/webhero /horizontal169
+/minimalcomposition /copyspaceleft
 /softlighting
 /cleanbackground /modern /brandready
 ```
@@ -1209,7 +1981,8 @@ Ajoute : `Keep the main subject inside the central safe area.`
 ### Pochette d'album
 
 ```text
-/albumcover /square /creativecomposition /strongfocalpoint
+/albumcover /square
+/creativecomposition /strongfocalpoint
 /moodylighting
 /highcontrast /artistic
 ```
@@ -1276,7 +2049,8 @@ Show only the logo artwork.
 La base pour réutiliser le même personnage d'une image à l'autre.
 
 ```text
-/charactersheet /frontview /threequarterview /sideview /backview
+/charactersheet
+/frontview /threequarterview /sideview /backview
 /studiolighting
 /expressionsheet /consistentproportions
 /plainbackground
