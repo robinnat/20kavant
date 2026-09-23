@@ -59,8 +59,8 @@ Trois conséquences pratiques :
 
 ## Ce que change une seule commande
 
-Deux exemples. À chaque fois, d'abord l'image de départ, puis la même scène
-avec **une seule commande en plus**.
+Quatre exemples, du plus léger au plus radical. À chaque fois, d'abord l'image
+de départ, puis la même scène avec **une seule commande en plus**.
 
 ### `/droneview` : changer de point de vue
 
@@ -84,10 +84,41 @@ Même maison, même cadrage, mêmes transats. Seule la lumière change : soleil
 rasant, ciel orangé, reflets dorés dans la piscine, et les lampes intérieures
 s'allument. La photo d'agence devient une photo qui donne envie d'y être.
 
+### `/neonlights` : changer l'ambiance
+
+<div class="avant-apres">
+<figure><a href="/guides/chatgpt-images-ville-avant.webp" target="_blank" rel="noopener"><img src="/guides/chatgpt-images-ville-avant.webp" alt="Rue de ville la nuit sous la pluie, éclairée par des lampadaires" loading="lazy"></a><figcaption>Image de départ</figcaption></figure>
+<figure><a href="/guides/chatgpt-images-ville-neon.webp" target="_blank" rel="noopener"><img src="/guides/chatgpt-images-ville-neon.webp" alt="La même rue, avec des néons roses et bleus sur les façades qui se reflètent sur le trottoir mouillé" loading="lazy"></a><figcaption>Avec <code>/neonlights</code></figcaption></figure>
+</div>
+
+Même rue, mêmes voitures, mêmes lampadaires. ChatGPT ajoute des néons roses et
+bleus sur les façades, et le trottoir mouillé les reflète : une rue ordinaire
+devient une scène de film nocturne.
+
+Au passage, `/neonlights` n'est pas dans le dictionnaire, qui propose
+`/neonlight` au singulier. Ça marche quand même : ChatGPT lit le sens du mot,
+pas une liste officielle.
+
+### `/productshot` : changer le genre de photo
+
+<div class="avant-apres carre">
+<figure><a href="/guides/chatgpt-images-parfum-avant.webp" target="_blank" rel="noopener"><img src="/guides/chatgpt-images-parfum-avant.webp" alt="Flacon de parfum posé sur une table en bois dans un salon" loading="lazy"></a><figcaption>Image de départ</figcaption></figure>
+<figure><a href="/guides/chatgpt-images-parfum-productshot.webp" target="_blank" rel="noopener"><img src="/guides/chatgpt-images-parfum-productshot.webp" alt="Le même flacon mis en scène sur du marbre, avec son étui, des roses blanches et une lumière de studio" loading="lazy"></a><figcaption>Avec <code>/productshot</code></figcaption></figure>
+</div>
+
+Cette fois, ce n'est plus un réglage qui change mais **tout le genre de
+l'image**. Le flacon reste le même, le reste est refait : le salon laisse la
+place à du marbre, des roses blanches et l'étui, et une lumière de studio fait
+briller le verre. La photo d'intérieur devient une photo de catalogue.
+
+C'est la différence à retenir entre les familles du dictionnaire : une
+commande de **lumière** ou de **cadrage** change un réglage et garde la scène,
+une commande de **style** comme `/productshot` réinvente la mise en scène. Si
+tu veux garder ton décor, ajoute `/preservebackground`.
+
 Pour faire pareil, le plus simple est d'envoyer ta première image à ChatGPT
-avec la commande en plus : il garde la scène et ne change que ce que la
-commande décrit. Un seul mot suffit, à condition qu'il soit précis. C'est tout
-l'intérêt du [dictionnaire](#le-dictionnaire).
+avec la commande en plus. Un seul mot suffit, à condition qu'il soit précis.
+C'est tout l'intérêt du [dictionnaire](#le-dictionnaire).
 
 ## Comment écrire un prompt
 
@@ -475,7 +506,7 @@ D'où vient la lumière par rapport au sujet.
 | `/hazelight` | Lumière diffusée par une brume légère |
 | `/foglight` | Lumière qui se perd dans le brouillard |
 | `/practicallights` | Les lampes visibles dans la scène l'éclairent elles-mêmes, comme au cinéma |
-| `/neonlight` | Éclairage néon coloré |
+| `/neonlight` | Éclairage néon coloré ([voir l'exemple](#ce-que-change-une-seule-commande)) |
 | `/neonglow` | Halo lumineux autour des néons |
 | `/candlelight` | Lumière de bougie, chaude et vacillante |
 | `/firelight` | Lumière d'un feu, orangée |
@@ -623,7 +654,7 @@ Le traitement des couleurs, comme au cinéma.
 
 | Commande | Ce que ça donne |
 | --- | --- |
-| `/productshot` | Photo produit |
+| `/productshot` | Photo produit ([voir l'exemple](#ce-que-change-une-seule-commande)) |
 | `/packshot` | Produit seul, de face, sur fond neutre : catalogue |
 | `/producthero` | Produit en héros, mis en scène |
 | `/heroproduct` | Comme `/producthero` |
