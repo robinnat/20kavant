@@ -566,14 +566,15 @@
   .prose .avant-apres{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
   .prose .avant-apres figure{ margin:0; }
   .prose .avant-apres a{ display:block; text-decoration:none; }
+  /* ratio réglable par paire (style="--ratio:6/5" sur le bloc), 3:2 par défaut */
   .prose .avant-apres img{
-    display:block; width:100%; aspect-ratio:3/2; object-fit:cover; border-radius:12px;
+    display:block; width:100%; aspect-ratio:var(--ratio, 3/2); object-fit:cover; border-radius:12px;
     transition:transform .2s ease;
   }
   .prose .avant-apres a:hover img{ transform:scale(1.015); }
   /* photos proches du carré ou verticales (produit) : un cadre 3:2 couperait
      le haut et le bas du sujet */
-  .prose .avant-apres.carre img{ aspect-ratio:1/1; }
+  .prose .avant-apres.carre{ --ratio:1/1; }
   .prose .avant-apres figcaption{ font-size:13.5px; color:var(--muted); margin-top:8px; text-align:center; }
   @media(max-width:560px){ .prose .avant-apres{ grid-template-columns:1fr; gap:18px; } }
 

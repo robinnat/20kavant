@@ -59,7 +59,7 @@ Trois conséquences pratiques :
 
 ## Ce que change une seule commande
 
-Quatre exemples, du plus léger au plus radical. À chaque fois, d'abord l'image
+Cinq exemples, du plus léger au plus radical. À chaque fois, d'abord l'image
 de départ, puis la même scène avec **une seule commande en plus**.
 
 ### `/droneview` : changer de point de vue
@@ -72,6 +72,18 @@ de départ, puis la même scène avec **une seule commande en plus**.
 La voiture, sa couleur et la côte ne changent pas. La caméra monte au-dessus
 de la route : le virage devient la ligne qui guide l'oeil, et l'océan prend
 toute la moitié droite de l'image.
+
+### `/macro` : entrer dans le détail
+
+<div class="avant-apres" style="--ratio:6/5">
+<figure><a href="/guides/chatgpt-images-montre-avant.webp" target="_blank" rel="noopener"><img src="/guides/chatgpt-images-montre-avant.webp" alt="Montre à cadran blanc et bracelet en cuir posée sur un marbre noir, avec un verre et un stylo" loading="lazy"></a><figcaption>Image de départ</figcaption></figure>
+<figure><a href="/guides/chatgpt-images-montre-macro.webp" target="_blank" rel="noopener"><img src="/guides/chatgpt-images-montre-macro.webp" alt="Très gros plan sur le cadran de la même montre : texture, aiguilles bleues et mouvement visible" loading="lazy"></a><figcaption>Avec <code>/macro</code></figcaption></figure>
+</div>
+
+Le décor disparaît, on entre dans le cadran. La texture du fond, les aiguilles
+bleues, le balancier visible par l'ouverture et même les rubis du mouvement
+deviennent le sujet. On passe du produit au savoir-faire : parfait pour la
+deuxième image d'un carrousel ou le détail d'une fiche produit.
 
 ### `/goldenhour` : changer la lumière
 
@@ -350,7 +362,7 @@ La focale change **la perspective**, pas seulement le zoom.
 | `/portraitlens` | Objectif portrait, autour de 85 mm |
 | `/telephoto` | Téléobjectif : rapproche le sujet et écrase les plans |
 | `/supertelephoto` | Très long téléobjectif : sport, animaux |
-| `/macro` | Objectif macro : les tout petits détails en très gros |
+| `/macro` | Objectif macro : les tout petits détails en très gros ([voir l'exemple](#ce-que-change-une-seule-commande)) |
 | `/fisheye` | Fisheye : image ronde, très déformée |
 | `/tiltshift` | Bascule : zone nette étroite, effet maquette miniature |
 | `/anamorphic` | Anamorphique : format cinéma, reflets horizontaux, flou ovale |
