@@ -562,6 +562,18 @@
   }
   .prose pre code{ background:none; border:none; padding:0; color:inherit; font-size:inherit; }
 
+  /* exemples avant / après, côte à côte (empilés sur mobile) */
+  .prose .avant-apres{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .prose .avant-apres figure{ margin:0; }
+  .prose .avant-apres a{ display:block; text-decoration:none; }
+  .prose .avant-apres img{
+    display:block; width:100%; aspect-ratio:3/2; object-fit:cover; border-radius:12px;
+    transition:transform .2s ease;
+  }
+  .prose .avant-apres a:hover img{ transform:scale(1.015); }
+  .prose .avant-apres figcaption{ font-size:13.5px; color:var(--muted); margin-top:8px; text-align:center; }
+  @media(max-width:560px){ .prose .avant-apres{ grid-template-columns:1fr; gap:18px; } }
+
   /* bouton « Copier » des blocs de code */
   .prose .code-block{ position:relative; }
   .prose .copy-btn{

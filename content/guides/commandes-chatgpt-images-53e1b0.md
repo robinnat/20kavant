@@ -14,11 +14,12 @@ commandes toutes prêtes, une par type d'image.
 **Au sommaire**
 
 1. [Ce que sont ces commandes](#ce-que-sont-ces-commandes)
-2. [Comment écrire un prompt](#comment-ecrire-un-prompt)
-3. [Le dictionnaire](#le-dictionnaire), toutes les commandes par famille
-4. [Les recettes](#les-recettes), prêtes à coller
-5. [Prompts complets à remplir](#prompts-complets-a-remplir)
-6. [Créer tes propres recettes](#creer-tes-propres-recettes)
+2. [Ce que change une seule commande](#ce-que-change-une-seule-commande), avec des exemples
+3. [Comment écrire un prompt](#comment-ecrire-un-prompt)
+4. [Le dictionnaire](#le-dictionnaire), toutes les commandes par famille
+5. [Les recettes](#les-recettes), prêtes à coller
+6. [Prompts complets à remplir](#prompts-complets-a-remplir)
+7. [Créer tes propres recettes](#creer-tes-propres-recettes)
 
 ## Ce que sont ces commandes
 
@@ -55,6 +56,38 @@ Trois conséquences pratiques :
 
 > Ce n'est pas le `/` qui améliore l'image. C'est la précision visuelle de ce
 > qui vient après.
+
+## Ce que change une seule commande
+
+Deux exemples. À chaque fois, d'abord l'image de départ, puis la même scène
+avec **une seule commande en plus**.
+
+### `/droneview` : changer de point de vue
+
+<div class="avant-apres">
+<figure><a href="/guides/chatgpt-images-voiture-avant.webp" target="_blank" rel="noopener"><img src="/guides/chatgpt-images-voiture-avant.webp" alt="Voiture de sport rouge garée au bord d'une route côtière, vue de face" loading="lazy"></a><figcaption>Image de départ</figcaption></figure>
+<figure><a href="/guides/chatgpt-images-voiture-droneview.webp" target="_blank" rel="noopener"><img src="/guides/chatgpt-images-voiture-droneview.webp" alt="La même voiture vue d'en haut, sur la route qui longe la falaise et l'océan" loading="lazy"></a><figcaption>Avec <code>/droneview</code></figcaption></figure>
+</div>
+
+La voiture, sa couleur et la côte ne changent pas. La caméra monte au-dessus
+de la route : le virage devient la ligne qui guide l'oeil, et l'océan prend
+toute la moitié droite de l'image.
+
+### `/goldenhour` : changer la lumière
+
+<div class="avant-apres">
+<figure><a href="/guides/chatgpt-images-villa-avant.webp" target="_blank" rel="noopener"><img src="/guides/chatgpt-images-villa-avant.webp" alt="Villa blanche moderne avec piscine, en plein jour sous un ciel bleu" loading="lazy"></a><figcaption>Image de départ</figcaption></figure>
+<figure><a href="/guides/chatgpt-images-villa-goldenhour.webp" target="_blank" rel="noopener"><img src="/guides/chatgpt-images-villa-goldenhour.webp" alt="La même villa au coucher du soleil, ciel orangé et reflets dorés dans la piscine" loading="lazy"></a><figcaption>Avec <code>/goldenhour</code></figcaption></figure>
+</div>
+
+Même maison, même cadrage, mêmes transats. Seule la lumière change : soleil
+rasant, ciel orangé, reflets dorés dans la piscine, et les lampes intérieures
+s'allument. La photo d'agence devient une photo qui donne envie d'y être.
+
+Pour faire pareil, le plus simple est d'envoyer ta première image à ChatGPT
+avec la commande en plus : il garde la scène et ne change que ce que la
+commande décrit. Un seul mot suffit, à condition qu'il soit précis. C'est tout
+l'intérêt du [dictionnaire](#le-dictionnaire).
 
 ## Comment écrire un prompt
 
@@ -210,7 +243,7 @@ L'angle dit **d'où** on regarde.
 | `/overhead` | Vue en surplomb, proche de `/topdown` |
 | `/birdseye` | Vue d'oiseau : aérienne, plus haute que `/topdown` |
 | `/aerialview` | Vue aérienne, comme depuis un avion ou un hélicoptère |
-| `/droneview` | Photo aérienne réaliste, prise par un drone |
+| `/droneview` | Photo aérienne réaliste, prise par un drone ([voir l'exemple](#ce-que-change-une-seule-commande)) |
 | `/satelliteview` | Vue satellite, verticale et très lointaine |
 | `/isometric` | Vue isométrique, sans perspective, façon maquette ou jeu vidéo |
 
@@ -461,7 +494,7 @@ D'où vient la lumière par rapport au sujet.
 | `/morninglight` | Lumière du matin, fraîche et claire |
 | `/midday` | Plein midi : lumière dure, ombres courtes |
 | `/afternoonlight` | Lumière d'après-midi |
-| `/goldenhour` | Heure dorée, juste avant le coucher : lumière chaude et rasante |
+| `/goldenhour` | Heure dorée, juste avant le coucher : lumière chaude et rasante ([voir l'exemple](#ce-que-change-une-seule-commande)) |
 | `/sunset` | Coucher du soleil |
 | `/dusk` | Crépuscule, juste après le coucher |
 | `/bluehour` | Heure bleue : ciel bleu profond, lumières de la ville allumées |
