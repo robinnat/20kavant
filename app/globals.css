@@ -583,6 +583,9 @@
 
   /* bouton « Copier » des blocs de code */
   .prose .code-block{ position:relative; }
+  /* un exemple en encadré (blockquote) peut contenir du code : le code reste
+     droit, l'italique de la citation ne doit pas s'y appliquer */
+  .prose blockquote pre, .prose blockquote code{ font-style:normal; }
   .prose .copy-btn{
     position:absolute; top:10px; right:10px;
     font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600; letter-spacing:.02em;
