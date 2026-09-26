@@ -113,12 +113,18 @@ En ligne de commande :
 
 ```bash
 codex mcp add higgsfield --url https://mcp.higgsfield.ai/mcp
+```
+
+Codex détecte que le connecteur demande une connexion et ouvre ton navigateur
+pour te connecter à ton compte Higgsfield. Si ce n'est pas le cas, ou pour te
+reconnecter plus tard :
+
+```bash
 codex mcp login higgsfield
 ```
 
-La seconde commande ouvre ton navigateur pour te connecter à ton compte. Dans
-l'app Codex, c'est dans **Settings > MCP servers > Add server**, en choisissant
-**Streamable HTTP**.
+Dans l'app Codex, c'est dans **Settings > MCP servers > Add server**, en
+choisissant **Streamable HTTP**.
 
 L'app, la ligne de commande et l'extension d'éditeur partagent le même fichier
 de réglages, `~/.codex/config.toml` : un connecteur ajouté à un endroit est
@@ -174,6 +180,10 @@ l'historique du terminal :
 security add-generic-password -a "$USER" -s higgsfield-api -w
 ```
 
+Quand elle te demande le mot de passe, colle ta clé au format
+`identifiant:secret`, puis une seconde fois pour confirmer. Rien ne s'affiche
+pendant que tu colles : c'est normal.
+
 Puis ajoute cette ligne dans ton fichier `~/.zshrc`. Elle relit la clé depuis
 le trousseau à chaque ouverture du terminal : la valeur n'est écrite nulle
 part.
@@ -205,6 +215,9 @@ Les valeurs saisies ici sont **stockées chiffrées** sur ton ordinateur. Évite
 en revanche la section `env` du fichier `~/.claude/settings.json` : la clé y
 serait écrite en clair.
 
+Sur Windows, l'app lit bien tes variables d'environnement utilisateur, mais
+l'éditeur d'environnement reste le plus sûr, puisqu'il chiffre la valeur.
+
 #### Dans tous les cas
 
 **Jamais dans un fichier du projet.** Si tu utilises un fichier `.env`,
@@ -220,6 +233,11 @@ pour générer une image. La clé est déjà dans
 la variable HF_KEY : ne l'affiche jamais,
 ne l'écris dans aucun fichier.
 ```
+
+Avec Codex, attends-toi à une demande d'autorisation : par défaut, il coupe
+l'accès à Internet des commandes qu'il lance. Pour appeler l'API, il te
+proposera d'exécuter le script hors de son bac à sable. Lis la commande, puis
+accepte pour celle-ci seulement.
 
 À savoir : dans cette méthode, Codex et Claude Code **peuvent lire** la
 variable, puisque leurs commandes y ont accès. Ta protection, ce sont les
@@ -270,7 +288,9 @@ env_vars = ["MON_API_KEY"]
 ```
 
 `env_vars` transmet la variable depuis ta session : la valeur reste dans ton
-trousseau (range-la comme à l'étape 2 de la méthode 2). L'autre option,
+trousseau. Range-la comme à l'étape 2 de la méthode 2, en remplaçant
+`higgsfield-api` et `HF_KEY` par tes propres noms (ici `mon-api` et
+`MON_API_KEY`). L'autre option,
 `env = { MON_API_KEY = "..." }`, ou `--env` dans la commande `codex mcp add`,
 **écrit la clé en clair** dans le fichier. À éviter.
 
@@ -321,7 +341,13 @@ chmod 600 claude_desktop_config.json
 ```
 
 Sur Mac, tu peux éviter la clé en clair en faisant lire le trousseau au
-lancement du connecteur :
+lancement du connecteur. Range d'abord la clé dans le trousseau :
+
+```bash
+security add-generic-password -a "$USER" -s mon-api -w
+```
+
+Puis, dans le fichier de réglages :
 
 ```json
 {
@@ -334,7 +360,9 @@ lancement du connecteur :
 }
 ```
 
-Redémarre Claude Desktop après chaque modification du fichier.
+Redémarre Claude Desktop après chaque modification du fichier. Si le
+connecteur ne démarre pas avec une erreur du type « npx introuvable », remplace
+`npx` par son chemin complet, que tu obtiens avec `which npx` dans un terminal.
 
 ### Tester
 
@@ -394,7 +422,9 @@ plus rien quand la vidéo sort.
 Dans cet ordre, et vite :
 
 1. **Révoque la clé** dans la console du service. Avant tout le reste.
-2. **Crée une nouvelle clé** et remplace-la dans ton coffre.
+2. **Crée une nouvelle clé** et remplace-la dans ton coffre. Pour le
+   trousseau du Mac, la même commande avec `-U` met à jour l'entrée existante :
+   `security add-generic-password -U -a "$USER" -s higgsfield-api -w`
 3. **Vérifie ton solde** et l'historique des appels.
 4. Si la clé était dans un commit : supprimer le fichier **ne suffit pas**,
    l'historique git la garde. La révocation est la seule vraie correction.
@@ -421,5 +451,6 @@ Dans cet ordre, et vite :
 - [OpenAI · Codex et MCP](https://developers.openai.com/codex/mcp)
 - [Code source de Codex · transmission des variables aux connecteurs](https://github.com/openai/codex/blob/main/codex-rs/rmcp-client/src/utils.rs), vérifié le 26 septembre 2026
 - [Code source de Codex · filtre KEY, SECRET, TOKEN](https://github.com/openai/codex/blob/main/codex-rs/protocol/src/shell_environment.rs), vérifié le 26 septembre 2026
+- [Higgsfield · générer depuis Claude avec le connecteur MCP](https://higgsfield.ai/blog/Generate-AI-Videos-From-Claude-with-Higgsfield-MCP)
 - [Higgsfield · SDK Python officiel](https://github.com/higgsfield-ai/higgsfield-client)
 - [Higgsfield · documentation de l'API](https://docs.higgsfield.ai/docs)
