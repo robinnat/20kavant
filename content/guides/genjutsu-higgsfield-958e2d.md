@@ -18,8 +18,7 @@ abonnement, en passant par le playground de l'API.
 3. [Ce qu'il te faut](#ce-quil-te-faut)
 4. [Étape 1 : créer les fiches personnage](#etape-1-creer-les-fiches-personnage)
 5. [Étape 2 : lancer Genjutsu](#etape-2-lancer-genjutsu)
-6. [Étape 3 : vérifier et télécharger](#etape-3-verifier-et-telecharger)
-7. [À savoir avant de publier](#a-savoir-avant-de-publier)
+6. [À savoir avant de publier](#a-savoir-avant-de-publier)
 
 ## Le résultat
 
@@ -27,8 +26,6 @@ abonnement, en passant par le playground de l'API.
 <video controls playsinline preload="metadata" poster="/guides/genjutsu-resultat.jpg"><source src="/guides/genjutsu-resultat.mp4" type="video/mp4"></video>
 <figcaption>Le résultat, généré avec Genjutsu</figcaption>
 </figure>
-
-<p class="telecharger-bloc"><a class="telecharger" href="/guides/genjutsu-resultat.mp4" download="genjutsu-resultat.mp4">Télécharger la vidéo (MP4, 4,4 Mo)</a></p>
 
 Pour comparer, la vidéo d'origine :
 
@@ -39,6 +36,11 @@ Pour comparer, la vidéo d'origine :
 
 Tout est repris de l'original : les gestes, le moment où chacun bouge, le
 cadrage, la lumière. Seules les personnes ont changé.
+
+Pour refaire l'exercice, voici la vidéo d'origine, qui te servira de vidéo
+source à l'étape 2 :
+
+<p class="telecharger-bloc"><a class="telecharger" href="/guides/genjutsu-source-1080p.mp4" download="genjutsu-video-origine.mp4">Télécharger la vidéo d'origine (MP4 1080p, 11,3 Mo)</a></p>
 
 ## Pourquoi l'API plutôt que l'abonnement
 
@@ -80,7 +82,8 @@ ponctuel, l'API gagne sur les deux tableaux : moins cher, et sans engagement.
   bien visibles. La mienne dure 23 secondes.
 - **Une fiche personnage par personne** à remplacer : le même personnage vu de
   face, de profil et de dos.
-- **Un compte sur le playground de l'API** Higgsfield, avec un peu de solde.
+- **Un compte sur `open.higgsfield.ai`**, le playground de l'API, avec un
+  peu de solde (voir l'étape 2).
 
 ## Étape 1 : créer les fiches personnage
 
@@ -115,16 +118,18 @@ Trois détails qui comptent :
 
 ## Étape 2 : lancer Genjutsu
 
-Dans le playground de l'API, ouvre **Genjutsu**, puis :
-
-1. **Ajoute la vidéo source.**
-2. **Ajoute les fiches, dans l'ordre** : l'Image 1 pour la personne de gauche,
+1. **Crée un compte** sur `open.higgsfield.ai`, le playground de l'API
+   Higgsfield, et ajoute un peu de solde. Pas d'abonnement : tu ne paies que
+   ce que tu génères.
+2. **Ouvre Genjutsu** dans le playground.
+3. **Ajoute la vidéo source.**
+4. **Ajoute les fiches, dans l'ordre** : l'Image 1 pour la personne de gauche,
    l'Image 2 pour celle de droite. L'ordre compte, le prompt s'y réfère.
-3. **Choisis le mode.** Genjutsu en a deux : **Motion Transfer**, qui garde les
+5. **Choisis le mode.** Genjutsu en a deux : **Motion Transfer**, qui garde les
    mouvements et la caméra en reconstruisant les personnages, et **Object
    Swap**, qui remplace un élément en gardant tout le reste. Pour remplacer
    des personnes en gardant leurs gestes, c'est Motion Transfer.
-4. **Colle le prompt**, puis lance la génération.
+6. **Colle le prompt**, puis lance la génération.
 
 Le prompt que j'ai utilisé :
 
@@ -152,19 +157,6 @@ Ce que fait chaque morceau :
 
 Pour une vidéo avec **une seule personne**, garde la même structure avec une
 seule image, et retire la dernière phrase.
-
-## Étape 3 : vérifier et télécharger
-
-Avant de publier, regarde la vidéo en entier, en particulier :
-
-- **les visages**, image par image dans les mouvements rapides : ils doivent
-  rester les mêmes du début à la fin ;
-- **les mains** et les objets tenus ;
-- **les moments où quelqu'un se retourne** : c'est là que la vue de dos de la
-  fiche sert.
-
-Si un passage déraille, relance la génération plutôt que de retoucher : le
-même prompt ne donne pas deux fois le même résultat.
 
 ## À savoir avant de publier
 
