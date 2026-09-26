@@ -561,6 +561,9 @@
     font-size:14px; line-height:1.6;
   }
   .prose pre code{ background:none; border:none; padding:0; color:inherit; font-size:inherit; }
+  /* un chemin de fichier ou une commande longue dans le texte, sans espace,
+     ne pouvait pas passer à la ligne et faisait déborder la page sur mobile */
+  .prose :not(pre) > code{ overflow-wrap:anywhere; }
 
   /* exemples avant / après, côte à côte (empilés sur mobile) */
   .prose .avant-apres{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
