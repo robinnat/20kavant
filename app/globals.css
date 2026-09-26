@@ -581,6 +581,27 @@
   .prose .avant-apres figcaption{ font-size:13.5px; color:var(--muted); margin-top:8px; text-align:center; }
   @media(max-width:560px){ .prose .avant-apres{ grid-template-columns:1fr; gap:18px; } }
 
+  /* vidéos et fiches personnage pleine largeur dans un guide */
+  .prose .video-guide, .prose .fiche-guide{ margin-left:0; margin-right:0; }
+  .prose .video-guide video{
+    display:block; width:100%; aspect-ratio:16/9; border-radius:14px;
+    background:#000; border:1px solid var(--line);
+  }
+  .prose .fiche-guide img{ display:block; width:100%; }
+  .prose .video-guide figcaption, .prose .fiche-guide figcaption{
+    font-size:13.5px; color:var(--muted); margin-top:8px; text-align:center;
+  }
+  /* bouton de téléchargement : le style des liens de la prose ne s'y applique pas */
+  .prose .telecharger-bloc{ text-align:center; }
+  .prose a.telecharger{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--cream); color:#FFFFFF; text-decoration:none;
+    font-weight:600; font-size:15px; padding:11px 20px; border-radius:10px;
+    transition:transform .15s ease, opacity .15s ease;
+  }
+  .prose a.telecharger:hover{ color:#FFFFFF; opacity:.88; transform:translateY(-1px); }
+  .prose a.telecharger::before{ content:"↓"; font-weight:700; }
+
   /* bouton « Copier » des blocs de code */
   .prose .code-block{ position:relative; }
   /* un exemple en encadré (blockquote) peut contenir du code : le code reste
