@@ -21,11 +21,20 @@ function ancre(texte) {
 // headerIds a disparu) : sans ça, aucun lien interne ni partage vers une
 // section précise ne fonctionne. Instance locale, pour ne pas modifier le
 // marked global.
+// Ancres déjà utilisées dans le guide en cours : deux titres identiques
+// (« Dans Codex » dans deux méthodes) reçoivent -2, -3... au lieu d'un id en
+// double. Remis à zéro avant chaque rendu (voir GuidePage).
+let ancresVues = new Map();
+
 const md = new Marked({
   renderer: {
     heading({ tokens, depth }) {
       const contenu = this.parser.parseInline(tokens);
-      return `<h${depth} id="${ancre(contenu)}">${contenu}</h${depth}>\n`;
+      let id = ancre(contenu);
+      const deja = ancresVues.get(id) || 0;
+      ancresVues.set(id, deja + 1);
+      if (deja) id = `${id}-${deja + 1}`;
+      return `<h${depth} id="${id}">${contenu}</h${depth}>\n`;
     },
     // Chaque bloc de code reçoit un bouton « Copier » (voir CopyCode). Le
     // bouton est écrit ici, côté serveur, pour qu'il soit là dès l'affichage
@@ -74,6 +83,7 @@ export default async function GuidePage({ params }) {
   const guide = lireGuide(slug);
   if (!guide) notFound();
 
+  ancresVues = new Map();
   const html = md.parse(guide.corps);
   const dateLisible = guide.date
     ? new Date(guide.date).toLocaleDateString("fr-FR", {
