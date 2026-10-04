@@ -590,6 +590,11 @@
   /* vidéo verticale (9:16) : lisible sur téléphone, sans barres noires */
   .prose .video-guide.vertical video{ aspect-ratio:9/16; width:min(100%, 360px); margin:0 auto; }
   .prose .video-guide.carre-9-8 video{ aspect-ratio:9/8; }
+  /* trois vidéos verticales côte à côte */
+  .prose .video-trio{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:24px 0; }
+  .prose .video-trio figure{ margin:0; }
+  .prose .video-trio video{ display:block; width:100%; aspect-ratio:9/16; border-radius:12px; background:#000; border:1px solid var(--line); object-fit:cover; }
+  .prose .video-trio figcaption{ font-size:12.5px; color:var(--muted); margin-top:6px; text-align:center; }
   .prose .fiche-guide img{ display:block; width:100%; }
   .prose .video-guide figcaption, .prose .fiche-guide figcaption{
     font-size:13.5px; color:var(--muted); margin-top:8px; text-align:center;
