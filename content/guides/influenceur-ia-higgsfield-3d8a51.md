@@ -27,14 +27,14 @@ vidéo sont gratuits** avec un compte gratuit.
 
 ## Le résultat
 
-<figure class="video-guide">
+<figure class="video-guide vertical">
 <video controls playsinline preload="metadata" poster="/guides/influenceur-resultat.jpg"><source src="/guides/influenceur-resultat.mp4" type="video/mp4"></video>
 <figcaption>Le résultat : mon personnage rejoue la vidéo, généré avec Genjutsu</figcaption>
 </figure>
 
 Pour comparer avec la vidéo d'origine, côte à côte :
 
-<figure class="video-guide">
+<figure class="video-guide carre-9-8">
 <video controls playsinline preload="metadata" poster="/guides/influenceur-comparaison.jpg"><source src="/guides/influenceur-comparaison.mp4" type="video/mp4"></video>
 <figcaption>À gauche l'original, à droite le résultat</figcaption>
 </figure>
@@ -45,10 +45,7 @@ mon personnage.
 
 ## Ce qu'il te faut
 
-- **Un compte Higgsfield gratuit.** [Crée-le ici](https://higgsfield.ai?fpr=robin-1f5317). Le lien
-  est un lien d'affiliation : il me rapporte un peu si tu passes ensuite à une
-  offre payante, et il ne te coûte rien. Tu peux aussi t'inscrire directement
-  sans passer par lui, les offres gratuites sont les mêmes.
+- **Un compte Higgsfield gratuit.** [Crée-le ici](https://higgsfield.ai?fpr=robin-1f5317).
 - **Les offres gratuites d'un compte gratuit**, au moment où j'écris (4 octobre
   2026) :
   - **10 crédits** offerts pour générer ;
@@ -91,7 +88,7 @@ donne des personnages très marqués. Si le résultat ne te plaît pas,
 
 1. Sous le personnage, clique sur **Turn to motion with Genjutsu**. Tu peux
    aussi aller dans **Video**, puis **Genjutsu**, puis **Motion transfer**.
-2. **Ajoute la vidéo de départ** (de 4 à 30 secondes).
+2. **Ajoute la vidéo de départ** (de 4 à 30 secondes). [Quelle vidéo choisir](#preparer-la-video-de-depart) : c'est expliqué plus bas.
 3. Clique sur **Add your characters, products, or clothes**. Dans la fenêtre,
    ouvre l'onglet **AI Influencer** et choisis ton personnage.
 
@@ -167,8 +164,7 @@ ne cite pas son compte comme si c'était le tien, et ne republie pas la vidéo
 d'origine. Pour une publication sérieuse, préfère une vidéo de la communauté
 Higgsfield, ou une vidéo que tu as filmée.
 
-**Le lien d'affiliation.** Si tu publies ce guide ou en parles, dis clairement
-que le lien est un lien d'affiliation.
+*Le lien d'inscription est un lien partenaire.*
 
 ## Pour aller plus loin
 
