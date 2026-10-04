@@ -4,6 +4,16 @@ description: Comment fabriquer un personnage IA réaliste avec AI Influencer, pu
 date: 2026-10-04
 ---
 
+Le contexte : ces créateurs ont explosé sur TikTok avec des personnages
+hauts en couleur, qu'on ne croise nulle part ailleurs. Ce guide te montre comment
+fabriquer ton propre personnage, et le faire bouger.
+
+<div class="video-trio">
+<figure><video controls playsinline preload="metadata" poster="/guides/contexte-kitto.jpg"><source src="/guides/contexte-kitto.mp4" type="video/mp4"></video><figcaption>@kitto_katsu</figcaption></figure>
+<figure><video controls playsinline preload="metadata" poster="/guides/contexte-leopold.jpg"><source src="/guides/contexte-leopold.mp4" type="video/mp4"></video><figcaption>@leopold.delarue7</figcaption></figure>
+<figure><video controls playsinline preload="metadata" poster="/guides/contexte-jean.jpg"><source src="/guides/contexte-jean.mp4" type="video/mp4"></video><figcaption>@jean_philanthrope</figcaption></figure>
+</div>
+
 <figure class="fiche-guide"><img src="/guides/influenceur-banniere.webp" alt="Bannière AI Influencer de Higgsfield : Build your next hype machine" loading="lazy"></figure>
 
 Je voulais un personnage qui ne ressemble à personne, et qui puisse jouer
