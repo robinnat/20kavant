@@ -127,17 +127,6 @@ Keep every move, gesture, facial expression, the timing, the camera movement, th
 Do not add or remove any action, cut, prop, other person, text, caption, logo, watermark, username, symbol or effect. If the source video contains a platform logo, a username or on-screen text, do not reproduce it.
 ```
 
-Ce que fait chaque partie :
-
-| Morceau du prompt | Rôle |
-| --- | --- |
-| `Replace the main person… with the character from the reference images` | Dire qui remplacer, et par qui |
-| `Use the character's exact face, hairstyle… complete outfit` | Reprendre fidèlement ton personnage |
-| `Completely remove the original person's hair, glasses, jewelry and clothing` | Éviter que la coiffure, les lunettes ou les vêtements de la vidéo d'origine restent visibles |
-| `Keep every move, gesture, facial expression, the timing, the camera…` | Garder tout le jeu de la vidéo, seule la personne change |
-| `Keep the character's face and outfit identical in every frame` | Empêcher le visage de se déformer en cours de route |
-| `Do not add or remove any… logo, watermark, username…` | Empêcher le retour d'un logo, d'un pseudo ou d'un texte |
-
 ## Préparer la vidéo de départ
 
 La vidéo de départ décide de tout. Deux sources simples :
