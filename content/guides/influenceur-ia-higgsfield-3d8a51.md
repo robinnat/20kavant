@@ -4,6 +4,8 @@ description: Comment fabriquer un personnage IA réaliste avec AI Influencer, pu
 date: 2026-10-04
 ---
 
+<figure class="fiche-guide"><img src="/guides/influenceur-banniere.webp" alt="Bannière AI Influencer de Higgsfield : Build your next hype machine" loading="lazy"></figure>
+
 Je voulais un personnage qui ne ressemble à personne, et qui puisse jouer
 n'importe quelle vidéo : un gag viral, une danse, une réaction. Higgsfield a une
 section faite pour ça, **AI Influencer**. Tu composes ton personnage avec des
@@ -43,7 +45,7 @@ mon personnage.
 
 ## Ce qu'il te faut
 
-- **Un compte Higgsfield gratuit.** [Crée-le ici](https://higgsfield.ai). Le lien
+- **Un compte Higgsfield gratuit.** [Crée-le ici](https://higgsfield.ai?fpr=robin-1f5317). Le lien
   est un lien d'affiliation : il me rapporte un peu si tu passes ensuite à une
   offre payante, et il ne te coûte rien. Tu peux aussi t'inscrire directement
   sans passer par lui, les offres gratuites sont les mêmes.
