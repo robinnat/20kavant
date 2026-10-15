@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 790" width="400" height="790" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="400" height="790" fill="#FFFFFF"/>
+  <defs>
+    <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B9B3C6"/>
+    </marker>
+  </defs>
+  <text x="20" y="32" font-size="12" font-weight="700" fill="#7A4FBF" letter-spacing="1.3">DE LA VIDÉO BRUTE À LA VIDÉO FINALE</text>
+  <rect x="20" y="50" width="360" height="94" rx="14" fill="#FFFFFF" stroke="#7A4FBF" stroke-width="1.6"/>
+  <circle cx="46" cy="80" r="13" fill="#7A4FBF"/>
+  <text x="46" y="85" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">1</text>
+  <text x="68" y="86" font-size="17" font-weight="700" fill="#161221">Filmer</text>
+  <text x="40" y="112" font-size="14" fill="#161221">vertical, 1080p, 30 i/s</text>
+  <text x="40" y="132" font-size="12.5" font-weight="600" fill="#6B6580">qui : toi</text>
+  <path d="M 200 146 L 200 162" stroke="#B9B3C6" stroke-width="1.8" marker-end="url(#fl)"/>
+  <rect x="20" y="166" width="360" height="94" rx="14" fill="#FFFFFF" stroke="#7A4FBF" stroke-width="1.6"/>
+  <circle cx="46" cy="196" r="13" fill="#7A4FBF"/>
+  <text x="46" y="201" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">2</text>
+  <text x="68" y="202" font-size="17" font-weight="700" fill="#161221">Transcrire</text>
+  <text x="40" y="228" font-size="14" fill="#161221">ta voix en texte minuté</text>
+  <text x="40" y="248" font-size="12.5" font-weight="600" fill="#6B6580">qui : Claude</text>
+  <path d="M 200 262 L 200 278" stroke="#B9B3C6" stroke-width="1.8" marker-end="url(#fl)"/>
+  <rect x="20" y="282" width="360" height="94" rx="14" fill="#FFFFFF" stroke="#7A4FBF" stroke-width="1.6"/>
+  <circle cx="46" cy="312" r="13" fill="#7A4FBF"/>
+  <text x="46" y="317" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">3</text>
+  <text x="68" y="318" font-size="17" font-weight="700" fill="#161221">Script</text>
+  <text x="40" y="344" font-size="14" fill="#161221">couper, réordonner, rien inventer</text>
+  <text x="40" y="364" font-size="12.5" font-weight="600" fill="#6B6580">qui : Claude, puis toi</text>
+  <path d="M 200 378 L 200 394" stroke="#B9B3C6" stroke-width="1.8" marker-end="url(#fl)"/>
+  <rect x="20" y="398" width="360" height="94" rx="14" fill="#EEF7F2" stroke="#127A4B" stroke-width="1.6"/>
+  <circle cx="46" cy="428" r="13" fill="#127A4B"/>
+  <text x="46" y="433" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">4</text>
+  <text x="68" y="434" font-size="17" font-weight="700" fill="#127A4B">Storyboard</text>
+  <text x="40" y="460" font-size="14" fill="#161221">images annotées, puis ton OK</text>
+  <text x="40" y="480" font-size="12.5" font-weight="600" fill="#6B6580">qui : Claude propose, tu valides</text>
+  <path d="M 200 494 L 200 510" stroke="#B9B3C6" stroke-width="1.8" marker-end="url(#fl)"/>
+  <rect x="20" y="514" width="360" height="94" rx="14" fill="#FFFFFF" stroke="#D42D7D" stroke-width="1.6"/>
+  <circle cx="46" cy="544" r="13" fill="#D42D7D"/>
+  <text x="46" y="549" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">5</text>
+  <text x="68" y="550" font-size="17" font-weight="700" fill="#161221">Motion design</text>
+  <text x="40" y="576" font-size="14" fill="#161221">les couches par-dessus ta vidéo</text>
+  <text x="40" y="596" font-size="12.5" font-weight="600" fill="#6B6580">qui : Claude</text>
+  <path d="M 200 610 L 200 626" stroke="#B9B3C6" stroke-width="1.8" marker-end="url(#fl)"/>
+  <rect x="20" y="630" width="360" height="94" rx="14" fill="#FFFFFF" stroke="#D42D7D" stroke-width="1.6"/>
+  <circle cx="46" cy="660" r="13" fill="#D42D7D"/>
+  <text x="46" y="665" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">6</text>
+  <text x="68" y="666" font-size="17" font-weight="700" fill="#161221">Rendu</text>
+  <text x="40" y="692" font-size="14" fill="#161221">MP4 vérifié sur ton téléphone</text>
+  <text x="40" y="712" font-size="12.5" font-weight="600" fill="#6B6580">qui : Claude, puis toi</text>
+  <text x="200" y="752" text-anchor="middle" font-size="13.5" fill="#6B6580">Rien n'est construit avant l'étape 4.</text>
+  <text x="200" y="772" text-anchor="middle" font-size="13.5" fill="#6B6580">Le texte reste ce que tu as dit.</text>
+</svg>

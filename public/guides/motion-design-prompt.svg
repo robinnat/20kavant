@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 532" width="880" height="532" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="880" height="532" fill="#FFFFFF"/>
+  <defs>
+    <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B9B3C6"/>
+    </marker>
+  </defs>
+  <text x="40" y="44" font-size="12" font-weight="700" fill="#6B6580" letter-spacing="1.3">LE PROMPT MODÈLE, BLOC PAR BLOC</text>
+  <rect x="230" y="64" width="610" height="416" rx="16" fill="#19112E"/>
+  <rect x="40" y="80" width="150" height="30" rx="15" fill="#161221"/>
+  <text x="115" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="1">OBJECTIF</text>
+  <path d="M 196 95 L 222 95" stroke="#D9D5E0" stroke-width="1.5"/>
+  <text x="256" y="100" font-size="14.5" fill="#F6E7D6" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">Monter ma vidéo Artcraft, 1 min, vertical</text>
+  <rect x="40" y="124" width="150" height="30" rx="15" fill="#6B6580"/>
+  <text x="115" y="144" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="1">MA VIDÉO</text>
+  <path d="M 196 139 L 222 139" stroke="#D9D5E0" stroke-width="1.5"/>
+  <text x="256" y="144" font-size="14.5" fill="#CFCAD9" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">./brut.mov + script validé (script.md)</text>
+  <rect x="40" y="168" width="150" height="30" rx="15" fill="#7A4FBF"/>
+  <text x="115" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="1">STYLE</text>
+  <path d="M 196 183 L 222 183" stroke="#D9D5E0" stroke-width="1.5"/>
+  <text x="256" y="188" font-size="14.5" fill="#C9B3F2" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">Fond de ma pièce, accent violet #7A4FBF</text>
+  <rect x="40" y="212" width="150" height="30" rx="15" fill="#5566C8"/>
+  <text x="115" y="232" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="1">SOUS-TITRES</text>
+  <path d="M 196 227 L 222 227" stroke="#D9D5E0" stroke-width="1.5"/>
+  <text x="256" y="232" font-size="14.5" fill="#AEB8F5" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">Mot à mot, 2 à 3 mots, mot clé en violet</text>
+  <rect x="40" y="256" width="150" height="30" rx="15" fill="#B85520"/>
+  <text x="115" y="276" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="1">ÉLÉMENTS</text>
+  <path d="M 196 271 L 222 271" stroke="#D9D5E0" stroke-width="1.5"/>
+  <text x="256" y="276" font-size="14.5" fill="#F4B48E" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">Titres, logos officiels, vraies captures</text>
+  <rect x="40" y="300" width="150" height="30" rx="15" fill="#2A7F8C"/>
+  <text x="115" y="320" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="1">ZOOMS</text>
+  <path d="M 196 315 L 222 315" stroke="#D9D5E0" stroke-width="1.5"/>
+  <text x="256" y="320" font-size="14.5" fill="#8FD3DC" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">100 % puis 115 % sur les mots forts</text>
+  <rect x="40" y="344" width="150" height="30" rx="15" fill="#5566C8"/>
+  <text x="115" y="364" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="1">RÉFÉRENCES</text>
+  <path d="M 196 359 L 222 359" stroke="#D9D5E0" stroke-width="1.5"/>
+  <text x="256" y="364" font-size="14.5" fill="#AEB8F5" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">[lien] : je retiens le rythme des titres</text>
+  <rect x="40" y="388" width="150" height="30" rx="15" fill="#FFFFFF" stroke="#161221" stroke-width="1.5"/>
+  <text x="115" y="408" text-anchor="middle" font-size="12" font-weight="700" fill="#161221" letter-spacing="1">CONTRAINTES</text>
+  <path d="M 196 403 L 222 403" stroke="#D9D5E0" stroke-width="1.5"/>
+  <text x="256" y="408" font-size="14.5" fill="#F6E7D6" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">Aucune fausse interface, aucun chiffre</text>
+  <rect x="40" y="432" width="150" height="30" rx="15" fill="#D42D7D"/>
+  <text x="115" y="452" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="1">MÉTHODE</text>
+  <path d="M 196 447 L 222 447" stroke="#D42D7D" stroke-width="1.5"/>
+  <rect x="244" y="430" width="584" height="34" rx="8" fill="#3A1F3F"/>
+  <text x="256" y="452" font-size="14.5" fill="#F49AC4" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">Storyboard d'abord, attends mon OK</text>
+  <text x="440" y="510" text-anchor="middle" font-size="13.5" fill="#6B6580">Un bloc par sujet : plus c'est précis (texte exact, secondes, couleurs), moins tu retouches.</text>
+</svg>

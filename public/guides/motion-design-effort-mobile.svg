@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 470" width="400" height="470" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="400" height="470" fill="#FFFFFF"/>
+
+  <defs>
+    <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B9B3C6"/>
+    </marker>
+  </defs>
+
+  <text x="20" y="32" font-size="12" font-weight="700" letter-spacing="1.2" fill="#6B6580">/EFFORT SUR OPUS 5.5 : CINQ NIVEAUX</text>
+
+  <!-- niveaux -->
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" font-weight="700" text-anchor="middle">
+    <rect x="20" y="52" width="112" height="56" rx="12" fill="#F7F7F8" stroke="#D9D5E0" stroke-width="1.5"/>
+    <text x="76" y="86" fill="#6B6580">low</text>
+    <rect x="20" y="120" width="112" height="56" rx="12" fill="#F3EEFA" stroke="#C9B3F2" stroke-width="1.5"/>
+    <text x="76" y="154" fill="#161221">medium</text>
+    <rect x="20" y="188" width="112" height="56" rx="12" fill="#E6DAF6" stroke="#7A4FBF" stroke-width="1.5"/>
+    <text x="76" y="222" fill="#161221">high</text>
+    <rect x="20" y="256" width="112" height="56" rx="12" fill="#7A4FBF" stroke="#7A4FBF" stroke-width="1.5"/>
+    <text x="76" y="290" fill="#FFFFFF">xhigh</text>
+    <rect x="20" y="324" width="112" height="56" rx="12" fill="#FBEFE6" stroke="#B85520" stroke-width="1.5"/>
+    <text x="76" y="358" fill="#B85520">max</text>
+  </g>
+
+  <!-- usages -->
+  <g font-size="15">
+    <text x="148" y="86" fill="#6B6580">rapide, léger</text>
+    <text x="148" y="148" font-weight="700" fill="#6B6580">par défaut</text>
+    <text x="148" y="216" font-weight="700" fill="#7A4FBF">retouches</text>
+    <text x="148" y="276" font-weight="700" fill="#7A4FBF">création</text>
+    <text x="148" y="296" font-size="13.5" fill="#6B6580">storyboard, premier jet</text>
+    <text x="148" y="344" font-weight="700" fill="#B85520">rarement</text>
+    <text x="148" y="364" font-size="13.5" fill="#6B6580">session en cours seulement</text>
+  </g>
+
+  <!-- flèche de coût -->
+  <path d="M 370 56 L 370 372" stroke="#B9B3C6" stroke-width="1.8" marker-end="url(#fl)"/>
+  <text x="370" y="400" text-anchor="middle" font-size="12" fill="#6B6580">plus long</text>
+
+  <text x="200" y="430" text-anchor="middle" font-size="13.5" fill="#6B6580">Plus on descend, plus Claude réfléchit</text>
+  <text x="200" y="450" text-anchor="middle" font-size="13.5" fill="#6B6580">et plus ça consomme de quota.</text>
+</svg>

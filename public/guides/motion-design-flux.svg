@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" width="880" height="420" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="880" height="420" fill="#FFFFFF"/>
+
+  <defs>
+    <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B9B3C6"/>
+    </marker>
+    <marker id="fv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7A4FBF"/>
+    </marker>
+    <marker id="fr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#D42D7D"/>
+    </marker>
+  </defs>
+
+  <!-- zone avant la vidéo -->
+  <rect x="20" y="30" width="608" height="300" rx="18" fill="#FAF8FC" stroke="#E2DDE9"/>
+  <text x="44" y="58" font-size="12" font-weight="700" letter-spacing="1.4" fill="#7A4FBF">AVANT LA VIDÉO : CORRIGER COÛTE PEU</text>
+
+  <!-- zone après -->
+  <rect x="648" y="30" width="212" height="300" rx="18" fill="#FDF4F8" stroke="#F0D9E5"/>
+  <text x="668" y="58" font-size="12" font-weight="700" letter-spacing="1.4" fill="#D42D7D">ENSUITE</text>
+
+  <!-- 1 -->
+  <rect x="40" y="80" width="176" height="128" rx="14" fill="#FFFFFF" stroke="#7A4FBF" stroke-width="1.5"/>
+  <circle cx="64" cy="104" r="13" fill="#7A4FBF"/>
+  <text x="64" y="109" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">1</text>
+  <text x="128" y="144" text-anchor="middle" font-size="17" font-weight="700" fill="#161221">Opus propose</text>
+  <text x="128" y="168" text-anchor="middle" font-size="13.5" fill="#6B6580">script minuté</text>
+  <text x="128" y="188" text-anchor="middle" font-size="13.5" fill="#6B6580">+ storyboard</text>
+
+  <!-- 2 -->
+  <rect x="246" y="80" width="176" height="128" rx="14" fill="#FFFFFF" stroke="#7A4FBF" stroke-width="1.5"/>
+  <circle cx="270" cy="104" r="13" fill="#7A4FBF"/>
+  <text x="270" y="109" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">2</text>
+  <text x="334" y="144" text-anchor="middle" font-size="17" font-weight="700" fill="#161221">Tes retours</text>
+  <text x="334" y="168" text-anchor="middle" font-size="13.5" fill="#6B6580">texte, ordre,</text>
+  <text x="334" y="188" text-anchor="middle" font-size="13.5" fill="#6B6580">éléments, bloc par bloc</text>
+
+  <!-- 3 : la porte -->
+  <rect x="452" y="80" width="156" height="128" rx="14" fill="#EEF7F2" stroke="#127A4B" stroke-width="1.8"/>
+  <circle cx="476" cy="104" r="13" fill="#127A4B"/>
+  <text x="476" y="109" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">3</text>
+  <text x="530" y="144" text-anchor="middle" font-size="17" font-weight="700" fill="#127A4B">Ton « OK »</text>
+  <text x="530" y="168" text-anchor="middle" font-size="13.5" fill="#3E6B55">écrit en toutes</text>
+  <text x="530" y="188" text-anchor="middle" font-size="13.5" fill="#3E6B55">lettres</text>
+
+  <!-- 4 -->
+  <rect x="666" y="80" width="176" height="128" rx="14" fill="#FFFFFF" stroke="#D42D7D" stroke-width="1.5"/>
+  <circle cx="690" cy="104" r="13" fill="#D42D7D"/>
+  <text x="690" y="109" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">4</text>
+  <text x="754" y="144" text-anchor="middle" font-size="17" font-weight="700" fill="#161221">La vidéo</text>
+  <text x="754" y="168" text-anchor="middle" font-size="13.5" fill="#6B6580">aperçu, puis</text>
+  <text x="754" y="188" text-anchor="middle" font-size="13.5" fill="#6B6580">retouches</text>
+
+  <!-- flèches principales -->
+  <g stroke="#B9B3C6" stroke-width="1.8" marker-end="url(#fl)">
+    <path d="M 219 144 L 240 144"/>
+    <path d="M 425 144 L 446 144"/>
+  </g>
+  <path d="M 611 144 L 660 144" stroke="#127A4B" stroke-width="2.2" marker-end="url(#fl)"/>
+
+  <!-- boucle 2 vers 1 -->
+  <path d="M 334 214 C 334 266, 128 266, 128 220" fill="none" stroke="#7A4FBF" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#fv)"/>
+  <text x="231" y="282" text-anchor="middle" font-size="13.5" font-weight="600" fill="#7A4FBF">autant de tours que tu veux</text>
+  <text x="231" y="302" text-anchor="middle" font-size="12.5" fill="#6B6580">rapide, et peu de quota</text>
+
+  <!-- boucle sur 4 -->
+  <path d="M 712 214 C 712 262, 796 262, 796 220" fill="none" stroke="#D42D7D" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#fr)"/>
+  <text x="754" y="282" text-anchor="middle" font-size="13.5" font-weight="600" fill="#D42D7D">un changement</text>
+  <text x="754" y="302" text-anchor="middle" font-size="13.5" font-weight="600" fill="#D42D7D">à la fois</text>
+
+  <text x="440" y="378" text-anchor="middle" font-size="13.5" fill="#6B6580">
+    Rien n'est construit avant l'étape 3. Corriger un dessin coûte moins cher que corriger une vidéo.
+  </text>
+</svg>

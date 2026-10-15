@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="880" height="400" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="880" height="400" fill="#FFFFFF"/>
+
+  <defs>
+    <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B9B3C6"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="44" font-size="12" font-weight="700" letter-spacing="1.4" fill="#6B6580">/EFFORT SUR OPUS 5.5 : CINQ NIVEAUX</text>
+
+  <!-- étiquettes d'usage au-dessus -->
+  <g font-size="13" font-weight="700" text-anchor="middle">
+    <rect x="186" y="70" width="140" height="30" rx="15" fill="#F7F7F8" stroke="#D9D5E0"/>
+    <text x="256" y="90" fill="#6B6580">par défaut</text>
+
+    <rect x="346" y="70" width="140" height="30" rx="15" fill="#FFFFFF" stroke="#7A4FBF" stroke-width="1.5"/>
+    <text x="416" y="90" fill="#7A4FBF">retouches</text>
+
+    <rect x="506" y="70" width="140" height="30" rx="15" fill="#7A4FBF"/>
+    <text x="576" y="90" fill="#FFFFFF">création</text>
+
+    <rect x="666" y="70" width="140" height="30" rx="15" fill="#FFFFFF" stroke="#B85520" stroke-width="1.5"/>
+    <text x="736" y="90" fill="#B85520">rarement</text>
+  </g>
+  <g stroke="#D9D5E0" stroke-width="1.5">
+    <path d="M 256 102 L 256 120"/>
+    <path d="M 416 102 L 416 120"/>
+    <path d="M 576 102 L 576 120"/>
+    <path d="M 736 102 L 736 120"/>
+  </g>
+
+  <!-- l'échelle -->
+  <g>
+    <rect x="30" y="124" width="152" height="84" rx="14" fill="#F7F7F8" stroke="#D9D5E0" stroke-width="1.5"/>
+    <rect x="190" y="124" width="152" height="84" rx="14" fill="#F3EEFA" stroke="#C9B3F2" stroke-width="1.5"/>
+    <rect x="350" y="124" width="152" height="84" rx="14" fill="#E6DAF6" stroke="#7A4FBF" stroke-width="1.5"/>
+    <rect x="510" y="124" width="152" height="84" rx="14" fill="#7A4FBF" stroke="#7A4FBF" stroke-width="1.5"/>
+    <rect x="670" y="124" width="180" height="84" rx="14" fill="#FBEFE6" stroke="#B85520" stroke-width="1.5"/>
+  </g>
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="20" font-weight="700" text-anchor="middle">
+    <text x="106" y="174" fill="#6B6580">low</text>
+    <text x="266" y="174" fill="#161221">medium</text>
+    <text x="426" y="174" fill="#161221">high</text>
+    <text x="586" y="174" fill="#FFFFFF">xhigh</text>
+    <text x="760" y="174" fill="#B85520">max</text>
+  </g>
+
+  <!-- jauge -->
+  <g>
+    <rect x="30" y="236" width="820" height="10" rx="5" fill="#F7F7F8"/>
+    <rect x="30" y="236" width="164" height="10" rx="5" fill="#D9D5E0"/>
+    <rect x="190" y="236" width="164" height="10" fill="#C9B3F2"/>
+    <rect x="350" y="236" width="164" height="10" fill="#9C7BD6"/>
+    <rect x="510" y="236" width="164" height="10" fill="#7A4FBF"/>
+    <rect x="670" y="236" width="180" height="10" rx="5" fill="#B85520"/>
+  </g>
+  <path d="M 30 274 L 846 274" stroke="#B9B3C6" stroke-width="1.8" marker-end="url(#fl)"/>
+  <text x="30" y="300" font-size="13.5" fill="#6B6580">rapide, léger</text>
+  <text x="850" y="300" text-anchor="end" font-size="13.5" fill="#6B6580">plus de réflexion, plus de quota, plus long</text>
+
+  <text x="760" y="226" text-anchor="middle" font-size="12" fill="#B85520">session en cours seulement</text>
+
+  <text x="440" y="358" text-anchor="middle" font-size="13.5" fill="#6B6580">
+    Mon habitude, pas une mesure : xhigh pour créer, high pour retoucher, max presque jamais.
+  </text>
+</svg>

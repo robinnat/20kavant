@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 698" width="400" height="698" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="400" height="698" fill="#FFFFFF"/>
+  <defs>
+    <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B9B3C6"/>
+    </marker>
+  </defs>
+  <text x="20" y="32" font-size="12" font-weight="700" fill="#6B6580" letter-spacing="1.3">LE PROMPT MODÈLE, BLOC PAR BLOC</text>
+  <rect x="12" y="48" width="376" height="590" rx="16" fill="#19112E"/>
+  <rect x="28" y="62" width="130" height="24" rx="12" fill="#FFFFFF"/>
+  <text x="93" y="79" text-anchor="middle" font-size="11.5" font-weight="700" fill="#161221" letter-spacing="1">OBJECTIF</text>
+  <text x="28" y="110" font-size="13" fill="#F6E7D6" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">Monter ma vidéo Artcraft, 1 min</text>
+  <rect x="28" y="126" width="130" height="24" rx="12" fill="#6B6580"/>
+  <text x="93" y="143" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF" letter-spacing="1">MA VIDÉO</text>
+  <text x="28" y="174" font-size="13" fill="#CFCAD9" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">./brut.mov + script.md validé</text>
+  <rect x="28" y="190" width="130" height="24" rx="12" fill="#7A4FBF"/>
+  <text x="93" y="207" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF" letter-spacing="1">STYLE</text>
+  <text x="28" y="238" font-size="13" fill="#C9B3F2" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">Accent violet #7A4FBF</text>
+  <rect x="28" y="254" width="130" height="24" rx="12" fill="#5566C8"/>
+  <text x="93" y="271" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF" letter-spacing="1">SOUS-TITRES</text>
+  <text x="28" y="302" font-size="13" fill="#AEB8F5" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">Mot à mot, mot clé en violet</text>
+  <rect x="28" y="318" width="130" height="24" rx="12" fill="#B85520"/>
+  <text x="93" y="335" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF" letter-spacing="1">ÉLÉMENTS</text>
+  <text x="28" y="366" font-size="13" fill="#F4B48E" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">Titres, logos, vraies captures</text>
+  <rect x="28" y="382" width="130" height="24" rx="12" fill="#2A7F8C"/>
+  <text x="93" y="399" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF" letter-spacing="1">ZOOMS</text>
+  <text x="28" y="430" font-size="13" fill="#8FD3DC" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">100 % puis 115 % sur les mots forts</text>
+  <rect x="28" y="446" width="130" height="24" rx="12" fill="#5566C8"/>
+  <text x="93" y="463" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF" letter-spacing="1">RÉFÉRENCES</text>
+  <text x="28" y="494" font-size="13" fill="#AEB8F5" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">[lien] : le rythme des titres</text>
+  <rect x="28" y="510" width="130" height="24" rx="12" fill="#FFFFFF" stroke="#161221"/>
+  <text x="93" y="527" text-anchor="middle" font-size="11.5" font-weight="700" fill="#161221" letter-spacing="1">CONTRAINTES</text>
+  <text x="28" y="558" font-size="13" fill="#F6E7D6" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">Aucune fausse interface</text>
+  <rect x="28" y="574" width="130" height="24" rx="12" fill="#D42D7D"/>
+  <text x="93" y="591" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF" letter-spacing="1">MÉTHODE</text>
+  <rect x="22" y="604" width="356" height="26" rx="6" fill="#3A1F3F"/>
+  <text x="28" y="622" font-size="13" fill="#F49AC4" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace">Storyboard d'abord, attends mon OK</text>
+  <text x="200" y="664" text-anchor="middle" font-size="13.5" fill="#6B6580">Plus c'est précis (texte, secondes,</text>
+  <text x="200" y="682" text-anchor="middle" font-size="13.5" fill="#6B6580">couleurs), moins tu retouches.</text>
+</svg>
