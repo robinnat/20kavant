@@ -4,7 +4,9 @@
 
 import assert from "node:assert/strict";
 
-const { getTrustMrrData, _oublierDernierConnu } = await import("../lib/trustmrr.js");
+const { getTrustMrrData, _oublierDernierConnu, FRAICHEUR_S, TAG_TRUSTMRR } = await import(
+  "../lib/trustmrr.js"
+);
 
 const TOTAUX = { ninou: 406.11, flash: 398.92, magicon: 45.71 };
 const ok = (slug) => ({
@@ -95,6 +97,39 @@ await test("développement local sans clé : démo autorisée", async () => {
   env({ NODE_ENV: "development" });
   const d = await getTrustMrrData({ fetchImpl: faux({}) });
   assert.equal(d.demo, true);
+});
+
+// Régression du 18/11/2026 : `cache: "no-store"` rendait /robinnat et
+// /robinnat/concours dynamiques (ISR inactif, 3 appels TrustMRR par visite,
+// page 500 sur erreur). Les pages doivent lire un fetch mis en cache 30 min.
+await test("pages : appels TrustMRR en cache 30 min avec tag, jamais no-store", async () => {
+  env({ NODE_ENV: "production", TRUSTMRR_API_KEY: "x" });
+  const options = [];
+  const f = faux({});
+  await getTrustMrrData({ fetchImpl: (url, init) => (options.push(init), f(url, init)) });
+  assert.equal(options.length, 3);
+  for (const o of options) {
+    assert.notEqual(o.cache, "no-store");
+    assert.equal(o.next?.revalidate, 1800);
+    assert.equal(FRAICHEUR_S, 1800);
+    assert.deepEqual(o.next?.tags, [TAG_TRUSTMRR]);
+  }
+});
+
+await test("/api/refresh (frais) : lecture directe sans cache", async () => {
+  env({ NODE_ENV: "production", TRUSTMRR_API_KEY: "x" });
+  const options = [];
+  const f = faux({});
+  await getTrustMrrData({ frais: true, fetchImpl: (url, init) => (options.push(init), f(url, init)) });
+  assert.ok(options.every((o) => o.cache === "no-store" && o.next === undefined));
+});
+
+await test("les deux pages déclarent revalidate = 1800 (valeur littérale)", async () => {
+  const { readFile } = await import("node:fs/promises");
+  for (const f of ["../app/robinnat/page.js", "../app/robinnat/concours/page.js"]) {
+    const src = await readFile(new URL(f, import.meta.url), "utf8");
+    assert.match(src, /export const revalidate = 1800;/, f);
+  }
 });
 
 console.log(`${n} tests passés`);

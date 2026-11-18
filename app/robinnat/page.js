@@ -9,9 +9,10 @@ import Interactions from "../../components/Interactions";
 import { getTrustMrrData } from "../../lib/trustmrr";
 
 // La page se régénère toute seule toutes les 30 min : un nouveau paiement
-// visible sur TrustMRR remonte sans redéploiement ni intervention. C'est le
-// seul cache de la chaîne (les appels TrustMRR sont en `no-store`, cf.
-// lib/trustmrr.js). Next.js exige ici une valeur littérale.
+// visible sur TrustMRR remonte sans redéploiement ni intervention. Les appels
+// TrustMRR sont en cache pour la même durée (FRAICHEUR_S, lib/trustmrr.js) :
+// jamais `no-store`, qui rendrait la page dynamique. Next.js exige ici une
+// valeur littérale. Si une régénération échoue, la page précédente reste.
 export const revalidate = 1800;
 
 export default async function Page() {
