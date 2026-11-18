@@ -16,8 +16,15 @@ const PALIERS = Array.from({ length: OBJECTIF / PAS - 1 }, (_, i) => ({
   n: i + 1,
 }));
 
-// Page dédiée au concours. `total` sert à marquer les paliers déjà franchis.
+// Le concours n'a pas de date de fin (Robin, 18/11/2026) : il continue après la
+// sortie du jeu, un palier tous les 1 000 $ de revenus cumulés.
+// « 1 000 » avec une espace insécable, comme le reste des montants du site.
+const fmtPalier = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0");
+
+// Page dédiée au concours. `total` sert à marquer les paliers déjà franchis et à
+// annoncer le prochain.
 export default function Contest({ total = 0 }) {
+  const prochain = (Math.floor(Math.max(total, 0) / PAS) + 1) * PAS;
   return (
     <>
       {/* même bande que le défi sur l'accueil, ici en en-tête de page */}
@@ -51,9 +58,9 @@ export default function Contest({ total = 0 }) {
         <div className="section-head">
           <div className="section-title">Les paliers</div>
           <p className="section-desc">
-            Un tirage au sort tous les 1 000 $ de revenus, jusqu&apos;au 19/11. Chaque palier
-            franchi offre le jeu GTA 6, et le vingtième une PS5 avec le jeu. Vingt paliers, donc
-            vingt gagnants.
+            Un tirage au sort tous les 1 000 $ de revenus cumulés, même après la sortie du jeu.
+            Chaque palier franchi offre le jeu GTA 6 à un abonné qui ne l&apos;a pas encore
+            acheté, et le vingtième une PS5 avec le jeu. Prochain palier : {fmtPalier(prochain)} $.
           </p>
         </div>
         <div className="paliers">
@@ -76,7 +83,7 @@ export default function Contest({ total = 0 }) {
           <div>
             <div className="palier-amt">20K</div>
             <div className="palier-pz">PS5 + GTA 6</div>
-            <div className="palier-draw">Le 19/11, jour de sortie du jeu</div>
+            <div className="palier-draw">Tirage n°{PALIERS.length + 1}</div>
             <span className="palier-state" data-done="Tirage fait">
               Palier final
             </span>
