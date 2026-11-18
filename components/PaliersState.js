@@ -7,6 +7,7 @@ import { useEffect } from "react";
 // rebours, et Interactions écrirait dans des éléments absents.
 export default function PaliersState({ total = 0 }) {
   useEffect(() => {
+    if (total == null) return; // chiffre indisponible : aucun palier marqué
     document.querySelectorAll(".palier[data-th]").forEach((p) => {
       if (total >= +p.dataset.th) {
         p.classList.add("reached");

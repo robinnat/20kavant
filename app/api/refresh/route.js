@@ -33,6 +33,7 @@ export async function GET() {
   dernierAppel = maintenant;
 
   revalidatePath("/robinnat");
+  revalidatePath("/robinnat/concours");
 
   // Lecture directe (non cachée) : ce que TrustMRR renvoie à cet instant.
   let chiffres;

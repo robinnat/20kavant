@@ -24,7 +24,8 @@ const fmtPalier = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0");
 // Page dédiée au concours. `total` sert à marquer les paliers déjà franchis et à
 // annoncer le prochain.
 export default function Contest({ total = 0 }) {
-  const prochain = (Math.floor(Math.max(total, 0) / PAS) + 1) * PAS;
+  // total null = chiffre indisponible : on n'annonce aucun palier.
+  const prochain = total == null ? null : (Math.floor(Math.max(total, 0) / PAS) + 1) * PAS;
   return (
     <>
       {/* même bande que le défi sur l'accueil, ici en en-tête de page */}
@@ -60,7 +61,8 @@ export default function Contest({ total = 0 }) {
           <p className="section-desc">
             Un tirage au sort tous les 1 000 $ de revenus cumulés, même après la sortie du jeu.
             Chaque palier franchi offre le jeu GTA 6 à un abonné qui ne l&apos;a pas encore
-            acheté, et le vingtième une PS5 avec le jeu. Prochain palier : {fmtPalier(prochain)} $.
+            acheté, et le vingtième une PS5 avec le jeu.
+            {prochain != null && <> Prochain palier : {fmtPalier(prochain)} $.</>}
           </p>
         </div>
         <div className="paliers">
