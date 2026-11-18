@@ -14,7 +14,7 @@ export default function Counter({ total = 0, goal = 20000 }) {
 
   useEffect(() => {
     const el = bloc.current;
-    if (!el) return;
+    if (!el || total == null) return;
     let joue = false;
 
     const lancer = () => {
@@ -56,6 +56,23 @@ export default function Counter({ total = 0, goal = 20000 }) {
     io.observe(el);
     return () => io.disconnect();
   }, [total, goal]);
+
+  // Total inconnu (TrustMRR injoignable au build) : état neutre, aucun
+  // montant affiché plutôt qu'un chiffre faux.
+  if (total == null) {
+    return (
+      <div className="total-mrr" ref={bloc}>
+        <div className="mrr-head">
+          <div className="big">
+            <span className="unit">Compteur en cours de mise à jour</span>
+          </div>
+          <div className="mrr-side">
+            <div className="of">objectif ${goal.toLocaleString("en-US")} de revenus</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="total-mrr" ref={bloc}>
